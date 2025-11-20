@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manuale completo di JW Time - Guida all'uso dell'applicazione per la gestione dei tempi delle adunanze">
+    <title>Manuale d'Uso - JW Time</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="header-content">
+            <a href="./" class="logo">
+                <img src="../images/jwtime-logo.png" alt="JW Time Logo" style="height: 32px; margin-right: 8px;">
+                JW Time
+            </a>
+
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="manual.html" class="active">Manuale</a>
+                <a href="news.html">Novit�</a>
+                <a href="../contacts.html">Contatti</a>
+
+                <!-- Language Selector -->
+                <div class="lang-selector">
+                    <div class="lang-current">
+                        <span><�<� Italiano</span>
+                        <span>�</span>
+                    </div>
+                    <div class="lang-dropdown">
+                        <a href="../en/manual.html" data-lang="en"><�<� English</a>
+                        <a href="../es/manual.html" data-lang="es"><�<� Espa�ol</a>
+                        <a href="../de/manual.html" data-lang="de"><�<� Deutsch</a>
+                        <a href="../fr/manual.html" data-lang="fr"><�<� Fran�ais</a>
+                        <a href="../pt_BR/manual.html" data-lang="pt_BR"><�<� Portugu�s (BR)</a>
+                    </div>
+                </div>
+
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>=� Manuale d'Uso</h1>
+            <p>Guida completa all'utilizzo di JW Time</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="content">
+            <!-- Indice -->
+            <nav class="manual-section">
+                <h2>Indice</h2>
+                <h3>Parte I: Interfaccia e Funzionamento</h3>
+                <ol>
+                    <li><a href="#schermata-principale">Schermata Principale</a></li>
+                    <li><a href="#manipolazione-timer">Manipolazione Timer</a></li>
+                    <li><a href="#schermo-contatempo">Schermo Contatempo & Popup Adunanza</a></li>
+                    <li><a href="#messaggi">Gestione Messaggi</a></li>
+                    <li><a href="#navigazione">Navigazione Settimanale</a></li>
+                    <li><a href="#monitor-web">Monitor Web & Server</a></li>
+                </ol>
+
+                <h3>Parte II: Pannelli Impostazioni</h3>
+                <ol start="7">
+                    <li><a href="#impostazioni-generali">Impostazioni Generali</a></li>
+                    <li><a href="#adunanze">Adunanze</a></li>
+                    <li><a href="#server">Server</a></li>
+                    <li><a href="#backup">Backup e Ripristino</a></li>
+                </ol>
+            </nav>
+
+            <!-- Ultime Novità -->
+            <div class="news-preview">
+                <div class="news-preview-title">
+                    <h2 style="margin: 0;">🎉 Ultime Novità</h2>
+                    <span class="news-preview-badge">Versione 1.8.4</span>
+                </div>
+                <p>
+                    Scopri le ultime funzionalità aggiunte a JW Time:
+                </p>
+                <ul>
+                    <li><strong>Studio Torre di Guardia Adattivo:</strong> Regolazione automatica della durata</li>
+                    <li><strong>Indicatore Scostamento Orario:</strong> Verde, giallo, rosso per monitorare l'avanzamento</li>
+                    <li><strong>Funzione Pausa:</strong> Gestisci interruzioni tecniche e cambi oratore</li>
+                </ul>
+                <div style="margin-top: var(--spacing-lg);">
+                    <a href="news.html" class="btn btn-primary">Vedi Tutte le Novità</a>
+                </div>
+            </div>
+
+            <!-- Parte I -->
+            <div class="manual-section">
+                <h2>Parte I: Interfaccia e Funzionamento</h2>
+
+                <!-- 1. Schermata Principale -->
+                <section id="schermata-principale">
+                    <h3>1. Schermata Principale</h3>
+                    <p>
+                        La schermata principale di JW Time è l'interfaccia centrale da cui gestisci tutti i timer delle adunanze.
+                        Presenta i seguenti elementi:
+                    </p>
+
+                    <h4>Elementi dell'Interfaccia</h4>
+                    <ul>
+                        <li><strong>Titolo Parte Corrente:</strong> Mostra il nome della parte in corso</li>
+                        <li><strong>Display Tempo:</strong> Visualizza il tempo trascorso/rimanente in grande</li>
+                        <li><strong>Tabella Timer:</strong> Elenco di tutte le parti dell'adunanza con titolo e durata</li>
+                        <li><strong>Orario Fine Stimato:</strong> Mostra quando dovrebbe terminare l'adunanza, con indicatori di ritardo (rosso/giallo) o anticipo (verde)</li>
+                        <li><strong>Contatore Pausa:</strong> Tiene traccia del tempo totale di pausa/cambio oratore</li>
+                        <li><strong>Pulsanti di Controllo:</strong> Stop, Pausa (ZZ), Avvia/Prossimo</li>
+                    </ul>
+
+                    <h4>Indicatore Scostamento Orario</h4>
+                    <p>
+                        L'app mostra in tempo reale se l'adunanza è in orario, in anticipo o in ritardo:
+                    </p>
+                    <ul>
+                        <li><strong class="accent-text">Verde:</strong> In anticipo rispetto all'orario previsto</li>
+                        <li><strong style="color: #fbbf24;">Giallo:</strong> In ritardo fino a 1 minuto</li>
+                        <li><strong style="color: #ef4444;">Rosso:</strong> In ritardo di oltre 1 minuto</li>
+                        <li><strong>Nessun colore:</strong> Perfettamente in orario</li>
+                    </ul>
+                </section>
+
+                <!-- 2. Manipolazione Timer -->
+                <section id="manipolazione-timer">
+                    <h3>2. Manipolazione Timer</h3>
+                    <p>
+                        Puoi modificare liberamente i timer per adattarli alle tue esigenze durante l'adunanza.
+                    </p>
+
+                    <h4>Aggiungere/Rimuovere Righe</h4>
+                    <ul>
+                        <li><strong>Aggiungere:</strong> Clicca sul pulsante <code>+</code> per inserire una nuova riga</li>
+                        <li><strong>Rimuovere:</strong> Clicca sul pulsante <code>-</code> accanto alla riga da eliminare</li>
+                    </ul>
+
+                    <h4>Modificare Titoli e Durate</h4>
+                    <ul>
+                        <li>Clicca sul titolo o sulla durata per modificarli direttamente</li>
+                        <li>Le modifiche si aggiornano in tempo reale</li>
+                        <li>La durata può essere impostata in formato <code>mm:ss</code></li>
+                    </ul>
+
+                    <h4>Funzioni Timer</h4>
+                    <ul>
+                        <li><strong>Avvia (▶):</strong> Inizia il timer della parte corrente</li>
+                        <li><strong>Salta (⏭):</strong> Passa alla prossima parte senza completare quella corrente</li>
+                        <li><strong>Reset (↻):</strong> Azzera il timer della parte corrente</li>
+                        <li><strong>Pausa (⏸):</strong> Mette in pausa il timer corrente (vedi sotto)</li>
+                    </ul>
+
+                    <h4>Funzione Pausa</h4>
+                    <p>
+                        La funzione Pausa è utile per gestire interruzioni tecniche o cambi oratore:
+                    </p>
+                    <ul>
+                        <li>Premendo Pausa, il timer si ferma e viene mostrato l'indicatore ⏸</li>
+                        <li>Il tempo di pausa viene tracciato nel contatore "Tempo pausa/cambio oratore totale"</li>
+                        <li>Puoi <strong>riprendere</strong> dal punto di pausa o <strong>azzerare</strong> il tempo tecnico</li>
+                    </ul>
+
+                    <h4>Studio Biblico e Torre di Guardia Adattivi</h4>
+                    <p>
+                        L'app pu� regolare automaticamente la durata dello Studio Biblico e dello Studio Torre di Guardia
+                        per aiutarti a chiudere all'orario previsto:
+                    </p>
+                    <ul>
+                        <li>Attiva questa funzione dalle <strong>Impostazioni Generali</strong></li>
+                        <li>L'app calcoler� automaticamente la durata ottimale in base al tempo rimanente</li>
+                        <li>Questo aiuta a compensare eventuali ritardi o anticipi accumulati</li>
+                    </ul>
+                </section>
+
+                <!-- 3. Schermo Contatempo -->
+                <section id="schermo-contatempo">
+                    <h3>3. Schermo Contatempo & Popup Adunanza</h3>
+
+                    <h4>Schermo Contatempo</h4>
+                    <p>
+                        Lo Schermo Contatempo � un display esterno a schermo intero che mostra il timer agli oratori:
+                    </p>
+                    <ul>
+                        <li>Puoi visualizzarlo su un monitor esterno collegato al tuo computer</li>
+                        <li>Mostra un orologio digitale grande quando nessun timer � attivo</li>
+                        <li>Durante una parte, mostra il countdown con colori che indicano il tempo rimanente</li>
+                        <li>Supporta messaggi sovrapposti (vedi sezione Messaggi)</li>
+                    </ul>
+
+                    <h4>Popup Adunanza</h4>
+                    <p>
+                        All'orario programmato dell'adunanza, compare automaticamente un popup:
+                    </p>
+                    <ul>
+                        <li>Contiene un messaggio personalizzabile (es. "L'adunanza inizier� tra X minuti")</li>
+                        <li>Include un countdown fino all'inizio</li>
+                        <li>Si chiude automaticamente quando l'adunanza inizia</li>
+                        <li>Configurabile dal pannello <strong>Adunanze</strong> nelle impostazioni</li>
+                    </ul>
+                </section>
+
+                <!-- 4. Gestione Messaggi -->
+                <section id="messaggi">
+                    <h3>4. Gestione Messaggi</h3>
+                    <p>
+                        Puoi inviare messaggi discreti agli oratori tramite lo Schermo Contatempo:
+                    </p>
+
+                    <h4>Tipi di Messaggio</h4>
+                    <ul>
+                        <li><strong>Messaggio a Schermo Intero:</strong> Copre completamente il display</li>
+                        <li><strong>Messaggio Parziale:</strong> Appare nella parte inferiore dello schermo senza coprire il timer</li>
+                    </ul>
+
+                    <h4>Come Inviare un Messaggio</h4>
+                    <ol>
+                        <li>Clicca sul pulsante <strong>Messaggio</strong> nella schermata principale</li>
+                        <li>Digita il testo del messaggio</li>
+                        <li>Scegli se visualizzarlo a schermo intero o parziale</li>
+                        <li>Il messaggio appare immediatamente sullo Schermo Contatempo</li>
+                    </ol>
+
+                    <h4>Finestra Anteprima</h4>
+                    <p>
+                        Una finestra di anteprima in tempo reale ti mostra esattamente cosa viene visualizzato
+                        sullo Schermo Contatempo, inclusi messaggi e timer.
+                    </p>
+                </section>
+
+                <!-- 5. Navigazione Settimanale -->
+                <section id="navigazione">
+                    <h3>5. Navigazione Settimanale</h3>
+                    <p>
+                        L'app carica automaticamente la scaletta appropriata in base al giorno:
+                    </p>
+
+                    <h4>Caricamento Automatico</h4>
+                    <ul>
+                        <li>Durante la settimana: carica l'adunanza infrasettimanale</li>
+                        <li>Nel weekend: carica l'adunanza del fine settimana</li>
+                        <li>Le scalette vengono sincronizzate da jw.org</li>
+                    </ul>
+
+                    <h4>Navigazione Manuale</h4>
+                    <p>Puoi navigare tra le settimane usando i pulsanti:</p>
+                    <ul>
+                        <li><strong>Infrasettimanale / Fine Settimana:</strong> Passa tra le due adunanze della settimana corrente</li>
+                        <li><strong>Settimana Precedente / Successiva:</strong> Naviga tra diverse settimane</li>
+                        <li><strong>Salva/Carica Elenco Manuale:</strong> Crea e salva scalette personalizzate</li>
+                    </ul>
+                </section>
+
+                <!-- 6. Monitor Web & Server -->
+                <section id="monitor-web">
+                    <h3>6. Monitor Web & Server</h3>
+                    <p>
+                        Il Monitor Web permette di visualizzare i timer su altri dispositivi della rete locale.
+                    </p>
+
+                    <h4>Attivazione</h4>
+                    <ol>
+                        <li>Vai su <strong>Impostazioni � Server</strong></li>
+                        <li>Attiva l'opzione <strong>Abilita Monitor Web</strong></li>
+                        <li>L'app avvier� un server HTTP sulla rete locale</li>
+                    </ol>
+
+                    <h4>Accesso</h4>
+                    <ul>
+                        <li>L'indirizzo del server viene mostrato nelle impostazioni (es. <code>http://192.168.1.100:8080</code>)</li>
+                        <li>Puoi condividere l'indirizzo tramite QR code o copiarlo</li>
+                        <li>Apri l'indirizzo su qualsiasi browser nella stessa rete (smartphone, tablet, altro PC)</li>
+                    </ul>
+
+                    <h4>Funzionalit� Monitor Web</h4>
+                    <ul>
+                        <li>Visualizzazione in tempo reale dei timer</li>
+                        <li>Scaletta completa con orario stimato di fine</li>
+                        <li>Funzione di stampa/esportazione per coordinamento</li>
+                        <li>Aggiornamento automatico senza refresh della pagina</li>
+                    </ul>
+                </section>
+            </div>
+
+            <!-- Parte II -->
+            <div class="manual-section">
+                <h2>Parte II: Pannelli Impostazioni</h2>
+
+                <!-- 7. Impostazioni Generali -->
+                <section id="impostazioni-generali">
+                    <h3>7. Impostazioni Generali</h3>
+                    <p>Personalizza il comportamento generale dell'applicazione.</p>
+
+                    <h4>Opzioni Disponibili</h4>
+                    <ul>
+                        <li><strong>Lingua:</strong> Italiano, Inglese, Spagnolo, Francese, Tedesco, Portoghese (BR)</li>
+                        <li><strong>Monitor per Schermo Contatempo:</strong> Seleziona su quale monitor esterno visualizzare il countdown</li>
+                        <li><strong>Attiva Schermo Contatempo:</strong> Abilita/disabilita il display esterno</li>
+                        <li><strong>Studio Biblico Adattivo:</strong> Regola automaticamente la durata dello studio biblico</li>
+                        <li><strong>Studio Torre di Guardia Adattivo:</strong> Regola automaticamente la durata dello studio Torre di Guardia</li>
+                        <li><strong>Formato Ora:</strong> 12 ore (AM/PM) o 24 ore</li>
+                    </ul>
+                </section>
+
+                <!-- 8. Adunanze -->
+                <section id="adunanze">
+                    <h3>8. Adunanze</h3>
+                    <p>Configura le notifiche e i popup per l'inizio delle adunanze.</p>
+
+                    <h4>Configurazione Popup</h4>
+                    <ul>
+                        <li><strong>Giorno:</strong> Imposta il giorno della settimana</li>
+                        <li><strong>Orario:</strong> Imposta l'ora di inizio dell'adunanza</li>
+                        <li><strong>Anticipo Countdown:</strong> Quanto prima mostrare il popup (es. 5 minuti prima)</li>
+                        <li><strong>Messaggio Personalizzato:</strong> Testo da mostrare nel popup</li>
+                    </ul>
+
+                    <p>
+                        Puoi configurare separatamente l'adunanza infrasettimanale e quella del fine settimana.
+                    </p>
+                </section>
+
+                <!-- 9. Server -->
+                <section id="server">
+                    <h3>9. Server</h3>
+                    <p>Gestisci il server HTTP per il Monitor Web.</p>
+
+                    <h4>Configurazione</h4>
+                    <ul>
+                        <li><strong>Abilita Monitor Web:</strong> Attiva/disattiva il server</li>
+                        <li><strong>Indirizzo Server:</strong> Mostra l'URL da usare per accedere al monitor</li>
+                        <li><strong>Condividi:</strong> Genera un QR code o copia il link</li>
+                        <li><strong>Porta HTTP:</strong> Cambia la porta del server (default: 8080)</li>
+                    </ul>
+
+                    <h4>Sicurezza</h4>
+                    <p>
+                        Il server � accessibile solo sulla rete locale (LAN). Nessun dato viene inviato su Internet.
+                        Gli indirizzi IP possono essere registrati nei log locali per il debug.
+                    </p>
+                </section>
+
+                <!-- 10. Backup e Ripristino -->
+                <section id="backup">
+                    <h3>10. Backup e Ripristino</h3>
+                    <p>Salva ed esporta le tue configurazioni.</p>
+
+                    <h4>Esportazione</h4>
+                    <ul>
+                        <li>Clicca su <strong>Esporta Configurazione</strong></li>
+                        <li>Viene creato un file <code>.json</code> con tutte le impostazioni</li>
+                        <li>Salva il file in un luogo sicuro</li>
+                    </ul>
+
+                    <h4>Importazione</h4>
+                    <ul>
+                        <li>Clicca su <strong>Importa Configurazione</strong></li>
+                        <li>Seleziona il file <code>.json</code> precedentemente esportato</li>
+                        <li>Le impostazioni verranno ripristinate</li>
+                    </ul>
+
+                    <h4>Utilit�</h4>
+                    <p>
+                        Il backup � utile per:
+                    </p>
+                    <ul>
+                        <li>Trasferire le impostazioni su un altro computer</li>
+                        <li>Creare una copia di sicurezza prima di aggiornamenti importanti</li>
+                        <li>Ripristinare le impostazioni dopo una reinstallazione</li>
+                    </ul>
+                </section>
+            </div>
+
+            <!-- Supporto -->
+            <div class="manual-section">
+                <h2>Hai Bisogno di Aiuto?</h2>
+                <p>
+                    Se hai domande o suggerimenti, non esitare a contattarci tramite la
+                    <a href="../contacts.html">pagina contatti</a>.
+                </p>
+                <div class="hero-buttons mt-3">
+                    <a href="news.html" class="btn btn-secondary">Vedi le Novit�</a>
+                    <a href="../contacts.html" class="btn btn-secondary">Contattaci</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>JW Time</h3>
+                <p>Progetto volontario per la gestione dei tempi delle adunanze.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Risorse</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="manual.html">Manuale d'Uso</a></li>
+                    <li><a href="news.html">Novit�</a></li>
+                    <li><a href="../contacts.html">Contatti</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Informazioni</h3>
+                <ul>
+                    <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="communications.html">Comunicazioni</a></li>
+                    <li><a href="https://github.com/JWTime/jwtime" target="_blank" rel="noopener">GitHub</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Lingue</h3>
+                <ul>
+                    <li><a href="../en/manual.html" data-lang="en">English</a></li>
+                    <li><a href="../es/manual.html" data-lang="es">Espa�ol</a></li>
+                    <li><a href="../de/manual.html" data-lang="de">Deutsch</a></li>
+                    <li><a href="../fr/manual.html" data-lang="fr">Fran�ais</a></li>
+                    <li><a href="../pt_BR/manual.html" data-lang="pt_BR">Portugu�s (BR)</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 JW Time - Progetto non ufficiale creato da volontari</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+</body>
+</html>
