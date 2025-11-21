@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Neuigkeiten und Updates von JW Time - Entdecke die neuesten zur App hinzugefügten Funktionen">
+    <title>Neuigkeiten - JW Time</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="../images/jwtime-logo.png" alt="JW Time Logo" style="height: 32px; margin-right: 8px;">
+                JW Time
+            </a>
+
+            <nav class="nav">
+                <a href="index.html">Start</a>
+                <a href="manual.html">Anleitung</a>
+                <a href="news.html" class="active">Neuigkeiten</a>
+                <a href="contacts.html">Kontakt</a>
+
+                <!-- Language Selector -->
+                <div class="lang-selector">
+                    <div class="lang-current">
+                        <span>Deutsch</span>
+                        <span>&#9662;</span>
+                    </div>
+                    <div class="lang-dropdown">
+                        <a href="../it/news.html" data-lang="it">Italiano</a>
+                        <a href="../en/news.html" data-lang="en">English</a>
+                        <a href="../es/news.html" data-lang="es">Español</a>
+                        <a href="../fr/news.html" data-lang="fr">Français</a>
+                        <a href="../pt_BR/news.html" data-lang="pt_BR">Português (BR)</a>
+                    </div>
+                </div>
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Neuigkeiten</h1>
+            <p>Entdecke die neuesten Funktionen und Verbesserungen von JW Time</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Version 2.0.0 -->
+        <article class="news-item version-2-card">
+            <div class="news-header">
+                <h2 class="news-version version-2-title">Version 2.0.0</h2>
+                            </div>
+
+            <div class="news-content">
+                <p class="version-2-desc" style="font-size: 1.1rem; margin-bottom: var(--spacing-xl);">
+                    Eine vollständig erneuerte Version mit erweiterten Funktionen für die Zusammenkunftsverwaltung.
+                </p>
+
+                <div class="highlight-box">
+                    <h3>⚠️ Backup-Empfehlung</h3>
+                    <p>
+                        Mit dieser Version werden viele neue Optionen hinzugefügt, die in alten Backups nicht vorhanden sind:
+                        das neue Speicherformat ist <strong>.jwtimesettings</strong>, aber du kannst auch noch
+                        alte Backup-Dateien im .json-Format laden. Nach der Konfiguration der neuen Einstellungen der Version 2.0
+                        wird empfohlen, auch ein neues Backup im Format .jwtimesettings zu erstellen, damit auch alle
+                        neuen Optionen gespeichert werden.
+                    </p>
+                </div>
+
+                <!-- News Cards Grid -->
+                <div class="news-cards-grid">
+                <!-- Card 1: Portugiesische Sprache -->
+                <div class="news-card">
+                    <h3>Portugiesische Sprache Hinzugefügt (Brasilien) <span class="feature-badge new">NEU</span></h3>
+                    <p>
+                        Die portugiesische Sprache (Brasilien) wurde hinzugefügt, auswählbar im Einstellungsmenü.
+                    </p>
+                </div>
+
+                <!-- Card 2: Aufnahme -->
+                <div class="news-card">
+                    <h3>Zusammenkunftsaufnahme <span class="feature-badge new">NEU</span></h3>
+                    <p>
+                        Version 2.0 führt eine neue Audioaufnahmefunktion für Zusammenkünfte ein.
+                    </p>
+                    <p><strong>Wo zu finden:</strong></p>
+                    <ul>
+                        <li>Einstellungsfenster: neuer Tab <strong>"Aufnahme"</strong></li>
+                        <li>Hauptfenster: neue Taste <strong>REC</strong></li>
+                    </ul>
+                    <p><strong>Hauptfunktionen:</strong></p>
+                    <ul>
+                        <li>Zielordner auswählen</li>
+                        <li>Aufnahmetest</li>
+                        <li>Mikrofon- und PC-Audiolautstärkeanpassung</li>
+                        <li>Automatische Ducking-Funktion</li>
+                        <li>Speicherplatz- und Dateistatistiken</li>
+                        <li>Manuelle Steuerung mit REC-Taste</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: OFFLINE-Backup -->
+                <div class="news-card">
+                    <h3>Backup für OFFLINE-Modus <span class="feature-badge new">NEU</span></h3>
+                    <p><strong>Automatisches Backup der wöchentlichen Programme:</strong></p>
+                    <ul>
+                        <li>Bis zu 12 Wochen automatisch gespeichert</li>
+                        <li>Programmabruf auch ohne Verbindung</li>
+                        <li>Funktioniert im Hintergrund</li>
+                    </ul>
+                    <p><strong>Exportierte Backups für OFFLINE-Nutzung:</strong></p>
+                    <ul>
+                        <li>Manueller Export von Programmpaketen</li>
+                        <li>Übertragbar auf andere PCs ohne Internet</li>
+                        <li>Ideal für PCs im Königreichssaal ohne Netzwerkverbindung</li>
+                    </ul>
+                    <p><strong>Mehrsprachige Verwaltung:</strong></p>
+                    <ul>
+                        <li>Getrennte Backups für jede Sprache (IT, EN, ES, DE, pt_BR)</li>
+                        <li>Keine Überlappung zwischen verschiedenen Sprachen</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4: Verbindung und Log -->
+                <div class="news-card">
+                    <h3>Verbindung, Webserver und Log <span class="feature-badge improved">VERBESSERT</span></h3>
+                    <p><strong>Erweiterter Verbindungstest:</strong></p>
+                    <ul>
+                        <li>Internetverbindung und erforderliche Websites überprüfen</li>
+                        <li>HTTPS und Zertifikate prüfen</li>
+                        <li>System-Proxy überprüfen</li>
+                        <li>Zeitsynchronisation prüfen</li>
+                        <li>Ordnerschreibtest (Log, Cache, Backup)</li>
+                    </ul>
+                    <p><strong>Verbesserte Logs:</strong></p>
+                    <ul>
+                        <li>Direktes Öffnen des Log-Ordners aus den Einstellungen</li>
+                        <li>Klarere und nützlichere Meldungen</li>
+                    </ul>
+                    <p><strong>Webserver-Seite:</strong></p>
+                    <ul>
+                        <li>Unterstützung für Hell-/Dunkelmodus</li>
+                    </ul>
+                </div>
+
+                <!-- Card 5: Manuelle Listen -->
+                <div class="news-card">
+                    <h3>Manuelle Listen Speichern <span class="feature-badge new">NEU</span></h3>
+                    <p>
+                        Wenn du die Taste "Manuell" im Tab Programme drückst, hast du jetzt zwei neue Schaltflächen:
+                    </p>
+                    <ul>
+                        <li><strong>"Manuelle Liste speichern"</strong> - Speichere deine benutzerdefinierte Liste</li>
+                        <li><strong>"Manuelle Liste laden"</strong> - Rufe eine gespeicherte Liste ab</li>
+                    </ul>
+                    <p><strong>Vorteile:</strong></p>
+                    <ul>
+                        <li>Erstelle vollständig angepasste Listen</li>
+                        <li>Mit einem identifizierenden Namen speichern</li>
+                        <li>Abrufen ohne neu schreiben zu müssen</li>
+                        <li>Die Tasten verschwinden, wenn du zu Wochenmitte/Wochenende zurückkehrst</li>
+                    </ul>
+                </div>
+
+                <!-- Card 6: Helles Design -->
+                <div class="news-card">
+                    <h3>Neues Helles Design <span class="feature-badge improved">VERBESSERT</span></h3>
+                    <p>
+                        Das neue helle Design wurde eingeführt, vollständig hinzugefügt in Version 2.0.
+                    </p>
+                    <p><strong>Verbesserungen des hellen Designs:</strong></p>
+                    <ul>
+                        <li>Besser lesbare Farben für Unser christliches Leben und Schulung</li>
+                        <li>Deutlichere Zellenauswahl</li>
+                        <li>Korrigierte Textfarben in Tabelle und aktiver Anzeige</li>
+                        <li>Fehler im Lied-Popup des Redners behoben</li>
+                    </ul>
+                    <p><strong>Allgemeine Oberfläche:</strong></p>
+                    <ul>
+                        <li>Verbesserungen für mehr Klarheit</li>
+                        <li>Einheitlicheres und konsistenteres Design</li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+        </article>
+
+        <!-- Version 1.8.4 -->
+        <article class="news-item">
+            <div class="news-header">
+                <h2 class="news-version">Version 1.8.4</h2>
+                <span class="news-date">Wichtiges Update</span>
+            </div>
+            <div class="news-content">
+                <h3>Adaptives Wachtturmstudium</h3>
+                <p>
+                    Die App passt automatisch die Dauer des Wachtturmstudiums an, um zum
+                    geplanten Zeitpunkt der Zusammenkunft zu schließen. Diese Funktion wird über <strong>Allgemeine Einstellungen</strong> aktiviert.
+                </p>
+
+                <h3>Zeitabweichungsanzeige</h3>
+                <p>
+                    Echtzeit-Anzeigesystem, das zeigt, ob die Zusammenkunft:
+                </p>
+                <ul>
+                    <li><strong style="color: #ef4444;">Verspätet ist (Rot):</strong> Mehr als 1 Minute Verspätung</li>
+                    <li><strong style="color: #fbbf24;">Verspätet ist (Gelb):</strong> Bis zu 1 Minute Verspätung</li>
+                    <li><strong class="accent-text">Voraus ist (Grün):</strong> Die Zusammenkunft läuft schneller als geplant</li>
+                    <li><strong>Perfekt pünktlich:</strong> Keine Farbe angezeigt</li>
+                </ul>
+                <p>Die Anzeige wird während der Zusammenkunft automatisch in Echtzeit aktualisiert.</p>
+
+                <h3>Technische Verbesserungen</h3>
+                <ul>
+                    <li>Timer-Synchronisation für größere Genauigkeit optimiert</li>
+                    <li>Verbesserte Stabilität des Timer-Bildschirms auf externen Monitoren</li>
+                    <li>Kleinere grafische Korrekturen an der Oberfläche</li>
+                    <li>Allgemeine Leistung optimiert</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- Version 1.8.0 -->
+        <article class="news-item">
+            <div class="news-header">
+                <h2 class="news-version">Version 1.8.0</h2>
+                <span class="news-date">Pause-Funktion</span>
+            </div>
+            <div class="news-content">
+                <h3>Pause-Funktion</h3>
+                <p>
+                    Einführung der <strong>Pause (ZZ)</strong>-Funktion, die den aktuellen Timer pausiert
+                    und den ⏸-Indikator anzeigt. Die App verfolgt die "Gesamte Pause-/Rednerwechselzeit".
+                </p>
+                <p>
+                    Es ist möglich:
+                </p>
+                <ul>
+                    <li><strong>Fortsetzen:</strong> Von dort aus weitermachen, wo man aufgehört hat</li>
+                    <li><strong>Zurücksetzen:</strong> Angesammelte technische Zeit zurücksetzen</li>
+                </ul>
+
+                <h3>Adaptives Bibelstudium</h3>
+                <p>
+                    Erste Version der adaptiven Funktion, angewendet auf das Bibelstudium der Versammlung.
+                    Die App passt die Dauer automatisch an, um die geplante Endzeit einzuhalten.
+                </p>
+
+                <h3>Fehlerbehebungen</h3>
+                <ul>
+                    <li>Synchronisationsprobleme zwischen Hauptbildschirm und externem Monitor behoben</li>
+                    <li>Allgemeine Anwendungsstabilität verbessert</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- Version 1.1.6 -->
+        <article class="news-item">
+            <div class="news-header">
+                <h2 class="news-version">Version 1.1.6</h2>
+                <span class="news-date">Kompatibilitätsupdate</span>
+            </div>
+            <div class="news-content">
+                <h3>Programm-Update</h3>
+                <p>
+                    Behobene Probleme in Bezug auf die Timer-Tabelle, in Übereinstimmung mit den Änderungen,
+                    die auf der offiziellen Website jw.org vorgenommen wurden.
+                </p>
+                <ul>
+                    <li>Aktualisierte Synchronisation mit dem neuen Programmformat</li>
+                    <li>Kompatibilität mit den neuesten Änderungen an den Zusammenkunftsprogrammen</li>
+                    <li>Kleinere Anzeigekorrekturen</li>
+                </ul>
+            </div>
+        </article>
+
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>JW Time</h3>
+                <p>Freiwilligenprojekt für die Verwaltung der Zusammenkunftszeiten.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Ressourcen</h3>
+                <ul>
+                    <li><a href="index.html">Start</a></li>
+                    <li><a href="manual.html">Benutzerhandbuch</a></li>
+                    <li><a href="news.html">Neuigkeiten</a></li>
+                    <li><a href="contacts.html">Kontakt</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Informationen</h3>
+                <ul>
+                    <li><a href="privacy-policy.html">Datenschutzrichtlinie</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 JW Time - Inoffizielles Projekt von Freiwilligen erstellt</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+</body>
+</html>
