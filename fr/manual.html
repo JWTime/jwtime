@@ -22,6 +22,26 @@
         html {
             scroll-padding-top: 100px;
         }
+
+        /* Décalage de défilement plus grand sur mobile pour en-tête à deux lignes */
+        @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 140px;
+            }
+        }
+
+        /* Assure que les images ne sont pas coupées sur mobile */
+        @media (max-width: 640px) {
+            .content figure {
+                overflow: visible !important;
+            }
+
+            .content figure img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>

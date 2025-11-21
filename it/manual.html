@@ -22,6 +22,26 @@
         html {
             scroll-padding-top: 100px;
         }
+
+        /* Scroll offset maggiore su mobile per header a due righe */
+        @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 140px;
+            }
+        }
+
+        /* Assicura che le immagini non vengano tagliate su mobile */
+        @media (max-width: 640px) {
+            .content figure {
+                overflow: visible !important;
+            }
+
+            .content figure img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>

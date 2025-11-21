@@ -22,6 +22,26 @@
         html {
             scroll-padding-top: 100px;
         }
+
+        /* Mayor desplazamiento de scroll en móvil para encabezado de dos líneas */
+        @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 140px;
+            }
+        }
+
+        /* Asegura que las imágenes no se corten en móvil */
+        @media (max-width: 640px) {
+            .content figure {
+                overflow: visible !important;
+            }
+
+            .content figure img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>

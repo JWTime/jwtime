@@ -22,6 +22,26 @@
         html {
             scroll-padding-top: 100px;
         }
+
+        /* Größerer Scroll-Versatz auf Mobilgeräten für zweizeilige Kopfzeile */
+        @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 140px;
+            }
+        }
+
+        /* Stellt sicher, dass Bilder auf Mobilgeräten nicht abgeschnitten werden */
+        @media (max-width: 640px) {
+            .content figure {
+                overflow: visible !important;
+            }
+
+            .content figure img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
