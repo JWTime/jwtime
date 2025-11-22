@@ -26,20 +26,39 @@
         /* Mayor desplazamiento de scroll en móvil para encabezado de dos líneas */
         @media (max-width: 768px) {
             html {
-                scroll-padding-top: 140px;
+                scroll-padding-top: 180px;
+            }
+        }
+
+        /* Desplazamiento extra en pantallas muy pequeñas donde el encabezado puede tener 3 líneas */
+        @media (max-width: 480px) {
+            html {
+                scroll-padding-top: 220px;
             }
         }
 
         /* Asegura que las imágenes no se corten en móvil */
         @media (max-width: 640px) {
-            .content figure {
+            .content figure,
+            .news-card figure {
                 overflow: visible !important;
+                flex: 1 1 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+                margin: var(--spacing-lg) 0 !important;
             }
 
-            .content figure img {
+            .content figure img,
+            .news-card figure img {
                 max-width: 100%;
+                width: 100%;
                 height: auto;
                 display: block;
+            }
+
+            /* Diseño de columna única para secciones con imágenes */
+            .news-card > div[style*="display: flex"] {
+                flex-direction: column !important;
             }
         }
     </style>

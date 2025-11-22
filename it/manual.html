@@ -26,20 +26,39 @@
         /* Scroll offset maggiore su mobile per header a due righe */
         @media (max-width: 768px) {
             html {
-                scroll-padding-top: 140px;
+                scroll-padding-top: 180px;
+            }
+        }
+
+        /* Scroll offset extra su schermi molto piccoli dove l'header può essere su 3 righe */
+        @media (max-width: 480px) {
+            html {
+                scroll-padding-top: 220px;
             }
         }
 
         /* Assicura che le immagini non vengano tagliate su mobile */
         @media (max-width: 640px) {
-            .content figure {
+            .content figure,
+            .news-card figure {
                 overflow: visible !important;
+                flex: 1 1 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+                margin: var(--spacing-lg) 0 !important;
             }
 
-            .content figure img {
+            .content figure img,
+            .news-card figure img {
                 max-width: 100%;
+                width: 100%;
                 height: auto;
                 display: block;
+            }
+
+            /* Layout a colonna singola per sezioni con immagini */
+            .news-card > div[style*="display: flex"] {
+                flex-direction: column !important;
             }
         }
     </style>

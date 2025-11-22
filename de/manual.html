@@ -26,20 +26,39 @@
         /* Größerer Scroll-Versatz auf Mobilgeräten für zweizeilige Kopfzeile */
         @media (max-width: 768px) {
             html {
-                scroll-padding-top: 140px;
+                scroll-padding-top: 180px;
+            }
+        }
+
+        /* Extra Scroll-Versatz auf sehr kleinen Bildschirmen, wo die Kopfzeile 3 Zeilen haben kann */
+        @media (max-width: 480px) {
+            html {
+                scroll-padding-top: 220px;
             }
         }
 
         /* Stellt sicher, dass Bilder auf Mobilgeräten nicht abgeschnitten werden */
         @media (max-width: 640px) {
-            .content figure {
+            .content figure,
+            .news-card figure {
                 overflow: visible !important;
+                flex: 1 1 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+                margin: var(--spacing-lg) 0 !important;
             }
 
-            .content figure img {
+            .content figure img,
+            .news-card figure img {
                 max-width: 100%;
+                width: 100%;
                 height: auto;
                 display: block;
+            }
+
+            /* Einzelspaltenlayout für Abschnitte mit Bildern */
+            .news-card > div[style*="display: flex"] {
+                flex-direction: column !important;
             }
         }
     </style>

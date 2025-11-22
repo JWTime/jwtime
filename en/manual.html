@@ -26,20 +26,39 @@
         /* Larger scroll offset on mobile for two-line header */
         @media (max-width: 768px) {
             html {
-                scroll-padding-top: 140px;
+                scroll-padding-top: 180px;
+            }
+        }
+
+        /* Extra scroll offset on very small screens where header may be 3 lines */
+        @media (max-width: 480px) {
+            html {
+                scroll-padding-top: 220px;
             }
         }
 
         /* Ensure images are not cut off on mobile */
         @media (max-width: 640px) {
-            .content figure {
+            .content figure,
+            .news-card figure {
                 overflow: visible !important;
+                flex: 1 1 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+                margin: var(--spacing-lg) 0 !important;
             }
 
-            .content figure img {
+            .content figure img,
+            .news-card figure img {
                 max-width: 100%;
+                width: 100%;
                 height: auto;
                 display: block;
+            }
+
+            /* Single column layout for sections with images */
+            .news-card > div[style*="display: flex"] {
+                flex-direction: column !important;
             }
         }
     </style>
