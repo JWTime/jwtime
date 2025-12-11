@@ -130,15 +130,15 @@ class MidweekDataExtraction(DataExtractionBase):
                     await self.progress_callback(20, QCoreApplication.translate("MidweekDataExtraction", "Apro la pagina del Workbook…"))
 
                 async with aiohttp.ClientSession(headers=headers) as session:
-                    async with session.get(workbook_url) as resp:
-                        resp.raise_for_status()
-                        wb_html = await resp.text()
+                async with session.get(workbook_url) as resp:
+                    resp.raise_for_status()
+                    wb_html = await resp.text()
 
             wb = BeautifulSoup(wb_html, "html.parser")
 
-        # Rileva la lingua della pagina per il parsing, ma mantieni la lingua richiesta per l'interfaccia
-        detected_page_lang = detect_page_lang_from_soup(wb)
-        logging.info("[MIDWEEK DEBUG] Detected page language: %s", detected_page_lang)
+            # Rileva la lingua della pagina per il parsing, ma mantieni la lingua richiesta per l'interfaccia
+            detected_page_lang = detect_page_lang_from_soup(wb)
+            logging.info("[MIDWEEK DEBUG] Detected page language: %s", detected_page_lang)
 
             if detected_page_lang and detected_page_lang != self.request_lang:
                 logging.warning("[Midweek] Page language is %s but requested %s. Using page language for parsing.", detected_page_lang, self.request_lang)
