@@ -27,6 +27,8 @@ jobs:
 
       - name: Generate packs
         run: python tools/generate_packs.py
+        env:
+            PYTHONPATH: ${{ github.workspace }}
 
       - name: Commit and push changes
         run: |
