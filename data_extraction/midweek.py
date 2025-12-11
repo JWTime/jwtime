@@ -130,9 +130,9 @@ class MidweekDataExtraction(DataExtractionBase):
                     await self.progress_callback(20, QCoreApplication.translate("MidweekDataExtraction", "Apro la pagina del Workbook…"))
 
                 async with aiohttp.ClientSession(headers=headers) as session:
-                async with session.get(workbook_url) as resp:
-                    resp.raise_for_status()
-                    wb_html = await resp.text()
+                    async with session.get(workbook_url) as resp:
+                        resp.raise_for_status()
+                        wb_html = await resp.text()
 
             wb = BeautifulSoup(wb_html, "html.parser")
 
