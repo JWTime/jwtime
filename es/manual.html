@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manual completo de JW Time - Guía para el uso de la aplicación de gestión de tiempos de las reuniones">
+    <title>Manual de Uso - JW Time</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .back-to-index-link {
+            font-size: 0.9rem;
+            margin-left: 0.75rem;
+            color: var(--accent-green);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .back-to-index-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Desplazamiento de scroll para compensar encabezado fijo */
+        html {
+            scroll-padding-top: 100px;
+        }
+
+        /* Mayor desplazamiento de scroll en móvil para encabezado de dos líneas */
+        @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 180px;
+            }
+        }
+
+        /* Desplazamiento extra en pantallas muy pequeñas donde el encabezado puede tener 3 líneas */
+        @media (max-width: 480px) {
+            html {
+                scroll-padding-top: 220px;
+            }
+        }
+
+        /* Asegura que las imágenes no se corten en móvil */
+        @media (max-width: 640px) {
+            .content figure,
+            .news-card figure {
+                overflow: visible !important;
+                flex: 1 1 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+                margin: var(--spacing-lg) 0 !important;
+            }
+
+            .content figure img,
+            .news-card figure img {
+                max-width: 100%;
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+
+            /* Diseño de columna única para secciones con imágenes */
+            .news-card > div[style*="display: flex"] {
+                flex-direction: column !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="../images/jwtime-logo.png" alt="JW Time Logo" style="height: 32px; margin-right: 8px;">
+                JW Time
+            </a>
+
+            <nav class="nav">
+                <a href="index.html">Inicio</a>
+                <a href="manual.html" class="active">Manual</a>
+                <a href="news.html">Novedades</a>
+                <a href="contacts.html">Contactos</a>
+
+                <!-- Language Selector -->
+                <div class="lang-selector">
+                    <div class="lang-current">
+                        <span>Español</span>
+                        <span>&#9662;</span>
+                    </div>
+                    <div class="lang-dropdown">
+                        <a href="../it/manual.html" data-lang="it">Italiano</a>
+                        <a href="../en/manual.html" data-lang="en">English</a>
+                        <a href="../de/manual.html" data-lang="de">Deutsch</a>
+                        <a href="../fr/manual.html" data-lang="fr">Français</a>
+                        <a href="../pt_BR/manual.html" data-lang="pt_BR">Português (BR)</a>
+                    </div>
+                </div>
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Manual de Uso</h1>
+            <p>Guía completa para utilizar JW Time</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- ÍNDICE -->
+        <div class="content" id="indice">
+            <h2>Índice</h2>
+            <div class="manual-index">
+                <!-- Card Verde para Empezar -->
+                <div class="index-section index-section--green">
+                    <h3>Últimas Novedades</h3>
+                    <ul>
+                        <li><a href="#novita">Versión 2.0.0</a></li>
+                    </ul>
+                    <h3 style="margin-top: var(--spacing-lg);">Inicio Rápido</h3>
+                    <ul>
+                        <li><a href="#avvio-rapido">Guía rápida (3 minutos)</a></li>
+                    </ul>
+                </div>
+
+                <div class="index-section">
+                    <h3>Parte I - Interfaz y Funcionamiento</h3>
+                    <ul>
+                        <li><a href="#schermata-principale">1. Pantalla Principal</a></li>
+                        <li><a href="#manipolazione-timer">2. Manipulación de Temporizadores</a></li>
+                        <li><a href="#contatempo-popup">3. Cronómetro y Ventana Emergente</a></li>
+                        <li><a href="#navigazione-settimanale">4. Navegación Semanal</a></li>
+                        <li><a href="#gestione-messaggi">5. Gestión de Mensajes</a></li>
+                        <li><a href="#rec-button">6. Botón REC y panel de grabación</a></li>
+                        <li><a href="#monitor-web">7. Monitor Web &amp; Servidor</a></li>
+                    </ul>
+                </div>
+
+                <div class="index-section">
+                    <h3>Parte II - Paneles de Configuración</h3>
+                    <ul>
+                        <li><a href="#impostazioni-generale">8. General</a></li>
+                        <li><a href="#impostazioni-adunanze">9. Reuniones (Temporizador Inicio Reunión)</a></li>
+                        <li><a href="#impostazioni-connessioni">10. Conexión y Servidor</a></li>
+                        <li><a href="#impostazioni-registrazioni">11. Grabaciones</a></li>
+                        <li><a href="#impostazioni-backup">12. Copia de Seguridad &amp; Restauración</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ÚLTIMAS NOVEDADES -->
+        <div class="news-preview" id="novita">
+            <div class="news-preview-title">
+                <h2 style="margin: 0;">Últimas Novedades</h2>
+                <span class="news-preview-badge">Versión 2.0.0</span>
+            </div>
+            <div class="news-preview-content">
+                <h3>Lista rápida de novedades - Versión 2.0.0</h3>
+                <ul style="column-count: 2; column-gap: var(--spacing-xl); margin-bottom: var(--spacing-lg);">
+                    <li>Añadido idioma Portugués (Brasil)</li>
+                    <li>Grabación de reuniones</li>
+                    <li>Copia de seguridad programas sin conexión</li>
+                    <li>Botón de verificación y conexión</li>
+                    <li>Guardar listas manuales</li>
+                    <li>Nuevo tema claro</li>
+                </ul>
+                <a href="news.html" class="btn btn-primary" style="margin-top: var(--spacing-lg);">
+                    Descubre todas las novedades →
+                </a>
+            </div>
+        </div>
+
+        <!-- INICIO RÁPIDO -->
+        <div class="content" id="avvio-rapido" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.08)); border-left: 4px solid var(--accent-green); border-radius: var(--radius-lg); padding: var(--spacing-xl); box-shadow: var(--shadow-md);">
+            <h2 style="font-size: 2rem; margin: 0 0 var(--spacing-xl) 0; color: var(--text-primary);">Inicio Rápido (3 minutos)</h2>
+
+            <div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap;">
+                <div style="flex: 1 1 320px; min-width: 0;">
+                    <ol class="manual-section">
+                        <li style="margin-bottom: var(--spacing-lg);">
+                            <h3 style="color: var(--accent-green);">Elige el idioma</h3>
+                            <p>
+                                Ve a Configuración → General → Idioma y selecciona el idioma deseado. Esto descargará automáticamente
+                                el programa correcto (si está disponible para ese idioma) y lo configurará para la semana actual.
+                            </p>
+                        </li>
+                        <li style="margin-bottom: var(--spacing-lg);">
+                            <h3 style="color: var(--accent-green);">Selecciona el monitor y activa la Pantalla Cronómetro</h3>
+                            <p>
+                                Todavía en General, elige el monitor externo y activa Habilitar Pantalla Cronómetro. (Opcional):
+                                habilita el formato de 12 h o activa el Estudio bíblico adaptativo y/o el Estudio de Atalaya adaptativo.
+                                La aplicación ajustará automáticamente la duración de estas partes para ayudarte a cumplir con el horario de cierre de la reunión.
+                            </p>
+                        </li>
+                        <li style="margin-bottom: var(--spacing-lg);">
+                            <h3 style="color: var(--accent-green);">Comprueba el programa cargado</h3>
+                            <p>
+                                Desde la barra inferior abre Programa: ya debería mostrar Entre semana o Fin de semana según el día.
+                                (Si quieres personalizar) elige Manual.
+                            </p>
+                        </li>
+                        <li style="margin-bottom: var(--spacing-lg);">
+                            <h3 style="color: var(--accent-green);">Inicia y gestiona los temporizadores</h3>
+                            <p>
+                                Pulsa ▶ Iniciar para comenzar. Usa ❚❚ Pausa en los cambios de orador y ▶▶ Siguiente para pasar al siguiente elemento.
+                                Mantén un ojo en el Horario de Finalización Estimado.
+                            </p>
+                        </li>
+                        <li style="margin-bottom: var(--spacing-lg);">
+                            <h3 style="color: var(--accent-green);">Comunícate con el orador (si es necesario)</h3>
+                            <p>
+                                Pulsa Mensaje y envía texto a pantalla completa o pantalla parcial: aparecerá en el monitor del Cronómetro.
+                            </p>
+                        </li>
+                        <li style="margin-bottom: var(--spacing-lg);">
+                            <h3 style="color: var(--accent-green);">Cierra la reunión</h3>
+                            <p>
+                                Al final pulsa ⏹ Detener para cerrar el programa. Si usas el Monitor Web, puedes imprimir el programa o
+                                seguirlo desde un navegador en la misma red.
+                            </p>
+                        </li>
+                    </ol>
+                </div>
+                <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0 0 0 auto; align-self: flex-start;">
+                    <img src="../images/manual/es/avvio-rapido.png"
+                         alt="Pantalla de JWTime con configuración general y cronómetro"
+                         class="manual-image">
+                </figure>
+            </div>
+        </div>
+
+        <!-- PARTE I - INTERFAZ Y FUNCIONAMIENTO -->
+        <div class="content" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.08)); border-left: 4px solid var(--accent-green); border-radius: var(--radius-lg); padding: var(--spacing-xl); box-shadow: var(--shadow-md);">
+            <h2 style="font-size: 2rem; margin: 0; color: var(--text-primary);">Parte I · Interfaz y Funcionamiento</h2>
+        </div>
+
+        <!-- 1. PANTALLA PRINCIPAL -->
+        <div class="content" id="schermata-principale">
+            <h2>1 &middot; Pantalla Principal <a href="#indice" class="back-to-index-link">&uarr; Índice</a></h2>
+
+            <div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap;">
+                <figure style="flex: 0 0 420px; max-width: 520px; margin: 0 auto;">
+                    <img src="../images/manual/es/schermata-principale.png"
+                         alt="Pantalla principal de JWTime con áreas numeradas"
+                         class="manual-image">
+                </figure>
+                <div style="flex: 1 1 320px; min-width: 0;">
+                    <p>
+                        La pantalla principal es el corazón de la aplicación. Desde aquí puedes iniciar, gestionar y monitorear todos los
+                        temporizadores de la reunión, ver la información principal como el título de la parte en curso, el reloj y el tiempo
+                        restante, además de controlar mensajes y notificaciones importantes.
+                    </p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: var(--spacing-2xl); color: white;">Áreas principales</h3>
+
+            <!-- Grid de 4 áreas principales -->
+            <div class="news-cards-grid" style="margin-top: var(--spacing-xl);">
+                <div class="news-card">
+                    <h4 style="color: #4ade80;">1.1 · Título de Parte y Reloj</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/es/area-1-titolo-orologio.png"
+                             alt="Área 1 - Título de parte y reloj/cronómetro"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        En la fila superior se muestra el título de la parte en curso, mientras que debajo se visualiza el reloj con
+                        la hora actual o, cuando inicias un temporizador, la cuenta regresiva del tiempo restante. En formato de 12 horas aparece también el
+                        sufijo AM/PM en tamaño reducido para mejorar la legibilidad.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: #4ade80;">1.2 · Tabla de Temporizadores</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/es/area-2-tabella-timer.png"
+                             alt="Área 2 - Tabla de temporizadores de la reunión"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Lista el programa de la reunión (título, duración, estado). El contenido se carga automáticamente según el día
+                        seleccionado: la aplicación reconoce si es Entre semana o Fin de semana y propone el programa correcto. Para los botones
+                        y acciones detalladas ver <strong>2. Manipulación de Temporizadores</strong>.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: #4ade80;">1.3 · Horario de Finalización Estimado</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/es/area-3-orario-fine.png"
+                             alt="Área 3 - Horario de finalización estimado y desviación"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Muestra la hora prevista de cierre según el programa. Al lado aparece la <em>desviación</em>:<br>
+                        +m:ss (amarillo dentro de 1', rojo más allá) = retraso<br>
+                        −m:ss (verde) = adelanto<br>
+                        El horario y el indicador se actualizan en tiempo real. Si están activos los adaptativos para Estudio bíblico / Atalaya,
+                        las duraciones se recalculan para cumplir con el horario de cierre.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: #4ade80;">1.4 · Tiempo pausa/cambio de orador</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/es/area-4-tempo-pausa.png"
+                             alt="Área 4 - Tiempo de pausa y cambio de orador"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Contador acumulativo <strong>hh:mm:ss</strong> de pausas técnicas/cambio de orador: suma el tiempo en el que el
+                        temporizador estuvo en pausa. Durante la pausa, el temporizador de la parte permanece detenido mientras este
+                        contador sigue aumentando. Un clic en el indicador restablece el total.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: #4ade80;">1.5 · Botones principales de gestión de temporizadores</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/es/area-5-tasti-principali.png"
+                             alt="Área 5 - Botones principales de gestión de temporizadores"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Controles para iniciar, detener y gestionar los temporizadores: Detener (rojo), Pausa, e Iniciar/Siguiente (verde).
+                        El botón Pausa pone en pausa el temporizador de la parte (el conteo se detiene) mientras el tiempo de pausa/cambio
+                        de orador continúa aumentando. Para salir de la pausa, vuelve a pulsar Pausa o pasa a la parte siguiente con
+                        Iniciar/Siguiente: el tiempo acumulado se registra en el contador del punto 1.4.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: #4ade80;">1.6 · Noticias (comunicaciones)</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/es/area-6-notizie.png"
+                             alt="Área 6 - Cuadro de noticias en la pantalla principal"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Cuando hay comunicaciones oficiales para la aplicación, en la Pantalla Principal aparece un cuadro/aviso "Noticias".
+                        Al hacer clic se abre el panel con el resumen de las actualizaciones.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: #4ade80;">1.7 · Barra de Control Inferior</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/es/area-7-barra-inferiore.png"
+                             alt="Área 7 - Barra de control inferior de JWTime"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Barra con botones Configuración, Minimizar/Maximizar, Programa (selección de semana), Mensaje y Manual en línea.
+                        Para más información consulta los capítulos dedicados.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. MANIPULACIÓN DE TEMPORIZADORES -->
+        <div class="content" id="manipolazione-timer">
+            <h2>2 &middot; Manipulación de temporizadores <a href="#indice" class="back-to-index-link">&uarr; Índice</a></h2>
+
+            <p>
+                Esta sección ilustra las principales operaciones de gestión de temporizadores — cómo añadir, modificar o eliminar elementos —
+                y el uso de los comandos de inicio, salto y reinicio.
+            </p>
+
+            <!-- 2.1 Operaciones principales - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>2.1 &middot; Operaciones principales</h3>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <ol class="manual-section">
+                            <li>Añadir / Eliminar filas: clic en los botones + o –.</li>
+                            <li>Editar Título/Duración: doble clic en la celda, luego Enter.</li>
+                            <li>Formatos de Duración: 5 → 5:00, 1:30 → 1:30 minutos.</li>
+                            <li>Iniciar/Saltar/Reiniciar:
+                                <ul>
+                                    <li>▶ inicia.</li>
+                                    <li>▶▶ salta a la siguiente.</li>
+                                    <li>↺ reinicia a la duración original.</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                    <figure style="flex: 0 0 50%; min-width: 320px; max-width: 640px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/es/manipolazione-operazioni.png"
+                             alt="Operaciones principales de temporizadores"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 2.2 Actualizaciones en tiempo real - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>2.2 · Actualizaciones en tiempo real</h3>
+                <p>
+                    El temporizador se actualiza constantemente, sincronizando los valores de Duración y Temporizador en la tabla con la cuenta regresiva en curso,
+                    incluso si se modifican las duraciones o se cambia la parte.
+                </p>
+            </div>
+
+            <!-- 2.3 Ajuste automático - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>2.3 &middot; Ajuste automático &mdash; Estudio bíblico y Estudio de Atalaya</h3>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <p>
+                            Si en Configuración → General están activos Estudio bíblico adaptativo y/o Estudio de Atalaya adaptativo, la aplicación adapta
+                            dinámicamente la duración de la parte seleccionada para mantener el horario de cierre de la reunión. El ajuste solo concierne
+                            a las partes con opción activa y puede aumentar o reducir automáticamente los minutos según el adelanto/retraso acumulado.
+                            El Horario de Finalización Estimado y la desviación se actualizan en tiempo real. Siempre puedes intervenir manualmente en los temporizadores: el adaptativo
+                            recalcula partiendo de la nueva situación.
+                        </p>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/es/manipolazione-regolazione.png"
+                             alt="Ajuste automático de temporizadores adaptativos"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. CRONÓMETRO Y VENTANA EMERGENTE -->
+        <div class="content" id="contatempo-popup">
+            <h2>3 &middot; Cronómetro y ventana emergente de reuniones <a href="#indice" class="back-to-index-link">&uarr; Índice</a></h2>
+
+            <p>
+                La ventana emergente de inicio de reunión aparece automáticamente a la hora establecida con el mensaje elegido, mientras que la Pantalla Cronómetro
+                muestra reloj y cuenta regresiva en un monitor externo.
+            </p>
+
+            <!-- 3.1 Ventana emergente Temporizador Reunión - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h4 style="color: #4ade80;">3.1 · Ventana emergente Temporizador Reunión</h4>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <p>
+                            Aparece a la hora establecida y muestra el mensaje personalizado junto con la cuenta regresiva. Se cierra automáticamente al expirar el tiempo.
+                        </p>
+                        <ul class="manual-section">
+                            <li>Muestra el texto personalizado configurado en los ajustes</li>
+                            <li>Cuenta regresiva visible hasta el inicio de la reunión</li>
+                            <li>Cierre automático al expirar</li>
+                        </ul>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/es/contatempo-popup.png"
+                             alt="Ventana emergente temporizador reunión"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 3.2 Pantalla Cronómetro externa - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h4 style="color: #4ade80;">3.2 · Pantalla Cronómetro externa</h4>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <p>
+                            Cuando activas "Habilitar Pantalla Cronómetro" desde la configuración, obtienes una visualización a pantalla completa en un monitor externo, ideal para el podio o el presidente.
+                        </p>
+                        <ul class="manual-section">
+                            <li>Visualización a pantalla completa en el monitor seleccionado</li>
+                            <li>Muestra reloj o cuenta regresiva de la parte en curso</li>
+                            <li><strong>Modo consejos:</strong> muestra el tiempo de la parte anterior para proporcionar retroalimentación inmediata</li>
+                        </ul>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/es/schermo-contattempo.png"
+                             alt="Pantalla Cronómetro en monitor externo"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. NAVEGACIÓN SEMANAL -->
+        <div class="content" id="navigazione-settimanale">
+            <h2>4 &middot; Navegación semanal <a href="#indice" class="back-to-index-link">&uarr; Índice</a></h2>
+
+            <p>
+                Esta sección ilustra cómo cargar el programa correcto para la semana, crear un programa manual cuando sea necesario y
+                desplazarse rápidamente entre semanas anteriores, actual y siguientes.
+            </p>
+
+            <p>
+                Por defecto, la aplicación carga automáticamente el programa de la semana actual: entre semana
+                de lunes a viernes y fin de semana el sábado y domingo.
+            </p>
+
+            <div class="image-container">
+                <img src="../images/manual/es/navigazione-settimanale.png"
+                     alt="Panel Programa de JWTime con navegación entre semanas"
+                     class="manual-image">
+            </div>
+
+            <!-- 4.1 Programación automática - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3 style="color: #4ade80;">4.1 &middot; Programación automática</h3>
+                <ol class="manual-section">
+                    <li>Entre semana: carga el programa de días laborables.</li>
+                    <li>Fin de semana: carga el programa del sábado/domingo, pidiendo el cántico del discurso público.</li>
+                </ol>
+            </div>
+
+            <!-- 4.2 Desplazamiento de semanas - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>4.2 &middot; Selector de semanas y vista previa del calendario</h3>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <p>
+                            El nuevo botón <strong>Semana</strong> siempre muestra el rango (ej. "Semana: 20 &ndash; 26 oct.") con una insignia
+                            que indica el desplazamiento respecto a la semana actual (0, +1, -2, etc.). Un clic abre el calendario compacto para
+                            saltar directamente a la semana deseada sin desplazar varias veces los botones Anterior/Siguiente.
+                        </p>
+                        <ul class="manual-section">
+                            <li>Insignia inmediata: entiendes si estás viendo la semana actual, futura o pasada.</li>
+                            <li>Calendario semanal: elige semanas directamente de forma práctica.</li>
+                        </ul>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/es/navigazione-settimanale-pannello.png"
+                             alt="Detalle del nuevo selector Semana"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 4.3 Visita SC - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>4.3 &middot; Visita SC</h3>
+                <p>
+                    El botón <strong>Visita SC</strong>, ubicado entre el selector Semana y Cargar desde copia de seguridad, transforma el programa cuando hay
+                    visita del superintendente de circuito. Al presionar el botón se enciende (ON) y la aplicación prepara automáticamente las
+                    partes especiales previstas para la visita.
+                </p>
+                <ul class="manual-section">
+                    <li><strong>Reunión entre semana</strong>: el Estudio bíblico de congregación se convierte en una parte fija de 30 minutos con título "Visita SC".</li>
+                    <li><strong>Fin de semana</strong>: se añade un elemento dedicado después del Estudio de Atalaya y se adaptan las duraciones para cumplir con el horario de cierre.</li>
+                    <li>Colores y ventanas emergentes dedicados: la fila Visita SC adopta su propia paleta y activa la ventana emergente del cántico final específico.</li>
+                    <li>Desactivación rápida: apagando el interruptor, la tabla vuelve inmediatamente al programa estándar sin perder los otros cambios.</li>
+                </ul>
+            </div>
+
+            <!-- 4.4 Cargar desde copia de seguridad - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>4.4 &middot; Cargar desde copia de seguridad</h3>
+                <p>
+                    El botón <strong>Cargar desde copia de seguridad</strong> abre una lista de paquetes guardados localmente, ordenados por fecha, tipo de reunión e idioma.
+                    Ideal para trabajar sin conexión o restaurar programas ya preparados en otra PC.
+                </p>
+                <ul class="manual-section">
+                    <li>Lista detallada: cada fila muestra fecha de inicio de semana, tipo (Entre semana/Fin de semana) e idioma.</li>
+                    <li>Carga segura: los paquetes se verifican y aplican directamente a la tabla actual.</li>
+                    <li>Mensajes claros: si no hay copias de seguridad disponibles, la aplicación muestra inmediatamente un aviso.</li>
+                </ul>
+            </div>
+
+            <!-- 4.5 Modo Manual - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>4.5 &middot; Modo Lista Manual</h3>
+                <p>Permite crear una lista completamente personalizada, estableciendo manualmente los títulos y duraciones según tus necesidades.</p>
+                 <ul class="manual-section">
+                    <li>Puedes guardar la lista para reutilizarla cuando quieras.</li>
+                    <li>Puedes recuperarla posteriormente a través de "Cargar lista manual", sin tener que reescribirla cada vez.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 5. GESTIÓN DE MENSAJES -->
+        <div class="content" id="gestione-messaggi">
+            <h2>5 &middot; Gestión de mensajes <a href="#indice" class="back-to-index-link">&uarr; Índice</a></h2>
+
+            <p>
+                La función Mensajes permite comunicarse de manera discreta y clara con el orador durante la reunión, permitiendo
+                avisar o dar indicaciones sin interrumpir o perturbar el desarrollo de la parte. Los mensajes aparecen en la
+                pantalla del cronómetro, para que el orador los vea en tiempo real sin distracciones.
+            </p>
+
+            <div class="image-container">
+                <img src="../images/manual/es/messaggi-elenco.png"
+                     alt="Pantalla de gestión de mensajes en JWTime"
+                     class="manual-image">
+            </div>
+
+            <!-- 5.1 Mensaje a pantalla completa - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>5.1 · Mensaje a pantalla completa</h3>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <ol class="manual-section">
+                            <li>Haz clic en el área donde dice Insertar mensaje.</li>
+                            <li>Ingresa el texto.</li>
+                            <li>Pulsa <strong>Pantalla completa</strong> → el texto aparece a pantalla completa en el monitor Cronómetro.</li>
+                        </ol>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/es/messaggio-tutto-schermo.png"
+                             alt="Mensaje a pantalla completa"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 5.2 Mensaje a pantalla parcial - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>5.2 · Mensaje a pantalla parcial</h3>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <ol class="manual-section">
+                            <li>Haz clic en el área donde dice Insertar mensaje.</li>
+                            <li>Ingresa el texto.</li>
+                            <li>Pulsa <strong>Pantalla parcial</strong> → el texto aparece en la parte superior de la ventana Cronómetro, permitiendo al orador ver tanto el mensaje como su tiempo disponible.</li>
+                        </ol>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/es/messaggio-parziale.png"
+                             alt="Mensaje a pantalla parcial"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 5.3 Espejo Cronómetro - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl); ">
+                <h3>5.3 · Espejo Cronómetro</h3>
+                <p>
+                    Cuando se envía un mensaje, aparece automáticamente una ventana de vista previa redimensionable y movible que muestra
+                    exactamente lo que el orador ve en el monitor Cronómetro. Esto permite verificar en tiempo real la visualización
+                    del mensaje y del temporizador.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- 6. BOTÓN REC -->
+        <div class="content" id="rec-button">
+            <h2>6 &middot; Botón REC y panel de grabación <a href="#indice" class="back-to-index-link">&uarr; Índice</a></h2>
+
+            <p>
+                El botón <strong>REC</strong> se encuentra en la barra inferior junto a Programa y Mensaje. El punto junto al texto muestra
+                el estado de la grabación (espera, activa o conversión MP3), mientras que el menú vinculado y el área de conmutación proporcionan controles rápidos
+                para abrir la carpeta JWTimeREC, gestionar las grabaciones manuales y monitorear los niveles de audio de PC y micrófono.
+            </p>
+
+            <div class="image-container" style="margin-top: var(--spacing-lg);">
+                <img src="../images/manual/es/REC.png"
+                     alt="Detalle del botón REC y panel de grabaciones"
+                     class="manual-image">
+            </div>
+
+            <!-- 6.1 Indicadores de estado - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>6.1 &middot; Indicadores y estados del botón</h3>
+                <ul class="manual-section">
+                    <li><strong>En espera</strong>: el punto permanece gris y el menú muestra "En espera" / "Ninguna grabación activa".</li>
+                    <li><strong>Grabación en curso</strong>: el punto se vuelve rojo parpadeante y el menú muestra "Grabación en curso" con título y temporizador de la parte.</li>
+                    <li><strong>Conversión MP3</strong>: el punto pasa a naranja y el botón permanece desactivado hasta que se complete la exportación del archivo.</li>
+                </ul>
+            </div>
+
+            <!-- 6.2 Menú rápido REC - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>6.2 &middot; Menú rápido del botón</h3>
+                <p>El menú que se abre al hacer clic en REC permite controles rápidos:</p>
+                <ul class="manual-section">
+                    <li><strong>Abrir carpeta</strong>: abre directamente el directorio JWTimeREC que contiene las grabaciones.</li>
+                    <li><strong>Activar/Desactivar grabación</strong>: habilita o detiene la grabación manual sin entrar en la configuración.</li>
+                    <li><strong>Detalles en línea</strong>: bajo el estado aparecen el título de la fila activa y la duración actualizada.</li>
+                    <li><strong>Mensajes automáticos</strong>: indica inmediatamente cuando la grabación está desactivada o cuando está en curso una conversión.</li>
+                </ul>
+            </div>
+
+            <!-- 6.3 Área de conmutación y controles manuales - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>6.3 &middot; Área de conmutación con niveles de audio</h3>
+                <p>
+                    Al acoplar el botón REC al área de conmutación aparece un panel siempre visible con la misma información del menú pero enriquecida con medidores de audio.
+                    Aquí puedes iniciar/detener grabaciones manuales, monitorear niveles PC/Mic y abrir la carpeta JWTimeREC con un solo clic.
+                </p>
+            </div>
+        </div>
+
+        <!-- 7. MONITOR WEB -->
+        <div class="content" id="monitor-web">
+            <h2>7 &middot; Monitor Web &amp; Servidor <a href="#indice" class="back-to-index-link">&uarr; Índice</a></h2>
+
+            <p>
+                Esta es la página web visualizable cuando se está conectado a la misma red que la aplicación. Permite mostrar
+                el cronómetro de forma remota en dispositivos como proyectores, tabletas o computadoras externas — útil para el presidente que monitorea el temporizador
+                de las varias partes. De esta manera se puede monitorear el progreso de la reunión en tiempo real e imprimir el programa directamente
+                desde el navegador.
+            </p>
+
+            <p>Para la configuración del Monitor Web y del servidor, consulta <strong>10. Servidor</strong> en los paneles de configuración.</p>
+
+            <div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-xl);">
+                <div style="flex: 1 1 320px; min-width: 0;">
+                    <p>Desde el navegador puedes:</p>
+                    <ul class="manual-section">
+                        <li>Ver temporizador y cuenta regresiva a pantalla completa.</li>
+                        <li>Imprimir el programa.</li>
+                        <li>Controlar el avance de los tiempos en tiempo real.</li>
+                    </ul>
+                </div>
+                <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0 0 0 auto; align-self: flex-start;">
+                    <img src="../images/manual/es/monitor-web.png"
+                         alt="Monitor Web de JWTime visto desde navegador"
+                         class="manual-image">
+                </figure>
+            </div>
+        </div>
+
+        <!-- PARTE II - PANELES DE CONFIGURACIÓN -->
+        <div class="content" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.08)); border-left: 4px solid var(--accent-green); border-radius: var(--radius-lg); padding: var(--spacing-xl); box-shadow: var(--shadow-md);">
+            <h2 style="font-size: 2rem; margin: 0 0 var(--spacing-lg) 0; color: var(--text-primary);">Parte II · Paneles de Configuración</h2>
+            <p>
+                En esta parte puedes configurar el comportamiento de la aplicación: desde la configuración general (idioma, formato 12/24h y Pantalla
+                Cronómetro), hasta la programación de reuniones (ventana emergente y monitor dedicado), hasta Monitor Web &amp; Servidor y Copia de Seguridad &amp; Restauración.
+            </p>
+            <p>El botón GUARDAR aplica todos los cambios.</p>
+        </div>
+
+        <!-- 8. GENERAL -->
+        <div class="content" id="impostazioni-generale">
+            <h2>8 &middot; General <a href="#indice" class="back-to-index-link">&uarr; Índice</a></h2>
+
+            <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
+                <div style="flex: 0 0 400px; max-width: 500px;">
+                    <img src="../images/manual/es/impostazioni-generale.png"
+                         alt="Panel de Configuración General de JWTime"
+                         class="manual-image">
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <ul class="manual-section">
+                        <li><strong>Seleccionar idioma</strong>: cambia el idioma de la interfaz. Al cambiar el idioma, la aplicación actualiza automáticamente el programa semanal en el nuevo idioma (si está disponible).</li>
+                        <li><strong>Seleccionar monitor</strong>: elige la pantalla externa en la que mostrar el Cronómetro.</li>
+                        <li><strong>Habilitar Pantalla Cronómetro</strong>: muestra reloj o cuenta regresiva a pantalla completa en el monitor seleccionado.</li>
+                        <li><strong>Estudio bíblico adaptativo</strong>: cuando está activado, la duración del Estudio bíblico de congregación se ajusta automáticamente para ayudar a cumplir con el horario de cierre.</li>
+                        <li><strong>Estudio de Atalaya adaptativo</strong>: cuando está activado, la duración del Estudio de Atalaya se ajusta automáticamente para ayudar a cumplir con el horario de cierre.</li>
+                        <li><strong>Usar formato 12h (AM/PM)</strong>: muestra la hora en formato de 12 horas. Si está desactivado, usa formato de 24h.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. REUNIONES -->
+        <div class="content" id="impostazioni-adunanze">
+            <h2>9 &middot; Reuniones (Temporizador Inicio Reunión) <a href="#indice" class="back-to-index-link">&uarr; Índice</a></h2>
+
+            <p>
+                Este panel se utiliza para programar la cuenta regresiva de inicio de reunión a la hora establecida.
+                Estableces día, hora y anticipación (en minutos) con la que quieres iniciar
+                la cuenta regresiva.
+            </p>
+
+            <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+                <div style="flex: 0 0 400px; max-width: 500px;">
+                    <img src="../images/manual/es/impostazioni-adunanze.png"
+                         alt="Panel Reuniones con temporizador de inicio en JWTime"
+                         class="manual-image">
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <h3>9.1 · Programación (Día · Hora · Anticipación)</h3>
+                    <ul class="manual-section">
+                        <li><strong>Día</strong>: elige el día de la semana en que se celebra la reunión.</li>
+                        <li><strong>Hora</strong>: establece la hora de inicio de la reunión.</li>
+                        <li><strong>Anticipación (min)</strong>: cuántos minutos antes de la hora establecida debe aparecer la cuenta regresiva en la pantalla del cronómetro.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">9.2 · Mensaje Inicio Reunión</h3>
+                    <p>Escribe el texto que aparecerá en la pantalla junto con la cuenta regresiva (ej. "Bienvenidos — la reunión comienza pronto"). Mantenlo breve y legible. (ver punto 3.1)</p>
+
+                    <p style="margin-top: var(--spacing-md); font-size: 0.9rem; color: var(--text-tertiary);">
+                        <strong>Nota:</strong> esta función no cambia la duración de la reunión y no afecta al "Horario de Finalización Estimado".
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. CONEXIÓN Y SERVIDOR -->
+        <div class="content" id="impostazioni-connessioni">
+            <h2>10 &middot; Conexión y Servidor <a href="#indice" class="back-to-index-link">&uarr; Índice</a></h2>
+
+            <p>
+                Este panel gestiona la conectividad de la aplicación: desde el Monitor Web para mostrar el cronómetro a través del navegador,
+                hasta las pruebas de conexión avanzadas y la gestión de registros.
+            </p>
+
+            <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+                <div style="flex: 0 0 400px; max-width: 500px;">
+                    <img src="../images/manual/es/impostazioni-connessioni.png"
+                         alt="Panel de Conexión de JWTime"
+                         class="manual-image">
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <h3>10.1 · Monitor Web y Servidor</h3>
+                    <ul class="manual-section">
+                        <li><strong>Monitor WEB</strong>: habilita o deshabilita el servidor interno.</li>
+                        <li><strong>Dirección del Servidor</strong>: muestra la URL e incluye el botón Copiar dirección para copiarla automáticamente.</li>
+                        <li><strong>Puerto</strong>: establece el puerto HTTP (predeterminado: 8000).</li>
+                        <li><strong>Tema claro/oscuro</strong>: la página del servidor web ahora admite ambos temas.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">10.2 · Prueba de Conexión</h3>
+                    <ul class="manual-section">
+                        <li>Verificar conexión a internet y sitios necesarios</li>
+                        <li>Verificación de HTTPS y certificados</li>
+                        <li>Verificación de proxy del sistema</li>
+                        <li>Verificación de sincronización de hora</li>
+                        <li>Prueba de escritura de carpetas (log, caché, copia de seguridad)</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">10.3 · Gestión de Registros</h3>
+                    <p>Apertura directa de la carpeta de registros desde la configuración con mensajes más claros y útiles para la depuración.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 11. GRABACIONES -->
+        <div class="content" id="impostazioni-registrazioni">
+            <h2>11 &middot; Grabaciones <a href="#indice" class="back-to-index-link">&uarr; Índice</a></h2>
+
+            <p>
+                Función de grabación de audio de reuniones, accesible desde la pestaña "Grabaciones" en la configuración y desde el botón REC en la ventana principal.
+            </p>
+
+            <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+                <div style="flex: 0 0 400px; max-width: 500px;">
+                    <img src="../images/manual/es/impostazioni-registrazioni.png"
+                         alt="Panel de Grabaciones de JWTime"
+                         class="manual-image">
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <h3>Características principales</h3>
+                    <ul class="manual-section">
+                        <li><strong>Grabación automática</strong>: inicia la grabación de forma autónoma al comienzo de cada reunión, siguiendo la programación establecida.</li>
+                        <li><strong>Elección de carpeta de destino</strong>: selecciona dónde guardar las grabaciones</li>
+                        <li><strong>Prueba de grabación</strong>: verifica el funcionamiento correcto antes de la reunión</li>
+                        <li><strong>Ajuste de volúmenes</strong>: micrófono y audio de PC ajustables por separado</li>
+                        <li><strong>Función "ducking" automática</strong>: baja automáticamente el volumen del Mic cuando se proyectan videos</li>
+                        <li><strong>Estadísticas de espacio y archivos</strong>: monitorea el espacio utilizado por las grabaciones</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 11. COPIA DE SEGURIDAD Y RESTAURACIÓN -->
+        <div class="content" id="impostazioni-backup">
+            <h2>12 &middot; Copia de Seguridad &amp; Restauración <a href="#indice" class="back-to-index-link">&uarr; Índice</a></h2>
+
+            <p>
+                Este panel permite gestionar las copias de seguridad de la configuración y los programas semanales, tanto para el uso normal como para el modo SIN CONEXIÓN.
+            </p>
+
+            <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+                <div style="flex: 0 0 400px; max-width: 500px;">
+                    <img src="../images/manual/es/impostazioni-backup.png"
+                         alt="Panel de Copia de seguridad y restauración de JWTime"
+                         class="manual-image">
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <h3>12.1 · Copia de Seguridad de Configuración</h3>
+                    <ul class="manual-section">
+                        <li><strong>Guardar Copia de Seguridad</strong>: exporta las configuraciones a un archivo .jwtimesettings (nuevo formato versión 2.0).</li>
+                        <li><strong>Cargar Copia de Seguridad</strong>: importa un archivo de configuración. También admite archivos .json antiguos. Después de la importación, pulsa Guardar para hacer efectivos los cambios.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">12.2 · Copia de Seguridad SIN CONEXIÓN</h3>
+                    <p><strong>Copia de seguridad automática de programas semanales:</strong></p>
+                    <ul class="manual-section">
+                        <li>Hasta 12 semanas almacenadas automáticamente</li>
+                        <li>Recuperación de programa incluso sin conexión a internet</li>
+                        <li>Funciona en segundo plano sin intervención manual</li>
+                    </ul>
+
+                    <p style="margin-top: var(--spacing-md);"><strong>Copias de seguridad exportadas para uso SIN CONEXIÓN:</strong></p>
+                    <ul class="manual-section">
+                        <li><strong>Usa el botón "Descargar" para obtener el archivo inmediatamente</strong></li>
+                        <li>Transfiere archivos a otras PC incluso sin conexión a internet</li>
+                        <li>Perfecto para computadoras en el salón no conectadas a la red</li>
+                        <li>Admite gestión multilingüe con copias de seguridad separadas para cada idioma</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>JW Time</h3>
+                <p>Proyecto voluntario para la gestión de tiempos de reuniones.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Recursos</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="manual.html">Manual de Uso</a></li>
+                    <li><a href="news.html">Novedades</a></li>
+                    <li><a href="contacts.html">Contactos</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Información</h3>
+                <ul>
+                    <li><a href="privacy-policy.html">Política de Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 JW Time - Proyecto no oficial creado por voluntarios</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+</body>
+</html>

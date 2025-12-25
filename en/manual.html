@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete manual for JW Time - Guide to using the meeting time management application">
+    <title>User Manual - JW Time</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .back-to-index-link {
+            font-size: 0.9rem;
+            margin-left: 0.75rem;
+            color: var(--accent-green);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .back-to-index-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Scroll offset to compensate for fixed header */
+        html {
+            scroll-padding-top: 100px;
+        }
+
+        /* Larger scroll offset on mobile for two-line header */
+        @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 180px;
+            }
+        }
+
+        /* Extra scroll offset on very small screens where header may be 3 lines */
+        @media (max-width: 480px) {
+            html {
+                scroll-padding-top: 220px;
+            }
+        }
+
+        /* Ensure images are not cut off on mobile */
+        @media (max-width: 640px) {
+            .content figure,
+            .news-card figure {
+                overflow: visible !important;
+                flex: 1 1 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+                margin: var(--spacing-lg) 0 !important;
+            }
+
+            .content figure img,
+            .news-card figure img {
+                max-width: 100%;
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+
+            /* Single column layout for sections with images */
+            .news-card > div[style*="display: flex"] {
+                flex-direction: column !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="../images/jwtime-logo.png" alt="JW Time Logo" style="height: 32px; margin-right: 8px;">
+                JW Time
+            </a>
+
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="manual.html" class="active">Manual</a>
+                <a href="news.html">News</a>
+                <a href="contacts.html">Contacts</a>
+
+                <!-- Language Selector -->
+                <div class="lang-selector">
+                    <div class="lang-current">
+                        <span>English</span>
+                        <span>&#9662;</span>
+                    </div>
+                    <div class="lang-dropdown">
+                        <a href="../it/manual.html" data-lang="it">Italiano</a>
+                        <a href="../es/manual.html" data-lang="es">Español</a>
+                        <a href="../de/manual.html" data-lang="de">Deutsch</a>
+                        <a href="../fr/manual.html" data-lang="fr">Français</a>
+                        <a href="../pt_BR/manual.html" data-lang="pt_BR">Português (BR)</a>
+                    </div>
+                </div>
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>User Manual</h1>
+            <p>Complete guide to using JW Time</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- INDEX -->
+        <div class="content" id="indice">
+            <h2>Table of Contents</h2>
+            <div class="manual-index">
+                <!-- Green Card for Get Started -->
+                <div class="index-section index-section--green">
+                    <h3>Latest News</h3>
+                    <ul>
+                        <li><a href="#novita">Version 2.0.0</a></li>
+                    </ul>
+                    <h3 style="margin-top: var(--spacing-lg);">Quick Start</h3>
+                    <ul>
+                        <li><a href="#avvio-rapido">Quick guide (3 minutes)</a></li>
+                    </ul>
+                </div>
+
+                <div class="index-section">
+                    <h3>Part I - Interface and Operation</h3>
+                    <ul>
+                        <li><a href="#schermata-principale">1. Main Screen</a></li>
+                        <li><a href="#manipolazione-timer">2. Timer Manipulation</a></li>
+                        <li><a href="#contatempo-popup">3. Timer and Popup</a></li>
+                        <li><a href="#navigazione-settimanale">4. Weekly Navigation</a></li>
+                        <li><a href="#gestione-messaggi">5. Message Management</a></li>
+                        <li><a href="#rec-button">6. REC Button and Recording Panel</a></li>
+                        <li><a href="#monitor-web">7. Web Monitor &amp; Server</a></li>
+                    </ul>
+                </div>
+
+                <div class="index-section">
+                    <h3>Part II - Settings Panels</h3>
+                    <ul>
+                        <li><a href="#impostazioni-generale">8. General</a></li>
+                        <li><a href="#impostazioni-adunanze">9. Meetings (Meeting Start Timer)</a></li>
+                        <li><a href="#impostazioni-connessioni">10. Connection and Server</a></li>
+                        <li><a href="#impostazioni-registrazioni">11. Recordings</a></li>
+                        <li><a href="#impostazioni-backup">12. Backup &amp; Restore</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- LATEST NEWS -->
+        <div class="news-preview" id="novita">
+            <div class="news-preview-title">
+                <h2 style="margin: 0;">Latest News</h2>
+                <span class="news-preview-badge">Version 2.0.0</span>
+            </div>
+            <div class="news-preview-content">
+                <h3>Quick list of new features - Version 2.0.0</h3>
+                <ul style="column-count: 2; column-gap: var(--spacing-xl); margin-bottom: var(--spacing-lg);">
+                    <li>Added Portuguese (Brazil) language</li>
+                    <li>Meeting recording</li>
+                    <li>Offline program backup</li>
+                    <li>Check and connection button</li>
+                    <li>Manual list saving</li>
+                    <li>New light theme</li>
+                </ul>
+                <a href="news.html" class="btn btn-primary" style="margin-top: var(--spacing-lg);">
+                    Discover all the news →
+                </a>
+            </div>
+        </div>
+
+        <!-- QUICK START -->
+        <div class="content" id="avvio-rapido" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.08)); border-left: 4px solid var(--accent-green); border-radius: var(--radius-lg); padding: var(--spacing-xl); box-shadow: var(--shadow-md);">
+            <h2 style="font-size: 2rem; margin: 0 0 var(--spacing-xl) 0; color: var(--text-primary);">Quick Start (3 minutes)</h2>
+
+            <div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap;">
+                <div style="flex: 1 1 320px; min-width: 0;">
+                    <ol class="manual-section">
+                        <li style="margin-bottom: var(--spacing-lg);">
+                            <h3 style="color: var(--accent-green);">Choose the language</h3>
+                            <p>
+                                Go to Settings → General → Language and select the desired language. This will automatically download
+                                the correct schedule (if available for that language) and set it for the current week.
+                            </p>
+                        </li>
+                        <li style="margin-bottom: var(--spacing-lg);">
+                            <h3 style="color: var(--accent-green);">Select monitor and enable Timer Screen</h3>
+                            <p>
+                                Still in General, choose the external monitor and activate Enable Timer Screen. (Optional):
+                                enable 12h format or activate adaptive Bible study and/or adaptive Watchtower Study.
+                                The app will automatically adjust the duration of these parts to help you meet the meeting closing time.
+                            </p>
+                        </li>
+                        <li style="margin-bottom: var(--spacing-lg);">
+                            <h3 style="color: var(--accent-green);">Check the loaded schedule</h3>
+                            <p>
+                                From the bottom bar open Program: it should already show Midweek or Weekend based on the day.
+                                (If you want to customize) choose Manual.
+                            </p>
+                        </li>
+                        <li style="margin-bottom: var(--spacing-lg);">
+                            <h3 style="color: var(--accent-green);">Start and manage timers</h3>
+                            <p>
+                                Press ▶ Start to begin. Use ❚❚ Pause during speaker changes and ▶▶ Next to move to the next item.
+                                Keep an eye on the Estimated End Time.
+                            </p>
+                        </li>
+                        <li style="margin-bottom: var(--spacing-lg);">
+                            <h3 style="color: var(--accent-green);">Communicate with the speaker (if needed)</h3>
+                            <p>
+                                Press Message and send full screen or partial screen text: it will appear on the Timer monitor.
+                            </p>
+                        </li>
+                        <li style="margin-bottom: var(--spacing-lg);">
+                            <h3 style="color: var(--accent-green);">Close the meeting</h3>
+                            <p>
+                                At the end press ⏹ Stop to close the schedule. If you use the Web Monitor, you can print the schedule or
+                                follow it from a browser on the same network.
+                            </p>
+                        </li>
+                    </ol>
+                </div>
+                <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0 0 0 auto; align-self: flex-start;">
+                    <img src="../images/manual/en/avvio-rapido.png"
+                         alt="JWTime screen with general settings and timer"
+                         class="manual-image">
+                </figure>
+            </div>
+        </div>
+
+        <!-- PART I - INTERFACE AND OPERATION -->
+        <div class="content" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.08)); border-left: 4px solid var(--accent-green); border-radius: var(--radius-lg); padding: var(--spacing-xl); box-shadow: var(--shadow-md);">
+            <h2 style="font-size: 2rem; margin: 0; color: var(--text-primary);">Part I · Interface and Operation</h2>
+        </div>
+
+        <!-- 1. MAIN SCREEN -->
+        <div class="content" id="schermata-principale">
+            <h2>1 &middot; Main Screen <a href="#indice" class="back-to-index-link">&uarr; Table of Contents</a></h2>
+
+            <div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap;">
+                <figure style="flex: 0 0 420px; max-width: 520px; margin: 0 auto;">
+                    <img src="../images/manual/en/schermata-principale.png"
+                         alt="JWTime main screen with numbered areas"
+                         class="manual-image">
+                </figure>
+                <div style="flex: 1 1 320px; min-width: 0;">
+                    <p>
+                        The main screen is the heart of the application. From here you can start, manage and monitor all meeting
+                        timers, view main information such as the current part title, the clock and remaining time, as well as
+                        control important messages and notifications.
+                    </p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: var(--spacing-2xl); color: white;">Main areas</h3>
+
+            <!-- Grid of 4 main areas -->
+            <div class="news-cards-grid" style="margin-top: var(--spacing-xl);">
+                <div class="news-card">
+                    <h4 style="color: #4ade80;">1.1 · Part Title and Clock</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/en/area-1-titolo-orologio.png"
+                             alt="Area 1 - Part title and clock/timer"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        The top row shows the title of the current part, while below is displayed the clock with
+                        the current time or, when you start a timer, the countdown of the remaining time. In 12-hour format the
+                        AM/PM suffix also appears in reduced size to improve readability.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: #4ade80;">1.2 · Timer Table</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/en/area-2-tabella-timer.png"
+                             alt="Area 2 - Meeting timer table"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Lists the meeting schedule (title, duration, status). Content loads automatically based on the selected
+                        day: the app recognizes if it's Midweek or Weekend and proposes the correct schedule. For buttons
+                        and detailed actions see <strong>2. Timer Manipulation</strong>.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: #4ade80;">1.3 · Estimated End Time</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/en/area-3-orario-fine.png"
+                             alt="Area 3 - Estimated end time and deviation"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Shows the estimated closing time based on the schedule. Next to it appears the <em>deviation</em>:<br>
+                        +m:ss (yellow within 1', red beyond) = delay<br>
+                        −m:ss (green) = early<br>
+                        The time and indicator update in real time. If adaptive Bible study / Watchtower are active,
+                        durations are recalculated to meet the closing time.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: #4ade80;">1.4 · Pause/speaker change time</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/en/area-4-tempo-pausa.png"
+                             alt="Area 4 - Pause and speaker change time"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Cumulative <strong>hh:mm:ss</strong> counter for technical pauses/speaker changes: it sums the time the timer was
+                        paused. While paused, the part timer stays stopped while this counter continues to increase. Click the indicator to
+                        reset the total.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: #4ade80;">1.5 · Main timer control buttons</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/en/area-5-tasti-principali.png"
+                             alt="Area 5 - Main timer control buttons"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Controls to start, stop and manage timers: Stop (red), Pause, and Start/Next (green).
+                        The Pause button pauses the part timer (the count stays stopped) while the pause/speaker change time continues to
+                        increase. To exit pause, press Pause again or move to the next part with Start/Next: the accumulated time is
+                        recorded in the counter described in 1.4.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: #4ade80;">1.6 · News (communications)</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/en/area-6-notizie.png"
+                             alt="Area 6 - News box on main screen"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        When there are official communications for the app, a "News" box/notice appears on the Main Screen.
+                        Clicking it opens the panel with the updates summary.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: #4ade80;">1.7 · Bottom Control Bar</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/en/area-7-barra-inferiore.png"
+                             alt="Area 7 - JWTime bottom control bar"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Bar with buttons Settings, Minimize/Maximize, Program (week selection), Message and Online Manual.
+                        For more information see the dedicated chapters.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. TIMER MANIPULATION -->
+        <div class="content" id="manipolazione-timer">
+            <h2>2 &middot; Timer manipulation <a href="#indice" class="back-to-index-link">&uarr; Table of Contents</a></h2>
+
+            <p>
+                This section illustrates the main timer management operations — how to add, modify or delete items —
+                and the use of start, skip and reset commands.
+            </p>
+
+            <!-- 2.1 Main operations - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>2.1 &middot; Main operations</h3>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <ol class="manual-section">
+                            <li>Add / Delete rows: click on + or – buttons.</li>
+                            <li>Edit Title/Duration: double click on cell, then Enter.</li>
+                            <li>Duration Formats: 5 → 5:00, 1:30 → 1:30 minutes.</li>
+                            <li>Start/Skip/Reset:
+                                <ul>
+                                    <li>▶ starts.</li>
+                                    <li>▶▶ skips to next.</li>
+                                    <li>↺ resets to original duration.</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                    <figure style="flex: 0 0 50%; min-width: 320px; max-width: 640px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/en/manipolazione-operazioni.png"
+                             alt="Main timer operations"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 2.2 Real-time updates - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>2.2 · Real-time updates</h3>
+                <p>
+                    The timer updates constantly, synchronizing the Duration and Timer values in the table with the ongoing countdown,
+                    even if durations are modified or the part is changed.
+                </p>
+            </div>
+
+            <!-- 2.3 Automatic adjustment - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>2.3 &middot; Automatic adjustment &mdash; Bible Study and Watchtower Study</h3>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <p>
+                            If Adaptive Bible study and/or Adaptive Watchtower Study are active in Settings → General, the app dynamically
+                            adapts the duration of the selected part to maintain the meeting closing time. The adjustment only concerns
+                            parts with the active option and can automatically increase or reduce minutes based on accumulated advance/delay.
+                            The Estimated End Time and deviation update in real time. You can always manually intervene on timers: the adaptive
+                            recalculates starting from the new situation.
+                        </p>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/en/manipolazione-regolazione.png"
+                             alt="Adaptive timer automatic adjustment"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. TIMER & POPUP -->
+        <div class="content" id="contatempo-popup">
+            <h2>3 &middot; Timer and meeting popup <a href="#indice" class="back-to-index-link">&uarr; Table of Contents</a></h2>
+
+            <p>
+                The meeting start popup appears automatically at the set time with the chosen message, while the Timer Screen
+                shows clock and countdown on an external monitor.
+            </p>
+
+            <!-- 3.1 Meeting Timer Popup - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h4 style="color: #4ade80;">3.1 · Meeting Timer Popup</h4>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <p>
+                            Appears at the set time and shows the custom message along with the countdown. Closes automatically when time expires.
+                        </p>
+                        <ul class="manual-section">
+                            <li>Shows the custom text configured in settings</li>
+                            <li>Countdown visible until meeting start</li>
+                            <li>Automatic closure when expired</li>
+                        </ul>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/en/contatempo-popup.png"
+                             alt="Meeting timer popup"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 3.2 External Timer Screen - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h4 style="color: #4ade80;">3.2 · External Timer Screen</h4>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <p>
+                            When you activate "Enable Timer Screen" from settings, you get a full screen display on an external monitor, ideal for the podium or chairman.
+                        </p>
+                        <ul class="manual-section">
+                            <li>Full screen display on selected monitor</li>
+                            <li>Shows clock or countdown of current part</li>
+                            <li><strong>Tips mode:</strong> shows the time of the previous part to provide immediate feedback</li>
+                        </ul>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/en/schermo-contattempo.png"
+                             alt="Timer Screen on external monitor"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. WEEKLY NAVIGATION -->
+        <div class="content" id="navigazione-settimanale">
+            <h2>4 &middot; Weekly navigation <a href="#indice" class="back-to-index-link">&uarr; Table of Contents</a></h2>
+
+            <p>
+                This section illustrates how to load the correct schedule for the week, create a manual schedule when needed and
+                quickly scroll through previous, current and next weeks.
+            </p>
+
+            <p>
+                By default, the app automatically loads the current week's schedule: midweek
+                from Monday to Friday and weekend on Saturday and Sunday.
+            </p>
+
+            <div class="image-container">
+                <img src="../images/manual/en/navigazione-settimanale.png"
+                     alt="JWTime Program panel with navigation between weeks"
+                     class="manual-image">
+            </div>
+
+            <!-- 4.1 Automatic scheduling - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3 style="color: #4ade80;">4.1 &middot; Automatic scheduling</h3>
+                <ol class="manual-section">
+                    <li>Midweek: loads the weekday schedule.</li>
+                    <li>Weekend: loads the Saturday/Sunday schedule, asking for the public talk song.</li>
+                </ol>
+            </div>
+
+            <!-- 4.2 Week scrolling - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>4.2 &middot; Week selector and calendar preview</h3>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <p>
+                            The new <strong>Week</strong> button always shows the range (e.g. "Week: Oct 20 &ndash; 26") with a badge
+                            indicating the offset from the current week (0, +1, -2, etc.). A click opens the compact calendar to
+                            jump directly to the desired week without scrolling the Previous/Next buttons multiple times.
+                        </p>
+                        <ul class="manual-section">
+                            <li>Immediate badge: you understand if you're looking at the current, future or past week.</li>
+                            <li>Weekly calendar: choose weeks directly in a practical way.</li>
+                        </ul>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/en/navigazione-settimanale-pannello.png"
+                             alt="Detail of the new Week selector"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 4.3 CO Visit - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>4.3 &middot; CO Visit</h3>
+                <p>
+                    The <strong>CO Visit</strong> button, placed between the Week selector and Load from backup, transforms the schedule when there's
+                    a circuit overseer visit. When pressed the button lights up (ON) and the app automatically prepares the
+                    special parts planned for the visit.
+                </p>
+                <ul class="manual-section">
+                    <li><strong>Midweek meeting</strong>: the Congregation Bible Study is converted to a fixed 30-minute part with title "CO Visit".</li>
+                    <li><strong>Weekend</strong>: a dedicated item is added after the Watchtower Study and durations adapted to meet the closing time.</li>
+                    <li>Dedicated colors and popups: the CO Visit row adopts its own palette and activates the specific closing song popup.</li>
+                    <li>Quick deactivation: turning off the toggle, the table immediately returns to the standard schedule without losing other changes.</li>
+                </ul>
+            </div>
+
+            <!-- 4.4 Load from backup - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>4.4 &middot; Load from backup</h3>
+                <p>
+                    The <strong>Load from backup</strong> button opens a list of locally saved packages, sorted by date, meeting type and language.
+                    Ideal for working offline or restoring programs already prepared on another PC.
+                </p>
+                <ul class="manual-section">
+                    <li>Detailed list: each row shows week start date, type (Midweek/Weekend) and language.</li>
+                    <li>Safe loading: packages are verified and applied directly to the current table.</li>
+                    <li>Clear messages: if no backups are available, the app immediately shows a notice.</li>
+                </ul>
+            </div>
+
+            <!-- 4.5 Manual Mode - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>4.5 &middot; Manual List Mode</h3>
+                <p>Allows you to create a completely custom list, manually setting titles and durations according to your needs.</p>
+                 <ul class="manual-section">
+                    <li>You can save the list to reuse it whenever you want.</li>
+                    <li>You can recall it later via "Load manual list", without having to rewrite it every time.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 5. MESSAGE MANAGEMENT -->
+        <div class="content" id="gestione-messaggi">
+            <h2>5 &middot; Message management <a href="#indice" class="back-to-index-link">&uarr; Table of Contents</a></h2>
+
+            <p>
+                The Messages function allows you to communicate discreetly and clearly with the speaker during the meeting, allowing you to
+                notify or give directions without interrupting or disturbing the part. Messages appear on the
+                timer screen, so the speaker sees them in real time without distractions.
+            </p>
+
+            <div class="image-container">
+                <img src="../images/manual/en/messaggi-elenco.png"
+                     alt="Message management screen in JWTime"
+                     class="manual-image">
+            </div>
+
+            <!-- 5.1 Full screen message - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>5.1 · Full screen message</h3>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <ol class="manual-section">
+                            <li>Click in the area where it says Insert message.</li>
+                            <li>Enter the text.</li>
+                            <li>Press <strong>Full screen</strong> → the text appears full screen on the Timer monitor.</li>
+                        </ol>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/en/messaggio-tutto-schermo.png"
+                             alt="Full screen message"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 5.2 Partial screen message - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>5.2 · Partial screen message</h3>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <ol class="manual-section">
+                            <li>Click in the area where it says Insert message.</li>
+                            <li>Enter the text.</li>
+                            <li>Press <strong>Partial screen</strong> → the text appears at the top of the Timer window, allowing the speaker to see both the message and their available time.</li>
+                        </ol>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/en/messaggio-parziale.png"
+                             alt="Partial screen message"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 5.3 Timer Mirror - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl); ">
+                <h3>5.3 · Timer Mirror</h3>
+                <p>
+                    When a message is sent, a resizable and movable preview window automatically appears showing
+                    exactly what the speaker sees on the Timer monitor. This allows you to verify in real time the display
+                    of the message and timer.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- 6. REC BUTTON -->
+        <div class="content" id="rec-button">
+            <h2>6 &middot; REC button and recording panel <a href="#indice" class="back-to-index-link">&uarr; Table of Contents</a></h2>
+
+            <p>
+                The <strong>REC</strong> button is located in the bottom bar next to Program and Message. The dot next to the text shows
+                the recording status (waiting, active or MP3 conversion), while the linked menu and toggle area provide quick controls
+                to open the JWTimeREC folder, manage manual recordings and monitor PC and microphone audio levels.
+            </p>
+
+            <div class="image-container" style="margin-top: var(--spacing-lg);">
+                <img src="../images/manual/en/REC.png"
+                     alt="REC button and recording panel detail"
+                     class="manual-image">
+            </div>
+
+            <!-- 6.1 Status indicators - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>6.1 &middot; Button indicators and states</h3>
+                <ul class="manual-section">
+                    <li><strong>Waiting</strong>: the dot remains gray and the menu shows "Waiting" / "No active recording".</li>
+                    <li><strong>Recording in progress</strong>: the dot becomes flashing red and the menu shows "Recording in progress" with part title and timer.</li>
+                    <li><strong>MP3 conversion</strong>: the dot turns orange and the button remains disabled until file export completes.</li>
+                </ul>
+            </div>
+
+            <!-- 6.2 REC quick menu - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>6.2 &middot; Button quick menu</h3>
+                <p>The menu that opens by clicking REC allows quick controls:</p>
+                <ul class="manual-section">
+                    <li><strong>Open folder</strong>: directly opens the JWTimeREC directory containing recordings.</li>
+                    <li><strong>Enable/Disable recording</strong>: enables or stops manual recording without entering settings.</li>
+                    <li><strong>Inline details</strong>: under the status appear the active row title and updated duration.</li>
+                    <li><strong>Automatic messages</strong>: immediately indicates when recording is disabled or when a conversion is in progress.</li>
+                </ul>
+            </div>
+
+            <!-- 6.3 Toggle area and manual controls - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>6.3 &middot; Toggle area with audio levels</h3>
+                <p>
+                    Docking the REC button to the toggle area shows an always visible panel with the same information as the menu but enriched with audio meters.
+                    Here you can start/stop manual recordings, monitor PC/Mic levels and open the JWTimeREC folder with a single click.
+                </p>
+            </div>
+        </div>
+
+        <!-- 7. WEB MONITOR -->
+        <div class="content" id="monitor-web">
+            <h2>7 &middot; Web Monitor &amp; Server <a href="#indice" class="back-to-index-link">&uarr; Table of Contents</a></h2>
+
+            <p>
+                This is the web page viewable when connected to the same network as the application. It allows you to show
+                the timer remotely on devices such as projectors, tablets or external computers — useful for the chairman monitoring the timer
+                of the various parts. This way you can monitor the meeting progress in real time and print the schedule directly
+                from the browser.
+            </p>
+
+            <p>For Web Monitor and server configuration, see <strong>10. Server</strong> in the settings panels.</p>
+
+            <div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-xl);">
+                <div style="flex: 1 1 320px; min-width: 0;">
+                    <p>From the browser you can:</p>
+                    <ul class="manual-section">
+                        <li>View timer and countdown full screen.</li>
+                        <li>Print the schedule.</li>
+                        <li>Check time progress in real time.</li>
+                    </ul>
+                </div>
+                <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0 0 0 auto; align-self: flex-start;">
+                    <img src="../images/manual/en/monitor-web.png"
+                         alt="JWTime Web Monitor viewed from browser"
+                         class="manual-image">
+                </figure>
+            </div>
+        </div>
+
+        <!-- PART II - SETTINGS PANELS -->
+        <div class="content" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.08)); border-left: 4px solid var(--accent-green); border-radius: var(--radius-lg); padding: var(--spacing-xl); box-shadow: var(--shadow-md);">
+            <h2 style="font-size: 2rem; margin: 0 0 var(--spacing-lg) 0; color: var(--text-primary);">Part II · Settings Panels</h2>
+            <p>
+                In this part you can configure the app's behavior: from general settings (language, 12/24h format and Timer
+                Screen), to meeting scheduling (popup and dedicated monitor), to Web Monitor &amp; Server and Backup &amp; Restore.
+            </p>
+            <p>The SAVE button applies all changes.</p>
+        </div>
+
+        <!-- 8. GENERAL -->
+        <div class="content" id="impostazioni-generale">
+            <h2>8 &middot; General <a href="#indice" class="back-to-index-link">&uarr; Table of Contents</a></h2>
+
+            <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
+                <div style="flex: 0 0 400px; max-width: 500px;">
+                    <img src="../images/manual/en/impostazioni-generale.png"
+                         alt="JWTime General Settings panel"
+                         class="manual-image">
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <ul class="manual-section">
+                        <li><strong>Select language</strong>: changes the interface language. When changing language, the app automatically updates the weekly program in the new language (if available).</li>
+                        <li><strong>Select monitor</strong>: chooses the external screen on which to show the Timer.</li>
+                        <li><strong>Enable Timer Screen</strong>: displays clock or countdown full screen on the selected monitor.</li>
+                        <li><strong>Adaptive Bible study</strong>: when activated, the Congregation Bible Study duration is automatically adjusted to help meet the closing time.</li>
+                        <li><strong>Adaptive Watchtower Study</strong>: when activated, the Watchtower Study duration is automatically adjusted to help meet the closing time.</li>
+                        <li><strong>Use 12h format (AM/PM)</strong>: shows time in 12-hour format. If disabled, uses 24h format.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. MEETINGS -->
+        <div class="content" id="impostazioni-adunanze">
+            <h2>9 &middot; Meetings (Meeting Start Timer) <a href="#indice" class="back-to-index-link">&uarr; Table of Contents</a></h2>
+
+            <p>
+                This panel is used to schedule the meeting start countdown at the set time.
+                You set day, time and advance (in minutes) with which you want to start
+                the countdown.
+            </p>
+
+            <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+                <div style="flex: 0 0 400px; max-width: 500px;">
+                    <img src="../images/manual/en/impostazioni-adunanze.png"
+                         alt="Meetings panel with start timer in JWTime"
+                         class="manual-image">
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <h3>9.1 · Scheduling (Day · Time · Advance)</h3>
+                    <ul class="manual-section">
+                        <li><strong>Day</strong>: choose the day of the week when the meeting is held.</li>
+                        <li><strong>Time</strong>: set the meeting start time.</li>
+                        <li><strong>Advance (min)</strong>: how many minutes before the set time the countdown should appear on the timer screen.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">9.2 · Meeting Start Message</h3>
+                    <p>Write the text that will appear on the screen together with the countdown (e.g. "Welcome — the meeting starts soon"). Keep it short and readable. (see point 3.1)</p>
+
+                    <p style="margin-top: var(--spacing-md); font-size: 0.9rem; color: var(--text-tertiary);">
+                        <strong>Note:</strong> this function does not change the meeting duration and does not affect "Estimated End Time".
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. CONNECTION AND SERVER -->
+        <div class="content" id="impostazioni-connessioni">
+            <h2>10 &middot; Connection and Server <a href="#indice" class="back-to-index-link">&uarr; Table of Contents</a></h2>
+
+            <p>
+                This panel manages the app's connectivity: from the Web Monitor to display the timer via browser,
+                to advanced connection tests and log management.
+            </p>
+
+            <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+                <div style="flex: 0 0 400px; max-width: 500px;">
+                    <img src="../images/manual/en/impostazioni-connessioni.png"
+                         alt="JWTime Connection panel"
+                         class="manual-image">
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <h3>10.1 · Web Monitor and Server</h3>
+                    <ul class="manual-section">
+                        <li><strong>WEB Monitor</strong>: enables or disables the internal server.</li>
+                        <li><strong>Server Address</strong>: shows the URL and includes the Copy address button to copy it automatically.</li>
+                        <li><strong>Port</strong>: sets the HTTP port (default: 8000).</li>
+                        <li><strong>Light/dark theme</strong>: the web server page now supports both themes.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">10.2 · Connection Test</h3>
+                    <ul class="manual-section">
+                        <li>Verify internet connection and necessary sites</li>
+                        <li>HTTPS and certificate check</li>
+                        <li>System proxy verification</li>
+                        <li>Time synchronization check</li>
+                        <li>Folder write test (log, cache, backup)</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">10.3 · Log Management</h3>
+                    <p>Direct opening of log folder from settings with clearer and more useful messages for debugging.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 11. RECORDINGS -->
+        <div class="content" id="impostazioni-registrazioni">
+            <h2>11 &middot; Recordings <a href="#indice" class="back-to-index-link">&uarr; Table of Contents</a></h2>
+
+            <p>
+                Meeting audio recording function, accessible from the "Recordings" tab in settings and from the REC button in the main window.
+            </p>
+
+            <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+                <div style="flex: 0 0 400px; max-width: 500px;">
+                    <img src="../images/manual/en/impostazioni-registrazioni.png"
+                         alt="JWTime Recordings panel"
+                         class="manual-image">
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <h3>Main features</h3>
+                    <ul class="manual-section">
+                        <li><strong>Automatic recording</strong>: starts recording autonomously at the beginning of each meeting, following the set schedule.</li>
+                        <li><strong>Destination folder choice</strong>: select where to save recordings</li>
+                        <li><strong>Recording test</strong>: verify proper operation before the meeting</li>
+                        <li><strong>Volume adjustment</strong>: microphone and PC audio adjustable separately</li>
+                        <li><strong>Automatic "ducking" function</strong>: automatically lowers Mic volume when videos are projected</li>
+                        <li><strong>Space and file statistics</strong>: monitor space used by recordings</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 11. BACKUP & RESTORE -->
+        <div class="content" id="impostazioni-backup">
+            <h2>12 &middot; Backup &amp; Restore <a href="#indice" class="back-to-index-link">&uarr; Table of Contents</a></h2>
+
+            <p>
+                This panel allows you to manage backups of settings and weekly programs, both for normal use and for OFFLINE mode.
+            </p>
+
+            <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+                <div style="flex: 0 0 400px; max-width: 500px;">
+                    <img src="../images/manual/en/impostazioni-backup.png"
+                         alt="JWTime Backup and restore panel"
+                         class="manual-image">
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <h3>12.1 · Settings Backup</h3>
+                    <ul class="manual-section">
+                        <li><strong>Save Backup</strong>: exports configurations to a .jwtimesettings file (new version 2.0 format).</li>
+                        <li><strong>Load Backup</strong>: imports a configuration file. Also supports old .json files. After import, press Save to make changes effective.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">12.2 · OFFLINE Backup</h3>
+                    <p><strong>Automatic backup of weekly programs:</strong></p>
+                    <ul class="manual-section">
+                        <li>Up to 12 weeks stored automatically</li>
+                        <li>Program recovery even without internet connection</li>
+                        <li>Works in background without manual intervention</li>
+                    </ul>
+
+                    <p style="margin-top: var(--spacing-md);"><strong>Exported backups for OFFLINE use:</strong></p>
+                    <ul class="manual-section">
+                        <li><strong>Use the "Download" button to get the file immediately</strong></li>
+                        <li>Transfer files to other PCs even without internet connection</li>
+                        <li>Perfect for computers in the hall not connected to the network</li>
+                        <li>Supports multilingual management with separate backups for each language</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>JW Time</h3>
+                <p>Volunteer project for meeting time management.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="manual.html">User Manual</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="contacts.html">Contacts</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Information</h3>
+                <ul>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 JW Time - Unofficial project created by volunteers</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+</body>
+</html>

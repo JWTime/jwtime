@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manuale completo di JW Time - Guida all'uso dell'applicazione per la gestione dei tempi delle adunanze">
+    <title>Manuale d'Uso - JW Time</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .back-to-index-link {
+            font-size: 0.9rem;
+            margin-left: 0.75rem;
+            color: var(--accent-green);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .back-to-index-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Scroll offset per compensare header fisso */
+        html {
+            scroll-padding-top: 100px;
+        }
+
+        /* Scroll offset maggiore su mobile per header a due righe */
+        @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 180px;
+            }
+        }
+
+        /* Scroll offset extra su schermi molto piccoli dove l'header può essere su 3 righe */
+        @media (max-width: 480px) {
+            html {
+                scroll-padding-top: 220px;
+            }
+        }
+
+        /* Assicura che le immagini non vengano tagliate su mobile */
+        @media (max-width: 640px) {
+            .content figure,
+            .news-card figure {
+                overflow: visible !important;
+                flex: 1 1 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+                margin: var(--spacing-lg) 0 !important;
+            }
+
+            .content figure img,
+            .news-card figure img {
+                max-width: 100%;
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+
+            /* Layout a colonna singola per sezioni con immagini */
+            .news-card > div[style*="display: flex"] {
+                flex-direction: column !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="../images/jwtime-logo.png" alt="JW Time Logo" style="height: 32px; margin-right: 8px;">
+                JW Time
+            </a>
+
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="manual.html" class="active">Manuale</a>
+                <a href="news.html">Novità</a>
+                <a href="contacts.html">Contatti</a>
+
+                <!-- Language Selector -->
+                <div class="lang-selector">
+                    <div class="lang-current">
+                        <span>Italiano</span>
+                        <span>&#9662;</span>
+                    </div>
+                    <div class="lang-dropdown">
+                        <a href="../en/manual.html" data-lang="en">English</a>
+                        <a href="../es/manual.html" data-lang="es">Español</a>
+                        <a href="../de/manual.html" data-lang="de">Deutsch</a>
+                        <a href="../fr/manual.html" data-lang="fr">Français</a>
+                        <a href="../pt_BR/manual.html" data-lang="pt_BR">Português (BR)</a>
+                    </div>
+                </div>
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Manuale d'Uso</h1>
+            <p>Guida completa all'utilizzo di JW Time</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- INDICE -->
+        <div class="content" id="indice">
+            <h2>Indice</h2>
+            <div class="manual-index">
+                <!-- Card Verde per Inizia Qui -->
+                <div class="index-section index-section--green">
+                    <h3>Ultime Novità</h3>
+                    <ul>
+                        <li><a href="#novita">Versione 2.0.0</a></li>
+                    </ul>
+                    <h3 style="margin-top: var(--spacing-lg);">Avvio Rapido</h3>
+                    <ul>
+                        <li><a href="#avvio-rapido">Guida rapida (3 minuti)</a></li>
+                    </ul>
+                </div>
+
+                <div class="index-section">
+                    <h3>Parte I - Interfaccia e Funzionamento</h3>
+                    <ul>
+                        <li><a href="#schermata-principale">1. Schermata Principale</a></li>
+                        <li><a href="#manipolazione-timer">2. Manipolazione dei Timer</a></li>
+                        <li><a href="#contatempo-popup">3. Contatempo e Popup</a></li>
+                        <li><a href="#navigazione-settimanale">4. Navigazione Settimanale</a></li>
+                        <li><a href="#gestione-messaggi">5. Gestione dei Messaggi</a></li>
+                        <li><a href="#rec-button">6. Pulsante REC e pannello registrazione</a></li>
+                        <li><a href="#monitor-web">7. Monitor Web &amp; Server</a></li>
+                    </ul>
+                </div>
+
+                <div class="index-section">
+                    <h3>Parte II - Pannelli delle Impostazioni</h3>
+                    <ul>
+                        <li><a href="#impostazioni-generale">8. Generale</a></li>
+                        <li><a href="#impostazioni-adunanze">9. Adunanze (Timer Inizio Adunanza)</a></li>
+                        <li><a href="#impostazioni-connessioni">10. Connessione e Server</a></li>
+                        <li><a href="#impostazioni-registrazioni">11. Registrazioni</a></li>
+                        <li><a href="#impostazioni-backup">12. Backup &amp; Ripristino</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ULTIME NOVITÀ -->
+        <div class="news-preview" id="novita">
+            <div class="news-preview-title">
+                <h2 style="margin: 0;">Ultime Novità</h2>
+                <span class="news-preview-badge">Versione 2.0.0</span>
+            </div>
+            <div class="news-preview-content">
+                <h3>Elenco rapido delle novità - Versione 2.0.0</h3>
+                <ul style="column-count: 2; column-gap: var(--spacing-xl); margin-bottom: var(--spacing-lg);">
+                    <li>Aggiunta lingua Portoghese (Brasile)</li>
+                    <li>Registrazione adunanze</li>
+                    <li>Backup programmi offline</li>
+                    <li>Tasto verifica e connessione</li>
+                    <li>Salvataggio elenchi manuali</li>
+                    <li>Nuovo tema chiaro</li>
+                </ul>
+                <a href="news.html" class="btn btn-primary" style="margin-top: var(--spacing-lg);">
+                    Scopri tutte le novità →
+                </a>
+            </div>
+        </div>
+
+        <!-- AVVIO RAPIDO -->
+        <div class="content" id="avvio-rapido" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.08)); border-left: 4px solid var(--accent-green); border-radius: var(--radius-lg); padding: var(--spacing-xl); box-shadow: var(--shadow-md);">
+            <h2 style="font-size: 2rem; margin: 0 0 var(--spacing-xl) 0; color: var(--text-primary);">Avvio Rapido (3 minuti)</h2>
+
+            <div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap;">
+                <div style="flex: 1 1 320px; min-width: 0;">
+                    <ol class="manual-section">
+                        <li style="margin-bottom: var(--spacing-lg);">
+                            <h3 style="color: var(--accent-green);">Scegli la lingua</h3>
+                            <p>
+                                Vai in Impostazioni → Generale → Lingua e seleziona l'idioma desiderato. Questo scaricherà in automatico
+                                la scaletta corretta (se disponibile per quella lingua) e la imposterà per la settimana corrente.
+                            </p>
+                        </li>
+                        <li style="margin-bottom: var(--spacing-lg);">
+                            <h3 style="color: var(--accent-green);">Seleziona il monitor e abilita lo Schermo Contattempo</h3>
+                            <p>
+                                Sempre in Generale, scegli il monitor esterno e attiva Abilita Schermo Contattempo. (Facoltativo):
+                                abilita il formato 12 h oppure attiva lo Studio biblico adattivo e/o lo Studio Torre di Guardia adattivo.
+                                L'app regolerà automaticamente la durata di queste parti per aiutarti a rispettare l'orario di chiusura dell'adunanza.
+                            </p>
+                        </li>
+                        <li style="margin-bottom: var(--spacing-lg);">
+                            <h3 style="color: var(--accent-green);">Controlla la scaletta caricata</h3>
+                            <p>
+                                Dalla barra in basso apri Programma: dovrebbe già mostrare Infrasettimanale o Fine Settimana in base al giorno.
+                                (Se vuoi personalizzare) scegli Manuale.
+                            </p>
+                        </li>
+                        <li style="margin-bottom: var(--spacing-lg);">
+                            <h3 style="color: var(--accent-green);">Avvia e gestisci i timer</h3>
+                            <p>
+                                Premi ▶ Start per iniziare. Usa ❚❚ Pausa nei cambi oratore e ▶▶ Successiva per passare alla voce successiva.
+                                Tieni d'occhio l'Orario Fine Stimato.
+                            </p>
+                        </li>
+                        <li style="margin-bottom: var(--spacing-lg);">
+                            <h3 style="color: var(--accent-green);">Comunica con l'oratore (se serve)</h3>
+                            <p>
+                                Premi Messaggio e invia un testo a tutto schermo o a schermo parziale: comparirà sul monitor del Contattempo.
+                            </p>
+                        </li>
+                        <li style="margin-bottom: var(--spacing-lg);">
+                            <h3 style="color: var(--accent-green);">Chiudi l'adunanza</h3>
+                            <p>
+                                Alla fine premi ⏹ Stop per chiudere la scaletta. Se usi il Monitor Web, puoi stampare la scaletta o
+                                seguirla da browser sulla stessa rete.
+                            </p>
+                        </li>
+                    </ol>
+                </div>
+                <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0 0 0 auto; align-self: flex-start;">
+                    <img src="../images/manual/it/avvio-rapido.png"
+                         alt="Schermata di JWTime con impostazioni generali e contattempo"
+                         class="manual-image">
+                </figure>
+            </div>
+        </div>
+
+        <!-- PARTE I - INTERFACCIA E FUNZIONAMENTO -->
+        <div class="content" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.08)); border-left: 4px solid var(--accent-green); border-radius: var(--radius-lg); padding: var(--spacing-xl); box-shadow: var(--shadow-md);">
+            <h2 style="font-size: 2rem; margin: 0; color: var(--text-primary);">Parte I · Interfaccia e Funzionamento</h2>
+        </div>
+
+        <!-- 1. SCHERMATA PRINCIPALE -->
+        <div class="content" id="schermata-principale">
+            <h2>1 &middot; Schermata Principale <a href="#indice" class="back-to-index-link">&uarr; Indice</a></h2>
+
+            <div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap;">
+                <figure style="flex: 0 0 420px; max-width: 520px; margin: 0 auto;">
+                    <img src="../images/manual/it/schermata-principale.png"
+                         alt="Schermata principale di JWTime con aree numerate"
+                         class="manual-image">
+                </figure>
+                <div style="flex: 1 1 320px; min-width: 0;">
+                    <p>
+                        La schermata principale è il cuore dell'applicazione. Da qui puoi avviare, gestire e monitorare tutti i timer
+                        dell'adunanza, visualizzare le informazioni principali come il titolo della parte in corso, l'orologio e il tempo
+                        residuo, oltre a controllare messaggi e notifiche importanti.
+                    </p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: var(--spacing-2xl); color: white;">Aree principali</h3>
+
+            <!-- Grid delle 4 aree principali -->
+            <div class="news-cards-grid" style="margin-top: var(--spacing-xl);">
+                <div class="news-card">
+                    <h4 style="color: #4ade80;">1.1 · Titolo Parte e Orologio</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/it/area-1-titolo-orologio.png"
+                             alt="Area 1 - Titolo parte e orologio/contattempo"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Nella riga superiore viene mostrato il titolo della parte in corso, mentre sotto è visualizzato l'orologio con
+                        l'ora corrente o, quando avvii un timer, il countdown del tempo rimanente. In formato 12 ore compare anche il
+                        suffisso AM/PM in dimensioni ridotte per migliorare la leggibilità.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: #4ade80;">1.2 · Tabella Timer</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/it/area-2-tabella-timer.png"
+                             alt="Area 2 - Tabella timer dell'adunanza"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Elenca la scaletta dell'adunanza (titolo, durata, stato). Il contenuto si carica automaticamente in base al giorno
+                        selezionato: l'app riconosce se è Infrasettimanale o Fine Settimana e propone la scaletta corretta. Per i pulsanti
+                        e le azioni dettagliate vedi <strong>2. Manipolazione dei Timer</strong>.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: #4ade80;">1.3 · Orario Fine Stimato</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/it/area-3-orario-fine.png"
+                             alt="Area 3 - Orario fine stimato e scostamento"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Mostra l'ora prevista di chiusura in base alla scaletta. Accanto compare lo <em>scostamento</em>:<br>
+                        +m:ss (giallo entro 1', rosso oltre) = ritardo<br>
+                        −m:ss (verde) = anticipo<br>
+                        L'orario e l'indicatore si aggiornano in tempo reale. Se sono attivi gli adattivi per Studio biblico / Torre di
+                        Guardia, le durate vengono ricalcolate per rientrare nell'orario di chiusura.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: #4ade80;">1.4 · Tempo pausa/cambio oratore</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/it/area-4-tempo-pausa.png"
+                             alt="Area 4 - Tempo pausa e cambio oratore"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Contatore cumulativo <strong>hh:mm:ss</strong> delle pause tecniche/cambio oratore: somma il tempo in cui il timer è
+                        stato messo in pausa. Durante la pausa il timer della parte resta fermo mentre questo contatore aumenta. Un clic
+                        sull'indicatore azzera il totale.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: #4ade80;">1.5 · Tasti principali di gestione timer</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/it/area-5-tasti-principali.png"
+                             alt="Area 5 - Tasti principali di gestione dei timer"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Controlli per avviare, fermare e gestire i timer: Stop (rosso), Pausa, e Start/Successiva (verde).
+                        Il pulsante Pausa mette in pausa il timer della parte (il conteggio resta fermo) mentre il tempo pausa/cambio
+                        oratore continua ad aumentare. Per uscire dalla pausa, ripremi Pausa oppure passa alla parte successiva con
+                        Start/Successiva: il tempo accumulato viene registrato nel contatore di cui al punto 1.4.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: #4ade80;">1.6 · Notizie (comunicazioni)</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/it/area-6-notizie.png"
+                             alt="Area 6 - Riquadro notizie nella schermata principale"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Quando ci sono comunicazioni ufficiali per l'app, nella Schermata Principale compare un riquadro/avviso "Notizie".
+                        Cliccandolo si apre il pannello con il riepilogo degli aggiornamenti.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: #4ade80;">1.7 · Barra Inferiore di Controllo</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/it/area-7-barra-inferiore.png"
+                             alt="Area 7 - Barra inferiore di controllo di JWTime"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Barra con pulsanti Impostazioni, Riduci/Ingrandisci, Programma (selezione settimana), Messaggio e Manuale online.
+                        Per approfondimenti vedi i capitoli dedicati.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. MANIPOLAZIONE TIMER -->
+        <div class="content" id="manipolazione-timer">
+            <h2>2 &middot; Manipolazione dei timer <a href="#indice" class="back-to-index-link">&uarr; Indice</a></h2>
+
+            <p>
+                Questa sezione illustra le principali operazioni di gestione dei timer — come aggiungere, modificare o eliminare voci —
+                e l'uso dei comandi di avvio, salto e reset.
+            </p>
+
+            <!-- 2.1 Operazioni principali - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>2.1 &middot; Operazioni principali</h3>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <ol class="manual-section">
+                            <li>Aggiungi / Elimina righe: clic sui pulsanti + o –.</li>
+                            <li>Modifica Titolo/Durata: doppio clic sulla cella, poi Invio.</li>
+                            <li>Formati Durata: 5 → 5:00, 1:30 → 1:30 minuti.</li>
+                            <li>Avvio/Salto/Reset:
+                                <ul>
+                                    <li>▶ avvia.</li>
+                                    <li>▶▶ salta alla successiva.</li>
+                                    <li>↺ resetta la durata originale.</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                    <figure style="flex: 0 0 50%; min-width: 320px; max-width: 640px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/it/manipolazione-operazioni.png"
+                             alt="Operazioni principali sui timer"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 2.2 Aggiornamenti in tempo reale - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>2.2 · Aggiornamenti in tempo reale</h3>
+                <p>
+                    Il timer si aggiorna costantemente, sincronizzando i valori di Durata e Timer nella tabella con il countdown in corso,
+                    anche se vengono modificate le durate o cambiata la parte.
+                </p>
+            </div>
+
+            <!-- 2.3 Regolazione automatica - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>2.3 &middot; Regolazione automatica &mdash; Studio biblico e Studio Torre di Guardia</h3>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <p>
+                            Se in Impostazioni → Generale sono attivi Studio biblico adattivo e/o Studio Torre di Guardia adattivo, l'app adatta
+                            dinamicamente la durata della parte selezionata per mantenere l'orario di chiusura dell'adunanza. L'adeguamento riguarda
+                            solo le parti con opzione attiva e può aumentare o ridurre automaticamente i minuti in base all'anticipo/ritardo accumulato.
+                            L'Orario Fine Stimato e lo scostamento si aggiornano in tempo reale. Puoi sempre intervenire manualmente sui timer: l'adattivo
+                            ricalcola partendo dalla nuova situazione.
+                        </p>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/it/manipolazione-regolazione.png"
+                             alt="Regolazione automatica timer adattivi"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. CONTATEMPO & POPUP -->
+        <div class="content" id="contatempo-popup">
+            <h2>3 &middot; Contatempo e popup adunanze <a href="#indice" class="back-to-index-link">&uarr; Indice</a></h2>
+
+            <p>
+                Il popup di inizio adunanza appare automaticamente all'ora impostata con il messaggio scelto, mentre lo Schermo Contattempo
+                mostra clock e countdown su un monitor esterno.
+            </p>
+
+            <!-- 3.1 Popup Timer Adunanza - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h4 style="color: #4ade80;">3.1 · Popup Timer Adunanza</h4>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <p>
+                            Appare all'orario impostato e mostra il messaggio personalizzato insieme al countdown. Si chiude automaticamente allo scadere del tempo.
+                        </p>
+                        <ul class="manual-section">
+                            <li>Mostra il testo personalizzato configurato nelle impostazioni</li>
+                            <li>Countdown visibile fino all'inizio dell'adunanza</li>
+                            <li>Chiusura automatica allo scadere</li>
+                        </ul>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/it/contatempo-popup.png"
+                             alt="Popup timer adunanza"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 3.2 Schermo Contattempo esterno - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h4 style="color: #4ade80;">3.2 · Schermo Contattempo esterno</h4>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <p>
+                            Quando attivi "Abilita Schermo Contattempo" dalle impostazioni, ottieni una visualizzazione a schermo intero su un monitor esterno, ideale per il podio o il presidente.
+                        </p>
+                        <ul class="manual-section">
+                            <li>Visualizzazione full screen sul monitor selezionato</li>
+                            <li>Mostra orologio o countdown della parte in corso</li>
+                            <li><strong>Modalità consigli:</strong> mostra il tempo della parte precedente per fornire feedback immediato</li>
+                        </ul>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/it/schermo-contattempo.png"
+                             alt="Schermo Contattempo su monitor esterno"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. NAVIGAZIONE SETTIMANALE -->
+        <div class="content" id="navigazione-settimanale">
+            <h2>4 &middot; Navigazione settimanale <a href="#indice" class="back-to-index-link">&uarr; Indice</a></h2>
+
+            <p>
+                Questa sezione illustra come caricare la scaletta corretta per la settimana, creare una scaletta manuale quando serve e
+                scorrere rapidamente tra settimane precedenti, corrente e successive.
+            </p>
+
+            <p>
+                Per impostazione predefinita, l'app carica automaticamente la scaletta della settimana corrente: quella infrasettimanale
+                dal lunedì al venerdì e quella del fine settimana il sabato e la domenica.
+            </p>
+
+            <div class="image-container">
+                <img src="../images/manual/it/navigazione-settimanale.png"
+                     alt="Pannello Programma di JWTime con navigazione tra le settimane"
+                     class="manual-image">
+            </div>
+
+            <!-- 4.1 Programmazione automatica - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3 style="color: #4ade80;">4.1 &middot; Programmazione automatica</h3>
+                <ol class="manual-section">
+                    <li>Infrasettimanale: carica la scaletta dei giorni feriali.</li>
+                    <li>Fine Settimana: carica la scaletta del sabato/domenica, chiedendo il cantico del discorso pubblico.</li>
+                </ol>
+            </div>
+
+            <!-- 4.2 Scorrimento settimane - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>4.2 &middot; Selettore settimane e anteprima calendario</h3>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <p>
+                            Il nuovo pulsante <strong>Settimana</strong> mostra sempre il range (es. "Settimana: 20 &ndash; 26 ott.") con un badge
+                            che indica l'offset rispetto alla settimana corrente (0, +1, -2, ecc.). Un clic apre il calendario compatto per
+                            saltare direttamente alla settimana desiderata senza scorrere più volte i pulsanti Precedente/Successiva.
+                        </p>
+                        <ul class="manual-section">
+                            <li>Badge immediato: capisci se stai guardando la settimana corrente, futura o passata.</li>
+                            <li>Calendario settimanale: scegli direttamente le settimane in modo pratico.</li>
+                        </ul>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/it/navigazione-settimanale-pannello.png"
+                             alt="Dettaglio del nuovo selettore Settimana"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 4.3 Visita SC - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>4.3 &middot; Visita SC</h3>
+                <p>
+                    Il pulsante <strong>Visita SC</strong>, posto tra il selettore Settimana e Carica da backup, trasforma la scaletta quando c'è
+                    la visita del sorvegliante di circoscrizione. Alla pressione il bottone si accende (ON) e l'app prepara automaticamente le parti
+                    speciali previste per la visita.
+                </p>
+                <ul class="manual-section">
+                    <li><strong>Adunanza infrasettimanale</strong>: lo Studio biblico di congregazione viene convertito in una parte fissa da 30 minuti con titolo "Visita SC".</li>
+                    <li><strong>Fine settimana</strong>: viene aggiunta una voce dedicata dopo lo Studio Torre di Guardia e adattate le durate per rispettare l'orario di chiusura.</li>
+                    <li>Colori e popup dedicati: la riga Visita SC adotta una palette propria e attiva il popup del cantico finale specifico.</li>
+                    <li>Disattivazione rapida: spegnendo il toggle, la tabella torna subito alla scaletta standard senza perdere le altre modifiche.</li>
+                </ul>
+            </div>
+
+            <!-- 4.4 Carica da backup - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>4.4 &middot; Carica da backup</h3>
+                <p>
+                    Il pulsante <strong>Carica da backup</strong> apre un elenco dei pacchetti salvati localmente, ordinati per data, tipo di adunanza e lingua.
+                    È ideale per lavorare offline o ripristinare programmi già preparati su un altro PC.
+                </p>
+                <ul class="manual-section">
+                    <li>Lista dettagliata: ogni riga mostra data di inizio settimana, tipo (Infrasettimanale/Fine settimana) e lingua.</li>
+                    <li>Caricamento sicuro: i pacchetti vengono verificati e applicati direttamente alla tabella corrente.</li>
+                    <li>Messaggi chiari: se non ci sono backup disponibili, l'app mostra subito un avviso.</li>
+                </ul>
+            </div>
+
+            <!-- 4.5 Modalità Manuale - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>4.5 &middot; Modalità Elenco Manuale</h3>
+                <p>Consente di creare un elenco completamente personalizzato, impostando manualmente i titoli e le durate secondo le tue esigenze.</p>
+                 <ul class="manual-section">
+                    <li>Poi salvare l'elenco per poterlo riutilizzare quando vuoi.</li>
+                    <li>Puoi richiamarlo successivamente tramite “Carica elenco manuale”, senza doverlo riscrivere ogni volta.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 5. GESTIONE MESSAGGI -->
+        <div class="content" id="gestione-messaggi">
+            <h2>5 &middot; Gestione dei messaggi <a href="#indice" class="back-to-index-link">&uarr; Indice</a></h2>
+
+            <p>
+                La funzione Messaggi consente di comunicare in modo discreto e chiaro con l'oratore durante l'adunanza, permettendo di
+                avvisarlo o dargli indicazioni senza interrompere o disturbare lo svolgimento della parte. I messaggi appaiono sullo schermo
+                del contattempo, così l'oratore li vede in tempo reale senza distrazioni.
+            </p>
+
+            <div class="image-container">
+                <img src="../images/manual/it/messaggi-elenco.png"
+                     alt="Schermata di gestione dei messaggi in JWTime"
+                     class="manual-image">
+            </div>
+
+            <!-- 5.1 Messaggio a tutto schermo - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>5.1 · Messaggio a tutto schermo</h3>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <ol class="manual-section">
+                            <li>Clicca nell'area dove c'è scritto Inserisci messaggio.</li>
+                            <li>Inserisci il testo.</li>
+                            <li>Premi <strong>Tutto schermo</strong> → il testo appare a pieno schermo sul monitor Contattempo.</li>
+                        </ol>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/it/messaggio-tutto-schermo.png"
+                             alt="Messaggio a tutto schermo"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 5.2 Messaggio a schermo parziale - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>5.2 · Messaggio a schermo parziale</h3>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <ol class="manual-section">
+                            <li>Clicca nell'area dove c'è scritto Inserisci messaggio.</li>
+                            <li>Inserisci il testo.</li>
+                            <li>Premi <strong>Schermo parziale</strong> → il testo compare in alto nella finestra Contattempo, permettendo all'oratore di vedere sia il messaggio che il tempo a sua disposizione.</li>
+                        </ol>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/it/messaggio-parziale.png"
+                             alt="Messaggio a schermo parziale"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 5.3 Mirror Contattempo - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl); ">
+                <h3>5.3 · Mirror Contattempo</h3>
+                <p>
+                    Quando si invia un messaggio, compare automaticamente una finestra di anteprima ridimensionabile e spostabile che mostra
+                    esattamente ciò che l'oratore vede nel monitor Contattempo. Questo consente di verificare in tempo reale la visualizzazione
+                    del messaggio e del timer.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- 6. PULSANTE REC -->
+        <div class="content" id="rec-button">
+            <h2>6 &middot; Pulsante REC e pannello registrazione <a href="#indice" class="back-to-index-link">&uarr; Indice</a></h2>
+
+            <p>
+                Il tasto <strong>REC</strong> si trova nella barra inferiore accanto a Programma e Messaggio. Il pallino accanto al testo mostra
+                lo stato della registrazione (attesa, attiva o conversione MP3), mentre il menu collegato e l'area toggle forniscono controlli rapidi
+                per aprire la cartella JWTimeREC, gestire le registrazioni manuali e monitorare i livelli audio di PC e microfono.
+            </p>
+
+            <div class="image-container" style="margin-top: var(--spacing-lg);">
+                <img src="../images/manual/it/REC.png"
+                     alt="Dettaglio pulsante REC e pannello registrazioni"
+                     class="manual-image">
+            </div>
+
+            <!-- 6.1 Indicatori di stato - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>6.1 &middot; Indicatori e stati del pulsante</h3>
+                <ul class="manual-section">
+                    <li><strong>In attesa</strong>: il pallino rimane grigio e il menu riporta "In attesa" / "Nessuna registrazione attiva".</li>
+                    <li><strong>Registrazione in corso</strong>: il pallino diventa rosso lampeggiante e il menu mostra "Registrazione in corso" con titolo e timer della parte.</li>
+                    <li><strong>Conversione MP3</strong>: il pallino passa all'arancione e il bottone resta disattivato finché l'esportazione del file non termina.</li>
+                </ul>
+            </div>
+
+            <!-- 6.2 Menu rapido REC - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>6.2 &middot; Menu rapido del pulsante</h3>
+                <p>Il menu che si apre cliccando su REC permette dei controlli rapidi:</p>
+                <ul class="manual-section">
+                    <li><strong>Apri cartella</strong>: apre direttamente la directory JWTimeREC contenente le registrazioni.</li>
+                    <li><strong>Attiva/Disattiva registrazione</strong>: abilita o arresta la registrazione manuale senza entrare nelle impostazioni.</li>
+                    <li><strong>Dettagli in linea</strong>: sotto lo stato compaiono il titolo della riga attiva e la durata aggiornata.</li>
+                    <li><strong>Messaggi automatici</strong>: indica subito quando la registrazione è disabilitata o quando è in corso una conversione.</li>
+                </ul>
+            </div>
+
+            <!-- 6.3 Area toggle e controlli manuali - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>6.3 &middot; Area toggle con livelli audio</h3>
+                <p>
+                    Agganciando il pulsante REC all'area toggle appare un pannello sempre visibile con le stesse informazioni del menu ma arricchite dai meter audio.
+                    Qui puoi avviare/fermare registrazioni manuali, monitorare i livelli PC/Mic e aprire la cartella JWTimeREC con un solo clic.
+                </p>
+            </div>
+        </div>
+
+        <!-- 7. MONITOR WEB -->
+        <div class="content" id="monitor-web">
+            <h2>7 &middot; Monitor Web &amp; Server <a href="#indice" class="back-to-index-link">&uarr; Indice</a></h2>
+
+            <p>
+                Questa è la pagina web visualizzabile quando si è connessi alla stessa rete dell'applicazione. Permette di mostrare in
+                remoto il contattempo su dispositivi come proiettori, tablet o computer esterni — utile per il presidente che segue il timer
+                delle varie parti. In questo modo si può monitorare l'andamento dell'adunanza in tempo reale e stampare la scaletta direttamente
+                dal browser.
+            </p>
+
+            <p>Per la configurazione del Monitor Web e del server, vedi <strong>10. Server</strong> nei pannelli impostazioni.</p>
+
+            <div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-xl);">
+                <div style="flex: 1 1 320px; min-width: 0;">
+                    <p>Dal browser puoi:</p>
+                    <ul class="manual-section">
+                        <li>Visualizzare timer e contattempo a schermo intero.</li>
+                        <li>Stampare la scaletta.</li>
+                        <li>Controllare l'avanzamento dei tempi in tempo reale.</li>
+                    </ul>
+                </div>
+                <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0 0 0 auto; align-self: flex-start;">
+                    <img src="../images/manual/it/monitor-web.png"
+                         alt="Monitor Web di JWTime visto da browser"
+                         class="manual-image">
+                </figure>
+            </div>
+        </div>
+
+        <!-- PARTE II - PANNELLI IMPOSTAZIONI -->
+        <div class="content" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.08)); border-left: 4px solid var(--accent-green); border-radius: var(--radius-lg); padding: var(--spacing-xl); box-shadow: var(--shadow-md);">
+            <h2 style="font-size: 2rem; margin: 0 0 var(--spacing-lg) 0; color: var(--text-primary);">Parte II · Pannelli Impostazioni</h2>
+            <p>
+                In questa parte puoi configurare il comportamento dell'app: dalle impostazioni generali (lingua, formato 12/24h e Schermo
+                Contattempo), alla pianificazione delle adunanze (popup e monitor dedicato), fino a Monitor Web &amp; Server e Backup &amp; Ripristino.
+            </p>
+            <p>Il tasto SALVA applica tutte le modifiche.</p>
+        </div>
+
+        <!-- 8. GENERALE -->
+        <div class="content" id="impostazioni-generale">
+            <h2>8 &middot; Generale <a href="#indice" class="back-to-index-link">&uarr; Indice</a></h2>
+
+            <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
+                <div style="flex: 0 0 400px; max-width: 500px;">
+                    <img src="../images/manual/it/impostazioni-generale.png"
+                         alt="Pannello Impostazioni Generale di JWTime"
+                         class="manual-image">
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <ul class="manual-section">
+                        <li><strong>Seleziona la lingua</strong>: cambia la lingua dell'interfaccia. Al cambio lingua, l'app aggiorna automaticamente il programma settimanale nella nuova lingua (se disponibile).</li>
+                        <li><strong>Seleziona il monitor</strong>: sceglie lo schermo esterno su cui mostrare il Contattempo.</li>
+                        <li><strong>Abilita Schermo Contattempo</strong>: visualizza orologio o countdown a pieno schermo sul monitor selezionato.</li>
+                        <li><strong>Studio biblico adattivo</strong>: quando attivato, la durata dello Studio biblico di congregazione viene regolata automaticamente per aiutare a rispettare l'orario di chiusura.</li>
+                        <li><strong>Studio Torre di Guardia adattivo</strong>: quando attivato, la durata dello Studio Torre di Guardia viene regolata automaticamente per aiutare a rispettare l'orario di chiusura.</li>
+                        <li><strong>Usa formato 12h (AM/PM)</strong>: mostra l'orario in formato 12 ore. Se disattivato, usa il formato 24h.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. ADUNANZE -->
+        <div class="content" id="impostazioni-adunanze">
+            <h2>9 &middot; Adunanze (Timer Inizio Adunanza) <a href="#indice" class="back-to-index-link">&uarr; Indice</a></h2>
+
+            <p>
+                Questo pannello serve a programmare il conto alla rovescia di inizio adunanza all'orario stabilito.
+                Imposti giorno, orario e anticipo (in minuti) con cui vuoi far
+                partire il countdown.
+            </p>
+
+            <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+                <div style="flex: 0 0 400px; max-width: 500px;">
+                    <img src="../images/manual/it/impostazioni-adunanze.png"
+                         alt="Pannello Adunanze con timer di inizio in JWTime"
+                         class="manual-image">
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <h3>9.1 · Programmazione (Giorno · Orario · Anticipo)</h3>
+                    <ul class="manual-section">
+                        <li><strong>Giorno</strong>: scegli il giorno della settimana in cui si tiene l'adunanza.</li>
+                        <li><strong>Orario</strong>: imposta l'ora di inizio dell'adunanza.</li>
+                        <li><strong>Anticipo (min)</strong>: quanti minuti prima dell'orario impostato deve comparire il countdown nello schermo contatempo.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">9.2 · Messaggio Inizio Adunanza</h3>
+                    <p>Scrivi il testo che apparirà nello schermo insieme al countdown (es. "Benvenuti — l'adunanza inizia tra poco"). Mantienilo breve e leggibile. (vedi punto 3.1)</p>
+
+                    <p style="margin-top: var(--spacing-md); font-size: 0.9rem; color: var(--text-tertiary);">
+                        <strong>Nota:</strong> questa funzione non cambia la durata dell'adunanza e non influisce su "Orario Fine Stimato".
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. CONNESSIONE E SERVER -->
+        <div class="content" id="impostazioni-connessioni">
+            <h2>10 &middot; Connessione e Server <a href="#indice" class="back-to-index-link">&uarr; Indice</a></h2>
+
+            <p>
+                Questo pannello gestisce la connettività dell'app: dal Monitor Web per visualizzare il contattempo via browser,
+                ai test di connessione avanzati e alla gestione dei log.
+            </p>
+
+            <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+                <div style="flex: 0 0 400px; max-width: 500px;">
+                    <img src="../images/manual/it/impostazioni-connessioni.png"
+                         alt="Pannello Connessioni di JWTime"
+                         class="manual-image">
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <h3>10.1 · Monitor Web e Server</h3>
+                    <ul class="manual-section">
+                        <li><strong>Monitor WEB</strong>: attiva o disattiva il server interno.</li>
+                        <li><strong>Indirizzo Server</strong>: mostra l'URL e include il pulsante Copia indirizzo per copiarlo automaticamente.</li>
+                        <li><strong>Porta</strong>: imposta la porta HTTP (default: 8000).</li>
+                        <li><strong>Tema chiaro/scuro</strong>: la pagina server web ora supporta entrambi i temi.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">10.2 · Test di Connessione</h3>
+                    <ul class="manual-section">
+                        <li>Verifica connessione internet e siti necessari</li>
+                        <li>Controllo HTTPS e certificati</li>
+                        <li>Verifica proxy di sistema</li>
+                        <li>Controllo sincronizzazione orario</li>
+                        <li>Test scrittura cartelle (log, cache, backup)</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">10.3 · Gestione Log</h3>
+                    <p>Apertura diretta cartella log dalle impostazioni con messaggi più chiari e utili per il debugging.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 11. REGISTRAZIONE -->
+        <div class="content" id="impostazioni-registrazioni">
+            <h2>11 &middot; Registrazioni <a href="#indice" class="back-to-index-link">&uarr; Indice</a></h2>
+
+            <p>
+                Funzione di registrazione audio delle adunanze, accessibile dalla scheda "Registrazioni" nelle impostazioni e dal tasto REC nella finestra principale.
+            </p>
+
+            <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+                <div style="flex: 0 0 400px; max-width: 500px;">
+                    <img src="../images/manual/it/impostazioni-registrazioni.png"
+                         alt="Pannello Registrazioni di JWTime"
+                         class="manual-image">
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <h3>Funzionalità principali</h3>
+                    <ul class="manual-section">
+                        <li><strong>Registrazione automatica</strong>: avvia la registrazione in modo autonomo all’inizio di ogni adunanza, seguendo la programmazione impostata.</li>
+                        <li><strong>Scelta cartella di destinazione</strong>: seleziona dove salvare le registrazioni</li>
+                        <li><strong>Test di registrazione</strong>: verifica il corretto funzionamento prima dell'adunanza</li>
+                        <li><strong>Regolazione volumi</strong>: microfono e audio PC regolabili separatamente</li>
+                        <li><strong>Funzione "ducking" automatica</strong>: abbassa automaticamente il volume del Mic quando ci sono video proiettati</li>
+                        <li><strong>Statistiche spazio e file</strong>: monitora lo spazio utilizzato dalle registrazioni</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 11. BACKUP & RIPRISTINO -->
+        <div class="content" id="impostazioni-backup">
+            <h2>12 &middot; Backup &amp; Ripristino <a href="#indice" class="back-to-index-link">&uarr; Indice</a></h2>
+
+            <p>
+                Questo pannello permette di gestire i backup delle impostazioni e dei programmi settimanali, sia per l'uso normale che per la modalità OFFLINE.
+            </p>
+
+            <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+                <div style="flex: 0 0 400px; max-width: 500px;">
+                    <img src="../images/manual/it/impostazioni-backup.png"
+                         alt="Pannello Backup e ripristino di JWTime"
+                         class="manual-image">
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <h3>12.1 · Backup Impostazioni</h3>
+                    <ul class="manual-section">
+                        <li><strong>Salva Backup</strong>: esporta le configurazioni in un file .jwtimesettings (nuovo formato versione 2.0).</li>
+                        <li><strong>Carica Backup</strong>: importa un file di configurazione. Supporta anche i vecchi file .json. Dopo l'importazione, premi Salva per rendere effettive le modifiche.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">12.2 · Backup OFFLINE</h3>
+                    <p><strong>Backup automatico dei programmi settimanali:</strong></p>
+                    <ul class="manual-section">
+                        <li>Fino a 12 settimane memorizzate automaticamente</li>
+                        <li>Recupero programma anche senza connessione internet</li>
+                        <li>Funziona in background senza intervento manuale</li>
+                    </ul>
+
+                    <p style="margin-top: var(--spacing-md);"><strong>Backup esportati per uso OFFLINE:</strong></p>
+                    <ul class="manual-section">
+                        <li><strong>Utilizza il tasto “Scarica” per ottenere subito il file</strong></li>
+                        <li>Trasferisci i file su altri PC anche senza connessione internet</li>
+                        <li>Perfetto per computer in sala non collegati alla rete</li>
+                        <li>Supporta la gestione multilingua con backup separati per ogni lingua</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>JW Time</h3>
+                <p>Progetto volontario per la gestione dei tempi delle adunanze.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Risorse</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="manual.html">Manuale d'Uso</a></li>
+                    <li><a href="news.html">Novità</a></li>
+                    <li><a href="contacts.html">Contatti</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Informazioni</h3>
+                <ul>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 JW Time - Progetto non ufficiale creato da volontari</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+</body>
+</html>
