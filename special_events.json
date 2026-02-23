@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "generated_at": "2026-02-23T19:18:49+00:00",
-  "source": "https://www.jw.org/en/jehovahs-witnesses/memorial/",
+  "generated_at": "2026-02-23T23:32:38+00:00",
+  "source": "rule_14_nisan_visibility_jerusalem_v1",
   "events": [
     {
       "kind": "memorial",
@@ -13,7 +13,53 @@
         "opening": null,
         "closing": null
       }
+    },
+    {
+      "kind": "memorial",
+      "date": "2027-03-22",
+      "week_id": "2027-12",
+      "missing_program_type": "midweek",
+      "template": "memorial_v1",
+      "songs": {
+        "opening": null,
+        "closing": null
+      }
+    },
+    {
+      "kind": "memorial",
+      "date": "2028-04-09",
+      "week_id": "2028-14",
+      "missing_program_type": "weekend",
+      "template": "memorial_v1",
+      "songs": {
+        "opening": null,
+        "closing": null
+      }
+    },
+    {
+      "kind": "memorial",
+      "date": "2029-03-29",
+      "week_id": "2029-13",
+      "missing_program_type": "midweek",
+      "template": "memorial_v1",
+      "songs": {
+        "opening": null,
+        "closing": null
+      }
+    },
+    {
+      "kind": "memorial",
+      "date": "2030-04-17",
+      "week_id": "2030-16",
+      "missing_program_type": "midweek",
+      "template": "memorial_v1",
+      "songs": {
+        "opening": null,
+        "closing": null
+      }
     }
   ],
-  "fetched_from": "https://r.jina.ai/http://https://www.jw.org/en/jehovahs-witnesses/memorial/"
+  "year_start": 2026,
+  "year_end": 2030,
+  "applied_overrides": 0
 }
