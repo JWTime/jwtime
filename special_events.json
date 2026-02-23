@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "generated_at": "2026-02-23T19:18:49+00:00",
+  "source": "https://www.jw.org/en/jehovahs-witnesses/memorial/",
+  "events": [
+    {
+      "kind": "memorial",
+      "date": "2026-04-02",
+      "week_id": "2026-14",
+      "missing_program_type": "midweek",
+      "template": "memorial_v1",
+      "songs": {
+        "opening": null,
+        "closing": null
+      }
+    }
+  ],
+  "fetched_from": "https://r.jina.ai/http://https://www.jw.org/en/jehovahs-witnesses/memorial/"
+}
