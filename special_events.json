@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-02-23T23:32:38+00:00",
+  "generated_at": "2026-03-02T21:36:27+00:00",
   "source": "rule_14_nisan_visibility_jerusalem_v1",
   "events": [
     {
@@ -12,6 +12,32 @@
       "songs": {
         "opening": null,
         "closing": null
+      },
+      "labels": {
+        "it": {
+          "song": "Cantico",
+          "talk": "Discorso commemorazione"
+        },
+        "en": {
+          "song": "Song",
+          "talk": "Memorial Talk"
+        },
+        "fr": {
+          "song": "Cantique",
+          "talk": "Discours du Mémorial"
+        },
+        "es": {
+          "song": "Canción",
+          "talk": "Discurso de la Conmemoración"
+        },
+        "de": {
+          "song": "Lied",
+          "talk": "Vortrag zur Gedenkfeier"
+        },
+        "pt_br": {
+          "song": "Cântico",
+          "talk": "Discurso da Celebração"
+        }
       }
     },
     {
@@ -23,6 +49,32 @@
       "songs": {
         "opening": null,
         "closing": null
+      },
+      "labels": {
+        "it": {
+          "song": "Cantico",
+          "talk": "Discorso commemorazione"
+        },
+        "en": {
+          "song": "Song",
+          "talk": "Memorial Talk"
+        },
+        "fr": {
+          "song": "Cantique",
+          "talk": "Discours du Mémorial"
+        },
+        "es": {
+          "song": "Canción",
+          "talk": "Discurso de la Conmemoración"
+        },
+        "de": {
+          "song": "Lied",
+          "talk": "Vortrag zur Gedenkfeier"
+        },
+        "pt_br": {
+          "song": "Cântico",
+          "talk": "Discurso da Celebração"
+        }
       }
     },
     {
@@ -34,6 +86,32 @@
       "songs": {
         "opening": null,
         "closing": null
+      },
+      "labels": {
+        "it": {
+          "song": "Cantico",
+          "talk": "Discorso commemorazione"
+        },
+        "en": {
+          "song": "Song",
+          "talk": "Memorial Talk"
+        },
+        "fr": {
+          "song": "Cantique",
+          "talk": "Discours du Mémorial"
+        },
+        "es": {
+          "song": "Canción",
+          "talk": "Discurso de la Conmemoración"
+        },
+        "de": {
+          "song": "Lied",
+          "talk": "Vortrag zur Gedenkfeier"
+        },
+        "pt_br": {
+          "song": "Cântico",
+          "talk": "Discurso da Celebração"
+        }
       }
     },
     {
@@ -45,6 +123,32 @@
       "songs": {
         "opening": null,
         "closing": null
+      },
+      "labels": {
+        "it": {
+          "song": "Cantico",
+          "talk": "Discorso commemorazione"
+        },
+        "en": {
+          "song": "Song",
+          "talk": "Memorial Talk"
+        },
+        "fr": {
+          "song": "Cantique",
+          "talk": "Discours du Mémorial"
+        },
+        "es": {
+          "song": "Canción",
+          "talk": "Discurso de la Conmemoración"
+        },
+        "de": {
+          "song": "Lied",
+          "talk": "Vortrag zur Gedenkfeier"
+        },
+        "pt_br": {
+          "song": "Cântico",
+          "talk": "Discurso da Celebração"
+        }
       }
     },
     {
@@ -56,6 +160,32 @@
       "songs": {
         "opening": null,
         "closing": null
+      },
+      "labels": {
+        "it": {
+          "song": "Cantico",
+          "talk": "Discorso commemorazione"
+        },
+        "en": {
+          "song": "Song",
+          "talk": "Memorial Talk"
+        },
+        "fr": {
+          "song": "Cantique",
+          "talk": "Discours du Mémorial"
+        },
+        "es": {
+          "song": "Canción",
+          "talk": "Discurso de la Conmemoración"
+        },
+        "de": {
+          "song": "Lied",
+          "talk": "Vortrag zur Gedenkfeier"
+        },
+        "pt_br": {
+          "song": "Cântico",
+          "talk": "Discurso da Celebração"
+        }
       }
     }
   ],
