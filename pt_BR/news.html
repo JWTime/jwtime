@@ -1,539 +1,536 @@
-<!DOCTYPE html>
+html
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Novidades e atualiza&#231;&#245;es do JW Time - Descubra as &#250;ltimas funcionalidades adicionadas ao aplicativo">
-    <title>Novidades - JW Time</title>
-    <link rel="stylesheet" href="../css/style.css">
+<meta charset="utf-8"/>
+<meta content="largura=largura do dispositivo, escala inicial=1,0" name="viewport"/>
+<meta content="Notícias e atualizações do JW Time - Confira os recursos mais recentes adicionados ao aplicativo" name="description"/>
+<title>O que há de novo - JW Time</title>
+<link href="../css/style.css" rel="stylesheet"/>
 </head>
 <body>
-    <!-- Header / Navigation -->
-    <header class="header">
-        <div class="header-content">
-            <a href="index.html" class="logo">
-                <img src="../images/jwtime-logo.png" alt="JW Time Logo" style="height: 32px; margin-right: 8px;">
+<!-- Header / Navigation -->
+<header class="header">
+<div class="header-content">
+<a class="logo" href="index.html">
+<img alt="Logotipo do JW Time" src="../images/jwtime-logo.png" style="height: 32px; margin-right: 8px;"/>
                 JW Time
             </a>
-
-            <nav class="nav">
-                <a href="index.html">In&#237;cio</a>
-                <a href="manual.html">Manual</a>
-                <a href="news.html" class="active">Novidades</a>
-                <a href="contacts.html">Contato</a>
-
-                <!-- Language Selector -->
-                <div class="lang-selector">
-                    <div class="lang-current">
-                        <span>Portugu&#234;s (BR)</span>
-                        <span>&#9662;</span>
-                    </div>
-                    <div class="lang-dropdown">
-                        <a href="../it/news.html" data-lang="it">Italiano</a>
-                        <a href="../en/news.html" data-lang="en">English</a>
-                        <a href="../es/news.html" data-lang="es">Espa&#241;ol</a>
-                        <a href="../de/news.html" data-lang="de">Deutsch</a>
-                        <a href="../fr/news.html" data-lang="fr">Fran&#231;ais</a>
-                    </div>
-                </div>
-                <!-- Theme Toggle -->
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
-                    </svg>
-                </button>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Novidades</h1>
-            <p>Descubra as &#250;ltimas funcionalidades e melhorias do JW Time</p>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <div class="container">
-        <!-- Vers&#227;o 3.0.0 (em breve) -->
-        <article class="news-item version-3-card">
-            <div class="news-header">
-                <h2 class="news-version version-3-title">Vers&#227;o 3.0.0 em breve</h2>
-            </div>
-
-            <div class="news-content">
-                <p class="version-3-subtitle">
-                    Contatempo personaliz&#225;vel, adi&#231;&#227;o do gerenciamento de Congrega&#231;&#245;es, controle remoto pelo Servidor Web e interface totalmente renovada.
+<nav class="nav">
+<a href="index.html">Home</a>
+<a href="manual.html">Manual</a>
+<a class="active" href="news.html">Novidades</a>
+<a href="contacts.html">Contatos</a>
+<!-- Language Selector -->
+<div class="lang-selector">
+<div class="lang-current"><span>Português (BR)</span><span>▾</span></div>
+<div class="lang-dropdown">
+<a data-lang="it" href="../it/news.html">Italiano</a>
+<a data-lang="en" href="../en/news.html">English</a>
+<a data-lang="es" href="../es/news.html">Español</a>
+<a data-lang="de" href="../de/news.html">Deutsch</a>
+<a data-lang="fr" href="../fr/news.html">Français</a>
+</div>
+</div>
+<!-- Theme Toggle -->
+<button aria-label="Alternar tema" class="theme-toggle" id="theme-toggle">
+<svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"></path>
+</svg>
+</button>
+</nav>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="hero">
+<div class="hero-content">
+<h1>Novidades</h1>
+<p>Descubra os recursos e melhorias mais recentes do JW Time</p>
+</div>
+</section>
+<!-- Main Content -->
+<div class="container">
+<!-- Versão 4.0.0 -->
+<article class="news-item version-4-card">
+<div class="news-header">
+<h2 class="news-version version-4-title">Versão 4.0.0</h2>
+<span class="news-date">Disponível em 3 de junho de 2026</span>
+</div>
+<div class="news-content">
+<p class="version-4-subtitle">
+                    Mídia integrada, Tela Pública, perfis de congregação, Web Monitor controlado remotamente, gravação mais flexível e ferramentas mais abrangentes para preparação de reuniões.
                 </p>
-
-                <p class="version-3-intro">
-                    Com a vers&#227;o 3.0.0, o JW Time d&#225; um passo importante adiante.<br>
-                    A principal novidade &#233; o novo Contatempo personaliz&#225;vel, que permite adaptar melhor a visualiza&#231;&#227;o &#224;s suas necessidades, partindo de presets prontos e ajustando de forma simples.
+<p class="version-4-intro">
+                    A versão 4.0.0 traz um fluxo mais completo para o JW Time: preparar o conteúdo da semana, conferir antes da reunião, exibir na Tela Pública e gerenciar cronômetros, mídia e gravação com menos etapas manuais.
                 </p>
-                <p class="version-3-intro">
-                    Junto com essa evolu&#231;&#227;o, o app tamb&#233;m traz a adi&#231;&#227;o do gerenciamento de Congrega&#231;&#245;es, uma grava&#231;&#227;o mais flex&#237;vel e uma configura&#231;&#227;o inicial mais simples, al&#233;m de uma interface totalmente renovada e de um Servidor Web mais &#250;til, que permite n&#227;o apenas acesso mais r&#225;pido pelo navegador, mas tamb&#233;m controle remoto de v&#225;rias opera&#231;&#245;es do app.
+<p class="version-4-intro">
+                    As funções previstas para 3.0 foram fundidas na 4.0.0, juntamente com o novo sistema de Mídia, a Tela Pública e os perfis de congregação. É por isso que a história vai diretamente de 2.1.0 para 4.0.0.
                 </p>
-
-                <div class="image-container">
-                    <img src="../images/manual/pt_BR/news_3_0.png" alt="Pr&#233;via da nova interface do JW Time 3.0" class="manual-image news-image-compact">
-                    <p class="image-caption">Pr&#233;via da nova interface (captura 3.0 em atualiza&#231;&#227;o).</p>
-                </div>
-
-                <div class="news-cards-grid">
-                    <div class="news-card">
-                        <h3>Novo Contatempo personaliz&#225;vel <span class="feature-badge new">NOVO</span></h3>
-                        <p>
-                            A novidade mais importante do JW Time 3.0.0 &#233; o novo sistema de personaliza&#231;&#227;o do Contatempo.
-                        </p>
-                        <p>
-                            O Contatempo n&#227;o fica mais limitado a uma visualiza&#231;&#227;o fixa: voc&#234; pode adapt&#225;-lo melhor &#224;s suas necessidades para ter uma tela mais organizada, mais leg&#237;vel e mais adequada ao seu contexto.
-                        </p>
-                        <p>
-                            Para tornar essa novidade simples desde o primeiro uso, o JW Time tamb&#233;m traz presets iniciais que permitem obter rapidamente um layout pronto. Assim, voc&#234; n&#227;o precisa come&#231;ar do zero: escolha uma base, use como est&#225; ou personalize mais apenas se quiser.
-                        </p>
-                        <p>
-                            Essa abordagem torna a configura&#231;&#227;o inicial mais acess&#237;vel e ajuda a chegar a um bom resultado em poucos passos.
-                        </p>
-                    </div>
-
-                    <div class="news-card">
-                        <h3>Adi&#231;&#227;o do gerenciamento de Congrega&#231;&#245;es <span class="feature-badge new">NOVO</span></h3>
-                        <p>
-                            O gerenciamento de congrega&#231;&#245;es foi ampliado para facilitar o trabalho em contextos diferentes, sem precisar reconfigurar o app do zero a cada vez.
-                        </p>
-                        <p>
-                            Na pr&#225;tica, voc&#234; consegue organizar melhor configura&#231;&#245;es, prefer&#234;ncias e dados ligados &#224; sua realidade local, mantendo uma estrutura mais clara e f&#225;cil de administrar no dia a dia.
-                        </p>
-                        <p>
-                            Isso ajuda especialmente quando mais de uma pessoa usa o app ou quando &#233; preciso alternar rapidamente entre configura&#231;&#245;es diferentes.
-                        </p>
-                    </div>
-
-                    <div class="news-card">
-                        <h3>Gerencie timers e programa tamb&#233;m remotamente <span class="feature-badge new">NOVO</span></h3>
-                        <p>
-                            O JW Time 3.0.0 torna o Servidor Web ainda mais &#250;til: al&#233;m da visualiza&#231;&#227;o no navegador, agora ele tamb&#233;m permite controlar remotamente v&#225;rias opera&#231;&#245;es ligadas ao timer e ao programa.
-                        </p>
-                        <p>
-                            Isso torna o uso mais pr&#225;tico a partir de outro dispositivo na mesma rede local, principalmente quando &#233; preciso agir rapidamente sem usar diretamente o computador principal.
-                        </p>
-                        <p>
-                            O acesso ao Servidor Web tamb&#233;m ficou mais r&#225;pido com QR, que permite abrir pelo celular ou tablet em poucos segundos. Onde previsto, o controle remoto pode ser protegido com as op&#231;&#245;es de acesso dispon&#237;veis.
-                        </p>
-                    </div>
-
-                    <div class="news-card">
-                        <h3>Interface totalmente renovada <span class="feature-badge new">NOVO</span></h3>
-                        <p>
-                            O JW Time tamb&#233;m foi atualizado no visual, com uma interface mais moderna, mais organizada e mais consistente.
-                        </p>
-                        <p>
-                            O novo estilo visual melhora a clareza geral do app e facilita a leitura das diferentes &#225;reas, tanto na janela principal quanto nas telas de configura&#231;&#227;o.
-                        </p>
-                        <p>
-                            O resultado &#233; uma experi&#234;ncia mais bem cuidada, mais atual e mais uniforme em todo o aplicativo.
-                        </p>
-                    </div>
-
-                    <div class="news-card">
-                        <h3>Configura&#231;&#245;es mais avan&#231;adas e configura&#231;&#227;o inicial mais clara <span class="feature-badge improved">MELHORADO</span></h3>
-                        <p>
-                            A configura&#231;&#227;o do app tamb&#233;m ficou mais organizada e mais &#250;til no uso real.
-                        </p>
-                        <p>
-                            As configura&#231;&#245;es gerais agora oferecem acesso mais claro &#224;s op&#231;&#245;es principais, incluindo gerenciamento de layout do Contatempo e ajustes ligados &#224; nova experi&#234;ncia de personaliza&#231;&#227;o.
-                        </p>
-                        <p>
-                            Isso facilita configurar o JW Time desde o in&#237;cio, especialmente para quem quer partir de solu&#231;&#245;es prontas e ajustar apenas o que realmente precisa.
-                        </p>
-                    </div>
-
-                    <div class="news-card">
-                        <h3>Grava&#231;&#227;o mais flex&#237;vel <span class="feature-badge improved">MELHORADO</span></h3>
-                        <p>
-                            A grava&#231;&#227;o foi deixada mais flex&#237;vel para se adaptar melhor &#224; realidade da reuni&#227;o, em que ajustes r&#225;pidos costumam ser necess&#225;rios durante diferentes fases.
-                        </p>
-                        <p>
-                            O objetivo &#233; reduzir interrup&#231;&#245;es operacionais: voc&#234; consegue gerenciar pausa, retomada e fluxo geral com mais facilidade, sem perder o controle.
-                        </p>
-                        <p>
-                            Para o usu&#225;rio, isso significa um processo mais c&#244;modo e previs&#237;vel, com menos passos manuais nos momentos que exigem mais concentra&#231;&#227;o.
-                        </p>
-                    </div>
-
-                    <div class="news-card">
-                        <h3>Outras melhorias gerais <span class="feature-badge improved">MELHORADO</span></h3>
-                        <p>
-                            Al&#233;m das principais novidades, o JW Time 3.0.0 tamb&#233;m inclui diversas melhorias gerais que tornam o app mais coerente, mais organizado e mais agrad&#225;vel de usar.
-                        </p>
-                        <p>
-                            Muitos desses ajustes melhoram a qualidade geral da experi&#234;ncia, com maior continuidade visual entre telas e configura&#231;&#227;o mais clara em diferentes &#225;reas do app.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </article>
-
-        <!-- Vers&#227;o 2.1.0 -->
-        <article class="news-item version-2-card">
-            <div class="news-header">
-                <h2 class="news-version version-2-title">Vers&#227;o 2.1.0</h2>
-            </div>
-
-            <div class="news-content">
-                <p style="font-weight: 700; margin-bottom: var(--spacing-sm);">
-                    SOLU&#199;&#195;O PARA TODAS AS CONGREGA&#199;&#213;ES QUE N&#195;O CONSEGUIAM BAIXAR OS PROGRAMAS.
+<p class="version-4-intro">
+                    Abaixo você encontra as principais novidades, com exemplos concretos do que muda no uso real do app.
                 </p>
-                <p class="version-2-desc" style="font-size: 1.1rem; margin-bottom: var(--spacing-xl);">
-                    Programas sempre acess&#237;veis, com novas op&#231;&#245;es de download.
+<div class="image-container news-showcase-container">
+<div class="news-showcase">
+<figure class="news-showcase-main">
+<img alt="Pré-visualização da nova interface do JW Time 4.0" class="manual-image news-showcase-image" src="../images/manual/pt_BR/schermata-principale-v4-news.png"/>
+</figure>
+<figure class="news-showcase-media">
+<img alt="Nova janela de mídia do JW Time 4.0" class="manual-image news-showcase-image" src="../images/manual/pt_BR/media-window-v4-real.png"/>
+</figure>
+</div>
+<p class="image-caption">Prévia da nova interface e janela de mídia do JW Time 4.0.</p>
+</div>
+<div class="news-cards-grid">
+<div class="news-card">
+<h3>Resumo <span class="feature-badge new">NOVO</span></h3>
+<ul>
+<li>Colete imagens, vídeos, PDFs, URLs, músicas e conteúdo oficial na nova janela de mídia.</li>
+<li>Mostrar mídia e conteúdo visual em uma Tela Pública separada do contador de tempo.</li>
+<li>Personalize a tela do contador de tempo com predefinições, editores, planos de fundo, cores, logotipo, relógio e níveis.</li>
+<li>Use perfis de congregação separados para telas, janelas, servidores, gravação, mídia e layout.</li>
+<li>Abra o Web Monitor via QR e, se autorizado, verifique o cronômetro e a playlist do navegador.</li>
+<li>Prepare pacotes e backups mais completos para trabalhar offline ou mover sua configuração.</li>
+</ul>
+</div>
+<div class="news-card">
+<h3>Preparação de mídia e reunião <span class="feature-badge new">NOVO</span></h3>
+<p>
+                            A nova janela Mídia se torna o local onde você prepara e controla o conteúdo para uso durante a reunião.
+                        </p>
+<ul>
+<li>Adicione arquivos locais, imagens, vídeos, PDFs e URLs.</li>
+<li>Veja músicas, mídias oficiais e conteúdos vinculados à semana.</li>
+<li>Organize o conteúdo do manual em grupos e reordene os itens de acordo com a programação.</li>
+<li>Verifique com antecedência o que está disponível e o que falta.</li>
+<li>Abrir ou mostrar conteúdo na Tela Pública sem procurá-lo em pastas diferentes.</li>
+</ul>
+</div>
+<div class="news-card">
+<h3>Mídia oficial, playlists e pacotes <span class="feature-badge new">NOVO</span></h3>
+<p>
+                            O JW Time pode preparar e reutilizar conteúdo oficial e local de maneira mais ordenada, mesmo quando você precisa trabalhar offline.
+                        </p>
+<ul>
+<li>Baixe e reutilize mídias oficiais já presentes localmente.</li>
+<li>Gerencie um cache dedicado para músicas oficiais, com verificações de disponibilidade.</li>
+<li>Importe playlists e conecte material já preparado.</li>
+<li>Crie ou use pacotes de mídia com arquivos locais, URLs, imagens e conteúdo oficial.</li>
+<li>Abra o Media Checker para ver arquivos ausentes, conteúdo offline, problemas e tamanhos locais.</li>
+<li>Copie os detalhes do cheque quando precisar verificar ou compartilhar um problema.</li>
+</ul>
+<p>
+<strong>Nota importante:</strong> o caminho alternativo introduzido no JW Time 2.1.0 se aplica aos programas semanais e de fim de semana. Para a m&iacute;dia oficial n&atilde;o existe um segundo servidor de recupera&ccedil;&atilde;o. Se roteador, firewall, DNS ou filtro de conte&uacute;do bloquear o acesso do JW Time ao jw.org ou a sites religiosos, a janela de m&iacute;dia talvez n&atilde;o consiga baixar a m&iacute;dia oficial. Arquivos j&aacute; baixados, m&iacute;dia local e conte&uacute;do adicionado manualmente continuam utiliz&aacute;veis.
+</p>
+</div>
+<div class="news-card">
+<h3>Tela do Contador de Tempo e Tela Pública <span class="feature-badge new">NOVO</span></h3>
+<p>
+                            Os displays foram separados: o Contador de Tempo é para o condutor, a Tela Pública é para a sala.
+                        </p>
+<ul>
+<li>Comece com predefinições prontas para a tela do contador de tempo.</li>
+<li>Edite layout, camadas, cores, planos de fundo, logotipo, relógio e textos com o editor.</li>
+<li>Mostre imagens, PDFs, vídeos e conteúdo visual na Tela Pública.</li>
+<li>Mantenha o cronômetro visível para o anfitrião separado do conteúdo mostrado ao público.</li>
+<li>Recupera melhor janelas fora da tela e alterações nas configurações do monitor.</li>
+</ul>
+</div>
+<div class="news-card">
+<h3>Congregações, perfis e backups <span class="feature-badge new">NOVO</span></h3>
+<p>
+                            Os perfis de congregação evitam a necessidade de reconfigurar o JW Time quando o aplicativo é usado em diferentes contextos.
+                        </p>
+<ul>
+<li>Mantenha o idioma, o tema, a escala da interface, as telas e as janelas separadas.</li>
+<li>Salve diferentes configurações de servidor Web, gravação, mídia e layout.</li>
+<li>Importe, exporte e duplique perfis para preparar configurações semelhantes.</li>
+<li>Transfira as configurações para outro computador com backups mais completos.</li>
+<li>As configurações existentes são migradas para o primeiro perfil.</li>
+</ul>
+</div>
+<div class="news-card">
+<h3>Servidor web e controle remoto <span class="feature-badge new">NOVO</span></h3>
+<p>
+                            O Servidor web só pode ser utilizado para visualizar o programa ou, se autorizado, para intervir a partir do navegador.
+                        </p>
+<ul>
+<li>Abra o Web Monitor em seu telefone, tablet ou outro computador na mesma rede.</li>
+<li>Use o QR para acessar o endereço do servidor Web mais rapidamente.</li>
+<li>Acompanhe o cronômetro, a programação e o horário estimado de término em tempo real.</li>
+<li>Com a função Controller você pode iniciar, parar, passar para a próxima parte e alterar valores disponíveis na playlist.</li>
+<li>Proteja o Editor, o Controlador e o acesso remoto com PIN quando necessário.</li>
+</ul>
+</div>
+<div class="news-card">
+<h3>Gravação e áudio <span class="feature-badge improved">MELHORADO</span></h3>
+<p>
+                            A gravação foi melhor adaptada ao fluxo real da reunião, onde pausas, retomadas e verificações rápidas podem ser úteis.
+                        </p>
+<ul>
+<li>Gerencie a pausa e retome a gravação de forma mais direta.</li>
+<li>Melhor controle dos dispositivos de áudio configurados.</li>
+<li>Veja informações úteis do botão REC e dos níveis de áudio.</li>
+<li>Integre gravação, mídia e timer sem abrir painéis desnecessários.</li>
+</ul>
+</div>
+<div class="news-card">
+<h3>Configurações, Assistente de Inicialização e Interface <span class="feature-badge improved">MELHORADO</span></h3>
+<p>
+                            As configurações foram reorganizadas por região e o Assistente de Inicialização ajuda você a configurar as partes essenciais.
+                        </p>
+<ul>
+<li>Configure idioma, displays, servidor, backup e opções principais durante a primeira inicialização.</li>
+<li>Encontre o tema, a escala da interface e a linguagem do programa com mais facilidade.</li>
+<li>Use painéis de configurações separados para Mídia, Zoom, Servidor web, Gravações e Backups.</li>
+<li>Consulte a janela Novidades do aplicativo mesmo após o primeiro lançamento.</li>
+</ul>
+</div>
+<div class="news-card">
+<h3>Estabilidade e correções <span class="feature-badge fixed">CORRETO</span></h3>
+<p>
+                            Muitas correções dizem respeito a situações práticas que podem ocorrer durante o uso semanal.
+                        </p>
+<ul>
+<li>Janelas mais lembradas e recuperação mais confiável após alterações no monitor.</li>
+<li>Fechamento de app mais limpo, mesmo com servidores, mídias e telas abertas.</li>
+<li>Gerenciamento mais estável de Tela Pública, Servidor web, mídia e gravação.</li>
+<li>Downloads, cache de mídia, caminhos locais e arquivos temporários aprimorados.</li>
+<li>Estados de aplicativos mais consistentes ao alterar semanas, idiomas, congregações ou horários.</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+<!-- Versão 2.1.0 -->
+<article class="news-item">
+<div class="news-header">
+<h2 class="news-version">Versão 2.1.0</h2>
+</div>
+<div class="news-content">
+<p style="font-weight: 700; margin-bottom: var(--spacing-sm);">
+                    SOLUÇÃO PARA TODAS AS CONGREGAÇÕES QUE NÃO CONSEGUEM BAIXAR OS PROGRAMAS.
                 </p>
-
-                <div class="highlight-box">
-                <details>
-                <summary style="cursor: pointer; font-weight: bold;">
-                <h3 style="display: inline; margin: 0;">&#9888;&#65039; Problemas com o Servidor Web?</h3>
-                </summary>
-                <div style="margin-top: 15px;">
-                <p style="font-weight: bold; margin-bottom: 15px;">
-                ATEN&#199;&#195;O: Antes de continuar, fa&#231;a um backup do app pois ser&#225; necess&#225;rio desinstal&#225;-lo.
+<p style="font-size: 1.1rem; margin-bottom: var(--spacing-xl);">
+                    Programas sempre acessíveis, com novas opções de download.
                 </p>
-                <p>
-                Alguns usu&#225;rios que atualizam de vers&#245;es anteriores podem ter problemas com a fun&#231;&#227;o <strong>Servidor Web</strong>. Se o Servidor Web n&#227;o responder, siga estes passos para limpar as regras do firewall:
+<div class="highlight-box">
+<details>
+<summary style="cursor: pointer; font-weight: bold;">
+<h3 style="display: inline; margin: 0;">⚠️ Problemas com o Servidor web?</h3>
+</summary>
+<div style="margin-top: 15px;">
+<p style="font-weight: bold; margin-bottom: 15px;">
+                AVISO: Antes de continuar, faça um backup do aplicativo, pois será necessário desinstalá-lo.
                 </p>
-                <p><strong>Solu&#231;&#227;o (fazer apenas uma vez):</strong></p>
-                <ol style="margin-left: 20px; margin-bottom: 10px;">
-                <li>Pressione <strong>Iniciar</strong> e procure: "Windows Defender Firewall com seguran&#231;a avan&#231;ada". Abra-o.</li>
-                <li>&#192; esquerda, clique em <strong>Regras de Entrada</strong>.</li>
-                <li>Na lista, procure entradas que contenham <strong>JWTime</strong>.</li>
-                <li>Exclua todas (clique com o bot&#227;o direito na regra &#8594; Excluir).</li>
-                </ol>
-                <p>
-                Ap&#243;s excluir as regras, reinstale o JWTime e recarregue as configura&#231;&#245;es. Em seguida, tente usar o Monitor Web.
-                <br><em>Depois de concluir essa opera&#231;&#227;o, n&#227;o ser&#225; necess&#225;rio repeti-la.</em>
+<p>
+                Alguns usuários que atualizam de versões anteriores podem enfrentar problemas com o recurso <strong>Servidor web</strong>.                Se o servidor Web não responder, siga estas etapas para limpar as regras de firewall:
                 </p>
-                </div>
-                </details>
-                </div>
-
-                <div class="news-cards-grid">
-                    <div class="news-card">
-                        <h3>Download alternativo autom&#225;tico <span class="feature-badge new">NOVO</span></h3>
-                        <p>
-                            Caminho adicional para baixar os programas semanais ou de fim de semana quando roteadores ou firewalls s&#227;o restritivos.
+<p><strong>Solução (uso único):</strong></p>
+<ol style="margin-left: 20px; margin-bottom: 10px;">
+<li>Pressione <strong>Inicie</strong> e procure por: "Firewall do Windows Defender com Segurança Avançada". Abra.</li>
+<li>À esquerda, clique em <strong>Regras de conexão de entrada</strong>.</li>
+<li>Na lista, procure por entradas que contenham <strong>JWTime</strong>.</li>
+<li>Exclua todas elas (clique com o botão direito na regra → Excluir).</li>
+</ol>
+<p>
+                Após excluir as regras, reinstale o JWTime e recarregue as configurações. Em seguida, tente usar o WEB Monitor.
+                <br/><em>Depois de realizar esta operação, você não precisará mais fazê-la novamente.</em>
+</p>
+</div>
+</details>
+</div>
+<div class="news-cards-grid">
+<div class="news-card">
+<h3>Download alternativo automático <span class="feature-badge new">NOVO</span></h3>
+<p>
+                            Caminho adicional para baixar programas semanais ou de fim de semana quando roteadores ou firewalls são restritivos.
                         </p>
-                        <p>
-                            <strong>Na aba Conex&#245;es voc&#234; tamb&#233;m pode for&#231;ar o download dos programas de um servidor espec&#237;fico.</strong>
+<p>
+<strong>Na aba Conexões você também pode forçar o download de programas de um servidor específico.</strong>
+</p>
+<p>
+<strong>Nota:</strong> o segundo servidor tem apenas 12 semanas de memória.
                         </p>
-                        <p>
-                            <strong>Nota:</strong> o segundo servidor mant&#233;m apenas 12 semanas.
+<p>
+<em>Obrigado ao Mauro pelo precioso suporte na análise de problemas de conectividade WOL causados ​​por configurações específicas de roteadores.</em>
+</p>
+</div>
+<div class="news-card">
+<h3>Monitor web aprimorado <span class="feature-badge new">NOVO</span></h3>
+<ul>
+<li>Visualize músicas e envie mensagens na tela em modo de tela parcial ou cheia.</li>
+<li>Reconexão automática após desconexão e proteção de tela para proteger o monitor conectado.</li>
+</ul>
+</div>
+<div class="news-card">
+<h3>Botão Pausar/Retomar gravação <span class="feature-badge improved">MELHORADO</span></h3>
+<p>
+                           Agora você pode pausar a gravação e retomá-la mais tarde, mantendo um único arquivo. Ideal para excluir horários específicos, como orações, ou gerenciar interrupções inesperadas.
                         </p>
-                    </div>
-
-                    <div class="news-card">
-                        <h3>Monitor Web aprimorado <span class="feature-badge new">NOVO</span></h3>
-                        <ul>
-                            <li>Exibi&#231;&#227;o de c&#226;nticos e envio de mensagens na tela (parcial ou tela cheia).</li>
-                            <li>Reconex&#227;o autom&#225;tica em caso de desconex&#227;o do servidor e protetor de tela para proteger a tela conectada.</li>
-                        </ul>
-                    </div>
-
-                    <div class="news-card">
-                        <h3>Bot&#227;o Pausar/Retomar na grava&#231;&#227;o <span class="feature-badge improved">MELHORADO</span></h3>
-                        <p>
-                            Voc&#234; pode pausar uma grava&#231;&#227;o sem fech&#225;-la e retomar de forma limpa quando precisar.
+</div>
+<div class="news-card">
+<h3>Gerenciamento de Telas e Janelas <span class="feature-badge improved">MELHORADO</span></h3>
+<p>
+                            Melhor gerenciamento de janelas em tela cheia (Contador de Tempo e Início de Reunião). Agora o sistema evita sobreposições acidentais na interface principal, mesmo em caso de desconexão repentina do monitor externo, garantindo sempre o controle total do app.
                         </p>
-                    </div>
-
-                    <div class="news-card">
-                        <h3>Gest&#227;o de Telas e Janelas <span class="feature-badge improved">MELHORADO</span></h3>
-                        <p>
-                            Melhorada a gest&#227;o das janelas em tela cheia (Contatempo e In&#237;cio da Reuni&#227;o). Agora o sistema evita sobreposi&#231;&#245;es acidentais na interface principal, mesmo em caso de desconex&#227;o repentina do monitor externo, garantindo total controle do app.
+</div>
+<div class="news-card">
+<h3>Diagnóstico aprimorado <span class="feature-badge improved">MELHORADO</span></h3>
+<p>
+                            Teste de conexão com dados mais úteis e mensagens de erro mais claras quando a recuperação do programa online falha.
                         </p>
-                    </div>
-
-                    <div class="news-card">
-                        <h3>Diagn&#243;stico aprimorado <span class="feature-badge improved">MELHORADO</span></h3>
-                        <p>
-                            Testes de conex&#227;o com mais dados &#250;teis e mensagens de erro mais claras quando falha a recupera&#231;&#227;o dos programas online.
+</div>
+<div class="news-card">
+<h3>Várias melhorias e correções de bugs</h3>
+<p>
+                            Otimizações gerais, melhorias cosméticas e pequenas correções para estabilidade e clareza.
                         </p>
-                    </div>
-
-                    <div class="news-card">
-                        <h3>V&#225;rias melhorias e corre&#231;&#245;es de bugs</h3>
-                        <p>
-                            Otimiza&#231;&#245;es gerais, melhorias est&#233;ticas e corre&#231;&#245;es menores para estabilidade e clareza.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </article>
-
-        <!-- Vers&#227;o 2.0.0 -->
-        <article class="news-item">
-            <div class="news-header">
-                <h2 class="news-version">Vers&#227;o 2.0.0</h2>
-                            </div>
-
-            <div class="news-content">
-                <p class="version-2-desc" style="font-size: 1.1rem; margin-bottom: var(--spacing-xl);">
-                    Uma vers&#227;o completamente renovada com funcionalidades avan&#231;adas para gerenciamento de reuni&#245;es.
+</div>
+</div>
+</div>
+</article>
+<!-- Versão 2.0.0 -->
+<article class="news-item">
+<div class="news-header">
+<h2 class="news-version">Versão 2.0.0</h2>
+</div>
+<div class="news-content">
+<p style="font-size: 1.1rem; margin-bottom: var(--spacing-xl);">
+                    Uma versão totalmente renovada com recursos avançados para gerenciamento de reuniões.
                 </p>
-
-                <div class="highlight-box">
-                    <h3>&#9888;&#65039; Recomenda&#231;&#227;o de Backup</h3>
-                    <p>
-                        Com esta vers&#227;o s&#227;o adicionadas muitas op&#231;&#245;es novas que n&#227;o est&#227;o presentes nos backups antigos:
-                        o novo formato de salvamento &#233; <strong>.jwtimesettings</strong>, mas voc&#234; ainda pode carregar
-                        arquivos de backup antigos no formato .json. Ap&#243;s configurar as novas op&#231;&#245;es da vers&#227;o 2.0,
-                        &#233; recomend&#225;vel criar tamb&#233;m um novo backup no formato .jwtimesettings, assim todas
-                        as novas op&#231;&#245;es tamb&#233;m ser&#227;o salvas.
+<div class="highlight-box">
+<h3>⚠️ Conselhos de backup</h3>
+<p>
+                        Com esta versão são adicionadas muitas novas opções que não estão presentes nos backups antigos:
+                        o novo formato de salvamento é <strong>.jwtimesettings</strong>, mas você ainda pode carregar o
+                        arquivos de backup antigos no formato .json. Depois de definir as configurações da nova versão 2.0,
+                        é aconselhável criar também um novo backup no formato .jwtimesettings, para que sejam armazenados
+                        todas as novas opções também.
                     </p>
-                </div>
-
-                <!-- News Cards Grid -->
-                <div class="news-cards-grid">
-                <!-- Card 1: Idioma Portugu&#234;s -->
-                <div class="news-card">
-                    <h3>Idioma Portugu&#234;s Adicionado (Brasil) <span class="feature-badge new">NOVO</span></h3>
-                    <p>
-                        O idioma Portugu&#234;s (Brasil) foi adicionado, selecion&#225;vel no menu Configura&#231;&#245;es.
-                    </p>
-                </div>
-
-                <!-- Card 2: Grava&#231;&#227;o -->
-                <div class="news-card">
-                    <h3>Grava&#231;&#227;o de Reuni&#245;es <span class="feature-badge new">NOVO</span></h3>
-                    <p>
-                        A vers&#227;o 2.0 introduz uma nova fun&#231;&#227;o de grava&#231;&#227;o de &#225;udio das reuni&#245;es.
-                    </p>
-                    <p><strong>Onde se encontra:</strong></p>
-                    <ul>
-                        <li>Janela Configura&#231;&#245;es: nova aba <strong>"Grava&#231;&#227;o"</strong></li>
-                        <li>Janela principal: novo bot&#227;o <strong>REC</strong></li>
-                    </ul>
-                    <p><strong>Funcionalidades principais:</strong></p>
-                    <ul>
-                        <li>Escolha da pasta de destino</li>
-                        <li>Teste de grava&#231;&#227;o</li>
-                        <li>Ajuste de volumes de microfone e &#225;udio do PC</li>
-                        <li>Fun&#231;&#227;o "ducking" autom&#225;tica</li>
-                        <li>Estat&#237;sticas de espa&#231;o e arquivos</li>
-                        <li>Controle manual com bot&#227;o REC</li>
-                    </ul>
-                </div>
-
-                <!-- Card 3: Backup OFFLINE -->
-                <div class="news-card">
-                    <h3>Backup para Modo OFFLINE <span class="feature-badge new">NOVO</span></h3>
-                    <p><strong>Backup autom&#225;tico dos programas semanais:</strong></p>
-                    <ul>
-                        <li>At&#233; 12 semanas armazenadas automaticamente</li>
-                        <li>Recupera&#231;&#227;o de programa mesmo sem conex&#227;o</li>
-                        <li>Funciona em segundo plano</li>
-                    </ul>
-                    <p><strong>Backups exportados para uso OFFLINE:</strong></p>
-                    <ul>
-                        <li>Exporta&#231;&#227;o manual de pacotes de programas</li>
-                        <li>Transfer&#237;veis para outros PCs sem internet</li>
-                        <li>Ideal para PCs no Sal&#227;o do Reino n&#227;o conectados &#224; rede</li>
-                    </ul>
-                    <p><strong>Gerenciamento multil&#237;ngue:</strong></p>
-                    <ul>
-                        <li>Backups distintos para cada idioma (IT, EN, ES, DE, pt_BR)</li>
-                        <li>Sem sobreposi&#231;&#227;o entre diferentes idiomas</li>
-                    </ul>
-                </div>
-
-                <!-- Card 4: Conex&#227;o e Log -->
-                <div class="news-card">
-                    <h3>Conex&#227;o, Servidor Web e Log <span class="feature-badge improved">MELHORADO</span></h3>
-                    <p><strong>Teste de conex&#227;o avan&#231;ado:</strong></p>
-                    <ul>
-                        <li>Verificar conex&#227;o &#224; internet e sites necess&#225;rios</li>
-                        <li>Verificar HTTPS e certificados</li>
-                        <li>Verificar proxy do sistema</li>
-                        <li>Verificar sincroniza&#231;&#227;o de hor&#225;rio</li>
-                        <li>Testar grava&#231;&#227;o de pastas (log, cache, backup)</li>
-                    </ul>
-                    <p><strong>Logs melhorados:</strong></p>
-                    <ul>
-                        <li>Abertura direta da pasta de log nas configura&#231;&#245;es</li>
-                        <li>Mensagens mais claras e &#250;teis</li>
-                    </ul>
-                    <p><strong>P&#225;gina do Servidor web:</strong></p>
-                    <ul>
-                        <li>Suporte a tema claro/escuro</li>
-                    </ul>
-                </div>
-
-                <!-- Card 5: Listas Manuais -->
-                <div class="news-card">
-                    <h3>Salvar Listas Manuais <span class="feature-badge new">NOVO</span></h3>
-                    <p>
-                        Quando voc&#234; pressiona o bot&#227;o "Manual" na aba Programas, agora voc&#234; tem dois novos bot&#245;es:
-                    </p>
-                    <ul>
-                        <li><strong>"Salvar lista manual"</strong> - Salva sua lista personalizada</li>
-                        <li><strong>"Carregar lista manual"</strong> - Recupera uma lista salva</li>
-                    </ul>
-                    <p><strong>Vantagens:</strong></p>
-                    <ul>
-                        <li>Criar listas completamente personalizadas</li>
-                        <li>Salvar com um nome identificativo</li>
-                        <li>Recuperar sem ter que reescrever</li>
-                        <li>Os bot&#245;es desaparecem quando voc&#234; retorna para Meio de semana/Fim de semana</li>
-                    </ul>
-                </div>
-
-                <!-- Card 6: Tema Claro -->
-                <div class="news-card">
-                    <h3>Novo Tema Claro <span class="feature-badge improved">MELHORADO</span></h3>
-                    <p>
-                        O novo tema claro foi introduzido, completamente adicionado na vers&#227;o 2.0.
-                    </p>
-                    <p><strong>Melhorias do tema claro:</strong></p>
-                    <ul>
-                        <li>Cores mais leg&#237;veis para Nossa Vida Crist&#227; e Fa&#231;a Seu Melhor no Minist&#233;rio</li>
-                        <li>Sele&#231;&#227;o de c&#233;lulas mais evidente</li>
-                        <li>Cores de texto corrigidas na tabela e exibi&#231;&#227;o ativa</li>
-                        <li>Corrigido defeito no popup de c&#226;ntico do orador</li>
-                    </ul>
-                    <p><strong>Interface geral:</strong></p>
-                    <ul>
-                        <li>Melhorias para maior clareza</li>
-                        <li>Design mais uniforme e coerente</li>
-                    </ul>
-                </div>
-            </div>
-            </div>
-        </article>
-
-        <!-- Vers&#227;o 1.8.4 -->
-        <article class="news-item">
-            <div class="news-header">
-                <h2 class="news-version">Vers&#227;o 1.8.4</h2>
-                <span class="news-date">Atualiza&#231;&#227;o Importante</span>
-            </div>
-            <div class="news-content">
-                <h3>Estudo de A Sentinela Adaptativo</h3>
-                <p>
-                    O aplicativo ajusta automaticamente a dura&#231;&#227;o do Estudo de A Sentinela para ajudar a encerrar
-                    no hor&#225;rio programado da reuni&#227;o. Esta fun&#231;&#227;o &#233; ativada nas <strong>Configura&#231;&#245;es Gerais</strong>.
+</div>
+<!-- News Cards Grid -->
+<div class="news-cards-grid">
+<!-- Card 1: Lingua Portoghese -->
+<div class="news-card">
+<h3>Adicionado Idioma Português (Brasil) <span class="feature-badge new">NOVO</span></h3>
+<p>
+                            O idioma Português (Brasil) foi adicionado, selecionável no menu Configurações.
+                        </p>
+</div>
+<!-- Card 2: Gravação -->
+<div class="news-card">
+<h3>Gravação de Reuniões <span class="feature-badge new">NOVO</span></h3>
+<p>
+                            A versão 2.0 introduz uma nova função para gravação de áudio de reuniões.
+                        </p>
+<p><strong>Onde está:</strong></p>
+<ul>
+<li>Janela de configurações: nova aba <strong>"Gravação"</strong></li>
+<li>Janela principal: novo botão <strong>REC</strong></li>
+</ul>
+<p><strong>Principais características:</strong></p>
+<ul>
+<li>Escolha a pasta de destino</li>
+<li>Teste de gravação</li>
+<li>Microfone e ajuste de volume de áudio do PC</li>
+<li>Função de "ducking" automática</li>
+<li>Estatísticas de espaço e arquivo</li>
+<li>Controle manual com botão REC</li>
+</ul>
+</div>
+<!-- Card 3: Backup OFFLINE -->
+<div class="news-card">
+<h3>Backup para modo OFFLINE <span class="feature-badge new">NOVO</span></h3>
+<p><strong>Backup de programas semanais automáticos:</strong></p>
+<ul>
+<li>Até 12 semanas armazenadas automaticamente</li>
+<li>Recuperação do programa mesmo sem conexão</li>
+<li>Funciona em segundo plano</li>
+</ul>
+<p><strong>Backups exportados para uso OFFLINE:</strong></p>
+<ul>
+<li>Exportação manual de pacotes de programas</li>
+<li>Transferível para outros PCs sem internet</li>
+<li>Ideal para PCs de sala não conectados à rede</li>
+</ul>
+<p><strong>Gerenciamento multilíngue:</strong></p>
+<ul>
+<li>Backups separados para cada idioma (IT, EN, ES, DE, pt_BR)</li>
+<li>Sem sobreposição entre diferentes idiomas</li>
+</ul>
+</div>
+<!-- Card 4: Connessione e Log -->
+<div class="news-card">
+<h3>Conexão, Servidor web e Log <span class="feature-badge improved">MELHORADO</span></h3>
+<p><strong>Teste de conexão avançado:</strong></p>
+<ul>
+<li>Verifique a conexão com a Internet e os sites necessários</li>
+<li>HTTPS e verificação de certificado</li>
+<li>Verifique o proxy do sistema</li>
+<li>Verificação de sincronização de tempo</li>
+<li>Teste de escrita de pasta (log, cache, backup)</li>
+</ul>
+<p><strong>Logs aprimorados:</strong></p>
+<ul>
+<li>Abrindo diretamente a pasta de log de configurações</li>
+<li>Mensagens mais claras e úteis</li>
+</ul>
+<p><strong>Página do servidor Web:</strong></p>
+<ul>
+<li>Suporte a tema claro/escuro</li>
+</ul>
+</div>
+<!-- Card 5: Elenchi Manuali -->
+<div class="news-card">
+<h3>Salvando listas manuais <span class="feature-badge new">NOVO</span></h3>
+<p>
+                            Quando você pressiona o botão "Manual" na guia Programas, agora você tem dois novos botões:
+                        </p>
+<ul>
+<li><strong>"Salvar lista manual"</strong> - Salve sua lista personalizada</li>
+<li><strong>"Carregar lista manual"</strong> - Recuperar uma lista salva</li>
+</ul>
+<p><strong>Vantagens:</strong></p>
+<ul>
+<li>Cria listas totalmente personalizadas</li>
+<li>Salve com um nome identificador</li>
+<li>Recupere sem precisar digitar novamente</li>
+<li>Os botões desaparecem quando você retorna para Meio de Semana/Fim de Semana</li>
+</ul>
+</div>
+<!-- Card 6: Tema Chiaro -->
+<div class="news-card">
+<h3>Novo Tema Light <span class="feature-badge improved">MELHORADO</span></h3>
+<p>
+                            O novo tema light foi introduzido, totalmente adicionado na versão 2.0.
+                        </p>
+<p><strong>Melhorias no tema claro:</strong></p>
+<ul>
+<li>Cores mais legíveis para a vida e os exercícios cristãos</li>
+<li>Seleção de células mais óbvia</li>
+<li>Cores de texto corrigidas na tabela e exibição ativa</li>
+<li>Corrigido defeito no pop-up do hino do orador</li>
+</ul>
+<p><strong>Interface geral:</strong></p>
+<ul>
+<li>Melhorias para maior clareza</li>
+<li>Design mais suave e consistente</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+<!-- Versão 1.8.4 -->
+<article class="news-item">
+<div class="news-header">
+<h2 class="news-version">Versão 1.8.4</h2>
+<span class="news-date">Atualização principal</span>
+</div>
+<div class="news-content">
+<h3>Estudo Adaptativo da Torre de Vigia</h3>
+<p>
+                    O aplicativo ajusta automaticamente a duração do Estudo de A Sentinela para ajudar a fechar
+                    no horário agendado da reunião. Esta função é ativada a partir do <strong>Configurações Gerais</strong>.
                 </p>
-
-                <h3>Indicador de Desvio de Hor&#225;rio</h3>
-                <p>
-                    Sistema de sinaliza&#231;&#227;o em tempo real que mostra se a reuni&#227;o est&#225;:
+<h3>Indicador de Compensação de Tempo</h3>
+<p>
+                    Sistema de relatórios em tempo real que mostra se a reunião está:
                 </p>
-                <ul>
-                    <li><strong style="color: #ef4444;">Atrasada (Vermelho):</strong> Mais de 1 minuto de atraso</li>
-                    <li><strong style="color: #fbbf24;">Atrasada (Amarelo):</strong> At&#233; 1 minuto de atraso</li>
-                    <li><strong class="accent-text">Adiantada (Verde):</strong> A reuni&#227;o est&#225; progredindo mais r&#225;pido do que o previsto</li>
-                    <li><strong>Perfeitamente no hor&#225;rio:</strong> Nenhuma cor exibida</li>
-                </ul>
-                <p>O indicador atualiza automaticamente em tempo real durante a reuni&#227;o.</p>
-
-                <h3>Melhorias T&#233;cnicas</h3>
-                <ul>
-                    <li>Sincroniza&#231;&#227;o de temporizadores otimizada para maior precis&#227;o</li>
-                    <li>Estabilidade melhorada da Tela de Cron&#244;metro em monitores externos</li>
-                    <li>Corre&#231;&#245;es gr&#225;ficas menores na interface</li>
-                    <li>Desempenho geral otimizado</li>
-                </ul>
-            </div>
-        </article>
-
-        <!-- Vers&#227;o 1.8.0 -->
-        <article class="news-item">
-            <div class="news-header">
-                <h2 class="news-version">Vers&#227;o 1.8.0</h2>
-                <span class="news-date">Funcionalidade Pausa</span>
-            </div>
-            <div class="news-content">
-                <h3>Fun&#231;&#227;o Pausa</h3>
-                <p>
-                    Introduzida a fun&#231;&#227;o <strong>Pausa (ZZ)</strong> que pausa o temporizador atual
-                    mostrando o indicador &#9208;. O aplicativo acompanha o "Tempo de pausa/troca de orador total".
+<ul>
+<li><strong style="color: #ef4444;">Atrasada (Vermelho):</strong> Mais de 1 minuto de atraso</li>
+<li><strong style="color: #fbbf24;">Atrasada (Amarelo):</strong> Até 1 minuto de atraso</li>
+<li><strong class="accent-text">Adiante (Verde):</strong> A reunião prossegue mais rápido que o esperado</li>
+<li><strong>Na hora certa:</strong> Nenhuma cor exibida</li>
+</ul>
+<p>O indicador é atualizado automaticamente em tempo real durante a reunião.</p>
+<h3>Melhorias técnicas</h3>
+<ul>
+<li>Sincronização otimizada do temporizador para maior precisão</li>
+<li>Estabilidade aprimorada da tela do contador de tempo em monitores externos</li>
+<li>Pequenas correções gráficas na interface</li>
+<li>Desempenho geral otimizado</li>
+</ul>
+</div>
+</article>
+<!-- Versão 1.8.0 -->
+<article class="news-item">
+<div class="news-header">
+<h2 class="news-version">Versão 1.8.0</h2>
+<span class="news-date">Funcionalidade de pausa</span>
+</div>
+<div class="news-content">
+<h3>Função de pausa</h3>
+<p>
+                    Introduzida a função <strong>Pausa (ZZ)</strong> que pausa o cronômetro atual
+                    mostrando o indicador ⏸. O aplicativo rastreia “Tempo total de pausa/troca de alto-falante”.
                 </p>
-                <p>
-                    &#201; poss&#237;vel:
+<p>
+                    É possível:
                 </p>
-                <ul>
-                    <li><strong>Retomar:</strong> Continuar de onde parou</li>
-                    <li><strong>Zerar:</strong> Reiniciar o tempo t&#233;cnico acumulado</li>
-                </ul>
-
-                <h3>Estudo B&#237;blico Adaptativo</h3>
-                <p>
-                    Primeira vers&#227;o da fun&#231;&#227;o adaptativa, aplicada ao Estudo B&#237;blico de Congrega&#231;&#227;o.
-                    O aplicativo ajusta automaticamente a dura&#231;&#227;o para manter o hor&#225;rio de encerramento previsto.
+<ul>
+<li><strong>Retomar:</strong> Continuar do ponto onde foi interrompido</li>
+<li><strong>Redefinir:</strong> Zerar o tempo técnico acumulado</li>
+</ul>
+<h3>Estudo Bíblico Adaptativo</h3>
+<p>
+                    Primeira versão da função adaptativa, aplicada a o Estudo Bíblico de Congregação.
+                    O aplicativo ajusta automaticamente a duração para manter o horário de fechamento programado.
                 </p>
-
-                <h3>Corre&#231;&#245;es de Bugs</h3>
-                <ul>
-                    <li>Resolvidos problemas de sincroniza&#231;&#227;o entre tela principal e monitor externo</li>
-                    <li>Melhorada a estabilidade geral da aplica&#231;&#227;o</li>
-                </ul>
-            </div>
-        </article>
-
-        <!-- Vers&#227;o 1.1.6 -->
-        <article class="news-item">
-            <div class="news-header">
-                <h2 class="news-version">Vers&#227;o 1.1.6</h2>
-                <span class="news-date">Atualiza&#231;&#227;o de Compatibilidade</span>
-            </div>
-            <div class="news-content">
-                <h3>Atualiza&#231;&#227;o de Programas</h3>
-                <p>
-                    Corrigidas problem&#225;ticas relativas &#224; tabela de cron&#244;metro, em linha com as modifica&#231;&#245;es
-                    efetuadas no site oficial jw.org.
+<h3>Correções de bugs</h3>
+<ul>
+<li>Resolvidos problemas de sincronização entre a tela principal e o monitor externo</li>
+<li>Melhorou a estabilidade geral do aplicativo</li>
+</ul>
+</div>
+</article>
+<!-- Versão 1.1.6 -->
+<article class="news-item">
+<div class="news-header">
+<h2 class="news-version">Versão 1.1.6</h2>
+<span class="news-date">Atualização de compatibilidade</span>
+</div>
+<div class="news-content">
+<h3>Atualização da lista de reprodução</h3>
+<p>
+                    Corrigido questões relativas à tabela de contador de tempo, em linha com as alterações
+                    realizado no site oficial jw.org.
                 </p>
-                <ul>
-                    <li>Sincroniza&#231;&#227;o atualizada com o novo formato dos programas</li>
-                    <li>Compatibilidade com as &#250;ltimas mudan&#231;as nos programas das reuni&#245;es</li>
-                    <li>Corre&#231;&#245;es menores na visualiza&#231;&#227;o</li>
-                </ul>
-            </div>
-        </article>
+<ul>
+<li>Sincronização atualizada com o novo formato de lista de reprodução</li>
+<li>Compatibilidade com as últimas alterações nos programas de reunião</li>
+<li>Pequenas correções de exibição</li>
+</ul>
+</div>
+</article>
+</div>
 
-
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>JW Time</h3>
-                <p>Projeto volunt&#225;rio para gerenciamento dos tempos das reuni&#245;es.</p>
-            </div>
-
-            <div class="footer-section">
-                <h3>Recursos</h3>
-                <ul>
-                    <li><a href="index.html">In&#237;cio</a></li>
-                    <li><a href="manual.html">Manual de Uso</a></li>
-                    <li><a href="news.html">Novidades</a></li>
-                    <li><a href="contacts.html">Contato</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3>Informa&#231;&#245;es</h3>
-                <ul>
-                    <li><a href="privacy-policy.html">Pol&#237;tica de Privacidade</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2025 JW Time - Projeto n&#227;o oficial criado por volunt&#225;rios</p>
-        </div>
-    </footer>
-
-    <!-- JavaScript -->
-    <script src="../js/main.js"></script>
+<!-- Footer -->
+<footer class="footer">
+<div class="footer-content">
+<div class="footer-section">
+<h3>JW Time</h3>
+<p>Projeto voluntário para gerenciamento de horários de reuniões.</p>
+</div>
+<div class="footer-section">
+<h3>Recursos</h3>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="manual.html">Manual do usuário</a></li>
+<li><a href="news.html">Novidades</a></li>
+<li><a href="contacts.html">Contatos</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h3>Informações</h3>
+<ul>
+<li><a href="privacy-policy.html">Política de Privacidade</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2025-2026 JW Time - Projeto não oficial criado por voluntários</p>
+</div>
+</footer>
+<!-- JavaScript -->
+<script src="../js/main.js"></script>
 </body>
 </html>

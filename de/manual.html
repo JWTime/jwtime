@@ -1,43 +1,67 @@
-<!DOCTYPE html>
+html
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Vollst&#228;ndiges Handbuch f&#252;r JW Time - Anleitung zur Verwendung der Anwendung zur Verwaltung der Zusammenkunftszeiten">
-    <title>Benutzerhandbuch - JW Time</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Komplettes JW Time-Handbuch – Anleitung zur Zeitverwaltung von Zusammenkünften" name="description"/>
+<title>Benutzerhandbuch - JW Time</title>
+<link href="../css/style.css" rel="stylesheet"/>
+<style>
         .back-to-index-link {
             font-size: 0.9rem;
             margin-left: 0.75rem;
-            color: var(--accent-green);
+            color: var(--text-tertiary);
             text-decoration: none;
             white-space: nowrap;
         }
         .back-to-index-link:hover {
+            color: var(--text-secondary);
             text-decoration: underline;
         }
 
-        /* Scroll-Versatz zum Ausgleich der festen Kopfzeile */
+        .content:not(#indice) a:not(.back-to-index-link):not(.btn),
+        .content-section-header a:not(.back-to-index-link):not(.btn) {
+            color: inherit;
+            font-weight: 600;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 0.2em;
+            text-decoration-color: currentColor;
+        }
+
+        .content:not(#indice) a:not(.back-to-index-link):not(.btn)::after,
+        .content-section-header a:not(.back-to-index-link):not(.btn)::after {
+            content: " ↴";
+            font-size: 0.85em;
+            opacity: 0.78;
+            text-decoration: none;
+        }
+
+        .content:not(#indice) a:not(.back-to-index-link):not(.btn):hover,
+        .content-section-header a:not(.back-to-index-link):not(.btn):hover {
+            color: var(--text-primary);
+        }
+
+        /* Scroll offset per compensare header fisso */
         html {
             scroll-padding-top: 100px;
         }
 
-        /* Gr&#246;&#223;erer Scroll-Versatz auf Mobilger&#228;ten f&#252;r zweizeilige Kopfzeile */
+        /* Scroll offset maggiore su mobile per header a due righe */
         @media (max-width: 768px) {
             html {
                 scroll-padding-top: 180px;
             }
         }
 
-        /* Extra Scroll-Versatz auf sehr kleinen Bildschirmen, wo die Kopfzeile 3 Zeilen haben kann */
+        /* Scroll offset extra su schermi molto piccoli dove l'header pu&#242; essere su 3 righe */
         @media (max-width: 480px) {
             html {
                 scroll-padding-top: 220px;
             }
         }
 
-        /* Stellt sicher, dass Bilder auf Mobilger&#228;ten nicht abgeschnitten werden */
+        /* Assicura che le immagini non vengano tagliate su mobile */
         @media (max-width: 640px) {
             .content figure,
             .news-card figure {
@@ -56,893 +80,1368 @@
                 display: block;
             }
 
-            /* Einzelspaltenlayout f&#252;r Abschnitte mit Bildern */
+            /* Layout a colonna singola per sezioni con immagini */
             .news-card > div[style*="display: flex"] {
                 flex-direction: column !important;
+            }
+        }
+
+        .settings-panel-layout {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-top: var(--spacing-lg);
+        }
+
+        .settings-panel-figure {
+            flex: 1 1 560px;
+            min-width: 440px;
+            max-width: 650px;
+            margin: 0;
+        }
+
+        .settings-panel-copy {
+            flex: 1 1 360px;
+            min-width: 300px;
+        }
+
+        @media (max-width: 980px) {
+            .settings-panel-figure,
+            .settings-panel-copy {
+                flex: 1 1 100%;
+                min-width: 0;
+                max-width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header / Navigation -->
-    <header class="header">
-        <div class="header-content">
-            <a href="index.html" class="logo">
-                <img src="../images/jwtime-logo.png" alt="JW Time Logo" style="height: 32px; margin-right: 8px;">
+<!-- Header / Navigation -->
+<header class="header">
+<div class="header-content">
+<a class="logo" href="index.html">
+<img alt="JW Time Logo" src="../images/jwtime-logo.png" style="height: 32px; margin-right: 8px;"/>
                 JW Time
             </a>
-
-            <nav class="nav">
-                <a href="index.html">Startseite</a>
-                <a href="manual.html" class="active">Handbuch</a>
-                <a href="news.html">Neuigkeiten</a>
-                <a href="contacts.html">Kontakte</a>
-
-                <!-- Language Selector -->
-                <div class="lang-selector">
-                    <div class="lang-current">
-                        <span>Deutsch</span>
-                        <span>&#9662;</span>
-                    </div>
-                    <div class="lang-dropdown">
-                        <a href="../it/manual.html" data-lang="it">Italiano</a>
-                        <a href="../en/manual.html" data-lang="en">English</a>
-                        <a href="../es/manual.html" data-lang="es">Espa&#241;ol</a>
-                        <a href="../fr/manual.html" data-lang="fr">Fran&#231;ais</a>
-                        <a href="../pt_BR/manual.html" data-lang="pt_BR">Portugu&#234;s (BR)</a>
-                    </div>
-                </div>
-                <!-- Theme Toggle -->
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
-                    </svg>
-                </button>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Benutzerhandbuch</h1>
-            <p>Vollst&#228;ndige Anleitung zur Verwendung von JW Time</p>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <div class="container">
-        <!-- INHALTSVERZEICHNIS -->
-        <div class="content" id="indice">
-            <h2>Inhaltsverzeichnis</h2>
-            <div class="manual-index">
-                <!-- Gr&#252;ne Karte f&#252;r Erste Schritte -->
-                <div class="index-section index-section--green">
-                    <h3>Neueste Nachrichten</h3>
-                    <ul>
-                        <li><a href="#novita">Version 2.1.0</a></li>
-                    </ul>
-                    <h3 style="margin-top: var(--spacing-lg);">Schnellstart</h3>
-                    <ul>
-                        <li><a href="#avvio-rapido">Kurzanleitung (3 Minuten)</a></li>
-                    </ul>
-                </div>
-
-                <div class="index-section">
-                    <h3>Teil I - Benutzeroberfl&#228;che und Funktionsweise</h3>
-                    <ul>
-                        <li><a href="#schermata-principale">1. Hauptbildschirm</a></li>
-                        <li><a href="#manipolazione-timer">2. Timer-Verwaltung</a></li>
-                        <li><a href="#contatempo-popup">3. Stoppuhr und Popup</a></li>
-                        <li><a href="#navigazione-settimanale">4. Wochennavigation</a></li>
-                        <li><a href="#gestione-messaggi">5. Nachrichtenverwaltung</a></li>
-                        <li><a href="#rec-button">6. REC-Taste und Aufnahme-Panel</a></li>
-                        <li><a href="#monitor-web">7. Web-Monitor &amp; Server</a></li>
-                    </ul>
-                </div>
-
-                <div class="index-section">
-                    <h3>Teil II - Einstellungen</h3>
-                    <ul>
-                        <li><a href="#impostazioni-generale">8. Allgemein</a></li>
-                        <li><a href="#impostazioni-adunanze">9. Zusammenk&#252;nfte (Zusammenkunfts-Start-Timer)</a></li>
-                        <li><a href="#impostazioni-connessioni">10. Verbindung und Server</a></li>
-                        <li><a href="#impostazioni-registrazioni">11. Aufnahmen</a></li>
-                        <li><a href="#impostazioni-backup">12. Sicherung &amp; Wiederherstellung</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- NEUESTE NACHRICHTEN -->
-        <div class="news-preview" id="novita">
-            <div class="news-preview-title">
-                <h2 style="margin: 0;">Neueste Nachrichten</h2>
-                <span class="news-preview-badge">Version 2.1.0</span>
-            </div>
-            <div class="news-preview-content">
-                <h3>Schnell&#252;bersicht der Neuigkeiten - Version 2.1.0</h3>
-                <ul style="column-count: 2; column-gap: var(--spacing-xl); margin-bottom: var(--spacing-lg);">
-                    <li>Automatischer alternativer Download</li>
-                    <li>Web-Monitor erweitert: Lieder, Nachrichten, automatische Wiederverbindung und Bildschirmschoner</li>
-                    <li>Pause/Fortsetzen-Schaltfl&#228;che bei Aufnahmen</li>
-                    <li>Verbessertes Bildschirm- und Fenstermanagement</li>
-                    <li>Verbesserte Diagnose und klarere Fehlermeldungen</li>
-                    <li>Optische Verbesserungen und Bugfixes</li>
-                </ul>
-                <a href="news.html" class="btn btn-primary" style="margin-top: var(--spacing-lg);">
-                    Alle Neuigkeiten entdecken &#8594;
+<nav class="nav">
+<a href="index.html">Home</a>
+<a class="active" href="manual.html">Handbuch</a>
+<a href="news.html">Neuigkeiten</a>
+<a href="contacts.html">Kontakt</a>
+<!-- Language Selector -->
+<div class="lang-selector">
+<div class="lang-current"><span>Deutsch</span><span>▾</span></div>
+<div class="lang-dropdown">
+<a data-lang="it" href="../it/manual.html">Italiano</a>
+<a data-lang="en" href="../en/manual.html">English</a>
+<a data-lang="es" href="../es/manual.html">Español</a>
+<a data-lang="fr" href="../fr/manual.html">Français</a>
+<a data-lang="pt_BR" href="../pt_BR/manual.html">Português (BR)</a>
+</div>
+</div>
+<!-- Theme Toggle -->
+<button aria-label="Thema umschalten" class="theme-toggle" id="theme-toggle">
+<svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"></path>
+</svg>
+</button>
+</nav>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="hero">
+<div class="hero-content">
+<h1>Benutzerhandbuch</h1>
+<p>Vollständige Anleitung zur Verwendung von JW Time</p>
+</div>
+</section>
+<!-- Main Content -->
+<div class="container">
+<!-- INDICE -->
+<div class="content" id="indice">
+<h2>Inhalt</h2>
+<div class="manual-index">
+<!-- Card Verde per Inizia Qui -->
+<div class="index-section index-section--green">
+<h3>Neu 4.0</h3>
+<ul>
+<li><a href="#novita">Version 4.0.0</a></li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">Erster Start</h3>
+<ul>
+<li><a href="#primo-avvio-guidato">Erster Assistent</a></li>
+<li><a href="#controllo-rapido">Schnelle Überprüfung, ob Sie den Assistenten überspringen</a></li>
+</ul>
+</div>
+<div class="index-section">
+<h3>Teil I – Schnittstelle und Bedienung</h3>
+<ul>
+<li><a href="#schermata-principale">1. Hauptbildschirm</a></li>
+<li><a href="#navigazione-settimanale">2. Programme und Wiedergabelisten</a></li>
+<li><a href="#manipolazione-timer">3. Timer manipulieren</a></li>
+<li><a href="#finestra-media">4. Medienfenster</a></li>
+<li><a href="#schermi-contatempo-pubblico">5. Öffentlicher Bildschirm und Zeitzähler</a></li>
+<li><a href="#personalizzare-schermo">↳ 5.3 Anpassen des Zeitzählerbildschirms</a></li>
+<li><a href="#gestione-messaggi">6. Nachrichten verwalten</a></li>
+<li><a href="#rec-button">7. REC-Taste und Aufnahmefeld</a></li>
+<li><a href="#monitor-web">8. Web-Monitor und Server</a></li>
+<li><a href="#monitor-web-accesso-remoto">↳ 8.3 Offline-Fernzugriff</a></li>
+</ul>
+</div>
+<div class="index-section">
+<h3>Teil II – Einstellungsfelder</h3>
+<ul>
+<li><a href="#impostazioni-generale">9. Allgemein</a></li>
+<li><a href="#impostazioni-congregazioni">10. Gemeinden</a></li>
+<li><a href="#impostazioni-adunanze">11. Zusammenkünfte (Start-Timer)</a></li>
+<li><a href="#impostazioni-schermo">12. Bildschirm</a></li>
+<li><a href="#impostazioni-media">13. Medien</a></li>
+<li><a href="#impostazioni-zoom">14. Zoom</a></li>
+<li><a href="#impostazioni-connessioni">15. Verbindung und Server</a></li>
+<li><a href="#server-web-remoto">↳ 15.2 Server Remote Web</a></li>
+<li><a href="#impostazioni-registrazioni">16. Aufzeichnungen</a></li>
+<li><a href="#impostazioni-backup">17. Pakete und Offline-Backups</a></li>
+</ul>
+</div>
+</div>
+</div>
+<!-- ULTIME NOVIT&#192; -->
+<div class="news-preview" id="novita">
+<div class="news-preview-title">
+<h2 style="margin: 0;">Neu 4.0</h2>
+<span class="news-preview-badge">Version 4.0.0</span>
+</div>
+<div class="news-preview-content">
+<h3>Ein kurzer Blick auf die Neuerungen</h3>
+<p>
+                        JW Time 4.0 führt viele neue Funktionen ein. Hier finden Sie lediglich eine Zusammenfassung, die Ihnen als Orientierung dienen soll.
+                        Das <strong>Neuigkeiten</strong> -Panel in der App und die entsprechende Seite erfassen die vollständigen Details.
+                    </p>
+<ul>
+<li>Erster Assistent, Gemeindeprofile und neu organisierte Benutzeroberfläche.</li>
+<li>Medienfenster mit offiziellen Inhalten, Downloads, lokalem Cache und Hintergrundmusik.</li>
+<li>Öffentlicher Bildschirm, anpassbarer Zeitzählerbildschirm und aktualisierte Nachrichtenverwaltung.</li>
+<li>Web-Monitor mit lokaler Steuerung, QR und temporärem Fernzugriff für Videokonferenzen.</li>
+</ul>
+<a class="btn btn-gray" href="news.html" style="margin-top: var(--spacing-lg);">
+                    Entdecken Sie alle Neuigkeiten →
                 </a>
-            </div>
-        </div>
-
-        <!-- SCHNELLSTART -->
-        <div class="content" id="avvio-rapido" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.08)); border-left: 4px solid var(--accent-green); border-radius: var(--radius-lg); padding: var(--spacing-xl); box-shadow: var(--shadow-md);">
-            <h2 style="font-size: 2rem; margin: 0 0 var(--spacing-xl) 0; color: var(--text-primary);">Schnellstart (3 Minuten)</h2>
-
-            <div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap;">
-                <div style="flex: 1 1 320px; min-width: 0;">
-                    <ol class="manual-section">
-                        <li style="margin-bottom: var(--spacing-lg);">
-                            <h3 style="color: var(--accent-green);">Sprache w&#228;hlen</h3>
-                            <p>
-                                Gehe zu Einstellungen &#8594; Allgemein &#8594; Sprache und w&#228;hle die gew&#252;nschte Sprache. Dies l&#228;dt automatisch
-                                das richtige Programm herunter (falls f&#252;r diese Sprache verf&#252;gbar) und richtet es f&#252;r die aktuelle Woche ein.
-                            </p>
-                        </li>
-                        <li style="margin-bottom: var(--spacing-lg);">
-                            <h3 style="color: var(--accent-green);">Monitor ausw&#228;hlen und Timer-Bildschirm aktivieren</h3>
-                            <p>
-                                Noch in Allgemein, w&#228;hle den externen Monitor und aktiviere Timer-Bildschirm aktivieren. (Optional):
-                                aktiviere das 12h-Format oder aktiviere adaptives Bibelstudium und/oder adaptives Wachtturm-Studium.
-                                Die App passt automatisch die Dauer dieser Teile an, um dir zu helfen, die Abschlusszeit der Zusammenkunft einzuhalten.
-                            </p>
-                        </li>
-                        <li style="margin-bottom: var(--spacing-lg);">
-                            <h3 style="color: var(--accent-green);">Geladenes Programm &#252;berpr&#252;fen</h3>
-                            <p>
-                                &#214;ffne von der unteren Leiste aus Programm: es sollte bereits Wochenmitte oder Wochenende je nach Tag anzeigen.
-                                (Wenn du anpassen m&#246;chtest) w&#228;hle Manuell.
-                            </p>
-                        </li>
-                        <li style="margin-bottom: var(--spacing-lg);">
-                            <h3 style="color: var(--accent-green);">Timer starten und verwalten</h3>
-                            <p>
-                                Dr&#252;cke &#9654; Start zum Beginnen. Verwende &#10074;&#10074; Pause bei Rednerwechseln und &#9654;&#9654; Weiter um zum n&#228;chsten Element zu gelangen.
-                                Behalte die Gesch&#228;tzte Endzeit im Auge.
-                            </p>
-                        </li>
-                        <li style="margin-bottom: var(--spacing-lg);">
-                            <h3 style="color: var(--accent-green);">Mit dem Redner kommunizieren (falls erforderlich)</h3>
-                            <p>
-                                Dr&#252;cke Nachricht und sende Vollbild- oder Teilbild-Text: er erscheint auf dem Timer-Monitor.
-                            </p>
-                        </li>
-                        <li style="margin-bottom: var(--spacing-lg);">
-                            <h3 style="color: var(--accent-green);">Zusammenkunft beenden</h3>
-                            <p>
-                                Am Ende dr&#252;cke &#9209; Stopp um das Programm zu schlie&#223;en. Wenn du den Web-Monitor verwendest, kannst du das Programm ausdrucken oder
-                                es von einem Browser im selben Netzwerk aus verfolgen.
-                            </p>
-                        </li>
-                    </ol>
-                </div>
-                <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0 0 0 auto; align-self: flex-start;">
-                    <img src="../images/manual/de/avvio-rapido.png"
-                         alt="JWTime-Bildschirm mit allgemeinen Einstellungen und Timer"
-                         class="manual-image">
-                </figure>
-            </div>
-        </div>
-
-        <!-- TEIL I - BENUTZEROBERFL&#196;CHE UND FUNKTIONSWEISE -->
-        <div class="content" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.08)); border-left: 4px solid var(--accent-green); border-radius: var(--radius-lg); padding: var(--spacing-xl); box-shadow: var(--shadow-md);">
-            <h2 style="font-size: 2rem; margin: 0; color: var(--text-primary);">Teil I &#183; Benutzeroberfl&#228;che und Funktionsweise</h2>
-        </div>
-
-        <!-- 1. HAUPTBILDSCHIRM -->
-        <div class="content" id="schermata-principale">
-            <h2>1 &middot; Hauptbildschirm <a href="#indice" class="back-to-index-link">&uarr; Inhaltsverzeichnis</a></h2>
-
-            <div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap;">
-                <figure style="flex: 0 0 420px; max-width: 520px; margin: 0 auto;">
-                    <img src="../images/manual/de/schermata-principale.png"
-                         alt="JWTime-Hauptbildschirm mit nummerierten Bereichen"
-                         class="manual-image">
-                </figure>
-                <div style="flex: 1 1 320px; min-width: 0;">
-                    <p>
-                        Der Hauptbildschirm ist das Herzst&#252;ck der Anwendung. Von hier aus kannst du alle
-                        Zusammenkunfts-Timer starten, verwalten und &#252;berwachen, Hauptinformationen wie den aktuellen Programmteil-Titel, die Uhr und die
-                        verbleibende Zeit anzeigen sowie wichtige Nachrichten und Benachrichtigungen kontrollieren.
+</div>
+</div>
+<!-- PRIMO AVVIO GUIDATO -->
+<div class="content-section-header" id="primo-avvio-guidato">
+<h2 style="font-size: 2rem; margin: 0 0 var(--spacing-xl) 0; color: var(--text-primary);">Erster Start-Assistent</h2>
+<div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap;">
+<div style="flex: 1 1 320px; min-width: 0;">
+<p>
+                        Beim ersten Start zeigt JW Time einen Assistenten an, der die wesentlichen Einstellungen vor dem Öffnen der App sammelt.
+                        Dies ist der empfohlene Pfad für eine Neuinstallation, da Sie so nicht sofort nach jeder Option suchen müssen
+                        in den Einstellungsfeldern.
                     </p>
-                </div>
-            </div>
-
-            <h3 style="margin-top: var(--spacing-2xl); color: white;">Hauptbereiche</h3>
-
-            <!-- Raster der 4 Hauptbereiche -->
-            <div class="news-cards-grid" style="margin-top: var(--spacing-xl);">
-                <div class="news-card">
-                    <h4 style="color: #4ade80;">1.1 &#183; Programmteil-Titel und Uhr</h4>
-                    <div class="image-container">
-                        <img src="../images/manual/de/area-1-titolo-orologio.png"
-                             alt="Bereich 1 - Programmteil-Titel und Uhr/Timer"
-                             class="manual-image">
-                    </div>
-                    <p>
-                        Die obere Zeile zeigt den Titel des aktuellen Programmteils, w&#228;hrend darunter die Uhr mit
-                        der aktuellen Zeit oder, wenn du einen Timer startest, der Countdown der verbleibenden Zeit angezeigt wird. Im 12-Stunden-Format erscheint auch das
-                        AM/PM-Suffix in verkleinerter Gr&#246;&#223;e zur besseren Lesbarkeit.
+<ul class="manual-section">
+<li><strong>Sprache und Format</strong>: Wählen Sie die Sprache der Benutzeroberfläche, die Programmsprache und das Zeitformat.</li>
+<li><strong>Kongregation</strong>: Legen Sie den Namen des anfänglichen Profils fest. Dies ist nützlich, wenn Sie in Zukunft mehrere Profile verwalten.</li>
+<li><strong>Zusammenkünfte</strong>: gibt Tage und Startzeiten für den automatischen Countdown an.</li>
+<li><strong>Zusammenkunftsoptionen</strong>: Aktivieren Sie bei Bedarf die Anpassung der Dauer und die automatische Pause zwischen den Teilen.</li>
+<li><strong>Bildschirme</strong>: Konfigurieren Sie den Zeitzählerbildschirm und den Öffentlichen Bildschirm auf den richtigen Monitoren.</li>
+</ul>
+<p>
+                        Am Ende des Assistenten können Sie JW Time öffnen und nur die erweiterten Optionen wie Medien, Webserver usw. ausführen.
+                        Aufzeichnungen und Backups.
                     </p>
-                </div>
-
-                <div class="news-card">
-                    <h4 style="color: #4ade80;">1.2 &#183; Timer-Tabelle</h4>
-                    <div class="image-container">
-                        <img src="../images/manual/de/area-2-tabella-timer.png"
-                             alt="Bereich 2 - Zusammenkunfts-Timer-Tabelle"
-                             class="manual-image">
-                    </div>
-                    <p>
-                        Listet das Zusammenkunftsprogramm auf (Titel, Dauer, Status). Der Inhalt l&#228;dt automatisch basierend auf dem ausgew&#228;hlten
-                        Tag: die App erkennt, ob es Wochenmitte oder Wochenende ist und schl&#228;gt das richtige Programm vor. F&#252;r Schaltfl&#228;chen
-                        und detaillierte Aktionen siehe <strong>2. Timer-Verwaltung</strong>.
-                    </p>
-                </div>
-
-                <div class="news-card">
-                    <h4 style="color: #4ade80;">1.3 &#183; Gesch&#228;tzte Endzeit</h4>
-                    <div class="image-container">
-                        <img src="../images/manual/de/area-3-orario-fine.png"
-                             alt="Bereich 3 - Gesch&#228;tzte Endzeit und Abweichung"
-                             class="manual-image">
-                    </div>
-                    <p>
-                        Zeigt die voraussichtliche Abschlusszeit basierend auf dem Programm. Daneben erscheint die <em>Abweichung</em>:<br>
-                        +m:ss (gelb innerhalb 1', rot dar&#252;ber hinaus) = Verz&#246;gerung<br>
-                        &#8722;m:ss (gr&#252;n) = vorzeitig<br>
-                        Die Zeit und der Indikator aktualisieren sich in Echtzeit. Wenn adaptives Bibelstudium / Wachtturm aktiv sind,
-                        werden die Dauern neu berechnet, um die Abschlusszeit einzuhalten.
-                    </p>
-                </div>
-
-                <div class="news-card">
-                    <h4 style="color: #4ade80;">1.4 &#183; Pause/Rednerwechselzeit</h4>
-                    <div class="image-container">
-                        <img src="../images/manual/de/area-4-tempo-pausa.png"
-                             alt="Bereich 4 - Pause und Rednerwechselzeit"
-                             class="manual-image">
-                    </div>
-                    <p>
-                        Kumulativer Z&#228;hler <strong>hh:mm:ss</strong> f&#252;r technische Pausen/Rednerwechsel: Er summiert die Zeit, in der der
-                        Timer pausiert war. W&#228;hrend der Pause bleibt der Timer des Programmpunkts stehen, w&#228;hrend dieser Z&#228;hler weiterl&#228;uft.
-                        Ein Klick auf den Indikator setzt die Gesamtzeit zur&#252;ck.
-                    </p>
-                </div>
-
-                <div class="news-card">
-                    <h4 style="color: #4ade80;">1.5 &#183; Haupt-Timer-Steuerungstasten</h4>
-                    <div class="image-container">
-                        <img src="../images/manual/de/area-5-tasti-principali.png"
-                             alt="Bereich 5 - Haupt-Timer-Steuerungstasten"
-                             class="manual-image">
-                    </div>
-                    <p>
-                        Steuerelemente zum Starten, Stoppen und Verwalten der Timer: Stopp (rot), Pause und Start/Weiter (gr&#252;n).
-                        Die Pause-Taste pausiert den Timer des Programmpunkts (die Zeit l&#228;uft nicht weiter), w&#228;hrend die Pause/Rednerwechselzeit
-                        weiter ansteigt. Um die Pause zu beenden, dr&#252;cke Pause erneut oder wechsle mit Start/Weiter zum n&#228;chsten Programmpunkt:
-                        Die angesammelte Zeit wird im Z&#228;hler aus Punkt 1.4 erfasst.
-                    </p>
-                </div>
-
-                <div class="news-card">
-                    <h4 style="color: #4ade80;">1.6 &#183; Nachrichten (Mitteilungen)</h4>
-                    <div class="image-container">
-                        <img src="../images/manual/de/area-6-notizie.png"
-                             alt="Bereich 6 - Nachrichtenfeld auf Hauptbildschirm"
-                             class="manual-image">
-                    </div>
-                    <p>
-                        Wenn es offizielle Mitteilungen f&#252;r die App gibt, erscheint auf dem Hauptbildschirm ein "Nachrichten"-Feld/Hinweis.
-                        Beim Klicken &#246;ffnet sich das Panel mit der Zusammenfassung der Updates.
-                    </p>
-                </div>
-
-                <div class="news-card">
-                    <h4 style="color: #4ade80;">1.7 &#183; Untere Steuerungsleiste</h4>
-                    <div class="image-container">
-                        <img src="../images/manual/de/area-7-barra-inferiore.png"
-                             alt="Bereich 7 - JWTime untere Steuerungsleiste"
-                             class="manual-image">
-                    </div>
-                    <p>
-                        Leiste mit Schaltfl&#228;chen Einstellungen, Minimieren/Maximieren, Programm (Wochenauswahl), Nachricht und Online-Handbuch.
-                        F&#252;r weitere Informationen siehe die entsprechenden Kapitel.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 2. TIMER-VERWALTUNG -->
-        <div class="content" id="manipolazione-timer">
-            <h2>2 &middot; Timer-Verwaltung <a href="#indice" class="back-to-index-link">&uarr; Inhaltsverzeichnis</a></h2>
-
-            <p>
-                Dieser Abschnitt veranschaulicht die wichtigsten Timer-Verwaltungsvorg&#228;nge &#8212; wie man Elemente hinzuf&#252;gt, &#228;ndert oder l&#246;scht &#8212;
-                und die Verwendung von Start-, Sprung- und Zur&#252;cksetzen-Befehlen.
+</div>
+<figure style="flex: 0 0 38%; min-width: 280px; max-width: 520px; margin: 0 0 0 auto; align-self: flex-start;">
+<img alt="JW Time Erststart-Assistent" class="manual-image" src="../images/manual/de/primo-avvio-guidato-v4.png"/>
+</figure>
+</div>
+</div>
+<!-- CONTROLLO RAPIDO -->
+<div class="content" id="controllo-rapido">
+<h2>Schnelle Überprüfung, ob Sie den Assistenten überspringen <a class="back-to-index-link" href="#indice">↑ Inhalt</a></h2>
+<p>
+                Wenn Sie den Assistenten schließen oder überspringen, können Sie die wesentlichen Einstellungen manuell über die Einstellungen und das Hauptfenster konfigurieren.
+                Diese Checkliste dient auch als schneller Check vor der Zusammenkunft.
             </p>
-
-            <!-- 2.1 Hauptoperationen - KARTE -->
-            <div class="news-card" style="margin-top: var(--spacing-xl);">
-                <h3>2.1 &middot; Hauptoperationen</h3>
-
-                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
-                    <div style="flex: 1 1 240px; min-width: 0;">
-                        <ol class="manual-section">
-                            <li>Zeilen hinzuf&#252;gen / l&#246;schen: Klick auf + oder &#8211; Schaltfl&#228;chen.</li>
-                            <li>Titel/Dauer bearbeiten: Doppelklick auf Zelle, dann Enter.</li>
-                            <li>Dauerformate: 5 &#8594; 5:00, 1:30 &#8594; 1:30 Minuten.</li>
-                            <li>Start/&#220;berspringen/Zur&#252;cksetzen:
+<ol class="manual-section">
+<li style="margin-bottom: var(--spacing-lg);">
+<h3 style="color: var(--text-secondary);">Sprache, Profil und Programm</h3>
+<p>
+                        Gehe zum <a href="#impostazioni-generale">Abschnitt 9 · Allgemeines</a> nach Sprache und Zeitformat, dann im
+                        <a href="#impostazioni-congregazioni">Abschnitt 10 · Gemeinden</a> wenn Sie ein Profil erstellen oder auswählen müssen. Überprüfen Sie das
+                        Die geladene Playlist entspricht der Woche und der gewünschten Sprache.
+                    </p>
+</li>
+<li style="margin-bottom: var(--spacing-lg);">
+<h3 style="color: var(--text-secondary);">Zeitzählerbildschirm und öffentlicher Bildschirm</h3>
+<p>
+                        Im <a href="#impostazioni-schermo">Abschnitt 12 · Bildschirm</a> Wählen Sie die richtigen Monitore aus und aktivieren Sie die Fenster, die Sie verwenden möchten.
+                        Informationen zum Ändern des Erscheinungsbilds des Zeitzählers finden Sie unter <a href="#personalizzare-schermo">Abschnitt 5.3 · Anpassen des Zeitzählerbildschirms</a>.
+                    </p>
+</li>
+<li style="margin-bottom: var(--spacing-lg);">
+<h3 style="color: var(--text-secondary);">Medien und Inhalte</h3>
+<p>
+                        Öffnen Sie die <a href="#finestra-media">Abschnitt 4 · Medienfenster</a> um Songs, Videos und Bilder der Woche anzuschauen.
+                        Optionen für Cache, Qualität und Hintergrund finden Sie im <a href="#impostazioni-media">Abschnitt 13 · Medien</a>.
+                    </p>
+</li>
+<li style="margin-bottom: var(--spacing-lg);">
+<h3 style="color: var(--text-secondary);">Timer, Nachrichten und Aufzeichnung</h3>
+<p>
+                        Verwenden Sie das Hauptfenster, um Timer zu starten, Nachrichten an den Zeitzähler zu senden und das REC-Panel zu öffnen.
+                        Wenn Sie Zusammenkünfte aufzeichnen, überprüfen Sie zunächst die Optionen <a href="#impostazioni-registrazioni">Abschnitt 16 · Aufzeichnungen</a>.
+                    </p>
+</li>
+<li style="margin-bottom: var(--spacing-lg);">
+<h3 style="color: var(--text-secondary);">Webserver und Backup</h3>
+<p>
+                        Wenn Sie Fernsteuerung, QR oder Browser-Abfrage verwenden, konfigurieren Sie die <a href="#impostazioni-connessioni">Abschnitt 15 · Verbindung und Server</a>.
+                        Um ohne Netzwerk zu arbeiten oder Konfigurationen zu übertragen, überprüfen Sie die <a href="#impostazioni-backup">Abschnitt 17 · Pakete und Offline-Backups</a>.
+                    </p>
+</li>
+</ol>
+</div>
+<!-- PARTE I - INTERFACCIA E FUNZIONAMENTO -->
+<div class="content-section-header">
+<h2 style="font-size: 2rem; margin: 0; color: var(--text-primary);">Teil I · Schnittstelle und Bedienung</h2>
+</div>
+<!-- 1. SCHERMATA PRINCIPALE -->
+<div class="content" id="schermata-principale">
+<h2>1 · Hauptbildschirm <a class="back-to-index-link" href="#indice">↑ Inhalt</a></h2>
+<div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap;">
+<figure style="flex: 0 0 420px; max-width: 520px; margin: 0 auto;">
+<img alt="JW Time-Hauptbildschirm mit nummerierten Bereichen" class="manual-image" src="../images/manual/de/schermata-principale-v4-annotata-real.png"/>
+</figure>
+<div style="flex: 1 1 320px; min-width: 0;">
+<p>
+                        Der Hauptbildschirm ist das Herzstück der Anwendung. Von hier aus können Sie alle Timer starten, verwalten und überwachen
+                        Sehen Sie sich während der Zusammenkunft wichtige Informationen wie den Titel des aktuellen Teils, die Uhr und die Uhrzeit an
+                        Rückstände sowie die Überprüfung wichtiger Nachrichten und Benachrichtigungen.
+                    </p>
+</div>
+</div>
+<h3 style="margin-top: var(--spacing-2xl); color: white;">Hauptbereiche</h3>
+<!-- Grid delle aree principali -->
+<div class="news-cards-grid" style="margin-top: var(--spacing-xl);">
+<div class="news-card">
+<h4 style="color: var(--text-secondary);">1.1 · Teiltitel und Uhr</h4>
+<div class="image-container">
+<img alt="Bereich 1 – Teiltitel und Uhr-/Zeitzähler" class="manual-image" src="../images/manual/de/area-1-titolo-orologio-v4.png"/>
+</div>
+<p>
+                        Der Titel des aktuellen Teils wird in der oberen Zeile angezeigt, während die Uhr unten angezeigt wird
+                        die aktuelle Uhrzeit oder, wenn Sie einen Timer starten, den Countdown der verbleibenden Zeit. Auch im 12-Stunden-Format erscheint
+                        AM/PM-Suffix in kleinerer Größe, um die Lesbarkeit zu verbessern.
+                    </p>
+</div>
+<div class="news-card">
+<h4 style="color: var(--text-secondary);">1.2 · Timer-Tabelle</h4>
+<div class="image-container">
+<img alt="Bereich 2 – Timer-Tabelle der Zusammenkunft" class="manual-image" src="../images/manual/de/area-2-tabella-timer-v4.png"/>
+</div>
+<p>
+                        Listet das Programm der Zusammenkunft auf (Titel, Dauer, Status). Der Inhalt wird automatisch tagesaktuell geladen
+                        ausgewählt: Die App erkennt, ob Wochenmitte oder Wochenende ist und schlägt den richtigen Zeitplan vor. Für die Knöpfe
+                        und detaillierte Aktionen siehe <a href="#manipolazione-timer">Abschnitt 3 · Timer manipulieren</a>.
+                    </p>
+</div>
+<div class="news-card">
+<h4 style="color: var(--text-secondary);">1.3 · Geschätzte Endzeit</h4>
+<div class="image-container">
+<img alt="Bereich 3 – Geschätzte Endzeit und Abweichung" class="manual-image" src="../images/manual/de/area-3-orario-fine-v4.png"/>
+</div>
+<p>
+                        Zeigt die erwartete Schließzeit basierend auf dem Zeitplan an. Die <em>-Abweichung erscheint neben</em>:<br/>
+                        +m:ss (gelb innerhalb von 1', rot darüber hinaus) = Verzögerung<br/>
+                        −m:ss (grün) = Vorlauf<br/>
+                        Die Zeit und der Indikator werden in Echtzeit aktualisiert. Wenn die Anpassungen für Bibelstudium / Turm aktiv sind
+                        Wache, die Dauer wird neu berechnet, damit sie in die Schließzeit passt.
+                    </p>
+</div>
+<div class="news-card">
+<h4 style="color: var(--text-secondary);">1.4 · Pausen-/Sprecherwechselzeit</h4>
+<div class="image-container">
+<img alt="Bereich 4 – Pausenzeit und Sprecherwechsel" class="manual-image" src="../images/manual/de/area-4-tempo-pausa-v4.png"/>
+</div>
+<p>
+                        Kumulierter Zähler <strong>hh:mm:ss</strong> der technischen Pausen/Sprecherwechsel: summiert die Zeit, in der der Timer läuft
+                        wurde pausiert. Während der Pause bleibt der Teilzeitzähler angehalten, während dieser Zähler erhöht wird. Ein Klick
+                        Auf dem Indikator wird die Gesamtsumme auf Null zurückgesetzt.
+                    </p>
+</div>
+<div class="news-card">
+<h4 style="color: var(--text-secondary);">1.5 · Haupttasten zur Timer-Verwaltung</h4>
+<div class="image-container">
+<img alt="Bereich 5 – Haupt-Timer-Verwaltungstasten" class="manual-image" src="../images/manual/de/area-5-tasti-principali-v4.png"/>
+</div>
+<p>
+                        Steuerelemente zum Starten, Stoppen und Verwalten von Timern: Stopp (rot), Pause und Start/Weiter (grün).
+                        Die Pause-Taste pausiert den Teilzeitmesser (die Zählung bleibt gestoppt), während die Pausen-/Änderungszeit läuft
+                        Lautsprecher nimmt weiter zu. Um die Pause zu verlassen, drücken Sie erneut Pause oder springen mit zum nächsten Teil
+                        Start/Nächster: Die aufgelaufene Zeit wird im Zähler gemäß Punkt 1.4 erfasst.
+                    </p>
+</div>
+<div class="news-card">
+<h4 style="color: var(--text-secondary);">1.6 · Nachrichten (Mitteilungen)</h4>
+<div class="image-container">
+<img alt="Bereich 6 – Nachrichtenbereich auf dem Hauptbildschirm" class="manual-image" src="../images/manual/de/area-6-notizie-v4.png"/>
+</div>
+<p>
+                        Wenn es offizielle Mitteilungen für die App gibt, erscheint auf dem Hauptbildschirm ein Feld/eine Meldung „Neuigkeiten“.
+                        Wenn Sie darauf klicken, wird das Panel mit der Update-Zusammenfassung geöffnet.
+                    </p>
+</div>
+<div class="news-card">
+<h4 style="color: var(--text-secondary);">1.7 · Schnellwerkzeuge</h4>
+<div class="image-container">
+<img alt="Bereich 7 – Schnellwerkzeuge auf dem Hauptbildschirm" class="manual-image" src="../images/manual/de/area-7-strumenti-v4.png"/>
+</div>
+<p>
+                        Schnellschaltflächen zum Öffnen von Einstellungen, Minimieren oder Wiederherstellen des Fensters und Zugreifen auf die Hilfe. Sie sind getrennt
+                        von den Betriebsmodi, um das Endergebnis leichter zu machen.
+                    </p>
+</div>
+<div class="news-card">
+<h4 style="color: var(--text-secondary);">1.8 · Betriebsmodi</h4>
+<div class="image-container">
+<img alt="Bereich 8 – Medien, Programme, Nachrichten und REC-Betriebsmodi" class="manual-image" src="../images/manual/de/area-8-modalita-v4.png"/>
+</div>
+<p>
+                        Von hier aus können Sie zum Medienfenster, zur Programmverwaltung, zu Nachrichten und zum REC-Panel wechseln. Der schwarze Punkt
+                        neben REC zeigt den Aufnahmestatus an.
+                    </p>
+</div>
+</div>
+</div>
+<!-- 2. PROGRAMMA E SCALETTE -->
+<div class="content" id="navigazione-settimanale">
+<h2>2 · Programm und Setlisten <a class="back-to-index-link" href="#indice">↑ Inhalt</a></h2>
+<p>
+                Dieser Abschnitt zeigt, wie Sie die richtige Setlist für die Woche laden, bei Bedarf eine manuelle Setlist erstellen und
+                Scrollen Sie schnell durch vergangene, aktuelle und nächste Wochen.
+            </p>
+<p>
+                Standardmäßig lädt die App automatisch die Aufstellung der aktuellen Woche: Wochenmitte
+                von Montag bis Freitag und am Wochenende jeweils Samstag und Sonntag.
+            </p>
+<div class="image-container">
+<img alt="JW-Zeitprogramm-Panel mit Navigation zwischen den Wochen" class="manual-image" src="../images/manual/de/navigazione-settimanale-v4.png"/>
+</div>
+<!-- 2.1 Programmazione automatica - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3 style="color: var(--text-secondary);">2.1 · Automatische Programmierung</h3>
+<ol class="manual-section">
+<li>Wochenmitte: Lädt den Wochentagsplan.</li>
+<li>Wochenende: Laden Sie die Samstags-/Sonntagsaufstellung hoch und fragen Sie nach dem Lied, das vor Publikum sprechen soll.</li>
+</ol>
+</div>
+<!-- 2.2 Scorrimento settimane - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>2.2 · Wochenauswahl und Kalendervorschau</h3>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+<div style="flex: 1 1 240px; min-width: 0;">
+<p>
+                            Die Schaltfläche <strong>Woche</strong> zeigt immer den Bereich (z. B. „Woche: 20. – 26. Okt.“) mit einem Abzeichen an
+                            Dies gibt den Offset zur aktuellen Woche an (0, +1, -2 usw.). Ein Klick öffnet den kompakten Kalender für
+                            Springen Sie direkt zur gewünschten Woche, ohne mehrmals durch die Schaltflächen „Zurück/Weiter“ scrollen zu müssen.
+                        </p>
+<ul class="manual-section">
+<li>Sofort-Badge: Verstehen Sie, ob Sie die aktuelle, zukünftige oder vergangene Woche betrachten.</li>
+<li>Wochenkalender: Wählen Sie die Wochen auf praktische Weise direkt aus.</li>
+</ul>
+</div>
+<figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+<img alt="Detail der Wochenauswahl" class="manual-image" src="../images/manual/de/navigazione-settimanale-pannello-v4.png" style="width: 100%; height: auto; display: block;"/>
+</figure>
+</div>
+</div>
+<!-- 2.3 Visita SC - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>2.3 · Visit SC</h3>
+<p>
+                    Die Schaltfläche <strong>Visit SC</strong>, befindet sich zwischen der Wochenauswahl und „Aus Backup laden“ und wandelt die Wiedergabeliste um, wenn sie vorhanden ist
+                    der Besuch des Kreisaufsehers. Beim Drücken leuchtet die Taste auf (ON) und die App bereitet die Teile automatisch vor
+                    Für den Besuch geplante Sonderangebote.
+                </p>
+<ul class="manual-section">
+<li><strong>Zusammenkunft unter der Woche</strong>: Das Bibelstudium der Versammlung wird in einen festen 30-minütigen Abschnitt mit dem Titel „SC-Besuch“ umgewandelt.</li>
+<li><strong>Wochenenden</strong>: Nach dem Wachtturm-Studium wird ein eigener Eintrag hinzugefügt und die Dauer wird an die Schließzeit angepasst.</li>
+<li>Dedizierte Farben und Warnungen: Die Visit SC-Linie übernimmt ihre eigene Palette und bereitet den spezifischen endgültigen Song vor.</li>
+<li>Schnelle Deaktivierung: Durch Ausschalten des Schalters kehrt der Tisch sofort zur Standardaufstellung zurück, ohne dass die anderen Änderungen verloren gehen.</li>
+</ul>
+</div>
+<!-- 2.4 Carica da backup - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>2.4 · Aus Backup laden</h3>
+<p>
+                    Die Schaltfläche <strong>Aus Backup laden</strong> öffnet eine Liste der lokal gespeicherten Pakete, sortiert nach Datum, Art der Zusammenkunft und Sprache.
+                    Es ist ideal, um offline zu arbeiten oder bereits vorbereitete Programme auf einem anderen PC wiederherzustellen.
+                </p>
+<ul class="manual-section">
+<li>Detaillierte Liste: Jede Zeile zeigt das Startdatum der Woche, den Typ (Midweek/Weekend) und die Sprache.</li>
+<li>Sicheres Laden: Pakete werden überprüft und direkt auf die aktuelle Tabelle angewendet.</li>
+<li>Meldungen löschen: Wenn keine Backups verfügbar sind, zeigt die App sofort eine Warnung an.</li>
+</ul>
+</div>
+<!-- 2.5 Modalit&#224; Manuale - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>2.5 · Manueller Listenmodus</h3>
+<p>
+                    Die manuelle Liste ist nützlich, wenn der Zeitplan nicht aus dem Wochenprogramm stammt oder Sie ein spezielles Programm vorbereiten möchten.
+                    Über das spezielle Bearbeitungsfenster können Sie Einträge erstellen oder bearbeiten, dabei Typ, Titel und Dauer festlegen und das Ergebnis speichern
+                    um es später wiederzuverwenden.
+                </p>
+<div class="image-container" style="margin-top: var(--spacing-md);">
+<img alt="Programm-Panel im manuellen Modus mit Liste „Speichern“, „Laden“ und „Leeren“" class="manual-image" src="../images/manual/de/programma-manuale-pannello-v4.png"/>
+</div>
+<h4 style="color: var(--text-secondary);">2.5.1 · Handbuch-Panel</h4>
+<ul class="manual-section">
+<li><strong>Handbuch</strong>: Aktiviert die benutzerdefinierte Wiedergabeliste und zeigt die entsprechenden Befehle unter der Programmauswahl an.</li>
+<li><strong>Manuelle Liste speichern</strong>: Exportieren Sie die aktuelle Wiedergabeliste in eine Datei, um sie wiederzuverwenden oder auf einen anderen PC zu übertragen.</li>
+<li><strong>Manuelle Liste laden</strong>: Eine gespeicherte Liste importieren und verknüpfte Tabelle, Zeitzähler und Medien aktualisieren.</li>
+<li><strong>Liste löschen</strong>: Löscht die manuelle Aufstellung der aktuellen Woche und entfernt auch manuelle Medien, die mit diesem Entwurf verknüpft sind.</li>
+</ul>
+<h4 style="color: var(--text-secondary);">2.5.2 · Erstellen und speichern</h4>
+<ul class="manual-section">
+<li>Aktivieren Sie den manuellen Modus über das Programmfenster.</li>
+<li>Verwenden Sie Tabellenbefehle, um Zeilen hinzuzufügen, zu löschen oder neu anzuordnen. Bei Bedarf öffnet JW Time das Sprachbearbeitungsfenster.</li>
+<li>Speichern Sie die Liste, wenn Sie sie für ein anderes Mal behalten möchten.</li>
+</ul>
+<p>
+                    Beim Speichern fragt JW Time Sie, was in die Datei <code>.jwtimeplan</code>aufgenommen werden soll.
+                    Wählen Sie <strong>Manuelles Programm + Medien</strong> , wenn Sie auch lokale Dateien, URLs und Gruppen aus dem Medienfenster übertragen möchten.
+                    Wählen Sie <strong>Nur manuelles Zeitprogramm</strong> , wenn Sie nur die Playlist mit Titeln und Dauer benötigen.
+                </p>
+<div class="image-container" style="margin-top: var(--spacing-md);">
+<img alt="Manuelles Programmspeicher-Popup mit Auswahl zwischen Programm mit Durchschnitt und nur Zeiten" class="manual-image" src="../images/manual/de/programma-manuale-salvataggio-popup-v4.png" style="max-width: 900px;"/>
+</div>
+<h4 style="color: var(--text-secondary);">2.5.3 · Eine Liste neu laden oder leeren</h4>
+<ul class="manual-section">
+<li>Verwenden Sie <strong>Manuelle Liste laden</strong> , um eine gespeicherte Wiedergabeliste abzurufen.</li>
+<li>Wenn die Liste Zeilen enthält, die als Standardlieder oder -teile erkannt werden, wendet JW Time einheitliche Farben und Verhalten an.</li>
+<li>Verknüpfte Fenster werden nach dem Laden aktualisiert, sodass Zeitzähler und Durchschnitt mit der Tabelle übereinstimmen.</li>
+<li>Verwenden Sie <strong>Liste löschen</strong> , wenn Sie für dieselbe Woche mit einer leeren Playlist neu starten möchten.</li>
+</ul>
+<h4 style="color: var(--text-secondary);">2.5.4 · Verknüpfte Medien</h4>
+<p>
+                    Wenn Sie Medien an eine manuelle Liste anhängen, bleibt beim Speichern und Laden die Verknüpfung zum vorbereiteten Programm erhalten.
+                    Dies ist nützlich für Sondertreffen, lokale Versammlungen oder Programme, die nicht der Standardwoche folgen.
+                </p>
+<p>
+                    Wenn eine Datei nicht mehr verfügbar ist, benachrichtigt Sie die App, wenn Sie das Medienfenster öffnen oder verwenden, sodass Sie sie vor der Zusammenkunft ersetzen können.
+                </p>
+<p>
+                    Um ein Lied hinzuzufügen, verwenden Sie das Eingabemenü und wählen Sie das Liedelement aus. Auf diese Weise JW Time
+                    erfasst die Songnummer korrekt, verbindet die verfügbaren Medien und der Timer-Bildschirm passt die Anzeige an
+                    ohne den Titel manuell in die Zeile schreiben zu müssen.
+                </p>
+</div>
+</div>
+<!-- 3. MANIPOLAZIONE TIMER -->
+<div class="content" id="manipolazione-timer">
+<h2>3 · Timer manipulieren <a class="back-to-index-link" href="#indice">↑ Inhalt</a></h2>
+<p>
+                In diesem Abschnitt werden die wichtigsten Timer-Verwaltungsvorgänge erläutert, z. B. das Hinzufügen, Bearbeiten oder Löschen von Einträgen.
+                und die Verwendung von Start-, Sprung- und Reset-Befehlen.
+            </p>
+<!-- 3.1 Operazioni principali - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>3.1 · Hauptoperationen</h3>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+<div style="flex: 1 1 240px; min-width: 0;">
+<ol class="manual-section">
+<li>Zeilenmenü: Öffnen Sie die drei Punkte auf der rechten Seite für die Aktionen, die für das ausgewählte Teil verfügbar sind.</li>
+<li>Über das Menü können Sie die Zeile starten oder zur nächsten wechseln, eine Zeile darüber oder darunter hinzufügen, sie duplizieren, zurücksetzen oder löschen.</li>
+<li>Die Befehle <strong>Zeile darüber hinzufügen</strong> und <strong>Zeile darunter hinzufügen</strong> öffnen ein Untermenü mit <em>Lied</em>, <em>Teil/Sprache</em> und <em>Ratschlag</em>.</li>
+<li>Bearbeiten Titel/Dauer: Doppelklicken Sie auf die Zelle und bestätigen Sie.</li>
+<li>Formate Dauer: 5 → 5:00, 1:30 → 1:30 Minuten.</li>
+<li>Starten und Fortfahren:
                                 <ul>
-                                    <li>&#9654; startet.</li>
-                                    <li>&#9654;&#9654; springt zum n&#228;chsten.</li>
-                                    <li>&#8634; setzt auf urspr&#252;ngliche Dauer zur&#252;ck.</li>
-                                </ul>
-                            </li>
-                        </ol>
-                    </div>
-                    <figure style="flex: 0 0 50%; min-width: 320px; max-width: 640px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
-                        <img src="../images/manual/de/manipolazione-operazioni.png"
-                             alt="Haupt-Timer-Operationen"
-                             class="manual-image"
-                             style="width: 100%; height: auto; display: block;">
-                    </figure>
-                </div>
-            </div>
-
-            <!-- 2.2 Echtzeit-Aktualisierungen - KARTE -->
-            <div class="news-card" style="margin-top: var(--spacing-xl);">
-                <h3>2.2 &#183; Echtzeit-Aktualisierungen</h3>
-                <p>
-                    Der Timer aktualisiert sich st&#228;ndig und synchronisiert die Dauer- und Timer-Werte in der Tabelle mit dem laufenden Countdown,
-                    auch wenn Dauern ge&#228;ndert oder der Teil gewechselt wird.
+<li><strong>Startzeile</strong> startet den ausgewählten Teil.</li>
+<li>Wenn eine Zeile ausgeführt wird, lautet der Befehl: <strong>Gehe zur nächsten Zeile.</strong>.</li>
+<li>Stoppen/Pause. Verwalten Sie den laufenden Timer über die untere Leiste.</li>
+</ul>
+</li>
+</ol>
+</div>
+<figure style="flex: 0 0 50%; min-width: 320px; max-width: 640px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+<img alt="Hauptoperationen an Timern" class="manual-image" src="../images/manual/de/manipolazione-operazioni-v4.png" style="width: 100%; height: auto; display: block;"/>
+</figure>
+</div>
+</div>
+<!-- 3.2 Aggiornamenti in tempo reale - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>3.2 · Echtzeit-Updates</h3>
+<p>
+                    Der Timer wird ständig aktualisiert: Der Hauptcountdown oben zeigt die verbleibende Zeit des aktiven Teils an.
+                    während die entsprechende Zeile in der Tabelle weiterhin hervorgehoben bleibt. Die Farbe der oberen Leiste greift die Farbe auf
+                    des laufenden Teils.
                 </p>
-            </div>
-
-            <!-- 2.3 Automatische Anpassung - KARTE -->
-            <div class="news-card" style="margin-top: var(--spacing-xl);">
-                <h3>2.3 &middot; Automatische Anpassung &mdash; Bibelstudium und Wachtturm-Studium</h3>
-
-                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
-                    <div style="flex: 1 1 240px; min-width: 0;">
-                        <p>
-                            Wenn in Einstellungen &#8594; Allgemein Adaptives Bibelstudium und/oder Adaptives Wachtturm-Studium aktiv sind, passt die App
-                            dynamisch die Dauer des ausgew&#228;hlten Teils an, um die Abschlusszeit der Zusammenkunft einzuhalten. Die Anpassung betrifft nur
-                            Teile mit aktiver Option und kann Minuten automatisch erh&#246;hen oder reduzieren basierend auf akkumuliertem Vor-/Nachlauf.
-                            Die Gesch&#228;tzte Endzeit und Abweichung aktualisieren sich in Echtzeit. Du kannst jederzeit manuell in Timer eingreifen: die adaptive
-                            Funktion berechnet ausgehend von der neuen Situation neu.
+<div class="image-container" style="margin-top: var(--spacing-md);">
+<img alt="Aktive Zeile in der Timer-Tabelle hervorgehoben" class="manual-image" src="../images/manual/de/timer-aggiornamento-riga-attiva-v4.png"/>
+</div>
+<p style="margin-top: var(--spacing-lg);">
+                    Wenn Sie eine Dauer ändern oder mit dem nächsten Teil fortfahren, wird die geschätzte Endzeit sofort neu berechnet. Dies ermöglicht
+                    um das Lead/Lag-Delta und die für Pausen oder Sprecherwechsel akkumulierte Zeit zu überprüfen, ohne andere Panels zu öffnen.
+                </p>
+<div class="image-container" style="margin-top: var(--spacing-md);">
+<img alt="Geschätzte Endzeit, Delta- und Pausenzeit werden in Echtzeit aktualisiert" class="manual-image" src="../images/manual/de/timer-aggiornamento-orario-fine-v4.png"/>
+</div>
+</div>
+<!-- 3.3 Regolazione automatica - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>3.3 · Automatische Anpassung – Bibelstudium und Wachtturm-Studium</h3>
+<p>
+                    Wenn Adaptives Bibelstudium und/oder Adaptives Wachtturm-Studium in den Einstellungen aktiviert sind, passt die App
+                    die Dauer des ausgewählten Teils dynamisch an, um die Schlusszeit der Zusammenkunft einzuhalten. Die Anpassung betrifft
+                    nur die Teile mit aktiver Option und kann die Minuten basierend auf der akkumulierten Vor-/Verzögerung automatisch erhöhen oder verringern.
+                    Im Bild ist die betroffene Zeile isoliert und der angepasste Wert orange hervorgehoben, sodass sofort klar ist, welcher Timer korrigiert wurde.
+                    Sie können jederzeit manuell eingreifen: Der Adaptive rechnet ausgehend von der neuen Situation neu.
+                </p>
+<div class="image-container" style="margin-top: var(--spacing-md);">
+<img alt="Automatische Anpassung der adaptiven Timer" class="manual-image" src="../images/manual/de/manipolazione-regolazione-v4.png"/>
+</div>
+</div>
+</div>
+<!-- 4. FINESTRA MEDIA -->
+<div class="content" id="finestra-media">
+<h2>4 · Medienfenster <a class="back-to-index-link" href="#indice">↑ Inhalt</a></h2>
+<p>
+                Das Medienfenster sammelt die mit der Woche verknüpften Inhalte: Lieder, Videos, Bilder und nützliche Verweise auf den Teil.
+                Sie können es verwenden, um sich auf die Zusammenkunft vorzubereiten, zu prüfen, was verfügbar ist, und Inhalte schnell zu starten, wenn Sie sie benötigen.
+            </p>
+<div style="display: flex; gap: var(--spacing-xl); align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-xl);">
+<figure style="flex: 0 1 380px; max-width: 420px; margin: 0;">
+<img alt="JW Time 4.0 Medienfenster mit nummerierten Hauptbereichen" class="manual-image" src="../images/manual/de/media-window-v4-annotata-real.png" style="width: 100%; height: auto; display: block;"/>
+</figure>
+<div style="flex: 1 1 360px; min-width: 280px; display: grid; gap: var(--spacing-md);">
+<div class="news-card">
+<h4 style="color: var(--text-secondary);">4.1 · Hinweise und Medienbereiche</h4>
+<p>
+                            Bereich 1 zeigt an, wann die offiziellen Medien der Woche noch nicht offline verfügbar sind. Sie können sie herunterladen
+                            sofort oder verschieben. Das gleiche Verhalten kann über die
+                            <a href="#impostazioni-media">Abschnitt 13 · Medien</a>-Einstellungen automatisiert werden, indem der automatische Download offizieller Medien aktiviert wird.
+                            Unterhalb des Hinweises finden Sie die Abschnitte der Playlist, mit farbigem Titel, Artikelzähler und Schnellbefehlen.
                         </p>
-                    </div>
-                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
-                        <img src="../images/manual/de/manipolazione-regolazione.png"
-                             alt="Automatische Anpassung adaptiver Timer"
-                             class="manual-image"
-                             style="width: 100%; height: auto; display: block;">
-                    </figure>
-                </div>
-            </div>
-        </div>
-
-        <!-- 3. STOPPUHR UND POPUP -->
-        <div class="content" id="contatempo-popup">
-            <h2>3 &middot; Stoppuhr und Zusammenkunfts-Popup <a href="#indice" class="back-to-index-link">&uarr; Inhaltsverzeichnis</a></h2>
-
-            <p>
-                Das Zusammenkunftsstart-Popup erscheint automatisch zur eingestellten Zeit mit der gew&#228;hlten Nachricht, w&#228;hrend der Timer-Bildschirm
-                Uhr und Countdown auf einem externen Monitor anzeigt.
-            </p>
-
-            <!-- 3.1 Zusammenkunfts-Timer-Popup - KARTE -->
-            <div class="news-card" style="margin-top: var(--spacing-xl);">
-                <h4 style="color: #4ade80;">3.1 &#183; Zusammenkunfts-Timer-Popup</h4>
-
-                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
-                    <div style="flex: 1 1 240px; min-width: 0;">
-                        <p>
-                            Erscheint zur eingestellten Zeit und zeigt die benutzerdefinierte Nachricht zusammen mit dem Countdown. Schlie&#223;t automatisch bei Zeitablauf.
+<p>
+                            <strong>Hinweis:</strong> Der Download offizieller Medien setzt voraus, dass das Netzwerk JW Time den Zugriff auf jw.org und die f&uuml;r Medien verwendeten Ressourcen erlaubt. Der alternative Download f&uuml;r Programme ist f&uuml;r Medien nicht verf&uuml;gbar. Wenn Router, Firewalls, DNS oder Inhaltsfilter religi&ouml;se Websites oder den Zugriff von JW Time blockieren, k&ouml;nnen offizielle Medien m&ouml;glicherweise nicht heruntergeladen werden; in diesem Fall k&ouml;nnen Sie bereits offline vorhandene Medien nutzen oder lokale Dateien manuell hinzuf&uuml;gen.
                         </p>
-                        <ul class="manual-section">
-                            <li>Zeigt den in den Einstellungen konfigurierten benutzerdefinierten Text</li>
-                            <li>Countdown sichtbar bis Zusammenkunftsbeginn</li>
-                            <li>Automatisches Schlie&#223;en bei Ablauf</li>
-                        </ul>
-                    </div>
-                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
-                        <img src="../images/manual/de/contatempo-popup.png"
-                             alt="Zusammenkunfts-Timer-Popup"
-                             class="manual-image"
-                             style="width: 100%; height: auto; display: block;">
-                    </figure>
-                </div>
-            </div>
-
-            <!-- 3.2 Externer Timer-Bildschirm - KARTE -->
-            <div class="news-card" style="margin-top: var(--spacing-xl);">
-                <h4 style="color: #4ade80;">3.2 &#183; Externer Timer-Bildschirm</h4>
-
-                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
-                    <div style="flex: 1 1 240px; min-width: 0;">
-                        <p>
-                            Wenn du "Timer-Bildschirm aktivieren" in den Einstellungen aktivierst, erh&#228;ltst du eine Vollbildanzeige auf einem externen Monitor, ideal f&#252;r das Podium oder den Vorsitzenden.
+</div>
+<div class="news-card">
+<h4 style="color: var(--text-secondary);">4.2 · Inhaltsliste</h4>
+<p>
+                            Bereich 2 enthält Registerkarten mit Vorschau, Titel, Referenz und Startschaltfläche. Die Farben spiegeln die Bereiche der Aufstellung wider,
+                            So können Sie schnell Lieder, Bilder, Videos und Referenzen finden, die sich auf das Teil beziehen.
                         </p>
-                        <ul class="manual-section">
-                            <li>Vollbildanzeige auf ausgew&#228;hltem Monitor</li>
-                            <li>Zeigt Uhr oder Countdown des aktuellen Teils</li>
-                            <li><strong>Tipps-Modus:</strong> zeigt die Zeit des vorherigen Teils f&#252;r sofortiges Feedback</li>
-                        </ul>
-                    </div>
-                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
-                        <img src="../images/manual/de/schermo-contattempo.png"
-                             alt="Timer-Bildschirm auf externem Monitor"
-                             class="manual-image"
-                             style="width: 100%; height: auto; display: block;">
-                    </figure>
-                </div>
-            </div>
-        </div>
-
-        <!-- 4. WOCHENNAVIGATION -->
-        <div class="content" id="navigazione-settimanale">
-            <h2>4 &middot; Wochennavigation <a href="#indice" class="back-to-index-link">&uarr; Inhaltsverzeichnis</a></h2>
-
-            <p>
-                Dieser Abschnitt veranschaulicht, wie man das richtige Programm f&#252;r die Woche l&#228;dt, bei Bedarf ein manuelles Programm erstellt und
-                schnell zwischen vorherigen, aktuellen und folgenden Wochen scrollt.
-            </p>
-
-            <p>
-                Standardm&#228;&#223;ig l&#228;dt die App automatisch das Programm der aktuellen Woche: Wochenmitte
-                von Montag bis Freitag und Wochenende am Samstag und Sonntag.
-            </p>
-
-            <div class="image-container">
-                <img src="../images/manual/de/navigazione-settimanale.png"
-                     alt="JWTime-Programm-Panel mit Navigation zwischen Wochen"
-                     class="manual-image">
-            </div>
-
-            <!-- 4.1 Automatische Programmierung - KARTE -->
-            <div class="news-card" style="margin-top: var(--spacing-xl);">
-                <h3 style="color: #4ade80;">4.1 &middot; Automatische Programmierung</h3>
-                <ol class="manual-section">
-                    <li>Wochenmitte: l&#228;dt das Wochentagsprogramm.</li>
-                    <li>Wochenende: l&#228;dt das Samstag/Sonntag-Programm und fragt nach dem Lied des &#246;ffentlichen Vortrags.</li>
-                </ol>
-            </div>
-
-            <!-- 4.2 Wochen-Scrolling - KARTE -->
-            <div class="news-card" style="margin-top: var(--spacing-xl);">
-                <h3>4.2 &middot; Wochenauswahl und Kalendervorschau</h3>
-
-                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
-                    <div style="flex: 1 1 240px; min-width: 0;">
-                        <p>
-                            Die neue Schaltfl&#228;che <strong>Woche</strong> zeigt immer den Bereich (z.B. "Woche: 20 &ndash; 26 Okt.") mit einem Badge,
-                            das den Versatz zur aktuellen Woche anzeigt (0, +1, -2, etc.). Ein Klick &#246;ffnet den kompakten Kalender, um
-                            direkt zur gew&#252;nschten Woche zu springen, ohne mehrmals die Schaltfl&#228;chen Zur&#252;ck/Weiter zu scrollen.
+</div>
+<div class="news-card">
+<h4 style="color: var(--text-secondary);">4.3 · Untere Leiste</h4>
+<p>
+                            Bereich 3 sammelt die Schnellbefehle des Medienfensters: heruntergeladene Inhalte, Vorschau, Synchronisierung,
+                            Hintergrund und spezielle Einstellungen. Es bleibt unten, um auch dann erreichbar zu sein, wenn die Liste lang ist.
                         </p>
-                        <ul class="manual-section">
-                            <li>Sofortiges Badge: du verstehst, ob du die aktuelle, zuk&#252;nftige oder vergangene Woche betrachtest.</li>
-                            <li>Wochenkalender: w&#228;hle Wochen direkt auf praktische Weise.</li>
-                        </ul>
-                    </div>
-                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
-                        <img src="../images/manual/de/navigazione-settimanale-pannello.png"
-                             alt="Detail der neuen Wochenauswahl"
-                             class="manual-image"
-                             style="width: 100%; height: auto; display: block;">
-                    </figure>
-                </div>
-            </div>
-
-            <!-- 4.3 KA-Besuch - KARTE -->
-            <div class="news-card" style="margin-top: var(--spacing-xl);">
-                <h3>4.3 &middot; KA-Besuch</h3>
-                <p>
-                    Die Schaltfl&#228;che <strong>KA-Besuch</strong>, platziert zwischen Wochenauswahl und Aus Sicherung laden, transformiert das Programm, wenn es
-                    einen Besuch des Kreisaufsehers gibt. Beim Dr&#252;cken leuchtet die Schaltfl&#228;che auf (ON) und die App bereitet automatisch die
-                    speziellen f&#252;r den Besuch vorgesehenen Teile vor.
+</div>
+<div class="news-card">
+<h4 style="color: var(--text-secondary);">4.4 · Zoom-Steuerelemente</h4>
+<p>
+                            Bereich 4 sammelt die Zoom-Steuerelemente des Medienfensters. Sie sind für diejenigen gedacht, die Medien auch im Innenbereich zeigen
+                            Videokonferenz und Arbeiten mit dem Public Screen auf dem Raummonitor.
+                        </p>
+<ul class="manual-section">
+<li><strong>Teilen</strong>– Sendet die konfigurierte Verknüpfung an Zoom, um die Freigabe zu starten oder zu stoppen.</li>
+<li><strong>Zoom anzeigen/ausblenden</strong>: Wird verwendet, um die Lautsprecher oder das Zoom-Fenster auf dem öffentlichen Monitor anzuzeigen. JW Time verbirgt den Öffentlichen Bildschirm vorübergehend und lässt Sie sehen, was sich darunter befindet: Aus diesem Grund muss das Zoom-Lautsprecherfenster oder ein doppelter Bildschirm mit Zoom bereits hinter dem Öffentlichen Bildschirm positioniert sein, bevor Sie die Taste drücken.</li>
+<li><strong>Auto Zoom</strong>: Aktiviert die Zoom-Automatisierung für die Sitzung. Wenn Sie ein Medium starten, kann JW Time die Freigabeverknüpfung automatisch senden und, sofern konfiguriert, diese am Ende stoppen.</li>
+</ul>
+<p>
+                            Bevor Sie diese Tasten verwenden, richten Sie in Zoom eine globale Verknüpfung zur Bildschirmfreigabe ein und geben Sie ein
+                            die gleiche Kombination in <a href="#impostazioni-zoom">Abschnitt 14 · Zoom</a>. Wenn die beiden Tastenkombinationen nicht übereinstimmen,
+                            JW Time sendet den Befehl, aber Zoom reagiert nicht wie erwartet.
+                        </p>
+</div>
+</div>
+</div>
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>4.5 · Vorbesprechung und Hintergrundmusik</h3>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+<div style="flex: 1 1 280px; min-width: 0;">
+<p>
+                            Das Bedienfeld <strong>Hintergrund</strong> verwaltet die Musik vor der Zusammenkunft und, sofern konfiguriert, auch nach der Zusammenkunft.
+                            ohne es mit den Medien in der Aufstellung zu vermischen. Während der Wiedergabe werden das aktuelle Lied, das nächste Lied und
+                            Fortschritt und Dauer.
+                        </p>
+<p>
+                            Sie können starten, pausieren, zum vorherigen oder nächsten Lied springen, die Zufallswiedergabe aktivieren und öffnen
+                            die Playlist. Die Musikeinstellungen, einschließlich automatischem Verhalten und Überblendungen, werden über das Bedienfeld
+                            <a href="#impostazioni-media">Abschnitt 13 · Medien</a>.
+                        </p>
+</div>
+<figure style="flex: 0 0 48%; min-width: 320px; max-width: 680px; margin: 0;">
+<img alt="Musikbereich vor der Zusammenkunft im Medienfenster" class="manual-image" src="../images/manual/de/media-window-musica-v4-real.png" style="width: 100%; height: auto; display: block;"/>
+</figure>
+</div>
+</div>
+</div>
+<!-- 5. SCHERMI -->
+<div class="content" id="schermi-contatempo-pubblico">
+<h2>5 · Öffentlicher Bildschirm und Zeitzähler <a class="back-to-index-link" href="#indice">↑ Inhalt</a></h2>
+<p>
+                JW Time 4.0 trennt die Ansichten: Der <strong>Öffentliche Bildschirm</strong> wird für Inhalte verwendet, die für den Raum sichtbar sind.
+                während der <strong>Zeitzählerbildschirm</strong> denjenigen gewidmet bleibt, die die Zeiten verfolgen.
+            </p>
+<!-- 5.1 Schermo Pubblico - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h4 style="color: var(--text-secondary);">5.1 · Öffentlicher Bildschirm</h4>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+<div style="flex: 1 1 260px; min-width: 0;">
+<p>
+                            Der öffentliche Bildschirm zeigt Countdown, Begrüßungsnachricht, Jahresangabe, Logo und Inhalte
+                            Ansichten in einem separaten Fenster.
+                        </p>
+<ul class="manual-section">
+<li><strong>Vor der Zusammenkunft</strong>: Zeigt den Countdown und den konfigurierten Text an.</li>
+<li><strong>Während der Zusammenkunft</strong>: kann für öffentliche Inhalte oder spezielle Szenen verfügbar bleiben.</li>
+<li><strong>Einstellungen</strong>: Monitor, Nachricht, Countdown, Logo und Layout werden im Abschnitt <a href="#impostazioni-adunanze">11 · Zusammenkünfte</a> und im <a href="#impostazioni-schermo">Abschnitt 12 · Bildschirm</a> eingestellt.</li>
+</ul>
+</div>
+<figure style="flex: 0 0 48%; min-width: 320px; max-width: 620px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+<img alt="Öffentlicher Bildschirm mit Countdown und Meldung" class="manual-image" src="../images/manual/de/schermo-pubblico-v4.png" style="width: 100%; height: auto; display: block;"/>
+</figure>
+</div>
+</div>
+<!-- 5.2 Schermo Contatempo esterno - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h4 style="color: var(--text-secondary);">5.2 · Bildschirm „Zeitzähler“</h4>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+<div style="flex: 1 1 260px; min-width: 0;">
+<p>
+                            Die Zeit angepasst Der Zählerbildschirm zeigt die Uhr, den Countdown des laufenden Teils, Nachrichten für den Sprecher und Zustände im Zusammenhang mit der Zeitverwaltung an.
+                            Es ist die am besten geeignete Ansicht für Podiums-, Präsidenten- oder Zeitarbeiter.
+                        </p>
+<ul class="manual-section">
+<li>Anzeige auf ausgewähltem Monitor oder freiem Fenster.</li>
+<li>Aktuelle Teilzeitbeschäftigung und Kontextinformationen.</li>
+<li>Vollständige oder teilweise Bildschirmnachrichten, die vom Hauptfenster gesendet werden.</li>
+</ul>
+<p>
+                            Die Layoutanpassung wird separat in <a href="#personalizzare-schermo">Abschnitt 5.3 · Anpassen des Zeitzählerbildschirms</a> behandelt.
+                            Somit bleibt die tägliche Nutzung des Bildschirms von den Grafikeinstellungen getrennt.
+                        </p>
+</div>
+<figure style="flex: 0 0 48%; min-width: 320px; max-width: 620px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+<img alt="Zeitzählerbildschirm auf extern Monitor" class="manual-image" src="../images/manual/de/schermo-contattempo-v4.png" style="width: 100%; height: auto; display: block;"/>
+</figure>
+</div>
+</div>
+</div>
+<!-- 5.3 PERSONALIZZARE LO SCHERMO CONTATEMPO -->
+<div class="content" id="personalizzare-schermo">
+<h2>5.3 · Anpassen des Zeitzähler-Bildschirms <a class="back-to-index-link" href="#indice">↑ Inhalt</a></h2>
+<p>
+                Der Zeitzähler-Bildschirm kann über die Schaltfläche <strong>Anpassen</strong> im <a href="#impostazioni-generale">Abschnitt 9 · Allgemeines</a>.
+            </p>
+<p>
+                angepasst werden. Sie können mit einer bereits verfügbaren Voreinstellung beginnen oder das Layout entsprechend Ihren Anforderungen ändern Bedürfnisse. Der öffentliche Bildschirm hat
+                eigene Einstellungen im <a href="#impostazioni-schermo">Abschnitt 12 · Bildschirm</a>; Hier konzentrieren wir uns auf das Layout des Zeitzählers.
+            </p>
+<figure style="margin: var(--spacing-xl) auto; max-width: 720px;">
+<img alt="Zeitzähler-Bildschirmanpassungseditor" class="manual-image" src="../images/manual/de/personalizzazione_schermo_contatempo_base-v4.png"/>
+</figure>
+<!-- 5.3.1 Partire da un preset -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>Ausgehend von einer Voreinstellung</h3>
+<p>
+                    Eine Voreinstellung ist ein Startlayout.
                 </p>
-                <ul class="manual-section">
-                    <li><strong>Wochenmittezusammenkunft</strong>: das Versammlungsbibelstudium wird in einen festen 30-Minuten-Teil mit Titel "KA-Besuch" umgewandelt.</li>
-                    <li><strong>Wochenende</strong>: ein spezieller Punkt wird nach dem Wachtturm-Studium hinzugef&#252;gt und Dauern angepasst, um die Abschlusszeit einzuhalten.</li>
-                    <li>Spezielle Farben und Popups: die KA-Besuch-Zeile nimmt ihre eigene Palette an und aktiviert das spezifische Schlusslied-Popup.</li>
-                    <li>Schnelle Deaktivierung: beim Ausschalten des Schalters kehrt die Tabelle sofort zum Standardprogramm zur&#252;ck, ohne andere &#196;nderungen zu verlieren.</li>
-                </ul>
-            </div>
-
-            <!-- 4.4 Aus Sicherung laden - KARTE -->
-            <div class="news-card" style="margin-top: var(--spacing-xl);">
-                <h3>4.4 &middot; Aus Sicherung laden</h3>
-                <p>
-                    Die Schaltfl&#228;che <strong>Aus Sicherung laden</strong> &#246;ffnet eine Liste lokal gespeicherter Pakete, sortiert nach Datum, Zusammenkunftstyp und Sprache.
-                    Ideal zum Offline-Arbeiten oder Wiederherstellen bereits auf einem anderen PC vorbereiteter Programme.
+<p>
+                    Sie können eine Voreinstellung im <a href="#impostazioni-generale">Abschnitt 9 · Allgemeines</a> auswählen und unverändert verwenden oder den Anpassungseditor öffnen, um sie zu bearbeiten.
                 </p>
-                <ul class="manual-section">
-                    <li>Detaillierte Liste: jede Zeile zeigt Wochenstartdatum, Typ (Wochenmitte/Wochenende) und Sprache.</li>
-                    <li>Sicheres Laden: Pakete werden &#252;berpr&#252;ft und direkt auf die aktuelle Tabelle angewendet.</li>
-                    <li>Klare Nachrichten: wenn keine Sicherungen verf&#252;gbar sind, zeigt die App sofort einen Hinweis.</li>
-                </ul>
-            </div>
-
-            <!-- 4.5 Manueller Modus - KARTE -->
-            <div class="news-card" style="margin-top: var(--spacing-xl);">
-                <h3>4.5 &middot; Manuelle Listen-Modus</h3>
-                <p>Erm&#246;glicht das Erstellen einer vollst&#228;ndig benutzerdefinierten Liste durch manuelles Festlegen von Titeln und Dauern nach deinen Bed&#252;rfnissen.</p>
-                 <ul class="manual-section">
-                    <li>Du kannst die Liste speichern, um sie wiederzuverwenden, wann immer du m&#246;chtest.</li>
-                    <li>Du kannst sie sp&#228;ter &#252;ber "Manuelle Liste laden" abrufen, ohne sie jedes Mal neu schreiben zu m&#252;ssen.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- 5. NACHRICHTENVERWALTUNG -->
-        <div class="content" id="gestione-messaggi">
-            <h2>5 &middot; Nachrichtenverwaltung <a href="#indice" class="back-to-index-link">&uarr; Inhaltsverzeichnis</a></h2>
-
-            <p>
-                Die Nachrichten-Funktion erm&#246;glicht es, diskret und klar mit dem Redner w&#228;hrend der Zusammenkunft zu kommunizieren, um
-                zu benachrichtigen oder Anweisungen zu geben, ohne den Verlauf des Programmteils zu unterbrechen oder zu st&#246;ren. Nachrichten erscheinen auf dem
-                Timer-Bildschirm, sodass der Redner sie in Echtzeit ohne Ablenkungen sieht.
-            </p>
-
-            <div class="image-container">
-                <img src="../images/manual/de/messaggi-elenco.png"
-                     alt="Nachrichtenverwaltungsbildschirm in JWTime"
-                     class="manual-image">
-            </div>
-
-            <!-- 5.1 Vollbildnachricht - KARTE -->
-            <div class="news-card" style="margin-top: var(--spacing-xl);">
-                <h3>5.1 &#183; Vollbildnachricht</h3>
-
-                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
-                    <div style="flex: 1 1 240px; min-width: 0;">
-                        <ol class="manual-section">
-                            <li>Klicke in den Bereich, wo Nachricht einf&#252;gen steht.</li>
-                            <li>Gib den Text ein.</li>
-                            <li>Dr&#252;cke <strong>Vollbild</strong> &#8594; der Text erscheint im Vollbild auf dem Timer-Monitor.</li>
-                        </ol>
-                    </div>
-                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
-                        <img src="../images/manual/de/messaggio-tutto-schermo.png"
-                             alt="Vollbildnachricht"
-                             class="manual-image"
-                             style="width: 100%; height: auto; display: block;">
-                    </figure>
-                </div>
-            </div>
-
-            <!-- 5.2 Teilbild-Nachricht - KARTE -->
-            <div class="news-card" style="margin-top: var(--spacing-xl);">
-                <h3>5.2 &#183; Teilbild-Nachricht</h3>
-
-                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
-                    <div style="flex: 1 1 240px; min-width: 0;">
-                        <ol class="manual-section">
-                            <li>Klicke in den Bereich, wo Nachricht einf&#252;gen steht.</li>
-                            <li>Gib den Text ein.</li>
-                            <li>Dr&#252;cke <strong>Teilbild</strong> &#8594; der Text erscheint oben im Timer-Fenster und erm&#246;glicht es dem Redner, sowohl die Nachricht als auch seine verf&#252;gbare Zeit zu sehen.</li>
-                        </ol>
-                    </div>
-                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
-                        <img src="../images/manual/de/messaggio-parziale.png"
-                             alt="Teilbild-Nachricht"
-                             class="manual-image"
-                             style="width: 100%; height: auto; display: block;">
-                    </figure>
-                </div>
-            </div>
-
-            <!-- 5.3 Timer-Spiegel - KARTE -->
-            <div class="news-card" style="margin-top: var(--spacing-xl); ">
-                <h3>5.3 &#183; Timer-Spiegel</h3>
-                <p>
-                    Wenn eine Nachricht gesendet wird, erscheint automatisch ein gr&#246;&#223;enver&#228;nderbares und verschiebbares Vorschaufenster, das
-                    genau das zeigt, was der Redner auf dem Timer-Monitor sieht. Dies erm&#246;glicht es, die Anzeige
-                    der Nachricht und des Timers in Echtzeit zu &#252;berpr&#252;fen.
+</div>
+<!-- 5.3.2 Scegliere una scena -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>Wählen Sie eine Szene</h3>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+<div style="flex: 1 1 240px; min-width: 0;">
+<p>
+                            Das Layout ist in Szenen organisiert.
+                        </p>
+<p>
+                            Jede Szene entspricht einer anderen Situation auf dem Zeitzählerbildschirm. Dadurch können Sie je nach Zeitpunkt oder Art des angezeigten Teils ein anderes Layout anzeigen.
+                        </p>
+<p>
+                            Bevor Sie Änderungen vornehmen, prüfen Sie immer, welche Szene ausgewählt ist.
+                        </p>
+</div>
+<figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+<img alt="Szenenauswahl im Zeitzähler-Bildschirmeditor" class="manual-image" src="../images/manual/de/personalizzazione_schermo_contatempo_base_scena-v4.png" style="width: 100%; height: auto; display: block;"/>
+</figure>
+</div>
+</div>
+<!-- 5.3.3 Tipi di livello -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>Verfügbare Ebenentypen</h3>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+<div style="flex: 1 1 320px; min-width: 0;">
+<p>
+                            Wenn Sie im Ebenenbedienfeld auf <strong>+</strong> drücken, zeigt JW Time die Elementtypen an, die Sie der Szene hinzufügen können.
+                            Einige Ebenen lesen echte Daten der Zusammenkunft und ändern sich automatisch. Andere werden zum Aufbau des grafischen Layouts verwendet.
+                        </p>
+<p>
+                            Es ist nicht praktisch, alle Eigenschaften jeder Ebene im Handbuch anzuzeigen, da sich das Eigenschaftenfenster je nach Version ändert
+                            zum ausgewählten Typ. Hier erfahren Sie, was die einzelnen Level bewirken und wann Sie sie verwenden.
+                        </p>
+</div>
+<figure style="flex: 0 0 42%; min-width: 300px; max-width: 520px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+<img alt="Dialogfeld „Ebene hinzufügen“ mit im Zeitzähler-Bildschirm verfügbaren Elementtypen" class="manual-image" src="../images/manual/de/personalizzazione_schermo_contatempo_livelli-v4.png" style="width: 100%; height: auto; display: block;"/>
+</figure>
+</div>
+<h4 style="color: var(--text-secondary); margin-top: var(--spacing-lg);">Hauptdynamikebenen</h4>
+<ul class="manual-section">
+<li><strong>Timer</strong>: Zeigt das Tempo des aktiven Teils an. Es kann als Countdown oder Countup eingestellt werden.</li>
+<li><strong>Lied</strong>: Songinformationen anzeigen, wenn es in der Szene um einen Song geht.</li>
+<li><strong>Nachrichten</strong>: Zeigt Nachrichten an, die vom Hauptfenster gesendet wurden, sowohl im Vollbildmodus als auch im Teilformat.</li>
+<li><strong>Uhr</strong>: Zeigt die digitale Zeit an.</li>
+<li><strong>Analoge Uhr</strong>– Fügt eine anpassbare grafische Uhr hinzu.</li>
+</ul>
+<h4 style="color: var(--text-secondary); margin-top: var(--spacing-lg);">Informationen zur Zusammenkunft</h4>
+<ul class="manual-section">
+<li><strong>Aktueller Teil</strong>: Zeigt den Titel des aktuellen Teils an.</li>
+<li><strong>Nächster Teil</strong>: Zeigt den nächsten Teil an, der für die Vorbereitung der Änderung nützlich ist.</li>
+<li><strong>Vorheriges Teil</strong>: Zeigt Informationen über das gerade fertiggestellte Teil an, wenn das Layout dies erfordert.</li>
+<li><strong>Geschätztes Ende</strong>– Zeigt die von der App berechnete Endzeit an.</li>
+<li><strong>Verzögerung/Früh</strong>: Zeigt das Delta im Vergleich zur geplanten Zeit an.</li>
+<li><strong>Pauseninfo</strong>: Zeigt Informationen zu Pausen oder technischer Zeit an.</li>
+<li><strong>Fortschrittsbalken</strong>: Zeigt grafisch den Fortschritt der Zeit an.</li>
+</ul>
+<h4 style="color: var(--text-secondary); margin-top: var(--spacing-lg);">Kostenlose Grafikebenen</h4>
+<ul class="manual-section">
+<li><strong>Hintergrund</strong>: Fügt ein farbiges Feld hinzu, das zum Erstellen von Bändern, Kontrastbereichen oder visuellen Containern nützlich ist.</li>
+<li><strong>Text</strong>: fügt einen personalisierten festen Text hinzu.</li>
+<li><strong>Bild</strong>: Fügt ein Logo oder ein dekoratives Bild hinzu.</li>
+</ul>
+<p>
+                     <strong>Hintergrund</strong>, <strong>Text</strong> und <strong>Bild</strong> Ebenen können mehrfach hinzugefügt werden.
+                    Wenn auf anderen Ebenen bereits ein Element desselben Typs vorhanden ist, bietet Ihnen der Editor an, es mit einer anderen Szene zu verknüpfen
+                    oder bei Bedarf eine unabhängige zu erstellen.
                 </p>
-            </div>
-        </div>
-
-
-        <!-- 6. REC-TASTE -->
-        <div class="content" id="rec-button">
-            <h2>6 &middot; REC-Taste und Aufnahme-Panel <a href="#indice" class="back-to-index-link">&uarr; Inhaltsverzeichnis</a></h2>
-
-            <p>
-                Die <strong>REC</strong>-Taste befindet sich in der unteren Leiste neben Programm und Nachricht. Der Punkt neben dem Text zeigt
-                den Aufnahmestatus (Warten, Aktiv oder MP3-Konvertierung), w&#228;hrend das verkn&#252;pfte Men&#252; und der Umschaltbereich Schnellsteuerungen
-                zum &#214;ffnen des JWTimeREC-Ordners, Verwalten manueller Aufnahmen und &#220;berwachen von PC- und Mikrofon-Audiopegeln bieten.
+</div>
+<!-- 5.3.4 Modificare il layout -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>Bearbeiten des Layouts</h3>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+<div style="flex: 1 1 240px; min-width: 0;">
+<p>
+                            Im Editor können Sie die in der ausgewählten Szene vorhandenen Ebenen bearbeiten.
+                        </p>
+<p>Für jede Ebene können Sie die Position und Größe auf drei Arten ändern:</p>
+<ul class="manual-section">
+<li>mit der Maus, Verschieben oder Ändern der Größe des Felds in der Vorschau</li>
+<li>mit der Tastatur, Verwenden der Pfeile, um es zu verschieben</li>
+<li>mit den unter der Vorschau angezeigten Positions- und Größenwerten</li>
+</ul>
+<p>
+                            Die X- und Y-Werte steuern die Position der Ebene.<br/>
+                            Die Werte „Breite“ und „Alt“ steuern die Größe der Ebene.
+                        </p>
+<p>Alle diese Werte werden in Prozent ausgedrückt.</p>
+<p>
+                            Im Ebenenbedienfeld können Sie auch die verwalten<strong>Überlagerungsordnung</strong>: Jedes Level kann
+                            Bleiben Sie über oder unter den anderen und bestimmen Sie, was im Falle einer Überlappung im Vordergrund erscheint.
+                            Sie können die Reihenfolge ändern, indem Sie die Ebenen in der Liste ziehen oder die Schaltflächen verwenden
+                            <strong>▲</strong> und <strong>▼</strong> darunter.
+                        </p>
+</div>
+<figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+<img alt="Layout im Zeitzähler-Bildschirmeditor bearbeiten" class="manual-image" src="../images/manual/de/personalizzazione_schermo_contatempo_base_layout-v4.png" style="width: 100%; height: auto; display: block;"/>
+</figure>
+</div>
+</div>
+<!-- 5.3.5 Spostare, ridimensionare, valori, salvare -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>Ebenen verschieben, in der Größe ändern und anordnen</h3>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+<div style="flex: 1 1 240px; min-width: 0;">
+<p>Nachdem Sie eine Ebene ausgewählt haben, können Sie:</p>
+<ul class="manual-section">
+<li>Ziehen Sie es mit der Maus, um es in der Vorschau zu verschieben</li>
+<li>Verwenden Sie die Pfeiltasten der Tastatur, um die Position anzupassen (<strong>Pfeile</strong>: 0,5% — <strong>Schicht</strong>: 2,0% — <strong>Strg</strong>: 0,1%)</li>
+<li>Ziehen Sie die Kanten oder Ecken des Rahmens, um die Größe zu ändern</li>
+</ul>
+<p>
+                            Unterhalb der Vorschau finden Sie die numerischen Bedienelemente <strong>X</strong>, <strong>Y</strong>, <strong>Breite</strong> und <strong>Alt</strong>
+                            um Position und Größe präzise anzupassen.
+                        </p>
+<p>
+                            Speichern Sie das Layout nach den Änderungen und wenden Sie es an. Sie können den Editor jederzeit erneut öffnen, um ihn zu aktualisieren.
+                        </p>
+</div>
+<figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+<img alt="Ebenen im Zeitzähler-Bildschirmeditor verschieben und in der Größe ändern" class="manual-image" src="../images/manual/de/personalizzazione_schermo_contatempo_base_trasformazioni-v4.png" style="width: 100%; height: auto; display: block;"/>
+</figure>
+</div>
+</div>
+</div>
+<!-- 6. GESTIONE MESSAGGI -->
+<div class="content" id="gestione-messaggi">
+<h2>6 · Verwaltung von Nachrichten <a class="back-to-index-link" href="#indice">↑ Inhalt</a></h2>
+<p>
+                Die Nachrichtenfunktion ermöglicht es Ihnen, während der Zusammenkunft diskret und klar mit dem Redner zu kommunizieren
+                ihn warnen oder ihm Anweisungen geben, ohne den Fortschritt des Teils zu unterbrechen oder zu stören. Meldungen erscheinen auf dem Bildschirm
+                des Zeitzählers, sodass der Sprecher sie in Echtzeit ohne Ablenkungen sieht.
             </p>
-
-            <div class="image-container" style="margin-top: var(--spacing-lg);">
-                <img src="../images/manual/de/REC.png"
-                     alt="Detail der REC-Taste und Aufnahme-Panel"
-                     class="manual-image">
-            </div>
-
-            <!-- 6.1 Statusindikatoren - KARTE -->
-            <div class="news-card" style="margin-top: var(--spacing-xl);">
-                <h3>6.1 &middot; Tastenindikatoren und -zust&#228;nde</h3>
-                <ul class="manual-section">
-                    <li><strong>Wartend</strong>: der Punkt bleibt grau und das Men&#252; zeigt "Wartend" / "Keine aktive Aufnahme".</li>
-                    <li><strong>Aufnahme l&#228;uft</strong>: der Punkt wird blinkend rot und das Men&#252; zeigt "Aufnahme l&#228;uft" mit Titel und Timer des Teils.</li>
-                    <li><strong>MP3-Konvertierung</strong>: der Punkt wird orange und die Taste bleibt deaktiviert, bis der Dateiexport abgeschlossen ist.</li>
-                </ul>
-            </div>
-
-            <!-- 6.2 REC-Schnellmen&#252; - KARTE -->
-            <div class="news-card" style="margin-top: var(--spacing-xl);">
-                <h3>6.2 &middot; Tasten-Schnellmen&#252;</h3>
-                <p>Das Men&#252;, das sich beim Klicken auf REC &#246;ffnet, erm&#246;glicht Schnellsteuerungen:</p>
-                <ul class="manual-section">
-                    <li><strong>Ordner &#246;ffnen</strong>: &#246;ffnet direkt das JWTimeREC-Verzeichnis mit den Aufnahmen.</li>
-                    <li><strong>Aufnahme aktivieren/deaktivieren</strong>: aktiviert oder stoppt die manuelle Aufnahme ohne die Einstellungen zu betreten.</li>
-                    <li><strong>Inline-Details</strong>: unter dem Status erscheinen der Titel der aktiven Zeile und die aktualisierte Dauer.</li>
-                    <li><strong>Automatische Nachrichten</strong>: zeigt sofort an, wenn die Aufnahme deaktiviert ist oder wenn eine Konvertierung l&#228;uft.</li>
-                </ul>
-            </div>
-
-            <!-- 6.3 Umschaltbereich und manuelle Steuerungen - KARTE -->
-            <div class="news-card" style="margin-top: var(--spacing-xl);">
-                <h3>6.3 &middot; Umschaltbereich mit Audiopegeln</h3>
-                <p>
-                    Beim Andocken der REC-Taste an den Umschaltbereich erscheint ein immer sichtbares Panel mit denselben Informationen wie das Men&#252;, aber angereichert mit Audio-Metern.
-                    Hier kannst du manuelle Aufnahmen starten/stoppen, PC/Mic-Pegel &#252;berwachen und den JWTimeREC-Ordner mit einem Klick &#246;ffnen.
+<div class="image-container">
+<img alt="Nachrichtenverwaltungsbildschirm in JW Time" class="manual-image" src="../images/manual/de/messaggi-elenco-v4.png"/>
+</div>
+<!-- 6.1 Messaggio a tutto schermo - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>6.1 · Vollbildmeldung</h3>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+<div style="flex: 1 1 240px; min-width: 0;">
+<ol class="manual-section">
+<li>Klicken Sie in den Bereich, in dem „Nachricht einfügen“ steht.</li>
+<li>Geben Sie den Text ein.</li>
+<li>Drücken <strong>Vollbild</strong> → Der Text erscheint im Vollbildmodus auf dem Timer-Monitor.</li>
+</ol>
+</div>
+<figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+<img alt="Vollbildnachricht" class="manual-image" src="../images/manual/de/messaggio-tutto-schermo-v4.png" style="width: 100%; height: auto; display: block;"/>
+</figure>
+</div>
+</div>
+<!-- 6.2 Messaggio a schermo parziale - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>6.2 · Teilweise Bildschirmmeldung</h3>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+<div style="flex: 1 1 240px; min-width: 0;">
+<ol class="manual-section">
+<li>Klicken Sie in den Bereich, in dem „Nachricht einfügen“ steht.</li>
+<li>Geben Sie den Text ein.</li>
+<li>Drücken <strong>Teilbildschirm</strong> → Der Text erscheint im Zeitzählerfenster, ohne ihn vollständig zu verdecken, sodass der Sprecher sowohl die Nachricht als auch den Timer sehen kann.</li>
+</ol>
+</div>
+<figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+<img alt="Nachrichtenteilbildschirm" class="manual-image" src="../images/manual/de/messaggio-parziale-v4.png" style="width: 100%; height: auto; display: block;"/>
+</figure>
+</div>
+</div>
+<!-- 6.3 Mirror Contatempo - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl); ">
+<h3>6.3 · Spiegelzeitzähler</h3>
+<p>
+                    Wenn Sie eine Nachricht senden, wird automatisch ein in der Größe veränderbares und verschiebbares Vorschaufenster angezeigt
+                    genau das, was der Sprecher auf dem Timer-Monitor sieht. Dadurch können Sie die Anzeige in Echtzeit überprüfen
+                    der Nachricht und des Timers.
                 </p>
-            </div>
-        </div>
-
-        <!-- 7. WEB-MONITOR -->
-        <div class="content" id="monitor-web">
-            <h2>7 &middot; Web-Monitor &amp; Server <a href="#indice" class="back-to-index-link">&uarr; Inhaltsverzeichnis</a></h2>
-
-            <p>
-                Dies ist die Webseite, die sichtbar ist, wenn man mit demselben Netzwerk wie die Anwendung verbunden ist. Sie erm&#246;glicht es,
-                den Timer remote auf Ger&#228;ten wie Projektoren, Tablets oder externen Computern anzuzeigen &#8212; n&#252;tzlich f&#252;r den Vorsitzenden, der den Timer
-                der verschiedenen Programmteile &#252;berwacht. Auf diese Weise kann man den Verlauf der Zusammenkunft in Echtzeit &#252;berwachen und das Programm direkt
-                vom Browser aus drucken.
+</div>
+</div>
+<!-- 7. PULSANTE REC -->
+<div class="content" id="rec-button">
+<h2>7 · REC-Taste und Aufnahmefeld <a class="back-to-index-link" href="#indice">↑ Inhalt</a></h2>
+<p>
+                Der Knopf <strong>REC</strong> Es befindet sich in der unteren Leiste neben Zeitplan und Nachricht. Der Punkt neben dem Text zeigt
+                den Aufnahmestatus (Warten, aktiv, pausiert oder MP3-Konvertierung), während das REC-Feld schnelle Steuerungsmöglichkeiten bietet
+                um den JWTimeREC-Ordner zu öffnen, manuelle Aufnahmen zu verwalten und die Audiopegel von PC und Mikrofon zu überwachen.
             </p>
-
-            <p>F&#252;r die Konfiguration von Web-Monitor und Server siehe <strong>10. Server</strong> in den Einstellungen.</p>
-
-            <div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-xl);">
-                <div style="flex: 1 1 320px; min-width: 0;">
-                    <p>Vom Browser aus kannst du:</p>
-                    <ul class="manual-section">
-                        <li>Timer und Countdown im Vollbild anzeigen.</li>
-                        <li>Das Programm drucken.</li>
-                        <li>Den Zeitfortschritt in Echtzeit kontrollieren.</li>
-                    </ul>
-                </div>
-                <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0 0 0 auto; align-self: flex-start;">
-                    <img src="../images/manual/de/monitor-web.png"
-                         alt="JWTime Web-Monitor vom Browser aus gesehen"
-                         class="manual-image">
-                </figure>
-            </div>
-        </div>
-
-        <!-- TEIL II - EINSTELLUNGEN -->
-        <div class="content" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.08)); border-left: 4px solid var(--accent-green); border-radius: var(--radius-lg); padding: var(--spacing-xl); box-shadow: var(--shadow-md);">
-            <h2 style="font-size: 2rem; margin: 0 0 var(--spacing-lg) 0; color: var(--text-primary);">Teil II &#183; Einstellungen</h2>
-            <p>
-                In diesem Teil kannst du das Verhalten der App konfigurieren: von allgemeinen Einstellungen (Sprache, 12/24h-Format und Timer-
-                Bildschirm) &#252;ber Zusammenkunftsplanung (Popup und dedizierter Monitor) bis zu Web-Monitor &amp; Server und Sicherung &amp; Wiederherstellung.
+<div class="image-container" style="margin-top: var(--spacing-lg);">
+<img alt="Detail der REC-Schaltfläche und des Aufzeichnungsfelds" class="manual-image" src="../images/manual/de/REC-v4.png"/>
+</div>
+<!-- 7.1 Indicatori di stato - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>7.1 · Tastenanzeigen und -zustände</h3>
+<ul class="manual-section">
+<li><strong>Warten</strong>: Der Punkt bleibt grau und auf dem Bedienfeld wird „Warten“ / „Keine aktive Aufnahme“ angezeigt.</li>
+<li><strong>Aufnahme läuft</strong>: Der Punkt blinkt rot und auf dem Bedienfeld wird „Aufnahme läuft“ mit Titel und Timer des Teils angezeigt.</li>
+<li><strong>Pause</strong>: Der Punkt ändert sich in Orange; Die Registrierung wird ausgesetzt und kann wieder aufgenommen werden.</li>
+<li><strong>MP3-Konvertierung</strong>: Der Punkt wird blau und die Schaltfläche bleibt deaktiviert, bis der Dateiexport abgeschlossen ist.</li>
+</ul>
+</div>
+<!-- 7.2 Controlli rapidi REC - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>7.2 · REC-Schnellsteuerungen</h3>
+<p>Das REC-Panel sammelt die zu verwendenden Steuerelemente, ohne die Einstellungen einzugeben:</p>
+<ul class="manual-section">
+<li><strong>Ordner öffnen</strong>: Öffnet direkt das JWTimeREC-Verzeichnis mit den Aufzeichnungen.</li>
+<li><strong>Aufnahme aktivieren/deaktivieren</strong>: Manuelle Aufnahme aktivieren oder stoppen, ohne die Einstellungen einzugeben.</li>
+<li><strong>Pause/Fortsetzen</strong>: Schaltfläche, die während der Aufnahme sichtbar ist, um den Ton (z. B. Gebete) vorübergehend anzuhalten und in derselben Datei fortzusetzen.</li>
+<li><strong>Online-Details</strong>: Der Titel der aktiven Zeile und die aktualisierte Dauer werden unter dem Status angezeigt.</li>
+<li><strong>Automatische Meldungen</strong>: Zeigt sofort an, wenn die Aufzeichnung deaktiviert ist oder eine Konvertierung läuft.</li>
+</ul>
+</div>
+<!-- 7.3 Area toggle e controlli manuali - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>7.3 · Umschaltbereich mit Audiopegeln</h3>
+<p>
+                    Wenn Sie REC öffnen, erscheint in der unteren Leiste ein immer sichtbares Feld mit Aufnahmestatus und Audiopegel.
+                    Hier können Sie manuelle Aufnahmen starten/stoppen, PC-/Mikrofonpegel überwachen und den JWTimeREC-Ordner mit einem einzigen Klick öffnen.
+                </p>
+</div>
+</div>
+<!-- 8. MONITOR WEB -->
+<div class="content" id="monitor-web">
+<h2>8 · Web-Monitor &amp; Server <a class="back-to-index-link" href="#indice">↑ Inhalt</a></h2>
+<p>
+                Wenn der Webserver aktiv ist, können Sie ihn von einem anderen Gerät im selben lokalen Netzwerk über einen Browser öffnen.
+                Dadurch kann der Zeitzähler auf externen Projektoren, Tablets oder Computern angezeigt werden und ist für den Präsidenten nützlich
+                die dem Timer der verschiedenen Teile folgt.
             </p>
-            <p>Die SPEICHERN-Taste wendet alle &#196;nderungen an.</p>
-        </div>
-
-        <!-- 8. ALLGEMEIN -->
-        <div class="content" id="impostazioni-generale">
-            <h2>8 &middot; Allgemein <a href="#indice" class="back-to-index-link">&uarr; Inhaltsverzeichnis</a></h2>
-
-            <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
-                <div style="flex: 0 0 400px; max-width: 500px;">
-                    <img src="../images/manual/de/impostazioni-generale.png"
-                         alt="JWTime Allgemeine Einstellungen Panel"
-                         class="manual-image">
-                </div>
-                <div style="flex: 1; min-width: 300px;">
-                    <ul class="manual-section">
-                        <li><strong>Sprache ausw&#228;hlen</strong>: &#228;ndert die Schnittstellensprache. Beim Sprachwechsel aktualisiert die App automatisch das Wochenprogramm in der neuen Sprache (falls verf&#252;gbar).</li>
-                        <li><strong>Monitor ausw&#228;hlen</strong>: w&#228;hlt den externen Bildschirm, auf dem der Timer angezeigt wird.</li>
-                        <li><strong>Timer-Bildschirm aktivieren</strong>: zeigt Uhr oder Countdown im Vollbild auf dem ausgew&#228;hlten Monitor.</li>
-                        <li><strong>Adaptives Bibelstudium</strong>: wenn aktiviert, wird die Dauer des Versammlungsbibelstudiums automatisch angepasst, um die Abschlusszeit einzuhalten.</li>
-                        <li><strong>Adaptives Wachtturm-Studium</strong>: wenn aktiviert, wird die Dauer des Wachtturm-Studiums automatisch angepasst, um die Abschlusszeit einzuhalten.</li>
-                        <li><strong>12h-Format verwenden (AM/PM)</strong>: zeigt die Zeit im 12-Stunden-Format. Wenn deaktiviert, wird das 24h-Format verwendet.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- 9. ZUSAMMENK&#220;NFTE -->
-        <div class="content" id="impostazioni-adunanze">
-            <h2>9 &middot; Zusammenk&#252;nfte (Zusammenkunfts-Start-Timer) <a href="#indice" class="back-to-index-link">&uarr; Inhaltsverzeichnis</a></h2>
-
-            <p>
-                Dieses Panel dient zur Programmierung des Zusammenkunftsstart-Countdowns zur festgelegten Zeit.
-                Du stellst Tag, Uhrzeit und Vorlauf (in Minuten) ein, mit dem du
-                den Countdown starten m&#246;chtest.
+<p>Die vollständige Konfiguration des Webservers, der Fernsteuerung, der Fernverbindung und des QR finden Sie unter <a href="#impostazioni-connessioni">Abschnitt 15 · Verbindung und Server</a>.</p>
+<div class="news-card" id="monitor-web-locale" style="margin-top: var(--spacing-xl);">
+<h3>8.1 · Anzeigen des Web-Monitors im lokalen Netzwerk</h3>
+<div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+<div style="flex: 1 1 320px; min-width: 0;">
+<p>Über den Browser können Sie:</p>
+<ul class="manual-section">
+<li>Timer und Zeitzähler im Vollbildmodus anzeigen.</li>
+<li>Drucken Sie die Wiedergabeliste.</li>
+<li>Überprüfen Sie den Timing-Fortschritt in Echtzeit.</li>
+<li>Führen Sie Fernoperationen am Timer und Zeitplan durch, wenn die Fernsteuerung aktiviert ist.</li>
+</ul>
+</div>
+<figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0 0 0 auto; align-self: flex-start;">
+<img alt="JW Time Web-Monitor vom Browser aus gesehen" class="manual-image" src="../images/manual/de/monitor-web-v4.png"/>
+</figure>
+</div>
+</div>
+<!-- 8.2 Controllo remoto -->
+<div class="news-card" id="monitor-web-controllo-remoto" style="margin-top: var(--spacing-xl);">
+<h3>8.2 · Steuerung von Timer und Programm über den Browser</h3>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+<div style="flex: 1 1 240px; min-width: 0;">
+<p>
+                            Wenn die Fernsteuerung aktiviert ist, können Sie vom Browser aus auf Timer und Programm eingreifen, ohne dass dies erforderlich ist
+                            vor dem Hauptrechner.
+                        </p>
+<p>Verfügbare Vorgänge hängen von den konfigurierten Berechtigungen ab und können Folgendes umfassen:</p>
+<ul class="manual-section">
+<li>Starten des Timers</li>
+<li>Anhalten und Fortsetzen</li>
+<li>Anhalten</li>
+<li>Steuern des Programms/der Wiedergabeliste</li>
+<li>Ändern der in der Wiedergabeliste verfügbaren Dauer oder Werte, wenn die autorisierte Rolle dies zulässt</li>
+</ul>
+<p>Sie können Öffnen Sie den Webserver, indem Sie die in der App angezeigte Adresse eingeben oder den QR verwenden, falls verfügbar.</p>
+<p>
+                            Abhängig von der Konfiguration können unterschiedliche Zugriffsebenen bereitgestellt werden, beispielsweise nur für den Zugriff
+                            Anzeige oder zur Kontrolle und Änderung. Falls konfiguriert, ist für den Zugriff möglicherweise eine PIN erforderlich.
+                        </p>
+<p>Die vollständige Konfiguration finden Sie unter <a href="#impostazioni-connessioni">Abschnitt 15 · Verbindung und Server</a>.</p>
+</div>
+<figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+<img alt="Web-Monitor mit Fernbedienung" class="manual-image" src="../images/manual/de/monitor-web-editor-v4.png" style="width: 100%; height: auto; display: block;"/>
+</figure>
+</div>
+</div>
+<!-- 8.3 Accesso remoto fuori rete -->
+<div class="news-card" id="monitor-web-accesso-remoto" style="margin-top: var(--spacing-xl);">
+<h3>8.3 · Fernzugriff für Videokonferenzbesprechungen</h3>
+<p>
+                    Wenn sich die Person, die JW Time verfolgen oder steuern muss, nicht im selben lokalen Netzwerk befindet, können Sie eine temporäre Remote-Verbindung erstellen.
+                    Dieses Szenario eignet sich für Videokonferenzen, Fernunterstützung oder die Verwaltung über ein angeschlossenes Gerät
+                    zu einem anderen Netzwerk.
+                </p>
+<figure style="margin: var(--spacing-lg) 0;">
+<img alt="Verbindungsfenster mit hervorgehobenem Fernzugriff" class="manual-image" src="../images/manual/de/impostazioni-connessioni-accesso-remoto-v4.png"/>
+</figure>
+<ul class="manual-section">
+<li><strong>Gleiche Weboberfläche</strong>: Der Remote-Link öffnet den Web-Monitor über den Browser, wie es im lokalen Netzwerk geschieht.</li>
+<li><strong>Temporäre Verbindung</strong>: Die Remote-Verbindung ändert sich bei jeder Aktivierung und sollte nicht als dauerhaft betrachtet werden.</li>
+<li><strong>Remote-PIN</strong>– Schützt bei Konfiguration Funktionen, die von außerhalb des lokalen Netzwerks zugänglich sind.</li>
+<li><strong>Verwendung mit Videokonferenz</strong>: Ermöglicht jedem, der die Zusammenkunft von außerhalb des Netzwerks verfolgt, das Programm gemäß den festgelegten Berechtigungen anzusehen oder zu überprüfen.</li>
+</ul>
+<p>
+                    Der operative Teil wird im <a href="#server-web-remoto">Abschnitt 15.2 · Remote-Webserver</a> konfiguriert.
+                    Die Zoomeinstellungen bleiben getrennt: Zoom verwaltet die Freigabe und Verknüpfungen.
+                    während die Remote-Verbindung den Web-Monitor betrifft.
+                </p>
+</div>
+</div>
+<!-- PARTE II - PANNELLI IMPOSTAZIONI -->
+<div class="content-section-header">
+<h2 style="font-size: 2rem; margin: 0 0 var(--spacing-lg) 0; color: var(--text-primary);">Teil II · Einstellungsfenster</h2>
+<p>
+                In diesem Teil können Sie das Verhalten der App konfigurieren: allgemeine Einstellungen, Gemeindeprofile, Zusammenkünfte,
+                Zeitzählerbildschirm, Medien, Zoom, Web- und Servermonitor, Aufzeichnungen und Sichern und Wiederherstellen.
             </p>
-
-            <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
-                <div style="flex: 0 0 400px; max-width: 500px;">
-                    <img src="../images/manual/de/impostazioni-adunanze.png"
-                         alt="Zusammenk&#252;nfte-Panel mit Start-Timer in JWTime"
-                         class="manual-image">
-                </div>
-                <div style="flex: 1; min-width: 300px;">
-                    <h3>9.1 &#183; Programmierung (Tag &#183; Uhrzeit &#183; Vorlauf)</h3>
-                    <ul class="manual-section">
-                        <li><strong>Tag</strong>: w&#228;hle den Wochentag, an dem die Zusammenkunft stattfindet.</li>
-                        <li><strong>Uhrzeit</strong>: stelle die Startzeit der Zusammenkunft ein.</li>
-                        <li><strong>Vorlauf (min)</strong>: wie viele Minuten vor der eingestellten Zeit der Countdown auf dem Timer-Bildschirm erscheinen soll.</li>
-                    </ul>
-
-                    <h3 style="margin-top: var(--spacing-lg);">9.2 &#183; Zusammenkunftsstart-Nachricht</h3>
-                    <p>Schreibe den Text, der auf dem Bildschirm zusammen mit dem Countdown erscheinen soll (z.B. "Willkommen &#8212; die Zusammenkunft beginnt bald"). Halte ihn kurz und lesbar. (siehe Punkt 3.1)</p>
-
-                    <p style="margin-top: var(--spacing-md); font-size: 0.9rem; color: var(--text-tertiary);">
-                        <strong>Hinweis:</strong> diese Funktion &#228;ndert nicht die Zusammenkunftsdauer und beeinflusst nicht die "Gesch&#228;tzte Endzeit".
+<p>Die Schaltfläche SPEICHERN übernimmt alle Änderungen.</p>
+</div>
+<!-- 9. GENERALE -->
+<div class="content" id="impostazioni-generale">
+<h2>9 · Allgemeines <a class="back-to-index-link" href="#indice">↑ Inhalt</a></h2>
+<div class="settings-panel-layout">
+<div class="settings-panel-figure">
+<img alt="JW Time-Fenster „Allgemeine Einstellungen“" class="manual-image" src="../images/manual/de/impostazioni-generale-v4.png"/>
+</div>
+<div class="settings-panel-copy">
+<h3>Aussehen und Format</h3>
+<ul class="manual-section">
+<li><strong>Wählen Sie die Sprache</strong>: Ändern Sie die Sprache der Benutzeroberfläche.</li>
+<li><strong>Programmsprachen</strong>: Definiert, in welcher Sprache der Wochenplan heruntergeladen oder angezeigt werden soll.</li>
+<li><strong>Wählen Sie das Thema</strong>: Legen Sie das grafische Thema der App fest.</li>
+<li><strong>Schnittstellenskalierung</strong>: Text- und Steuergrößen anpassen; Die Änderung gilt nach dem Neustart.</li>
+<li><strong>Zeitformat</strong>: Wechselt zwischen dem 24-Stunden-Format und dem 12-Stunden-AM/PM-Format.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">Timer-Verwaltung</h3>
+<ul class="manual-section">
+<li><strong>Automatische Pause</strong>: fügt automatisch eine Pause zwischen einem Teil und dem nächsten ein, wenn Sie Start/Weiter drücken.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">Neuigkeiten</h3>
+<ul class="manual-section">
+<li><strong>Beim Start anzeigen, was neu ist</strong>: Öffnet eine kurze Zusammenfassung der in der App eingeführten Funktionen, sodass Benutzer von JW Time schnell herausfinden können, was einen Versuch wert ist.</li>
+<li>Sie können es deaktivieren, wenn die Gruppe bereits mit der installierten Version vertraut ist.</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- 10. CONGREGAZIONI -->
+<div class="content" id="impostazioni-congregazioni">
+<h2>10 · Gemeinden <a class="back-to-index-link" href="#indice">↑ Inhalt</a></h2>
+<p>
+                In diesem Bereich können Sie Gemeindeprofile verwalten. Jedes Profil kann dedizierte Konfigurationen verwalten,
+                So kann sich JW Time an unterschiedliche Kontexte anpassen, ohne jedes Mal Fenster, Medien und Layout neu konfigurieren zu müssen.
+            </p>
+<div class="settings-panel-layout">
+<div class="settings-panel-figure">
+<img alt="JW Time-Gemeindenfenster" class="manual-image" src="../images/manual/de/impostazioni-congregazioni-v4.png"/>
+</div>
+<div class="settings-panel-copy">
+<h3>Gemeindeprofile</h3>
+<ul class="manual-section">
+<li><strong>Gemeindeliste</strong>: Zeigt die verfügbaren Profile an. Jedes Profil verwaltet seine eigene Sprache, seinen eigenen Server, seine eigenen Bildschirme, Aufzeichnungen, Medien und Einstellungen.</li>
+<li><strong>Neue Kongregation</strong>– Erstellen Sie ein separates Profil zur Konfiguration.</li>
+<li><strong>Umbenennen</strong>: Ändert den Namen des ausgewählten Profils, ohne die Einstellungen zu verlieren.</li>
+<li><strong>Duplizieren</strong>: Erstellt eine Kopie des aktuellen Profils, nützlich, wenn zwei Konfigurationen ähnlich sind.</li>
+<li><strong>Löschen</strong>: Entfernt das ausgewählte Profil, wenn es nicht mehr benötigt wird.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">Importieren/Exportieren</h3>
+<ul class="manual-section">
+<li><strong>Kongregation exportieren</strong>: Nur das ausgewählte Profil speichern.</li>
+<li><strong>Gemeinde importieren</strong>: Lädt ein zuvor exportiertes Profil.</li>
+<li><strong>Exportieren</strong>– Erstellt eine vollständige Sicherung aller Gemeinden.</li>
+<li><strong>Importieren</strong>– Stellt eine Sicherung wieder her, die mehrere Gemeinden enthält.</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- 11. ADUNANZE -->
+<div class="content" id="impostazioni-adunanze">
+<h2>11 · Zusammenkünfte (Start-Timer) <a class="back-to-index-link" href="#indice">↑ Inhalt</a></h2>
+<p>
+                Dieses Panel dient zur Programmierung des Start-Countdowns der Zusammenkunft auf dem Öffentlichen Bildschirm.
+                Sie legen den Tag, die Uhrzeit und den Vorlauf (in Minuten) fest, den Sie ausführen möchten
+                Starten Sie den Countdown.
+            </p>
+<div class="settings-panel-layout">
+<div class="settings-panel-figure">
+<img alt="Panel Zusammenkünfte mit Start-Timer in JW Time" class="manual-image" src="../images/manual/de/impostazioni-adunanze-v4.png"/>
+</div>
+<div class="settings-panel-copy">
+<h3>11.1 · Terminplanung (Tag · Uhrzeit · Vorlauf)</h3>
+<ul class="manual-section">
+<li><strong>Zusammenkunft hinzufügen</strong>: Fügt eine neue Zeile in die Zeitplantabelle ein.</li>
+<li><strong>Tag</strong>: Wählen Sie den Wochentag aus, an dem die Zusammenkunft stattfindet.</li>
+<li><strong>Zeit</strong>: Legen Sie die Startzeit der Zusammenkunft fest.</li>
+<li><strong>Vorlauf (Min.)</strong>: Wie viele Minuten vor der eingestellten Zeit muss der Countdown auf dem Öffentlichen Bildschirm erscheinen.</li>
+<li><strong>-</strong>: Löschen Sie die Zeitleiste, die nicht mehr benötigt wird.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">11.2 · Sonderereignisse</h3>
+<ul class="manual-section">
+<li><strong>Sonderereignis hinzufügen</strong>: Erstellen Sie Ereignisse wie Kreisaufseherbesuche, Gedenkveranstaltungen oder manuelle Ereignisse.</li>
+<li><strong>Visit SC</strong>: Wenden Sie die für den Besuch geltenden Regeln und Zeiten an.</li>
+<li><strong>Memorial</strong>– Zeichnen Sie einen besonderen Termin mit einem bestimmten Datum und einer bestimmten Uhrzeit auf.</li>
+<li><strong>Bearbeiten / Löschen</strong>: Mit den Schaltflächen auf der rechten Seite können Sie das Ereignis aktualisieren oder entfernen.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">11.3 · Zeit anpassen</h3>
+<ul class="manual-section">
+<li><strong>Adaptives Bibelstudium</strong>– Passt das Kongregationsbibelstudium automatisch an, um die Endzeit einzuhalten.</li>
+<li><strong>Adaptive Wachtturm-Studie</strong>: Wenden Sie die gleiche Logik auf die Wachtturm-Studie an.</li>
+</ul>
+<p style="margin-top: var(--spacing-md); font-size: 0.9rem; color: var(--text-tertiary);">
+<strong>Hinweis:</strong> Die Startzeiten gelten für den öffentlichen Countdown. Die voraussichtliche Endzeit hängt stattdessen vom Zeitplan und etwaigen Anpassungen der Dauer ab.
                     </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 10. VERBINDUNG UND SERVER -->
-        <div class="content" id="impostazioni-connessioni">
-            <h2>10 &middot; Verbindung und Server <a href="#indice" class="back-to-index-link">&uarr; Inhaltsverzeichnis</a></h2>
-
-            <p>
-                Dieses Panel verwaltet die App-Konnektivit&#228;t: vom Web-Monitor zur Anzeige des Timers &#252;ber den Browser
-                bis zu erweiterten Verbindungstests und Log-Verwaltung.
+</div>
+</div>
+</div>
+<!-- 12. SCHERMO -->
+<div class="content" id="impostazioni-schermo">
+<h2>12 · Bildschirm <a class="back-to-index-link" href="#indice">↑ Inhalt</a></h2>
+<p>
+                Dieses Panel sammelt die Einstellungen für den Zeitzählerbildschirm und den Öffentlichen Bildschirm. Von hier aus können Sie
+                Wählen Sie, wo die Informationen angezeigt werden, wie sie präsentiert werden und welche Elemente während der Zusammenkunft sichtbar gemacht werden sollen.
             </p>
-
-            <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
-                <div style="flex: 0 0 400px; max-width: 500px;">
-                    <img src="../images/manual/de/impostazioni-connessioni.png"
-                         alt="JWTime Verbindungs-Panel"
-                         class="manual-image">
-                </div>
-                <div style="flex: 1; min-width: 300px;">
-                    <h3>10.1 &#183; Web-Monitor und Server</h3>
-                    <ul class="manual-section">
-                        <li><strong>WEB-Monitor</strong>: aktiviert oder deaktiviert den internen Server.</li>
-                        <li><strong>Server-Adresse</strong>: zeigt die URL und enth&#228;lt die Schaltfl&#228;che Adresse kopieren zum automatischen Kopieren.</li>
-                        <li><strong>Port</strong>: stellt den HTTP-Port ein (Standard: 8000).</li>
-                        <li><strong>Helles/dunkles Design</strong>: die Webserver-Seite unterst&#252;tzt jetzt beide Designs.</li>
-                    </ul>
-
-                    <h3 style="margin-top: var(--spacing-lg);">10.2 &#183; Verbindungstest</h3>
-                    <ul class="manual-section">
-                        <li>Internetverbindung und notwendige Websites &#252;berpr&#252;fen</li>
-                        <li>HTTPS- und Zertifikats&#252;berpr&#252;fung</li>
-                        <li>System-Proxy-&#220;berpr&#252;fung</li>
-                        <li>Zeitsynchronisations&#252;berpr&#252;fung</li>
-                        <li>Ordner-Schreibtest (Log, Cache, Sicherung)</li>
-                    </ul>
-
-                    <h3 style="margin-top: var(--spacing-lg);">10.3 &#183; Log-Verwaltung</h3>
-                    <p>Direktes &#214;ffnen des Log-Ordners aus den Einstellungen mit klareren und n&#252;tzlicheren Nachrichten f&#252;rs Debugging.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 11. AUFNAHMEN -->
-        <div class="content" id="impostazioni-registrazioni">
-            <h2>11 &middot; Aufnahmen <a href="#indice" class="back-to-index-link">&uarr; Inhaltsverzeichnis</a></h2>
-
-            <p>
-                Zusammenkunfts-Audio-Aufnahmefunktion, zug&#228;nglich vom "Aufnahmen"-Tab in den Einstellungen und von der REC-Taste im Hauptfenster.
+<div class="settings-panel-layout">
+<div class="settings-panel-figure">
+<img alt="Bildschirmfenster von JW Time" class="manual-image" src="../images/manual/de/impostazioni-schermo-v4.png"/>
+</div>
+<div class="settings-panel-copy">
+<ul class="manual-section">
+<li><strong>Aktivieren Sie</strong>: Aktiviert oder deaktiviert den Zeitzählerbildschirm.</li>
+<li><strong>Monitor auswählen</strong>: Wählen Sie den Monitor oder das Fenster aus, in dem der Zeitzähler angezeigt werden soll.</li>
+<li><strong>Identify</strong>: Zeigt eine Referenz auf dem ausgewählten Monitor an, nützlich, wenn mehrere Displays angeschlossen sind.</li>
+<li><strong>Modus</strong>: legt fest, wie der Zeitzähler geöffnet werden soll, beispielsweise als freies Fenster.</li>
+<li><strong>Transparenter Hintergrund</strong>: Macht das Fenster transparent, wenn der Modus dies zulässt.</li>
+<li><strong>Layout</strong>: Wählen Sie die Grafikvoreinstellung des Zeitzählerbildschirms aus.</li>
+<li><strong>Anpassen</strong>: öffnet den Editor des ausgewählten Layouts.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">Öffentlicher Bildschirm</h3>
+<ul class="manual-section">
+<li><strong>Öffentlichen Bildschirm aktivieren</strong>: Aktiviert das Fenster, das den im Raum sichtbaren Inhalten gewidmet ist.</li>
+<li><strong>Countdown für die Öffentlichkeit aktivieren</strong>: Zeigt den Countdown bis zum Beginn der Zusammenkunft auf dem Öffentlichen Bildschirm an.</li>
+<li><strong>Monitor</strong>: Wählen Sie aus, wo das öffentliche Fenster geöffnet werden soll.</li>
+<li><strong>Layout</strong>: wählt die Grafikvoreinstellung des Öffentlichen Bildschirms.</li>
+<li><strong>Jahresangabe anzeigen</strong>: Jahresangabe aktivieren oder ausblenden.</li>
+<li><strong>JW-Logo anzeigen</strong>: Logo in der öffentlichen Szene anzeigen oder ausblenden.</li>
+<li><strong>Jahresschreibtext</strong>: ermöglicht Ihnen das Einfügen eines personalisierten Textes; Bleibt es leer, wird die Jahreszahl in der Programmsprache verwendet.</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- 13. MEDIA -->
+<div class="content" id="impostazioni-media">
+<h2>13 · Medien <a class="back-to-index-link" href="#indice">↑ Inhalt</a></h2>
+<p>
+                Dieses Panel verwaltet das Verhalten des Medienfensters, des lokalen Caches und der mit den Inhalten verknüpften Optionen
+                während oder nach der Sitzung verwendet werden.
             </p>
-
-            <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
-                <div style="flex: 0 0 400px; max-width: 500px;">
-                    <img src="../images/manual/de/impostazioni-registrazioni.png"
-                         alt="JWTime Aufnahmen-Panel"
-                         class="manual-image">
-                </div>
-                <div style="flex: 1; min-width: 300px;">
-                    <h3>Hauptfunktionen</h3>
-                    <ul class="manual-section">
-                        <li><strong>Automatische Aufnahme</strong>: startet die Aufnahme autonom zu Beginn jeder Zusammenkunft, gem&#228;&#223; der eingestellten Programmierung.</li>
-                        <li><strong>Zielordner-Auswahl</strong>: w&#228;hle, wo Aufnahmen gespeichert werden</li>
-                        <li><strong>Aufnahmetest</strong>: &#252;berpr&#252;fe das ordnungsgem&#228;&#223;e Funktionieren vor der Zusammenkunft</li>
-                        <li><strong>Lautst&#228;rkeanpassung</strong>: Mikrofon und PC-Audio separat einstellbar</li>
-                        <li><strong>Automatische "Ducking"-Funktion</strong>: senkt automatisch die Mic-Lautst&#228;rke, wenn Videos projiziert werden</li>
-                        <li><strong>Speicher- und Dateistatistiken</strong>: &#252;berwache den von Aufnahmen verwendeten Speicher</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- 11. SICHERUNG UND WIEDERHERSTELLUNG -->
-        <div class="content" id="impostazioni-backup">
-            <h2>12 &middot; Sicherung &amp; Wiederherstellung <a href="#indice" class="back-to-index-link">&uarr; Inhaltsverzeichnis</a></h2>
-
-            <p>
-                Dieses Panel erm&#246;glicht die Verwaltung von Sicherungen der Einstellungen und Wochenprogramme, sowohl f&#252;r normale Verwendung als auch f&#252;r den OFFLINE-Modus.
+<div class="settings-panel-layout">
+<div class="settings-panel-figure">
+<img alt="Medienbereich von JW Time" class="manual-image" src="../images/manual/de/impostazioni-media-v4.png"/>
+</div>
+<div class="settings-panel-copy">
+<h3>Medienfunktionen</h3>
+<ul class="manual-section">
+<li><strong>Medienschaltfläche und -funktion</strong>: Blendet die Medienschaltfläche ein oder aus und aktiviert zugehörige Funktionen.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">Mediensammlung</h3>
+<ul class="manual-section">
+<li><strong>Automatisches Herunterladen der offiziellen Medien</strong>: Bereitet automatisch die Inhalte der Woche vor.</li>
+<li><strong>Songs automatisch offline aktualisieren</strong>: Hält den Katalog der heruntergeladenen Songs auf dem neuesten Stand.</li>
+<li><strong>Videoqualität</strong>: Wählen Sie die Auflösung der offiziellen Videos.</li>
+<li><strong>Wochen</strong>: gibt an, wie viele Wochen aufbewahrt oder vorbereitet werden sollen.</li>
+<li><strong>Max Space</strong>: Begrenzt den vom Mediencache verwendeten Speicherplatz.</li>
+<li><strong>Ordner / löschen</strong>: Öffnet den Inhaltsordner oder bereinigt heruntergeladene Dateien.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">Songs und Musik</h3>
+<ul class="manual-section">
+<li><strong>Video-Lieder für Zusammenkünfte</strong>: verwaltet Download, Qualität und Ordner der Lied-Videos.</li>
+<li><strong>Lieder – Musik vor/nach der Zusammenkunft</strong>: verwaltet die als Hintergrund verwendete Musik.</li>
+<li><strong>Zufallswiedergabe</strong>: Spielt Songs in zufälliger Reihenfolge ab.</li>
+<li><strong>Automatisch zu Beginn der Zusammenkunft stoppen</strong>: Stoppt die Musik, wenn das Programm startet.</li>
+<li><strong>Musik stoppen, bevor die Zusammenkunft beginnt</strong>: Definiert, wie viele Sekunden vorher die Hintergrundmusik gestoppt werden soll.</li>
+<li><strong>Fade-Dauer</strong>: Passt die Audio-Fade beim Schließen oder Wechseln von Songs an.</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- 14. ZOOM -->
+<div class="content" id="impostazioni-zoom">
+<h2>14 · Zoom <a class="back-to-index-link" href="#indice">↑ Inhalt</a></h2>
+<p>
+                Dieses Bedienfeld enthält nützliche Einstellungen, wenn JW Time zusammen mit Zoom oder anderen Konfigurationen verwendet wird
+                Räume, die spezielle Audio-/Videosteuerungen erfordern. Die folgenden Optionen steuern die Zoom-Tasten der
+                <a href="#finestra-media">Abschnitt 4 · Medienfenster</a>.
             </p>
-
-            <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
-                <div style="flex: 0 0 400px; max-width: 500px;">
-                    <img src="../images/manual/de/impostazioni-backup.png"
-                         alt="JWTime Sicherungs- und Wiederherstellungs-Panel"
-                         class="manual-image">
-                </div>
-                <div style="flex: 1; min-width: 300px;">
-                    <h3>12.1 &#183; Einstellungssicherung</h3>
-                    <ul class="manual-section">
-                        <li><strong>Sicherung speichern</strong>: exportiert Konfigurationen in eine .jwtimesettings-Datei (neues Format Version 2.0).</li>
-                        <li><strong>Sicherung laden</strong>: importiert eine Konfigurationsdatei. Unterst&#252;tzt auch alte .json-Dateien. Nach dem Import dr&#252;cke Speichern, um &#196;nderungen wirksam zu machen.</li>
-                    </ul>
-
-                    <h3 style="margin-top: var(--spacing-lg);">12.2 &#183; OFFLINE-Sicherung</h3>
-                    <p><strong>Automatische Sicherung von Wochenprogrammen:</strong></p>
-                    <ul class="manual-section">
-                        <li>Bis zu 12 Wochen automatisch gespeichert</li>
-                        <li>Programmwiederherstellung auch ohne Internetverbindung</li>
-                        <li>Funktioniert im Hintergrund ohne manuelle Eingriffe</li>
-                    </ul>
-
-                    <p style="margin-top: var(--spacing-md);"><strong>Exportierte Sicherungen f&#252;r OFFLINE-Verwendung:</strong></p>
-                    <ul class="manual-section">
-                        <li><strong>Verwende die "Herunterladen"-Schaltfl&#228;che, um die Datei sofort zu erhalten</strong></li>
-                        <li>&#220;bertrage Dateien auf andere PCs auch ohne Internetverbindung</li>
-                        <li>Perfekt f&#252;r Computer im Saal, die nicht mit dem Netzwerk verbunden sind</li>
-                        <li>Unterst&#252;tzt mehrsprachige Verwaltung mit separaten Sicherungen f&#252;r jede Sprache</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>JW Time</h3>
-                <p>Freiwilligenprojekt zur Verwaltung der Zusammenkunftszeiten.</p>
-            </div>
-
-            <div class="footer-section">
-                <h3>Ressourcen</h3>
-                <ul>
-                    <li><a href="index.html">Startseite</a></li>
-                    <li><a href="manual.html">Benutzerhandbuch</a></li>
-                    <li><a href="news.html">Neuigkeiten</a></li>
-                    <li><a href="contacts.html">Kontakte</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3>Informationen</h3>
-                <ul>
-                    <li><a href="privacy-policy.html">Datenschutzrichtlinie</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2025 JW Time - Inoffizielles Projekt erstellt von Freiwilligen</p>
-        </div>
-    </footer>
-
-    <!-- JavaScript -->
-    <script src="../js/main.js"></script>
+<div class="settings-panel-layout">
+<div class="settings-panel-figure">
+<img alt="Zoombereich von JW Time" class="manual-image" src="../images/manual/de/impostazioni-zoom-v4.png"/>
+</div>
+<div class="settings-panel-copy">
+<h3>Zoom</h3>
+<ul class="manual-section">
+<li><strong>Zoom-Steuerelemente</strong>: zeigen die dem Zoom gewidmeten Tasten im Medienfenster an.</li>
+<li><strong>Zoom-Freigabe</strong>: Aktiviert die Schaltfläche, die die Freigabeverknüpfung an Zoom sendet.</li>
+<li><strong>Zoom öffentlich anzeigen</strong>: aktiviert die Schaltfläche, die den öffentlichen JW Time-Bildschirm vorübergehend ausblendet, um die Lautsprecher oder das bereits darunter positionierte Zoom-Fenster auf dem Raummonitor anzuzeigen.</li>
+<li><strong>Freigabeverknüpfung</strong>– Dies muss dieselbe globale Verknüpfung sein, die in Zoom konfiguriert wurde, um die Bildschirmfreigabe zu starten oder zu stoppen.</li>
+<li><strong>Test</strong>: Senden Sie die Verknüpfung und prüfen Sie, ob Zoom geöffnet wird oder den Freigabestatus ändert.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">Zoom-Verknüpfung</h3>
+<p>
+                        JW Time wählt das Fenster oder den Bildschirm, der in Zoom geteilt werden soll, nicht für Sie aus: Senden Sie die Tastenkombination
+                        die Sie in diesem Panel angegeben haben. Aus diesem Grund muss die gleiche Verknüpfung auch in den Einstellungen aktiv sein
+                        von Zoom, vorzugsweise als globale Verknüpfung. Wenn Sie in Zoom eine andere Kombination verwenden, funktionieren die Taste
+                        <strong>Teilen</strong> und der Modus <strong>Auto Zoom</strong> möglicherweise nicht zuverlässig.
+                    </p>
+<p>
+                        Überprüfen Sie vor der Zusammenkunft den gesamten Ablauf: Bereiten Sie Zoom auf dem öffentlichen Monitor vor und platzieren Sie den Öffentlichen Bildschirm darunter
+                        Um das Lautsprecherfenster oder den duplizierten Zoom-Bildschirm anzuzeigen, versuchen Sie es mit der Verknüpfung mit <strong>Test</strong> und dann
+                        Verwenden Sie die Steuerelemente aus dem Medienfenster.
+                    </p>
+<h3 style="margin-top: var(--spacing-lg);">Medienautomatisierung</h3>
+<ul class="manual-section">
+<li><strong>Autostart</strong>: wenn die Taste gedrückt wird <strong>Auto Zoom</strong> im Medienfenster aktiv ist, beginnt die Freigabe, wenn ein Medium abgespielt wird.</li>
+<li><strong>Automatischer Stopp</strong>: Stoppt die Freigabe, wenn das Medium endet, wenn die Freigabe von JW Time gestartet wurde.</li>
+<li><strong>Anfängliche Pause</strong>: Bereitet das Medium auf eine Pause nach dem Start der Freigabe vor.</li>
+<li><strong>Fokus wiederherstellen</strong>: Setzt den Fokus nach der Zoom-Aktion wieder auf das Medienfenster.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">Verwendung mit Zusammenkünften per Videokonferenz</h3>
+<p>
+                        Wenn jemand während einer Zusammenkunft per Videokonferenz JW Time von außerhalb des Netzwerks ansehen oder steuern muss,
+                        wird das nicht im Zoom-Bereich konfiguriert: Verwenden Sie <a href="#monitor-web-accesso-remoto">Abschnitt 8.3 · Fernzugriff für Zusammenkünfte per Videokonferenz</a>.
+                        In diesem Bereich bleiben nur Verknüpfungen, Freigabe und Verwaltung des Zoom-Fensters.
+                    </p>
+</div>
+</div>
+</div>
+<!-- 15. CONNESSIONE E SERVER -->
+<div class="content" id="impostazioni-connessioni">
+<h2>15 · Verbindung und Server <a class="back-to-index-link" href="#indice">↑ Inhalt</a></h2>
+<p>
+                Dieses Panel verwaltet die Konnektivität der App: den Web-Monitor und den Webserver zur Anzeige und Steuerung über den Browser,
+                Der QR für schnellen Zugriff, Fernsteuerung, erweiterte Verbindungstests und Protokollverwaltung.
+            </p>
+<div class="settings-panel-layout">
+<div class="settings-panel-figure">
+<img alt="Verbindungsbereich von JW Time" class="manual-image" src="../images/manual/de/impostazioni-connessioni-v4.png"/>
+</div>
+<div class="settings-panel-copy">
+<h3>15.1 · Web-Monitor und Webserver</h3>
+<ul class="manual-section">
+<li><strong>JW Time - Web-Monitor</strong>: Aktivieren oder deaktivieren Sie den internen Server.</li>
+<li><strong>Serveradresse</strong>: Zeigt die URL an, die im lokalen Netzwerk geöffnet werden soll. Im Handbuch verwenden wir eine generische Adresse, zum Beispiel <code>http://192.168.1.100:8000</code>.</li>
+<li><strong>Adresse kopieren</strong>: Kopiert die URL in die Zwischenablage.</li>
+<li><strong>QR</strong>: zeigt einen QR-Code an, um den Web-Monitor schneller von Ihrem Telefon oder Tablet aus zu öffnen.</li>
+<li><strong>Server-Port</strong>: Stellen Sie den HTTP-Port ein, normalerweise 8000.</li>
+<li><strong>Editor/Controller</strong>: Aktivieren Sie Passwörter, um Timer und Zeitpläne über den Browser zu bearbeiten oder zu steuern. Mit der Controller-Rolle wird der Web-Monitor auch zum Bedienpanel: Er kann starten, pausieren, stoppen und die verfügbaren Werte aktualisieren, ohne zum Hauptrechner zurückkehren zu müssen.</li>
+</ul>
+<p>
+                        Wenn der Webserver aktiv ist, kann JW Time von einem anderen Gerät im selben lokalen Netzwerk über einen Browser geöffnet werden.
+                        um den Web-Monitor von Ihrem Telefon, Tablet oder einem anderen Computer aus zu verwenden.
+                    </p>
+<h3 id="server-web-remoto" style="margin-top: var(--spacing-lg);">15.2 · Remote-Webserver</h3>
+<p>
+                        Dieser Abschnitt wird verwendet, um den Web-Monitor auch außerhalb des lokalen Netzwerks erreichbar zu machen, beispielsweise während
+                        Zusammenkünfte per Videokonferenz. Informationen zum Verwendungskontext finden Sie im Abschnitt <a href="#monitor-web-accesso-remoto">Abschnitt 8.3 · Fernzugriff für Zusammenkünfte per Videokonferenz</a>;
+                        Hier finden Sie die praktischen Bedienelemente.
+                    </p>
+<ul class="manual-section">
+<li><strong>Remote-Link generieren</strong>: Erstellt einen temporären Link über die Cloudflare-Komponente, wenn Zugriff außerhalb des lokalen Netzwerks erforderlich ist.</li>
+<li><strong>Komponente herunterladen</strong>: Laden Sie die für die Remote-Verbindung erforderliche Komponente herunter.</li>
+<li><strong>Remote Link</strong>: Zeigt den generierten Link und die Schaltflächen „Kopieren/QR“ an.</li>
+<li><strong>Remote-PIN</strong>: Schützt den Zugriff auf Remote-Funktionen, wenn konfiguriert.</li>
+<li><strong>Linkstatus</strong>– Zeigt an, ob die Remote-Komponente, aktive Verbindungen und Cloudflare verfügbar sind.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">15.3 · Fernsteuerung</h3>
+<p>
+                        Wenn die Funktion aktiviert ist, kann der Webserver nicht nur zum Anzeigen, sondern auch zum Ausführen verwendet werden
+                        Ferngesteuerter Timer- und Programmbetrieb. Wenn die Controller-Rolle aktiviert ist, wird der Webbildschirm angezeigt
+                        Steuert auch, um auf verfügbare Werte einzugreifen, beispielsweise auf die Dauer eines Teils.
+                    </p>
+<p>Davon können folgende verfügbar sein:</p>
+<ul class="manual-section">
+<li>Starten des Timers</li>
+<li>Anhalten und Fortsetzen</li>
+<li>Anhalten</li>
+<li>Steuern des Programms/der Wiedergabeliste</li>
+</ul>
+<p>
+                        Je nach Konfiguration können zur Unterscheidung unterschiedliche Zugriffsebenen verfügbar sein
+                        einfache Abfrage aus den Steuer- oder Änderungsfunktionen.
+                    </p>
+<h3 style="margin-top: var(--spacing-lg);">15.4 · Verbindungstest</h3>
+<ul class="manual-section">
+<li><strong>Verbindungstest</strong>: Überprüfen Sie Netzwerk, JW.org, Proxy und Schreibberechtigungen.</li>
+<li><strong>Ergebnis kopieren</strong>: Kopiert das Testergebnis zur Unterstützung oder Diagnose.</li>
+<li><strong>Protokollordner öffnen</strong>: Öffnet direkt den App-Protokollordner.</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- 16. REGISTRAZIONE -->
+<div class="content" id="impostazioni-registrazioni">
+<h2>16 · Aufzeichnungen <a class="back-to-index-link" href="#indice">↑ Inhalt</a></h2>
+<p>
+                Audioaufzeichnungsfunktion für Zusammenkünfte, zugänglich über die Registerkarte „Aufzeichnungen“ in den Einstellungen und über die Schaltfläche REC im Hauptfenster.
+            </p>
+<div class="settings-panel-layout">
+<div class="settings-panel-figure">
+<img alt="Aufnahmebereich von JW Time" class="manual-image" src="../images/manual/de/impostazioni-registrazioni-v4.png"/>
+</div>
+<div class="settings-panel-copy">
+<h3>Automatische Aufnahme</h3>
+<ul class="manual-section">
+<li><strong>Automatische Aufnahme aktiv</strong>: startet die Aufnahme, wenn der Timer startet, wenn die Funktion aktiviert ist.</li>
+<li><strong>Aufnahme pausieren, wenn der Timer pausiert</strong>: Pausiert auch die Aufnahme, wenn der Timer pausiert.</li>
+<li><strong>Aufnahmemodus</strong>: Wählen Sie zwischen einer Datei pro Teil oder einer einzelnen Datei pro Sitzung.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">Pfad und Geräte</h3>
+<ul class="manual-section">
+<li><strong>Pfad</strong>: Gibt den Ordner an, in dem die Dateien gespeichert werden sollen. Im Handbuch ist ein generischer Pfad angegeben.</li>
+<li><strong>Pfad auswählen</strong>: Wählen Sie den Zielordner aus.</li>
+<li><strong>Pfad öffnen</strong>: öffnet den Aufzeichnungsordner.</li>
+<li><strong>PC Audio</strong>: Wählen Sie die Computer-Audioquelle aus.</li>
+<li><strong>Mikrofon</strong>: Wählen Sie das Mikrofon aus, das zusammen mit dem PC-Audio aufgenommen werden soll.</li>
+<li><strong>PC-Lautstärke / Mikrofonlautstärke</strong>: Passt den Aufnahmepegel der beiden Quellen an.</li>
+<li><strong>PC-Schwellenwert</strong>: Definiert, wann PC-Audio als aktiv betrachtet werden soll.</li>
+<li><strong>Mikrofonreduzierung.</strong>: Senkt das Mikrofon automatisch ab, wenn der PC-Audiopegel den Schwellenwert überschreitet.</li>
+<li><strong>Aufzeichnungstest</strong>: Überprüfen Sie Geräte und Pegel vor der Zusammenkunft.</li>
+<li><strong>Statistik</strong>: Zeigt Informationen zu den durchgeführten Aufzeichnungen an.</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- 17. PACCHETTI E BACKUP OFFLINE -->
+<div class="content" id="impostazioni-backup">
+<h2>17 · Pakete und Offline-Backup <a class="back-to-index-link" href="#indice">↑ Inhalt</a></h2>
+<p>
+                Dieses Panel bereitet wöchentliche Zeitpläne für die Offline-Verwendung vor und ermöglicht Ihnen den Export oder Import gespeicherter Pakete.
+            </p>
+<div class="settings-panel-layout">
+<div class="settings-panel-figure">
+<img alt="JW Time-Sicherungs- und Wiederherstellungsbereich" class="manual-image" src="../images/manual/de/impostazioni-backup-v4.png"/>
+</div>
+<div class="settings-panel-copy">
+<h3>17.1 · Programm-Download-Quellen</h3>
+<ul class="manual-section">
+<li><strong>Herunterladen von WOL (primär)</strong>: Verwenden Sie die primäre Quelle, sofern verfügbar.</li>
+<li><strong>Download von Server 2 (Backup)</strong>: Verwenden Sie die alternative Quelle für Programm-Downloads.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">17.2 · Wöchentliche Sicherung nach Zeitplan</h3>
+<ul class="manual-section">
+<li><strong>Im Hintergrund herunterladen</strong>– Aktualisiert Pakete, ohne dass manuelle Maßnahmen erforderlich sind.</li>
+<li><strong>Wochenmitte</strong>: Enthält die Programme der Zusammenkünfte unter der Woche.</li>
+<li><strong>Wochenenden</strong>: Beinhaltet Wochenendprogramme.</li>
+<li><strong>Wochen zum Herunterladen</strong>: gibt an, wie viele Wochen für die Vorbereitung benötigt werden.</li>
+<li><strong>Download</strong>: Beginnen Sie sofort mit dem Herunterladen von Paketen.</li>
+<li><strong>Stop</strong>: stoppt den laufenden Download.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">17.3 · Heruntergeladene Wochen</h3>
+<ul class="manual-section">
+<li><strong>Wochenliste</strong>: Zeigt lokal verfügbare Pakete an.</li>
+<li><strong>Alle exportieren</strong>– Speichert Pakete in einer übertragbaren Datei.</li>
+<li><strong>Importieren</strong>: Vorbereitete Pakete auf einen anderen PC hochladen.</li>
+<li><strong>Empty</strong>– entfernt lokale Pakete, die nicht mehr benötigt werden.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="footer">
+<div class="footer-content">
+<div class="footer-section">
+<h3>JW Time</h3>
+<p>Freiwilliges Projekt zur Verwaltung der Zeiten von Zusammenkünften.</p>
+</div>
+<div class="footer-section">
+<h3>Ressourcen</h3>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="manual.html">Benutzerhandbuch</a></li>
+<li><a href="news.html">Neuigkeiten</a></li>
+<li><a href="contacts.html">Kontakt</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h3>Informationen</h3>
+<ul>
+<li><a href="privacy-policy.html">Datenschutzrichtlinie</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2025-2026 JW Time – Inoffizielles Projekt erstellt von Freiwilligen</p>
+</div>
+</footer>
+<!-- JavaScript -->
+<script src="../js/main.js"></script>
 </body>
 </html>
