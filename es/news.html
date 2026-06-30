@@ -2,7 +2,7 @@ html
 <html lang="es">
 <head>
 <meta charset="utf-8"/>
-<meta content="ancho=ancho-dispositivo, escala-inicial=1.0" name="viewport"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="Noticias y actualizaciones de JW Time: consulte las últimas funciones agregadas a la aplicación" name="description"/>
 <title>Novedades - JW Time</title>
 <link href="../css/style.css" rel="stylesheet"/>
@@ -21,16 +21,21 @@ html
 <a class="active" href="news.html">Novedades</a>
 <a href="contacts.html">Contactos</a>
 <!-- Language Selector -->
-<div class="lang-selector">
-<div class="lang-current"><span>Español</span><span>▾</span></div>
-<div class="lang-dropdown">
-<a data-lang="it" href="../it/news.html">Italiano</a>
-<a data-lang="en" href="../en/news.html">English</a>
-<a data-lang="de" href="../de/news.html">Deutsch</a>
-<a data-lang="fr" href="../fr/news.html">Français</a>
-<a data-lang="pt_BR" href="../pt_BR/news.html">Português (BR)</a>
-</div>
-</div>
+                <div class="lang-selector">
+                    <div class="lang-current">
+                        <span>Español</span>
+                        <span>&#9662;</span>
+                    </div>
+                    <div class="lang-dropdown">
+                        <a href="../it/news.html" data-lang="it">Italiano</a>
+                        <a href="../en/news.html" data-lang="en">English</a>
+                        <a href="../de/news.html" data-lang="de">Deutsch</a>
+                        <a href="../nl/news.html" data-lang="nl">Nederlands</a>
+                        <a href="../fr/news.html" data-lang="fr">Français</a>
+                        <a href="../pt_BR/news.html" data-lang="pt_BR">Português (Brasil)</a>
+                        <a href="../hu/news.html" data-lang="hu">Magyar</a>
+                    </div>
+                </div>
 <!-- Theme Toggle -->
 <button aria-label="Alternar tema" class="theme-toggle" id="theme-toggle">
 <svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -464,7 +469,7 @@ html
 <h3>Función de pausa</h3>
 <p>
                     Se introdujo la <strong>Función de pausa (ZZ)</strong> que pausa el temporizador actual
-                    mostrando el indicador ⏸. La aplicación rastrea el “Tiempo total de pausa/cambio de altavoz”.
+                    mostrando el indicador ⏸. La aplicación rastrea el “Tiempo total de pausa/cambio de orador”.
                 </p>
 <p>
                     Es posible:
@@ -511,7 +516,7 @@ html
 <div class="footer-content">
 <div class="footer-section">
 <h3>JW Time</h3>
-<p>Proyecto voluntario de gestión de tiempos de reuniones.</p>
+<p>Proyecto independiente, gratuito y no comercial para gestionar los tiempos de las reuniones.</p>
 </div>
 <div class="footer-section">
 <h3>Recursos</h3>
@@ -519,6 +524,7 @@ html
 <li><a href="index.html">Home</a></li>
 <li><a href="manual.html">Manual de uso</a></li>
 <li><a href="news.html">Novedades</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
 <li><a href="contacts.html">Contactos</a></li>
 </ul>
 </div>
@@ -530,7 +536,7 @@ html
 </div>
 </div>
 <div class="footer-bottom">
-<p>© 2025-2026 JW Time - Proyecto no oficial creado por voluntarios</p>
+<p>&copy; 2025-2026 JW Time - Proyecto independiente, gratuito y no comercial creado por voluntarios</p>
 </div>
 </footer>
 <!-- JavaScript -->

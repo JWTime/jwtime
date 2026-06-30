@@ -1,4 +1,4 @@
-html
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -128,18 +128,24 @@ html
 <a href="index.html">Home</a>
 <a class="active" href="manual.html">Manual</a>
 <a href="news.html">News</a>
+                <a href="faq.html">FAQ</a>
 <a href="contacts.html">Contacts</a>
 <!-- Language Selector -->
-<div class="lang-selector">
-<div class="lang-current"><span>English</span><span>▾</span></div>
-<div class="lang-dropdown">
-<a data-lang="it" href="../it/manual.html">Italiano</a>
-<a data-lang="es" href="../es/manual.html">Español</a>
-<a data-lang="de" href="../de/manual.html">Deutsch</a>
-<a data-lang="fr" href="../fr/manual.html">Français</a>
-<a data-lang="pt_BR" href="../pt_BR/manual.html">Português (BR)</a>
-</div>
-</div>
+                <div class="lang-selector">
+                    <div class="lang-current">
+                        <span>English</span>
+                        <span>&#9662;</span>
+                    </div>
+                    <div class="lang-dropdown">
+                        <a href="../it/manual.html" data-lang="it">Italiano</a>
+                        <a href="../es/manual.html" data-lang="es">Español</a>
+                        <a href="../de/manual.html" data-lang="de">Deutsch</a>
+                        <a href="../nl/manual.html" data-lang="nl">Nederlands</a>
+                        <a href="../fr/manual.html" data-lang="fr">Français</a>
+                        <a href="../pt_BR/manual.html" data-lang="pt_BR">Português (Brasil)</a>
+                        <a href="../hu/manual.html" data-lang="hu">Magyar</a>
+                    </div>
+                </div>
 <!-- Theme Toggle -->
 <button aria-label="Toggle theme" class="theme-toggle" id="theme-toggle">
 <svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -178,11 +184,11 @@ html
 <h3>Part I - Interface and Operation</h3>
 <ul>
 <li><a href="#schermata-principale">1. Main Screen</a></li>
-<li><a href="#navigazione-settimanale">2. Program and Playlists</a></li>
+<li><a href="#navigazione-settimanale">2. Program and schedules</a></li>
 <li><a href="#manipolazione-timer">3. Manipulating Timers</a></li>
 <li><a href="#finestra-media">4. Media Window</a></li>
-<li><a href="#schermi-contatempo-pubblico">5. Public Screen and Timer Screen</a></li>
-<li><a href="#personalizzare-schermo">↳ 5.3 Customizing the Timer Screen</a></li>
+<li><a href="#schermi-contatempo-pubblico">5. Public Screen and Time Counter Screen</a></li>
+<li><a href="#personalizzare-schermo">↳ 5.3 Customizing the Time Counter Screen</a></li>
 <li><a href="#gestione-messaggi">6. Managing Messages</a></li>
 <li><a href="#rec-button">7. REC Button and Recording Panel</a></li>
 <li><a href="#monitor-web">8. Web Monitor &amp; Server</a></li>
@@ -221,7 +227,7 @@ html
 <ul>
 <li>Initial wizard, congregation profiles and reorganized interface.</li>
 <li>Media Window with official content, downloads, local cache and background music.</li>
-<li>Public Screen, Customizable Timer Screen and updated message management.</li>
+<li>Public Screen, Customizable Time Counter Screen and updated message management.</li>
 <li>Web Monitor with local control, QR and temporary remote access for video conferencing.</li>
 </ul>
 <a class="btn btn-gray" href="news.html" style="margin-top: var(--spacing-lg);">
@@ -244,7 +250,7 @@ html
 <li><strong>Congregation</strong>: Set the name of the initial profile, useful if you manage multiple profiles in the future.</li>
 <li><strong>Meetings</strong>: indicates days and start times for the automatic countdown.</li>
 <li><strong>Meeting options</strong>: activate, if necessary, adaptation of durations and automatic pause between parties.</li>
-<li><strong>Screens</strong>: Configure Timer Screen and Public Screen on the correct monitors.</li>
+<li><strong>Screens</strong>: Configure Time Counter Screen and Public Screen on the correct monitors.</li>
 </ul>
 <p>
                         At the end of the wizard you can open JW Time and complete only the more advanced options, such as Media, Web Server,
@@ -269,14 +275,14 @@ html
 <p>
                         Go to <a href="#impostazioni-generale">section 9 · General</a> for language and time format, then to
                         <a href="#impostazioni-congregazioni">section 10 · Congregations</a> if you need to create or select a profile. Check that
-                        loaded playlist corresponds to the week and the desired language.
+                        loaded schedule corresponds to the week and the desired language.
                     </p>
 </li>
 <li style="margin-bottom: var(--spacing-lg);">
-<h3 style="color: var(--text-secondary);">Timer Screen and Public Screen</h3>
+<h3 style="color: var(--text-secondary);">Time Counter Screen and Public Screen</h3>
 <p>
                         In the <a href="#impostazioni-schermo">section 12 · Screen</a> select the correct monitors and activate the windows you will use.
-                        To change the appearance of the Timer Screen see <a href="#personalizzare-schermo">section 5.3 · Customizing the Timer Screen</a>.
+                        To change the appearance of the Time Counter Screen see <a href="#personalizzare-schermo">section 5.3 · Customizing the Time Counter Screen</a>.
                     </p>
 </li>
 <li style="margin-bottom: var(--spacing-lg);">
@@ -289,7 +295,7 @@ html
 <li style="margin-bottom: var(--spacing-lg);">
 <h3 style="color: var(--text-secondary);">Timers, messages and recording</h3>
 <p>
-                        Use the main window to start timers, send messages to the Timer Screen and open the REC panel.
+                        Use the main window to start timers, send messages to the Time Counter Screen and open the REC panel.
                         If you record meetings, first check the options in <a href="#impostazioni-registrazioni">section 16 · Recordings</a>.
                     </p>
 </li>
@@ -344,6 +350,10 @@ html
                         Lists the meeting agenda (title, duration, status). Content loads automatically based on the day
                         selected: the app recognizes whether it is Midweek or Weekend and proposes the correct schedule. For the buttons
                         and detailed actions see <a href="#manipolazione-timer">section 3 · Manipulating timers</a>.
+                    </p>
+<p>
+                        If you enable <strong>Show End column</strong> in General settings, the table also shows when the current part and each upcoming part would end.
+                        It is not a fixed schedule time: it is a live projection based on the current time, the remaining timers and any accumulated timing offset.
                     </p>
 </div>
 <div class="news-card">
@@ -460,15 +470,15 @@ html
 <div class="news-card" style="margin-top: var(--spacing-xl);">
 <h3>2.3 · Visit SC</h3>
 <p>
-                    The <strong>Visit SC</strong>, located between the Week selector and Load from backup, transforms the playlist when it is present
-                    the visit of the circuit overseer. When pressed, the button lights up (ON) and the app automatically prepares the parts
-                    specials planned for the visit.
+                    The <strong>Visit SC</strong>, located between the Week selector and Load from backup, transforms the schedule when
+                    the circuit overseer's visit is present. When pressed, the button lights up (ON) and the app automatically prepares the special parts
+                    planned for the visit.
                 </p>
 <ul class="manual-section">
 <li><strong>Midweek meeting</strong>: the Congregation Bible Study is converted into a fixed 30-minute segment entitled "SC Visit".</li>
 <li><strong>Weekends</strong>: A dedicated entry is added after the Watchtower Study and the durations are adjusted to meet the closing time.</li>
 <li>Dedicated colors and warnings: the Visit SC line adopts its own palette and prepares the specific final song.</li>
-<li>Quick deactivation: by turning off the toggle, the table immediately returns to the standard lineup without losing the other changes.</li>
+<li>Quick deactivation: by turning off the toggle, the table immediately returns to the standard schedule without losing the other changes.</li>
 </ul>
 </div>
 <!-- 2.4 Carica da backup - CARD -->
@@ -497,9 +507,9 @@ html
 </div>
 <h4 style="color: var(--text-secondary);">2.5.1 · Manual Panel</h4>
 <ul class="manual-section">
-<li><strong>Manual</strong>: activates the customized playlist and shows the dedicated commands under the program selector.</li>
-<li><strong>Save manual list</strong>: export the current playlist to a file to reuse or transfer to another PC.</li>
-<li><strong>Load manual list</strong>: import a saved list and update linked table, timer and media.</li>
+<li><strong>Manual</strong>: activates the custom schedule and shows the dedicated commands under the program selector.</li>
+<li><strong>Save manual list</strong>: export the current schedule to a file to reuse or transfer to another PC.</li>
+<li><strong>Load manual list</strong>: import a saved list and update the linked table, Time Counter Screen and Media.</li>
 <li><strong>Clear List</strong>: Clears the current week's manual lineup and also removes manual media linked to that draft.</li>
 </ul>
 <h4 style="color: var(--text-secondary);">2.5.2 · Create and save</h4>
@@ -511,17 +521,17 @@ html
 <p>
                     When you save, JW Time asks you what to include in the <code>.jwtimeplan</code>file.
                     Choose <strong>Manual program + media</strong> if you also want to transfer local files, URLs and groups from the Media Window.
-                    Choose <strong>Only manual time program</strong> if you only need the playlist with titles and durations.
+                    Choose <strong>Only manual time program</strong> if you only need the schedule with titles and durations.
                 </p>
 <div class="image-container" style="margin-top: var(--spacing-md);">
 <img alt="Manual program saving popup with choice between program with average and times only" class="manual-image" src="../images/manual/en/programma-manuale-salvataggio-popup-v4.png" style="max-width: 900px;"/>
 </div>
 <h4 style="color: var(--text-secondary);">2.5.3 · Reload or empty a list</h4>
 <ul class="manual-section">
-<li>Use <strong>Load manual list</strong> to retrieve a saved playlist.</li>
+<li>Use <strong>Load manual list</strong> to retrieve a saved schedule.</li>
 <li>If the list contains lines recognized as standard songs or parts, JW Time applies consistent colors and behavior.</li>
-<li>Linked windows are updated after loading, so Timer Screen and Media stay aligned with the table.</li>
-<li>Use <strong>Clear List</strong> when you want to restart from an empty playlist for the same week.</li>
+<li>Linked windows are updated after loading, so Time Counter Screen and Media stay aligned with the table.</li>
+<li>Use <strong>Clear List</strong> when you want to restart from an empty schedule for the same week.</li>
 </ul>
 <h4 style="color: var(--text-secondary);">2.5.4 · Linked Media</h4>
 <p>
@@ -533,7 +543,7 @@ html
                 </p>
 <p>
                     To add a song, use the input menu and choose the song item. This way JW Time
-                    correctly records the song number, connects the available media and the Timer Screen adapts the display
+                    correctly records the song number, connects the available media and the Time Counter Screen adapts the display
                     without having to manually write the title in the line.
                 </p>
 </div>
@@ -625,7 +635,7 @@ html
                             Area 1 indicates when the official media of the week is not yet available offline. You can download them
                             immediately or postpone. The same behavior can be automated from the
                             <a href="#impostazioni-media">section 13 · Media</a> settings, activating the automatic download of official media.
-                            Below the notice you will find the sections of the playlist, with colored title, item counter and quick commands.
+                            Below the notice you will find the sections of the schedule, with colored title, item counter and quick commands.
                         </p>
                         <p>
                             <strong>Note:</strong> downloading official media requires the network to allow JW Time to access jw.org and the resources used for media. The alternate download introduced for programs is not available for media. If routers, firewalls, DNS services, or content filters block religious sites or JW Time access, official media may not download; in that case you can use media already available offline or add local files manually.
@@ -634,8 +644,12 @@ html
 <div class="news-card">
 <h4 style="color: var(--text-secondary);">4.2 · Contents List</h4>
 <p>
-                            Area 2 contains tabs with preview, title, reference and start button. The colors reflect the areas of the lineup,
+                            Area 2 contains tabs with preview, title, reference and start button. The colors reflect the areas of the schedule,
                             so you can quickly locate songs, images, videos and references related to the part.
+                        </p>
+<p>
+                            From the context menu you can manually mark an item as used or not used. If <strong>Dim used media</strong> is enabled, used items remain recognizable with a more subdued style.
+                            The official video, audio and image pickers also include <strong>Global</strong> mode when you need to search outside the current category.
                         </p>
 </div>
 <div class="news-card">
@@ -670,7 +684,7 @@ html
 <div style="flex: 1 1 280px; min-width: 0;">
 <p>
                             The <strong>Background</strong> panel manages the music before the meeting and, if configured, also after the meeting,
-                            without mixing it with the media in the lineup. During playback it shows current song, next song,
+                            without mixing it with the schedule media. During playback it shows current song, next song,
                             progress and duration.
                         </p>
 <p>
@@ -687,10 +701,10 @@ html
 </div>
 <!-- 5. SCHERMI -->
 <div class="content" id="schermi-contatempo-pubblico">
-<h2>5 · Public Screen and Timer Screen <a class="back-to-index-link" href="#indice">↑ Table of Contents</a></h2>
+<h2>5 · Public Screen and Time Counter Screen <a class="back-to-index-link" href="#indice">↑ Table of Contents</a></h2>
 <p>
                 JW Time 4.0 separates the views: the <strong>Public Screen</strong> is used for content visible to the room,
-                while the <strong>Timer Screen</strong> remains dedicated to those who follow the times.
+                while the <strong>Time Counter Screen</strong> remains dedicated to those who follow the times.
             </p>
 <!-- 5.1 Schermo Pubblico - CARD -->
 <div class="news-card" style="margin-top: var(--spacing-xl);">
@@ -698,7 +712,7 @@ html
 <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
 <div style="flex: 1 1 260px; min-width: 0;">
 <p>
-                            The Public Screen shows countdown, welcome message, year writing, logo and contents
+                            The Public Screen shows countdown, welcome message, year text, logo and content
                             views in a separate window.
                         </p>
 <ul class="manual-section">
@@ -714,11 +728,11 @@ html
 </div>
 <!-- 5.2 Schermo Contatempo esterno - CARD -->
 <div class="news-card" style="margin-top: var(--spacing-xl);">
-<h4 style="color: var(--text-secondary);">5.2 · Timer Screen</h4>
+<h4 style="color: var(--text-secondary);">5.2 · Time Counter Screen</h4>
 <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
 <div style="flex: 1 1 260px; min-width: 0;">
 <p>
-                            The Timer Screen shows the clock, countdown of the part in progress, messages for the speaker and states related to time management.
+                            The Time Counter Screen shows the clock, countdown of the part in progress, messages for the speaker and states related to time management.
                             It is the most suitable view for podium, chairman or time workers.
                         </p>
 <ul class="manual-section">
@@ -727,7 +741,7 @@ html
 <li>Full or partial screen messages sent from the main window.</li>
 </ul>
 <p>
-                            Layout customization is covered separately in <a href="#personalizzare-schermo">section 5.3 · Customizing the Timer Screen</a>,
+                            Layout customization is covered separately in <a href="#personalizzare-schermo">section 5.3 · Customizing the Time Counter Screen</a>,
                             thus daily use of the screen remains separate from the graphics settings.
                         </p>
 </div>
@@ -739,16 +753,16 @@ html
 </div>
 <!-- 5.3 PERSONALIZZARE LO SCHERMO CONTATEMPO -->
 <div class="content" id="personalizzare-schermo">
-<h2>5.3 · Customize the Timer Screen <a class="back-to-index-link" href="#indice">↑ Table of Contents</a></h2>
+<h2>5.3 · Customize the Time Counter Screen <a class="back-to-index-link" href="#indice">↑ Table of Contents</a></h2>
 <p>
-                The Timer Screen can be customized from the <strong>Customize</strong> button in the <a href="#impostazioni-generale">section 9 · General</a>.
+                The Time Counter Screen can be customized from the <strong>Customize</strong> button in the <a href="#impostazioni-generale">section 9 · General</a>.
             </p>
 <p>
                 You can start from a preset already available or modify the layout according to your needs. The Public Screen has
-                own settings in the <a href="#impostazioni-schermo">section 12 · Screen</a>; here we focus the work on the layout of the Timer Screen.
+                own settings in the <a href="#impostazioni-schermo">section 12 · Screen</a>; here we focus the work on the layout of the Time Counter Screen.
             </p>
 <figure style="margin: var(--spacing-xl) auto; max-width: 720px;">
-<img alt="Timer Screen Customization Editor" class="manual-image" src="../images/manual/en/personalizzazione_schermo_contatempo_base-v4.png"/>
+<img alt="Time Counter Screen Customization Editor" class="manual-image" src="../images/manual/en/personalizzazione_schermo_contatempo_base-v4.png"/>
 </figure>
 <!-- 5.3.1 Partire da un preset -->
 <div class="news-card" style="margin-top: var(--spacing-xl);">
@@ -769,14 +783,14 @@ html
                             The layout is organized into scenes.
                         </p>
 <p>
-                            Each scene corresponds to a different situation on the Timer Screen. This allows you to show a different layout based on the time or type of part being viewed.
+                            Each scene corresponds to a different situation on the Time Counter Screen. This allows you to show a different layout based on the time or type of part being viewed.
                         </p>
 <p>
                             Before making changes, always check which scene is selected.
                         </p>
 </div>
 <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
-<img alt="Scene Selection in the Timer Screen Editor" class="manual-image" src="../images/manual/en/personalizzazione_schermo_contatempo_base_scena-v4.png" style="width: 100%; height: auto; display: block;"/>
+<img alt="Scene Selection in the Time Counter Screen Editor" class="manual-image" src="../images/manual/en/personalizzazione_schermo_contatempo_base_scena-v4.png" style="width: 100%; height: auto; display: block;"/>
 </figure>
 </div>
 </div>
@@ -795,12 +809,12 @@ html
                         </p>
 </div>
 <figure style="flex: 0 0 42%; min-width: 300px; max-width: 520px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
-<img alt="Add Layer Dialog with Item Types Available in the Timer Screen" class="manual-image" src="../images/manual/en/personalizzazione_schermo_contatempo_livelli-v4.png" style="width: 100%; height: auto; display: block;"/>
+<img alt="Add Layer Dialog with Item Types Available in the Time Counter Screen" class="manual-image" src="../images/manual/en/personalizzazione_schermo_contatempo_livelli-v4.png" style="width: 100%; height: auto; display: block;"/>
 </figure>
 </div>
 <h4 style="color: var(--text-secondary); margin-top: var(--spacing-lg);">Main dynamic levels</h4>
 <ul class="manual-section">
-<li><strong>Timer</strong>: shows the tempo of the active part. It can be set as countdown or countup.</li>
+<li><strong>Timer</strong>: shows the time of the active part. It can be set as countdown or countup.</li>
 <li><strong>Song</strong>: Show song information when the scene is about a song.</li>
 <li><strong>Messages</strong>: shows messages sent from the main window, both in full screen and in partial format.</li>
 <li><strong>Clock</strong>: Shows the digital time.</li>
@@ -823,7 +837,7 @@ html
 <li><strong>Image</strong>: Adds a logo or decorative image.</li>
 </ul>
 <p>
-                     <strong>Background</strong>, <strong>Text</strong> and <strong>Image</strong> layers can be added multiple times.
+                    The <strong>Background</strong>, <strong>Text</strong> and <strong>Image</strong> layers can be added multiple times.
                     For other levels, if an element of the same type already exists, the editor offers you to link it to another scene
                     or to create an independent one when required.
                 </p>
@@ -844,7 +858,7 @@ html
 </ul>
 <p>
                             The X and Y values ​​control the position of the layer.<br/>
-                            The Width and Alt values ​​control the size of the layer.
+                            The Width and Height values ​​control the size of the layer.
                         </p>
 <p>All these values ​​are expressed as a percentage.</p>
 <p>
@@ -855,7 +869,7 @@ html
                         </p>
 </div>
 <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
-<img alt="Edit Layout in the Timer Screen Editor" class="manual-image" src="../images/manual/en/personalizzazione_schermo_contatempo_base_layout-v4.png" style="width: 100%; height: auto; display: block;"/>
+<img alt="Edit Layout in the Time Counter Screen Editor" class="manual-image" src="../images/manual/en/personalizzazione_schermo_contatempo_base_layout-v4.png" style="width: 100%; height: auto; display: block;"/>
 </figure>
 </div>
 </div>
@@ -879,7 +893,7 @@ html
                         </p>
 </div>
 <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
-<img alt="Moving and Resizing Levels in the Timer Screen Editor" class="manual-image" src="../images/manual/en/personalizzazione_schermo_contatempo_base_trasformazioni-v4.png" style="width: 100%; height: auto; display: block;"/>
+<img alt="Moving and Resizing Levels in the Time Counter Screen Editor" class="manual-image" src="../images/manual/en/personalizzazione_schermo_contatempo_base_trasformazioni-v4.png" style="width: 100%; height: auto; display: block;"/>
 </figure>
 </div>
 </div>
@@ -889,8 +903,8 @@ html
 <h2>6 · Management of messages <a class="back-to-index-link" href="#indice">↑ Table of Contents</a></h2>
 <p>
                 The Messages function allows you to communicate discreetly and clearly with the speaker during the meeting, allowing you to
-                warn him or give him instructions without interrupting or disturbing the progress of the part. Messages appear on the screen
-                of the Timer Screen, so the speaker sees them in real time without distractions.
+                warn him or give him instructions without interrupting or disturbing the progress of the part. Messages appear on the
+                Time Counter Screen, so the speaker sees them in real time without distractions.
             </p>
 <div class="image-container">
 <img alt="Message Management Screen in JW Time" class="manual-image" src="../images/manual/en/messaggi-elenco-v4.png"/>
@@ -903,7 +917,7 @@ html
 <ol class="manual-section">
 <li>Click in the area where it says Insert message.</li>
 <li>Enter the text.</li>
-<li>Press <strong>Full screen</strong> → the text appears full screen on the Timer monitor.</li>
+<li>Press <strong>Full screen</strong> → the text appears full screen on the Time Counter Screen monitor.</li>
 </ol>
 </div>
 <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
@@ -919,7 +933,7 @@ html
 <ol class="manual-section">
 <li>Click in the area where it says Insert message.</li>
 <li>Enter the text.</li>
-<li>Press <strong>Partial screen</strong> → the text appears in the Timer Screen window without completely covering it, allowing the speaker to see both the message and the timer.</li>
+<li>Press <strong>Partial screen</strong> → the text appears in the Time Counter Screen window without completely covering it, allowing the speaker to see both the message and the timer.</li>
 </ol>
 </div>
 <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
@@ -929,10 +943,10 @@ html
 </div>
 <!-- 6.3 Mirror Contatempo - CARD -->
 <div class="news-card" style="margin-top: var(--spacing-xl); ">
-<h3>6.3 · Mirror Timer Screen</h3>
+<h3>6.3 · Mirror Time Counter Screen</h3>
 <p>
                     When you send a message, a resizable and moveable preview window automatically appears showing
-                    exactly what the speaker sees in the Timer monitor. This allows you to check the display in real time
+                    exactly what the speaker sees in the Time Counter Screen monitor. This allows you to check the display in real time
                     of the message and the timer.
                 </p>
 </div>
@@ -941,7 +955,7 @@ html
 <div class="content" id="rec-button">
 <h2>7 · REC button and recording panel <a class="back-to-index-link" href="#indice">↑ Table of Contents</a></h2>
 <p>
-                The button <strong>REC</strong> It's located in the bottom bar next to Schedule and Message. The dot next to the text shows
+                The <strong>REC</strong> button is located in the bottom bar next to Program and Message. The dot next to the text shows
                 the recording status (wait, active, paused or MP3 conversion), while the REC panel provides quick controls
                 to open the JWTimeREC folder, manage manual recordings, and monitor PC and microphone audio levels.
             </p>
@@ -984,8 +998,8 @@ html
 <h2>8 · Web Monitor &amp; Server <a class="back-to-index-link" href="#indice">↑ Table of Contents</a></h2>
 <p>
                 When the Web Server is active, you can open it from another device on the same local network via browser.
-                This allows the Timer Screen to be displayed on external projectors, tablets or computers, and is useful for the chairman
-                which follows the timer of the various parts.
+                This allows the Time Counter Screen to be displayed on external projectors, tablets or computers, and is useful for the chairman
+                who follows the timer of the various parts.
             </p>
 <p>For the complete configuration of the Web Server, remote control, remote link and QR, see <a href="#impostazioni-connessioni">section 15 · Connection and Server</a>.</p>
 <div class="news-card" id="monitor-web-locale" style="margin-top: var(--spacing-xl);">
@@ -994,10 +1008,10 @@ html
 <div style="flex: 1 1 320px; min-width: 0;">
 <p>From the browser you can:</p>
 <ul class="manual-section">
-<li>View timers and timers in full screen.</li>
-<li>Print the playlist.</li>
+<li>View timers and the Time Counter Screen in full screen.</li>
+<li>Print the schedule.</li>
 <li>Check the timing progress in real time.</li>
-<li>Perform remote operations on the timer and schedule, if remote control is enabled.</li>
+<li>Perform remote operations on the timer and program, if remote control is enabled.</li>
 </ul>
 </div>
 <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0 0 0 auto; align-self: flex-start;">
@@ -1019,8 +1033,8 @@ html
 <li>start the timer</li>
 <li>pause and resume</li>
 <li>stop</li>
-<li>control the program/playlist</li>
-<li>modify the durations or values available in the playlist, if the authorized role allows it</li>
+<li>control the program/schedule</li>
+<li>modify the durations or values available in the schedule, if the authorized role allows it</li>
 </ul>
 <p>You can open the Web Server by entering the address shown in the app, or using the QR if available.</p>
 <p>
@@ -1063,7 +1077,7 @@ html
 <h2 style="font-size: 2rem; margin: 0 0 var(--spacing-lg) 0; color: var(--text-primary);">Part II · Settings Panels</h2>
 <p>
                 In this part you can configure the behavior of the app: general settings, congregation profiles, meetings,
-                Timer Screen, Media, Zoom, Web &amp; Server Monitor, Recordings and Backup &amp; Restore.
+                Time Counter Screen, Media, Zoom, Web &amp; Server Monitor, Recordings and Backup &amp; Restore.
             </p>
 <p>The SAVE button applies all changes.</p>
 </div>
@@ -1078,7 +1092,7 @@ html
 <h3>Appearance and format</h3>
 <ul class="manual-section">
 <li><strong>Select the language</strong>: change the interface language.</li>
-<li><strong>Program languages ​​</strong>: defines in which language to download or show the weekly schedule.</li>
+<li><strong>Program languages</strong>: defines in which language to download or show the weekly schedule.</li>
 <li><strong>Select the theme</strong>: set the graphic theme of the app.</li>
 <li><strong>Interface scale</strong>: adapt text and control sizes; the change applies after reboot.</li>
 <li><strong>Time format</strong>: alternates 24h format and 12h AM/PM format.</li>
@@ -1086,6 +1100,7 @@ html
 <h3 style="margin-top: var(--spacing-lg);">Timer management</h3>
 <ul class="manual-section">
 <li><strong>Auto pause</strong>: automatically inserts a pause between one part and the next when you press Start/Next.</li>
+<li><strong>Show End column</strong>: shows in the program table the projected end time for the current and upcoming parts, calculated live from the current time, remaining timers and any accumulated timing offset.</li>
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">News</h3>
 <ul class="manual-section">
@@ -1148,7 +1163,7 @@ html
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">11.2 · Special Events</h3>
 <ul class="manual-section">
-<li><strong>Add Special Event</strong>: Create events such as circuit overseer visit, Memorial or manual events.</li>
+<li><strong>Add Special Event</strong>: Create events such as the circuit overseer's visit, Memorial or manual events.</li>
 <li><strong>Visit SC</strong>: apply the rules and times dedicated to the visit.</li>
 <li><strong>Memorial</strong>- Record a special appointment with a specific date and time.</li>
 <li><strong>Edit / delete</strong>: the buttons on the right allow you to update or remove the event.</li>
@@ -1168,7 +1183,7 @@ html
 <div class="content" id="impostazioni-schermo">
 <h2>12 · Screen <a class="back-to-index-link" href="#indice">↑ Table of Contents</a></h2>
 <p>
-                This panel collects the settings dedicated to the Timer Screen and the Public Screen. From here you can
+                This panel collects the settings dedicated to the Time Counter Screen and the Public Screen. From here you can
                 choose where to show the information, how to present it and which elements to make visible during the meeting.
             </p>
 <div class="settings-panel-layout">
@@ -1177,12 +1192,12 @@ html
 </div>
 <div class="settings-panel-copy">
 <ul class="manual-section">
-<li><strong>Enable</strong>: activates or deactivates the Timer Screen.</li>
-<li><strong>Select monitor</strong>: choose the monitor or window in which to display the Timer Screen.</li>
+<li><strong>Enable</strong>: activates or deactivates the Time Counter Screen.</li>
+<li><strong>Select monitor</strong>: choose the monitor or window in which to display the Time Counter Screen.</li>
 <li><strong>Identify</strong>: shows a reference on the selected monitor, useful when multiple displays are connected.</li>
-<li><strong>Mode</strong>: sets how the Timer Screen should be opened, for example as a free window.</li>
+<li><strong>Mode</strong>: sets how the Time Counter Screen should be opened, for example as a free window.</li>
 <li><strong>Transparent background</strong>: Makes the window transparent when the mode allows it.</li>
-<li><strong>Layout</strong>: select the graphic preset of the Timer Screen.</li>
+<li><strong>Layout</strong>: select the graphic preset of the Time Counter Screen.</li>
 <li><strong>Customize</strong>: opens the editor of the selected layout.</li>
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">Public Screen</h3>
@@ -1191,9 +1206,9 @@ html
 <li><strong>Activate countdown for the public</strong>: shows the countdown to the start of the meeting on the Public Screen.</li>
 <li><strong>Monitor</strong>: Select where to open the public window.</li>
 <li><strong>Layout</strong>: chooses the graphic preset of the Public Screen.</li>
-<li><strong>Show year writing</strong>: Enable or hide year writing.</li>
+<li><strong>Show year text</strong>: enable or hide the year text.</li>
 <li><strong>Show JW Logo</strong>: Show or hide the logo in the public scene.</li>
-<li><strong>Year writing text</strong>: allows you to insert a personalized text; if it remains empty, the year is used in the program language.</li>
+<li><strong>Year text</strong>: allows you to insert custom text; if it remains empty, the year text in the program language is used.</li>
 </ul>
 </div>
 </div>
@@ -1213,6 +1228,8 @@ html
 <h3>Media functions</h3>
 <ul class="manual-section">
 <li><strong>Media button and function</strong>: shows or hides the Media button and enables related functions.</li>
+<li><strong>Dim used media</strong>: makes used items easier to recognize in the Media Window.</li>
+<li><strong>Allow external URLs</strong>: after confirmation, allows HTTPS URLs outside jw.org and wol.jw.org and shows them in the integrated browser.</li>
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">Media Gathering</h3>
 <ul class="manual-section">
@@ -1271,7 +1288,7 @@ html
 <h3 style="margin-top: var(--spacing-lg);">Media automation</h3>
 <ul class="manual-section">
 <li><strong>Auto start</strong>: when the key <strong>Zoom Auto</strong> is active in the Media Window, starts sharing when a media is played.</li>
-<li><strong>Auto stop</strong>: Stops sharing when the media ends, if sharing was started by JW Time.</li>
+<li><strong>Stop sharing when media closes</strong>: stops Zoom sharing when the media is closed or ends, only if sharing was started by JW Time.</li>
 <li><strong>Initial Pause</strong>: Prepares the media to pause after sharing starts.</li>
 <li><strong>Restore focus</strong>: Returns focus to the Media Window after the Zoom action.</li>
 </ul>
@@ -1303,7 +1320,7 @@ html
 <li><strong>Copy address</strong>: Copies the URL to the clipboard.</li>
 <li><strong>QR</strong>: shows a QR code to open the Web Monitor more quickly from your phone or tablet.</li>
 <li><strong>Server Port</strong>: Set the HTTP port, normally 8000.</li>
-<li><strong>Editor / Controller</strong>: Enable passwords to edit or control timer and schedule from the browser. With the Controller role, the Web Monitor also becomes an operating panel: it can start, pause, stop and update the available values ​​without returning to the main computer.</li>
+<li><strong>Editor / Controller</strong>: enable passwords to edit or control timer and program from the browser. With the Controller role, the Web Monitor also becomes an operating panel: it can start, pause, stop and update the available values without returning to the main computer.</li>
 </ul>
 <p>
                         When the Web Server is active, JW Time can be opened from another device on the same local network via browser,
@@ -1333,7 +1350,7 @@ html
 <li>start the timer</li>
 <li>pause and resume</li>
 <li>stop</li>
-<li>control the program/playlist</li>
+<li>control the program/schedule</li>
 </ul>
 <p>
                         Depending on the configuration, different access levels may be available, in order to distinguish
@@ -1385,7 +1402,7 @@ html
 <div class="content" id="impostazioni-backup">
 <h2>17 · Packages and offline backup <a class="back-to-index-link" href="#indice">↑ Table of Contents</a></h2>
 <p>
-                This panel prepares weekly schedules for offline use and allows you to export or import saved packages.
+                This panel prepares weekly programs for offline use and allows you to export or import saved packages.
             </p>
 <div class="settings-panel-layout">
 <div class="settings-panel-figure">
@@ -1397,7 +1414,7 @@ html
 <li><strong>Download from WOL (primary)</strong>: use the primary source when available.</li>
 <li><strong>Download from server 2 (backup)</strong>: use the alternative source for program downloads.</li>
 </ul>
-<h3 style="margin-top: var(--spacing-lg);">17.2 · Weekly schedule backup</h3>
+<h3 style="margin-top: var(--spacing-lg);">17.2 · Weekly program backup</h3>
 <ul class="manual-section">
 <li><strong>Download in background</strong>- Updates packages without requiring manual action.</li>
 <li><strong>Midweek</strong>: includes the programs of the midweek meetings.</li>
@@ -1422,7 +1439,7 @@ html
 <div class="footer-content">
 <div class="footer-section">
 <h3>JW Time</h3>
-<p>Voluntary project for managing meeting times.</p>
+<p>Independent, free, non-commercial project for meeting time management.</p>
 </div>
 <div class="footer-section">
 <h3>Resources</h3>
@@ -1430,6 +1447,7 @@ html
 <li><a href="index.html">Home</a></li>
 <li><a href="manual.html">User Manual</a></li>
 <li><a href="news.html">News</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
 <li><a href="contacts.html">Contacts</a></li>
 </ul>
 </div>
@@ -1441,7 +1459,7 @@ html
 </div>
 </div>
 <div class="footer-bottom">
-<p>© 2025-2026 JW Time - Unofficial project created by volunteers</p>
+<p>&copy; 2025-2026 JW Time - Independent, free, non-commercial project created by volunteers</p>
 </div>
 </footer>
 <!-- JavaScript -->

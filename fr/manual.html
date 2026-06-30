@@ -128,18 +128,24 @@ html
 <a href="index.html">Home</a>
 <a class="active" href="manual.html">Manuel</a>
 <a href="news.html">Nouveautés</a>
+                <a href="faq.html">FAQ</a>
 <a href="contacts.html">Contacts</a>
 <!-- Language Selector -->
-<div class="lang-selector">
-<div class="lang-current"><span>Français</span><span>▾</span></div>
-<div class="lang-dropdown">
-<a data-lang="it" href="../it/manual.html">Italiano</a>
-<a data-lang="en" href="../en/manual.html">English</a>
-<a data-lang="es" href="../es/manual.html">Español</a>
-<a data-lang="de" href="../de/manual.html">Deutsch</a>
-<a data-lang="pt_BR" href="../pt_BR/manual.html">Português (BR)</a>
-</div>
-</div>
+                <div class="lang-selector">
+                    <div class="lang-current">
+                        <span>Français</span>
+                        <span>&#9662;</span>
+                    </div>
+                    <div class="lang-dropdown">
+                        <a href="../it/manual.html" data-lang="it">Italiano</a>
+                        <a href="../en/manual.html" data-lang="en">English</a>
+                        <a href="../es/manual.html" data-lang="es">Español</a>
+                        <a href="../de/manual.html" data-lang="de">Deutsch</a>
+                        <a href="../nl/manual.html" data-lang="nl">Nederlands</a>
+                        <a href="../pt_BR/manual.html" data-lang="pt_BR">Português (Brasil)</a>
+                        <a href="../hu/manual.html" data-lang="hu">Magyar</a>
+                    </div>
+                </div>
 <!-- Theme Toggle -->
 <button aria-label="Thème à bascule" class="theme-toggle" id="theme-toggle">
 <svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -344,6 +350,10 @@ html
                         Répertorie l'ordre du jour de la réunion (titre, durée, statut). Le contenu se charge automatiquement en fonction du jour
                         sélectionné : l'application reconnaît s'il s'agit d'un Midweek ou d'un Week-end et propose le bon horaire. Pour les boutons
                         et les actions détaillées, voir <a href="#manipolazione-timer">section 3 · Manipulation des minuteries</a>.
+                    </p>
+<p>
+                        Si vous activez <strong>Afficher la colonne Fin</strong> dans les param&egrave;tres g&eacute;n&eacute;raux, le tableau indique aussi &agrave; quelle heure la partie en cours et chaque partie suivante se termineraient.
+                        Ce n'est pas une heure fixe du programme : c'est une projection mise &agrave; jour en temps r&eacute;el selon l'heure actuelle, les minuteurs restants et l'&eacute;cart accumul&eacute;.
                     </p>
 </div>
 <div class="news-card">
@@ -582,8 +592,8 @@ html
 <img alt="Ligne active mise en évidence dans le tableau des minuteries" class="manual-image" src="../images/manual/fr/timer-aggiornamento-riga-attiva-v4.png"/>
 </div>
 <p style="margin-top: var(--spacing-lg);">
-                    Si vous modifiez une durée ou passez à la partie suivante, l'heure de fin estimée est recalculée immédiatement. Cela permet
-                    pour vérifier le delta avance/retard et le temps accumulé pour les pauses ou les changements d'enceintes sans ouvrir d'autres panneaux.
+                    Si vous modifiez une durée ou passez à la partie suivante, l'heure de fin estimée est recalculée immédiatement. Cela permet de
+                    pour vérifier le delta avance/retard et le temps accumulé pour les pauses ou les changements d'intervenant sans ouvrir d'autres panneaux.
                 </p>
 <div class="image-container" style="margin-top: var(--spacing-md);">
 <img alt="Heure de fin estimée, delta et temps de pause mis à jour en temps réel" class="manual-image" src="../images/manual/fr/timer-aggiornamento-orario-fine-v4.png"/>
@@ -637,6 +647,10 @@ html
                             La zone 2 contient des onglets avec aperçu, titre, référence et bouton de démarrage. Les couleurs reflètent les zones de la gamme,
                             afin que vous puissiez localiser rapidement les chansons, les images, les vidéos et les références liées à la pièce.
                         </p>
+<p>
+                            Dans le menu contextuel, vous pouvez marquer manuellement un &eacute;l&eacute;ment comme utilis&eacute; ou non utilis&eacute;. Si <strong>Att&eacute;nuer les m&eacute;dias d&eacute;j&agrave; utilis&eacute;s</strong> est activ&eacute;, les &eacute;l&eacute;ments utilis&eacute;s restent reconnaissables avec un style plus discret.
+                            Les fen&ecirc;tres de vid&eacute;os, d'audios et d'images officiels incluent aussi le mode <strong>Global</strong> lorsque vous devez chercher hors de la cat&eacute;gorie actuelle.
+                        </p>
 </div>
 <div class="news-card">
 <h4 style="color: var(--text-secondary);">4.3 · Barre inférieure</h4>
@@ -653,7 +667,7 @@ html
                         </p>
 <ul class="manual-section">
 <li><strong>Partage</strong>- Envoie le raccourci configuré à Zoom pour démarrer ou arrêter le partage.</li>
-<li><strong>Afficher/Masquer le zoom</strong>: utilisé pour afficher les intervenants ou la fenêtre Zoom sur le moniteur public. JW Time masque temporairement l'Écran Public et vous permet de voir ce qu'il y a en dessous : pour cette raison, la fenêtre des haut-parleurs Zoom, ou un écran dupliqué avec Zoom, doit déjà être positionnée derrière l'Écran Public avant d'appuyer sur le bouton.</li>
+<li><strong>Afficher/Masquer le zoom</strong>: utilisé pour afficher les intervenants ou la fenêtre Zoom sur le moniteur public. JW Time masque temporairement l'Écran Public et vous permet de voir ce qu'il y a en dessous : pour cette raison, la fenêtre des intervenants Zoom, ou un écran dupliqué avec Zoom, doit déjà être positionnée derrière l'Écran Public avant d'appuyer sur le bouton.</li>
 <li><strong>Zoom automatique</strong>: Active l'automatisation du zoom pour la session. Lorsque vous démarrez un média, JW Time peut automatiquement envoyer le raccourci de partage et, s'il est configuré, l'arrêter à la fin.</li>
 </ul>
 <p>
@@ -689,8 +703,8 @@ html
 <div class="content" id="schermi-contatempo-pubblico">
 <h2>5 · Écran Public et compteur de temps <a class="back-to-index-link" href="#indice">↑ Sommaire</a></h2>
 <p>
-                JW Time 4.0 sépare les vues : lo <strong>Écran Public</strong> sert au contenu visible par la salle,
-                pendant qu'il <strong>Écran du compteur de temps</strong> reste dédié à ceux qui suivent son temps.
+                JW Time 4.0 sépare les vues : l'<strong>Écran Public</strong> sert au contenu visible par la salle,
+                tandis que l'<strong>Écran du compteur de temps</strong> reste dédié à ceux qui suivent les temps.
             </p>
 <!-- 5.1 Schermo Pubblico - CARD -->
 <div class="news-card" style="margin-top: var(--spacing-xl);">
@@ -744,8 +758,8 @@ html
                 L'écran du compteur de temps peut être personnalisé à l'aide du bouton <strong>Personnaliser</strong> dans le <a href="#impostazioni-generale">section 9 · Général</a>.
             </p>
 <p>
-                Vous pouvez partir d'un préréglage déjà disponible ou modifier la mise en page selon vos besoins. L'Écran Public a
-                propres paramètres dans le <a href="#impostazioni-schermo">12 · Écran</a>; nous concentrons ici le travail sur la disposition du compteur de temps.
+                Vous pouvez partir d'un préréglage déjà disponible ou modifier la mise en page selon vos besoins. L'Écran Public possède
+                ses propres paramètres dans le <a href="#impostazioni-schermo">12 · Écran</a>; nous concentrons ici le travail sur la disposition du compteur de temps.
             </p>
 <figure style="margin: var(--spacing-xl) auto; max-width: 720px;">
 <img alt="Éditeur de personnalisation de l'écran du compteur de temps" class="manual-image" src="../images/manual/fr/personalizzazione_schermo_contatempo_base-v4.png"/>
@@ -954,7 +968,7 @@ html
 <ul class="manual-section">
 <li><strong>En attente</strong>: le point reste gris et le panneau affiche "En attente" / "Aucun enregistrement actif".</li>
 <li><strong>Enregistrement en cours</strong>: le point devient rouge clignotant et le panneau affiche "Enregistrement en cours" avec le titre et le timer de la partie.</li>
-<li><strong>Pause</strong>: le point passe à l'orange ; les inscriptions sont suspendues et peuvent être reprises.</li>
+<li><strong>Pause</strong>: le point passe à l'orange ; les enregistrements sont suspendus et peuvent être repris.</li>
 <li><strong>Conversion MP3</strong>: le point devient bleu et le bouton reste désactivé jusqu'à ce que l'export du fichier soit terminé.</li>
 </ul>
 </div>
@@ -1086,6 +1100,7 @@ html
 <h3 style="margin-top: var(--spacing-lg);">Gestion du timer</h3>
 <ul class="manual-section">
 <li><strong>Pause auto</strong>: insère automatiquement une pause entre une partie et la suivante lorsque vous appuyez sur Démarrer/Suivant.</li>
+<li><strong>Afficher la colonne Fin</strong>: affiche dans le tableau du programme l'heure de fin pr&eacute;vue de la partie en cours et des parties suivantes, calcul&eacute;e en temps r&eacute;el &agrave; partir de l'heure actuelle, des minuteurs restants et de l'&eacute;cart accumul&eacute;.</li>
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">Nouveautés</h3>
 <ul class="manual-section">
@@ -1169,7 +1184,7 @@ html
 <h2>12 · Écran <a class="back-to-index-link" href="#indice">↑ Sommaire</a></h2>
 <p>
                 Ce panneau rassemble les paramètres dédiés à l'écran Compteur de temps et à l'Écran Public. De là, vous pouvez
-                choisissez où afficher l’information, comment la présenter et quels éléments rendre visibles lors de la réunion.
+                choisir où afficher l’information, comment la présenter et quels éléments rendre visibles lors de la réunion.
             </p>
 <div class="settings-panel-layout">
 <div class="settings-panel-figure">
@@ -1190,7 +1205,7 @@ html
 <li><strong>Activer l'Écran Public</strong>: active la fenêtre dédiée aux contenus visibles dans la salle.</li>
 <li><strong>Activer le compte à rebours pour le public</strong>: affiche le compte à rebours jusqu'au début de la réunion sur l'Écran Public.</li>
 <li><strong>Moniteur</strong>: Sélectionnez où ouvrir la fenêtre publique.</li>
-<li><strong>Disposition</strong>: choisit le preset graphique de l'Ecran Public.</li>
+<li><strong>Disposition</strong>: choisit le preset graphique de l'Écran Public.</li>
 <li><strong>Afficher l'écriture de l'année</strong>: Activer ou masquer l'écriture de l'année.</li>
 <li><strong>Afficher le logo JW</strong>: Afficher ou masquer le logo dans la scène publique.</li>
 <li><strong>Texte d'écriture de l'année</strong>: permet d'insérer un texte personnalisé ; s'il reste vide, l'année est utilisée dans la langue du programme.</li>
@@ -1213,6 +1228,8 @@ html
 <h3>Fonctions média</h3>
 <ul class="manual-section">
 <li><strong>Bouton et fonction média</strong>: affiche ou masque le bouton Média et active les fonctions associées.</li>
+<li><strong>Att&eacute;nuer les m&eacute;dias d&eacute;j&agrave; utilis&eacute;s</strong>: rend les &eacute;l&eacute;ments utilis&eacute;s plus faciles &agrave; reconna&icirc;tre dans la fen&ecirc;tre M&eacute;dia.</li>
+<li><strong>Autoriser les URL externes</strong>: apr&egrave;s confirmation, autorise les URL HTTPS externes &agrave; jw.org et wol.jw.org et les affiche dans le navigateur int&eacute;gr&eacute;.</li>
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">Rassemblement des médias</h3>
 <ul class="manual-section">
@@ -1252,7 +1269,7 @@ html
 <ul class="manual-section">
 <li><strong>Zoom</strong>: affichez les touches dédiées au Zoom dans la fenêtre Média.</li>
 <li><strong>Partage Zoom</strong>: active le bouton qui envoie le raccourci de partage vers Zoom.</li>
-<li><strong>Afficher le zoom au public</strong>: active le bouton qui masque temporairement l'Écran Public de JW Time pour afficher les enceintes ou la fenêtre Zoom déjà positionnée en dessous, sur le moniteur de la salle.</li>
+<li><strong>Afficher le zoom au public</strong>: active le bouton qui masque temporairement l'Écran Public de JW Time pour afficher les intervenants ou la fenêtre Zoom déjà positionnée en dessous, sur le moniteur de la salle.</li>
 <li><strong>Raccourci de partage</strong>- Il doit s'agir du même raccourci global configuré dans Zoom pour démarrer ou arrêter le partage d'écran.</li>
 <li><strong>Test</strong>: Envoyez le raccourci et vérifiez si Zoom ouvre ou modifie l'état du partage.</li>
 </ul>
@@ -1265,13 +1282,13 @@ html
                     </p>
 <p>
                         Avant la réunion, vérifiez le flux complet : préparez le Zoom sur le moniteur public, placez l'Écran Public en dessous
-                        la fenêtre des haut-parleurs ou l'écran Zoom en double, essayez le raccourci avec <strong>Test</strong> puis
+                        la fenêtre des intervenants ou l'écran Zoom en double, essayez le raccourci avec <strong>Test</strong> puis
                         utilisez les commandes de la fenêtre Média.
                     </p>
 <h3 style="margin-top: var(--spacing-lg);">Automatisation des médias</h3>
 <ul class="manual-section">
 <li><strong>Démarrage automatique</strong>: lorsque la touche <strong>Zoom automatique</strong> est actif dans la fenêtre Média, démarre le partage lorsqu'un média est lu.</li>
-<li><strong>Arrêt automatique</strong>: Arrête le partage à la fin du média, si le partage a été démarré par JW Time.</li>
+<li><strong>Interrompre &agrave; la fermeture du m&eacute;dia</strong>: arr&ecirc;te le partage Zoom lorsque le m&eacute;dia est ferm&eacute; ou se termine, uniquement si le partage a &eacute;t&eacute; lanc&eacute; par JW Time.</li>
 <li><strong>Pause initiale</strong>: Prépare le média à mettre en pause après le démarrage du partage.</li>
 <li><strong>Restaurer le focus</strong>: Renvoie le focus sur la fenêtre Média après l'action Zoom.</li>
 </ul>
@@ -1324,11 +1341,11 @@ html
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">15.3 · Contrôle à distance</h3>
 <p>
-                        Si la fonction est activée, le serveur Web peut être utilisé non seulement pour la visualisation, mais également pour l'exécution.
-                        Opérations de minuterie et de programme à distance. Lorsque le rôle de contrôleur est activé, l'écran Web affiche
-                        contrôle également pour intervenir sur les valeurs disponibles, par exemple la durée d'une pièce.
+                        Si la fonction est activée, le serveur Web peut être utilisé non seulement pour la visualisation, mais aussi pour exécuter
+                        à distance des opérations sur le minuteur et le programme. Lorsque le rôle de contrôleur est activé, l'écran Web affiche
+                        également les contrôles permettant d'intervenir sur les valeurs disponibles, par exemple la durée d'une partie.
                     </p>
-<p>Parmi ceux-ci peuvent être disponibles :</p>
+<p>Les opérations disponibles peuvent inclure :</p>
 <ul class="manual-section">
 <li>démarrer le minuteur</li>
 <li>mettre en pause et reprendre</li>
@@ -1422,7 +1439,7 @@ html
 <div class="footer-content">
 <div class="footer-section">
 <h3>JW Time</h3>
-<p>Projet volontaire de gestion des temps de réunion.</p>
+<p>Projet indépendant, gratuit et non commercial pour la gestion des temps de réunion.</p>
 </div>
 <div class="footer-section">
 <h3>Ressources</h3>
@@ -1430,6 +1447,7 @@ html
 <li><a href="index.html">Home</a></li>
 <li><a href="manual.html">Manuel d’utilisation</a></li>
 <li><a href="news.html">Nouveautés</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
 <li><a href="contacts.html">Contacts</a></li>
 </ul>
 </div>
@@ -1441,7 +1459,7 @@ html
 </div>
 </div>
 <div class="footer-bottom">
-<p>© 2025-2026 JW Time - Projet non officiel créé par des bénévoles</p>
+<p>&copy; 2025-2026 JW Time - Projet indépendant, gratuit et non commercial créé par des bénévoles</p>
 </div>
 </footer>
 <!-- JavaScript -->

@@ -128,18 +128,24 @@ html
 <a href="index.html">Home</a>
 <a class="active" href="manual.html">Handbuch</a>
 <a href="news.html">Neuigkeiten</a>
+                <a href="faq.html">FAQ</a>
 <a href="contacts.html">Kontakt</a>
 <!-- Language Selector -->
-<div class="lang-selector">
-<div class="lang-current"><span>Deutsch</span><span>▾</span></div>
-<div class="lang-dropdown">
-<a data-lang="it" href="../it/manual.html">Italiano</a>
-<a data-lang="en" href="../en/manual.html">English</a>
-<a data-lang="es" href="../es/manual.html">Español</a>
-<a data-lang="fr" href="../fr/manual.html">Français</a>
-<a data-lang="pt_BR" href="../pt_BR/manual.html">Português (BR)</a>
-</div>
-</div>
+                <div class="lang-selector">
+                    <div class="lang-current">
+                        <span>Deutsch</span>
+                        <span>&#9662;</span>
+                    </div>
+                    <div class="lang-dropdown">
+                        <a href="../it/manual.html" data-lang="it">Italiano</a>
+                        <a href="../en/manual.html" data-lang="en">English</a>
+                        <a href="../es/manual.html" data-lang="es">Español</a>
+                        <a href="../nl/manual.html" data-lang="nl">Nederlands</a>
+                        <a href="../fr/manual.html" data-lang="fr">Français</a>
+                        <a href="../pt_BR/manual.html" data-lang="pt_BR">Português (Brasil)</a>
+                        <a href="../hu/manual.html" data-lang="hu">Magyar</a>
+                    </div>
+                </div>
 <!-- Theme Toggle -->
 <button aria-label="Thema umschalten" class="theme-toggle" id="theme-toggle">
 <svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -344,6 +350,10 @@ html
                         Listet das Programm der Zusammenkunft auf (Titel, Dauer, Status). Der Inhalt wird automatisch tagesaktuell geladen
                         ausgewählt: Die App erkennt, ob Wochenmitte oder Wochenende ist und schlägt den richtigen Zeitplan vor. Für die Knöpfe
                         und detaillierte Aktionen siehe <a href="#manipolazione-timer">Abschnitt 3 · Timer manipulieren</a>.
+                    </p>
+<p>
+                        Wenn Sie <strong>Spalte Ende anzeigen</strong> in den allgemeinen Einstellungen aktivieren, zeigt die Tabelle auch, wann der aktuelle Teil und jeder folgende Teil enden w&uuml;rde.
+                        Das ist keine feste Planzeit, sondern eine Live-Projektion auf Grundlage der aktuellen Uhrzeit, der verbleibenden Timer und der angesammelten Zeitabweichung.
                     </p>
 </div>
 <div class="news-card">
@@ -636,6 +646,10 @@ html
 <p>
                             Bereich 2 enthält Registerkarten mit Vorschau, Titel, Referenz und Startschaltfläche. Die Farben spiegeln die Bereiche der Aufstellung wider,
                             So können Sie schnell Lieder, Bilder, Videos und Referenzen finden, die sich auf das Teil beziehen.
+                        </p>
+<p>
+                            Im Kontextmen&uuml; k&ouml;nnen Sie ein Element manuell als verwendet oder nicht verwendet markieren. Wenn <strong>Bereits verwendete Medien d&auml;mpfen</strong> aktiviert ist, bleiben verwendete Elemente mit einem dezenteren Stil erkennbar.
+                            Die Fenster f&uuml;r offizielle Videos, Audios und Bilder enthalten au&szlig;erdem den Modus <strong>Global</strong>, wenn Sie au&szlig;erhalb der aktuellen Kategorie suchen m&uuml;ssen.
                         </p>
 </div>
 <div class="news-card">
@@ -1086,6 +1100,7 @@ html
 <h3 style="margin-top: var(--spacing-lg);">Timer-Verwaltung</h3>
 <ul class="manual-section">
 <li><strong>Automatische Pause</strong>: fügt automatisch eine Pause zwischen einem Teil und dem nächsten ein, wenn Sie Start/Weiter drücken.</li>
+<li><strong>Spalte Ende anzeigen</strong>: zeigt in der Programmtabelle die voraussichtliche Endzeit des aktuellen und der folgenden Teile, live berechnet aus der aktuellen Uhrzeit, den verbleibenden Timern und der angesammelten Zeitabweichung.</li>
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">Neuigkeiten</h3>
 <ul class="manual-section">
@@ -1213,6 +1228,8 @@ html
 <h3>Medienfunktionen</h3>
 <ul class="manual-section">
 <li><strong>Medienschaltfläche und -funktion</strong>: Blendet die Medienschaltfläche ein oder aus und aktiviert zugehörige Funktionen.</li>
+<li><strong>Bereits verwendete Medien d&auml;mpfen</strong>: macht verwendete Elemente im Medienfenster leichter erkennbar.</li>
+<li><strong>Externe URLs zulassen</strong>: erlaubt nach Best&auml;tigung HTTPS-URLs au&szlig;erhalb von jw.org und wol.jw.org und zeigt sie im integrierten Browser an.</li>
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">Mediensammlung</h3>
 <ul class="manual-section">
@@ -1271,7 +1288,7 @@ html
 <h3 style="margin-top: var(--spacing-lg);">Medienautomatisierung</h3>
 <ul class="manual-section">
 <li><strong>Autostart</strong>: wenn die Taste gedrückt wird <strong>Auto Zoom</strong> im Medienfenster aktiv ist, beginnt die Freigabe, wenn ein Medium abgespielt wird.</li>
-<li><strong>Automatischer Stopp</strong>: Stoppt die Freigabe, wenn das Medium endet, wenn die Freigabe von JW Time gestartet wurde.</li>
+<li><strong>Beim Schlie&szlig;en des Mediums unterbrechen</strong>: stoppt die Zoom-Freigabe, wenn das Medium geschlossen wird oder endet, aber nur wenn JW Time die Freigabe gestartet hat.</li>
 <li><strong>Anfängliche Pause</strong>: Bereitet das Medium auf eine Pause nach dem Start der Freigabe vor.</li>
 <li><strong>Fokus wiederherstellen</strong>: Setzt den Fokus nach der Zoom-Aktion wieder auf das Medienfenster.</li>
 </ul>
@@ -1430,6 +1447,7 @@ html
 <li><a href="index.html">Home</a></li>
 <li><a href="manual.html">Benutzerhandbuch</a></li>
 <li><a href="news.html">Neuigkeiten</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
 <li><a href="contacts.html">Kontakt</a></li>
 </ul>
 </div>
@@ -1441,7 +1459,7 @@ html
 </div>
 </div>
 <div class="footer-bottom">
-<p>© 2025-2026 JW Time – Inoffizielles Projekt erstellt von Freiwilligen</p>
+<p>&copy; 2025-2026 JW Time - Unabhängiges, kostenloses und nicht-kommerzielles Projekt von Freiwilligen</p>
 </div>
 </footer>
 <!-- JavaScript -->

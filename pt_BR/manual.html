@@ -2,7 +2,7 @@ html
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8"/>
-<meta content="largura=largura do dispositivo, escala inicial=1,0" name="viewport"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="Manual completo do JW Time - Guia para usar o aplicativo de gerenciamento de tempo de reunião" name="description"/>
 <title>Manual do usuário - JW Time</title>
 <link href="../css/style.css" rel="stylesheet"/>
@@ -128,18 +128,24 @@ html
 <a href="index.html">Home</a>
 <a class="active" href="manual.html">Manual</a>
 <a href="news.html">Novidades</a>
+                <a href="faq.html">FAQ</a>
 <a href="contacts.html">Contatos</a>
 <!-- Language Selector -->
-<div class="lang-selector">
-<div class="lang-current"><span>Português (BR)</span><span>▾</span></div>
-<div class="lang-dropdown">
-<a data-lang="it" href="../it/manual.html">Italiano</a>
-<a data-lang="en" href="../en/manual.html">English</a>
-<a data-lang="es" href="../es/manual.html">Español</a>
-<a data-lang="de" href="../de/manual.html">Deutsch</a>
-<a data-lang="fr" href="../fr/manual.html">Français</a>
-</div>
-</div>
+                <div class="lang-selector">
+                    <div class="lang-current">
+                        <span>Português (Brasil)</span>
+                        <span>&#9662;</span>
+                    </div>
+                    <div class="lang-dropdown">
+                        <a href="../it/manual.html" data-lang="it">Italiano</a>
+                        <a href="../en/manual.html" data-lang="en">English</a>
+                        <a href="../es/manual.html" data-lang="es">Español</a>
+                        <a href="../de/manual.html" data-lang="de">Deutsch</a>
+                        <a href="../nl/manual.html" data-lang="nl">Nederlands</a>
+                        <a href="../fr/manual.html" data-lang="fr">Français</a>
+                        <a href="../hu/manual.html" data-lang="hu">Magyar</a>
+                    </div>
+                </div>
 <!-- Theme Toggle -->
 <button aria-label="Alternar tema" class="theme-toggle" id="theme-toggle">
 <svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -344,6 +350,10 @@ html
                         Lista a agenda da reunião (título, duração, status). O conteúdo carrega automaticamente com base no dia
                         selecionado: o aplicativo reconhece se é meio de semana ou fim de semana e propõe o horário correto. Para os botões
                         e ações detalhadas consulte <a href="#manipolazione-timer">seção 3 · Manipulação de temporizadores</a>.
+                    </p>
+<p>
+                        Se voc&ecirc; ativar <strong>Mostrar coluna Fim</strong> nas configura&ccedil;&otilde;es gerais, a tabela tamb&eacute;m mostra a que horas a parte atual e cada parte seguinte terminariam.
+                        N&atilde;o &eacute; um hor&aacute;rio fixo da programa&ccedil;&atilde;o: &eacute; uma proje&ccedil;&atilde;o atualizada em tempo real com base na hora atual, nos temporizadores restantes e nos desvios acumulados.
                     </p>
 </div>
 <div class="news-card">
@@ -636,6 +646,10 @@ html
 <p>
                             A área 2 contém abas com visualização, título, referência e botão iniciar. As cores refletem as áreas da programação,
                             para que você possa localizar rapidamente músicas, imagens, vídeos e referências relacionadas à peça.
+                        </p>
+<p>
+                            No menu de contexto, voc&ecirc; pode marcar manualmente um item como usado ou n&atilde;o usado. Se <strong>Atenuar m&iacute;dia j&aacute; usada</strong> estiver ativado, os itens usados continuam reconhec&iacute;veis com um estilo mais discreto.
+                            As janelas de v&iacute;deos, &aacute;udios e imagens oficiais tamb&eacute;m incluem o modo <strong>Global</strong> quando voc&ecirc; precisa pesquisar fora da categoria atual.
                         </p>
 </div>
 <div class="news-card">
@@ -1086,6 +1100,7 @@ html
 <h3 style="margin-top: var(--spacing-lg);">Gerenciamento de temporizador</h3>
 <ul class="manual-section">
 <li><strong>Pausa automática</strong>: insere automaticamente uma pausa entre uma parte e a próxima quando você pressiona Iniciar/Avançar.</li>
+<li><strong>Mostrar coluna Fim</strong>: mostra na tabela do programa o hor&aacute;rio previsto de t&eacute;rmino da parte atual e das partes seguintes, calculado em tempo real a partir da hora atual, dos temporizadores restantes e dos desvios acumulados.</li>
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">Novidades</h3>
 <ul class="manual-section">
@@ -1213,6 +1228,8 @@ html
 <h3>Funções de mídia</h3>
 <ul class="manual-section">
 <li><strong>Botão e função de mídia</strong>: mostra ou oculta o botão de mídia e ativa funções relacionadas.</li>
+<li><strong>Atenuar m&iacute;dia j&aacute; usada</strong>: torna os itens usados mais f&aacute;ceis de reconhecer na janela M&iacute;dia.</li>
+<li><strong>Permitir URLs externas</strong>: ap&oacute;s confirma&ccedil;&atilde;o, permite URLs HTTPS externas a jw.org e wol.jw.org e as mostra no navegador integrado.</li>
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">Media Gathering</h3>
 <ul class="manual-section">
@@ -1271,7 +1288,7 @@ html
 <h3 style="margin-top: var(--spacing-lg);">Automação de mídia</h3>
 <ul class="manual-section">
 <li><strong>Início automático</strong>: quando a chave <strong>Zoom automático</strong> está ativo na janela Mídia, inicia o compartilhamento quando uma mídia é reproduzida.</li>
-<li><strong>Parada automática</strong>: Interrompe o compartilhamento quando a mídia termina, se o compartilhamento tiver sido iniciado pelo JW Time.</li>
+<li><strong>Interromper ao fechar a m&iacute;dia</strong>: interrompe o compartilhamento do Zoom quando a m&iacute;dia &eacute; fechada ou termina, somente se o compartilhamento foi iniciado pelo JW Time.</li>
 <li><strong>Pausa Inicial</strong>: Prepara a mídia para pausar após o início do compartilhamento.</li>
 <li><strong>Restaurar foco</strong>: Retorna o foco para a janela Mídia após a ação de Zoom.</li>
 </ul>
@@ -1422,7 +1439,7 @@ html
 <div class="footer-content">
 <div class="footer-section">
 <h3>JW Time</h3>
-<p>Projeto voluntário para gerenciamento de horários de reuniões.</p>
+<p>Projeto independente, gratuito e não comercial para gerenciamento dos tempos de reunião.</p>
 </div>
 <div class="footer-section">
 <h3>Recursos</h3>
@@ -1430,6 +1447,7 @@ html
 <li><a href="index.html">Home</a></li>
 <li><a href="manual.html">Manual do usuário</a></li>
 <li><a href="news.html">Novidades</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
 <li><a href="contacts.html">Contatos</a></li>
 </ul>
 </div>
@@ -1441,7 +1459,7 @@ html
 </div>
 </div>
 <div class="footer-bottom">
-<p>© 2025-2026 JW Time - Projeto não oficial criado por voluntários</p>
+<p>&copy; 2025-2026 JW Time - Projeto independente, gratuito e não comercial criado por voluntários</p>
 </div>
 </footer>
 <!-- JavaScript -->

@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+
+<html lang="nl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Complete handleiding van JW Time - gids voor het gebruik van de app voor het beheer van vergadertijden" name="description"/>
+<title>Gebruikershandleiding - JW Time</title>
+<link href="../css/style.css" rel="stylesheet"/>
+<style>
+        .back-to-index-link {
+            font-size: 0.9rem;
+            margin-left: 0.75rem;
+            color: var(--text-tertiary);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .back-to-index-link:hover {
+            color: var(--text-secondary);
+            text-decoration: underline;
+        }
+
+        .content:not(#indice) a:not(.back-to-index-link):not(.btn),
+        .content-section-header a:not(.back-to-index-link):not(.btn) {
+            color: inherit;
+            font-weight: 600;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 0.2em;
+            text-decoration-color: currentColor;
+        }
+
+        .content:not(#indice) a:not(.back-to-index-link):not(.btn)::after,
+        .content-section-header a:not(.back-to-index-link):not(.btn)::after {
+            content: " ↴";
+            font-size: 0.85em;
+            opacity: 0.78;
+            text-decoration: none;
+        }
+
+        .content:not(#indice) a:not(.back-to-index-link):not(.btn):hover,
+        .content-section-header a:not(.back-to-index-link):not(.btn):hover {
+            color: var(--text-primary);
+        }
+
+        /* Scroll offset per compensare header fisso */
+        html {
+            scroll-padding-top: 100px;
+        }
+
+        /* Scroll offset maggiore su mobile per header a due righe */
+        @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 180px;
+            }
+        }
+
+        /* Scroll offset extra su schermi molto piccoli dove l'header pu&#242; essere su 3 righe */
+        @media (max-width: 480px) {
+            html {
+                scroll-padding-top: 220px;
+            }
+        }
+
+        /* Assicura che le immagini non vengano tagliate su mobile */
+        @media (max-width: 640px) {
+            .content figure,
+            .news-card figure {
+                overflow: visible !important;
+                flex: 1 1 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+                margin: var(--spacing-lg) 0 !important;
+            }
+
+            .content figure img,
+            .news-card figure img {
+                max-width: 100%;
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+
+            /* Layout a colonna singola per sezioni con immagini */
+            .news-card > div[style*="display: flex"] {
+                flex-direction: column !important;
+            }
+        }
+
+        .settings-panel-layout {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-top: var(--spacing-lg);
+        }
+
+        .settings-panel-figure {
+            flex: 1 1 560px;
+            min-width: 440px;
+            max-width: 650px;
+            margin: 0;
+        }
+
+        .settings-panel-copy {
+            flex: 1 1 360px;
+            min-width: 300px;
+        }
+
+        @media (max-width: 980px) {
+            .settings-panel-figure,
+            .settings-panel-copy {
+                flex: 1 1 100%;
+                min-width: 0;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Header / Navigation -->
+<header class="header">
+<div class="header-content">
+<a class="logo" href="index.html">
+<img alt="JW Time Logo" src="../images/jwtime-logo.png" style="height: 32px; margin-right: 8px;"/>
+                JW Time
+            </a>
+<nav class="nav">
+<a href="index.html">Home</a>
+<a class="active" href="manual.html">Handleiding</a>
+<a href="news.html">Nieuws</a>
+<a href="faq.html">FAQ</a>
+<a href="contacts.html">Contact</a>
+<!-- Language Selector -->
+                <div class="lang-selector">
+                    <div class="lang-current">
+                        <span>Nederlands</span>
+                        <span>&#9662;</span>
+                    </div>
+                    <div class="lang-dropdown">
+                        <a href="../it/manual.html" data-lang="it">Italiano</a>
+                        <a href="../en/manual.html" data-lang="en">English</a>
+                        <a href="../es/manual.html" data-lang="es">Español</a>
+                        <a href="../de/manual.html" data-lang="de">Deutsch</a>
+                        <a href="../fr/manual.html" data-lang="fr">Français</a>
+                        <a href="../pt_BR/manual.html" data-lang="pt_BR">Português (Brasil)</a>
+                        <a href="../hu/manual.html" data-lang="hu">Magyar</a>
+                    </div>
+                </div>
+<!-- Theme Toggle -->
+<button aria-label="Toggle theme" class="theme-toggle" id="theme-toggle">
+<svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"></path>
+</svg>
+</button>
+</nav>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="hero">
+<div class="hero-content">
+<h1>Gebruikershandleiding</h1>
+<p>Complete gids voor het gebruik van JW Time</p>
+</div>
+</section>
+<!-- Main Content -->
+<div class="container">
+<!-- INDICE -->
+<div class="content" id="indice">
+<h2>Inhoudsopgave</h2>
+<div class="manual-index">
+<!-- Card Verde per Inizia Qui -->
+<div class="index-section index-section--green">
+<h3>Nieuws 4.0</h3>
+<ul>
+<li><a href="#novita">Versie 4.0.0</a></li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">Eerste start</h3>
+<ul>
+<li><a href="#primo-avvio-guidato">Startwizard</a></li>
+<li><a href="#controllo-rapido">Snelle controle als je de wizard overslaat</a></li>
+</ul>
+</div>
+<div class="index-section">
+<h3>Deel I - Interface en werking</h3>
+<ul>
+<li><a href="#schermata-principale">1. Hoofdscherm</a></li>
+<li><a href="#navigazione-settimanale">2. Programma en schema's</a></li>
+<li><a href="#manipolazione-timer">3. Timers beheren</a></li>
+<li><a href="#finestra-media">4. Media-venster</a></li>
+<li><a href="#schermi-contatempo-pubblico">5. Openbaar scherm en Contatempo-scherm</a></li>
+<li><a href="#personalizzare-schermo">↳ 5.3 Het Contatempo-scherm aanpassen</a></li>
+<li><a href="#gestione-messaggi">6. Berichten beheren</a></li>
+<li><a href="#rec-button">7. REC-knop en opnamepaneel</a></li>
+<li><a href="#monitor-web">8. Webmonitor en server</a></li>
+<li><a href="#monitor-web-accesso-remoto">↳ 8.3 Externe toegang buiten het netwerk</a></li>
+</ul>
+</div>
+<div class="index-section">
+<h3>Deel II - Instellingenpanelen</h3>
+<ul>
+<li><a href="#impostazioni-generale">9. Algemeen</a></li>
+<li><a href="#impostazioni-congregazioni">10. Gemeenten</a></li>
+<li><a href="#impostazioni-adunanze">11. Vergaderingen (timer begin vergadering)</a></li>
+<li><a href="#impostazioni-schermo">12. Scherm</a></li>
+<li><a href="#impostazioni-media">13. Media</a></li>
+<li><a href="#impostazioni-zoom">14. Zoom</a></li>
+<li><a href="#impostazioni-connessioni">15. Verbinding en server</a></li>
+<li><a href="#server-web-remoto">↳ 15.2 Webserver op afstand</a></li>
+<li><a href="#impostazioni-registrazioni">16. Opnamen</a></li>
+<li><a href="#impostazioni-backup">17. Pakketten en offline back-up</a></li>
+</ul>
+</div>
+</div>
+</div>
+<!-- ULTIME NOVIT&#192; -->
+<div class="news-preview" id="novita">
+<div class="news-preview-title">
+<h2 style="margin: 0;">Nieuws 4.0</h2>
+<span class="news-preview-badge">Versie 4.0.0</span>
+</div>
+<div class="news-preview-content">
+<h3>Een snelle blik op de nieuwigheden</h3>
+<p>
+                        JW Time 4.0 introduceert veel nieuwe functies. Hier vind je alleen een samenvatting om je te oriënteren; het paneel <strong>Nieuws</strong> in de app en de speciale pagina bevatten alle details.
+                    </p>
+<ul>
+<li>Startwizard, gemeenteprofielen en opnieuw geordende interface.</li>
+<li>Media-venster met officiële inhoud, downloads, lokale cache en achtergrondmuziek.</li>
+<li>Openbaar scherm, aanpasbaar Contatempo-scherm en bijgewerkt berichtenbeheer.</li>
+<li>Webmonitor met lokale bediening, QR en tijdelijke externe toegang voor videoconferentie.</li>
+</ul>
+<a class="btn btn-gray" href="news.html" style="margin-top: var(--spacing-lg);">
+                    Ontdek al het nieuws -&gt;
+                </a>
+</div>
+</div>
+<!-- PRIMO AVVIO GUIDATO -->
+<div class="content-section-header" id="primo-avvio-guidato">
+<h2 style="font-size: 2rem; margin: 0 0 var(--spacing-xl) 0; color: var(--text-primary);">Begeleide eerste start</h2>
+<div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap;">
+<div style="flex: 1 1 320px; min-width: 0;">
+<p>
+                        Bij de eerste start toont JW Time een wizard die de belangrijkste instellingen verzamelt voordat de app wordt geopend. Dit is de aanbevolen route voor een nieuwe installatie, omdat je dan niet meteen elke optie in de instellingenpanelen hoeft te zoeken.
+                    </p>
+<ul class="manual-section">
+<li><strong>Taal en formaat</strong>: kies de interfacetaal, de programmataal en de tijdnotatie.</li>
+<li><strong>Gemeente</strong>: stel de naam van het eerste profiel in, handig als je later meerdere profielen gaat beheren.</li>
+<li><strong>Vergaderingen</strong>: geef dagen en begintijden op voor de automatische countdown.</li>
+<li><strong>Vergaderopties</strong>: activeer, indien nodig, duur-aanpassing en automatische pauze tussen onderdelen.</li>
+<li><strong>Schermen</strong>: configureer het Contatempo-scherm en het Openbaar scherm op de juiste monitoren.</li>
+</ul>
+<p>
+                        Aan het einde van de wizard kun je JW Time openen en alleen de geavanceerdere opties afronden, zoals Media, Webserver, Opnamen en Back-up.
+                    </p>
+</div>
+<figure style="flex: 0 0 38%; min-width: 280px; max-width: 520px; margin: 0 0 0 auto; align-self: flex-start;">
+<img alt="Wizard di primo avvio di JW Time" class="manual-image" src="../images/manual/nl/primo-avvio-guidato-v4.png"/>
+</figure>
+</div>
+</div>
+<!-- CONTROLLO RAPIDO -->
+<div class="content" id="controllo-rapido">
+<h2>Snelle controle als je de wizard overslaat <a class="back-to-index-link" href="#indice">↑ Inhoudsopgave</a></h2>
+<p>
+                Als je de wizard sluit of overslaat, kun je de belangrijkste instellingen handmatig configureren via Instellingen en het hoofdvenster. Deze checklist dient ook als snelle controle vóór de vergadering.
+            </p>
+<ol class="manual-section">
+<li style="margin-bottom: var(--spacing-lg);">
+<h3 style="color: var(--text-secondary);">Taal, profiel en programma</h3>
+<p>
+                        Ga naar <a href="#impostazioni-generale">sectie 9 - Algemeen</a> voor taal en tijdnotatie, daarna naar
+                        <a href="#impostazioni-congregazioni">sectie 10 - Gemeenten</a> als je een profiel moet maken of selecteren. Controleer of het geladen schema overeenkomt met de gewenste week en taal.
+                    </p>
+</li>
+<li style="margin-bottom: var(--spacing-lg);">
+<h3 style="color: var(--text-secondary);">Contatempo-scherm en Openbaar scherm</h3>
+<p>
+                        In <a href="#impostazioni-schermo">sectie 12 - Scherm</a> selecteer je de juiste monitoren en activeer je de vensters die je gebruikt. Zie voor het aanpassen van het uiterlijk van het Contatempo-scherm <a href="#personalizzare-schermo">sectie 5.3 - Het Contatempo-scherm aanpassen</a>.
+                    </p>
+</li>
+<li style="margin-bottom: var(--spacing-lg);">
+<h3 style="color: var(--text-secondary);">Media en inhoud</h3>
+<p>
+                        Open <a href="#finestra-media">sectie 4 - Media-venster</a> om liederen, video's en afbeeldingen van de week te controleren. De opties voor cache, kwaliteit en achtergrond staan in <a href="#impostazioni-media">sectie 13 - Media</a>.
+                    </p>
+</li>
+<li style="margin-bottom: var(--spacing-lg);">
+<h3 style="color: var(--text-secondary);">Timer, berichten en opname</h3>
+<p>
+                        Gebruik het hoofdvenster om timers te starten, berichten naar het Contatempo-scherm te sturen en het REC-paneel te openen. Als je vergaderingen opneemt, controleer dan eerst de opties in <a href="#impostazioni-registrazioni">sectie 16 - Opnamen</a>.
+                    </p>
+</li>
+<li style="margin-bottom: var(--spacing-lg);">
+<h3 style="color: var(--text-secondary);">Webserver en back-up</h3>
+<p>
+                        Als je afstandsbediening, QR of bekijken via browser gebruikt, configureer dan <a href="#impostazioni-connessioni">sectie 15 - Verbinding en server</a>. Controleer voor offline werken of het overzetten van configuraties <a href="#impostazioni-backup">sectie 17 - Pakketten en offline back-up</a>.
+                    </p>
+</li>
+</ol>
+</div>
+<!-- PARTE I - INTERFACCIA E FUNZIONAMENTO -->
+<div class="content-section-header">
+<h2 style="font-size: 2rem; margin: 0; color: var(--text-primary);">Deel I - Interface en werking</h2>
+</div>
+<!-- 1. SCHERMATA PRINCIPALE -->
+<div class="content" id="schermata-principale">
+<h2>1 - Hoofdscherm <a class="back-to-index-link" href="#indice">↑ Inhoudsopgave</a></h2>
+<div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap;">
+<figure style="flex: 0 0 420px; max-width: 520px; margin: 0 auto;">
+<img alt="Schermata principale di JW Time con aree numerate" class="manual-image" src="../images/manual/nl/schermata-principale-v4-annotata-real.png"/>
+</figure>
+<div style="flex: 1 1 320px; min-width: 0;">
+<p>
+                        Het hoofdscherm is het hart van de app. Van hieruit kun je alle timers van de vergadering starten, beheren en volgen, de belangrijkste informatie bekijken zoals de titel van het huidige onderdeel, de klok en de resterende tijd, en belangrijke berichten en meldingen controleren.
+                    </p>
+</div>
+</div>
+<h3 style="margin-top: var(--spacing-2xl); color: white;">Belangrijkste gebieden</h3>
+<!-- Grid delle aree principali -->
+<div class="news-cards-grid" style="margin-top: var(--spacing-xl);">
+<div class="news-card">
+<h4 style="color: var(--text-secondary);">1.1 - Titel onderdeel en klok</h4>
+<div class="image-container">
+<img alt="Area 1 - Titolo parte e orologio/contatempo" class="manual-image" src="../images/manual/nl/area-1-titolo-orologio-v4.png"/>
+</div>
+<p>
+                        In de bovenste regel wordt de titel van het huidige onderdeel getoond; daaronder staat de klok met de huidige tijd of, wanneer je een timer start, de countdown van de resterende tijd. In 12-uursnotatie verschijnt ook het AM/PM-achtervoegsel kleiner, voor betere leesbaarheid.
+                    </p>
+</div>
+<div class="news-card">
+<h4 style="color: var(--text-secondary);">1.2 - Timertabel</h4>
+<div class="image-container">
+<img alt="Gebied 2 - timertabel van de vergadering" class="manual-image" src="../images/manual/nl/area-2-tabella-timer-v4.png"/>
+</div>
+<p>
+                        Toont het schema van de vergadering (titel, duur, status). De inhoud wordt automatisch geladen op basis van de geselecteerde dag: de app herkent of het Doordeweeks of Weekend is en stelt het juiste schema voor. Zie voor de knoppen en gedetailleerde acties <a href="#manipolazione-timer">sectie 3 - Timers beheren</a>.
+                    </p>
+<p>
+                        Als je <strong>Kolom Einde tonen</strong> activeert in de algemene instellingen, toont de tabel ook hoe laat het huidige onderdeel en de volgende onderdelen zouden eindigen. Dit is geen vaste tijd uit het schema: het is een realtime prognose op basis van de huidige tijd, de resterende timers en eventuele opgebouwde afwijkingen.
+                    </p>
+</div>
+<div class="news-card">
+<h4 style="color: var(--text-secondary);">1.3 - Geschatte eindtijd</h4>
+<div class="image-container">
+<img alt="Area 3 - Orario fine stimato e scostamento" class="manual-image" src="../images/manual/nl/area-3-orario-fine-v4.png"/>
+</div>
+<p>
+                        Toont de verwachte eindtijd op basis van het schema. Ernaast staat de <em>afwijking</em>:<br/>
+                        +m:ss (geel binnen 1 min., rood daarboven) = achterstand<br/>
+                        -m:ss (groen) = voorsprong<br/>
+                        De tijd en de indicator worden realtime bijgewerkt. Als de adaptieve Bijbelstudie/Wachttoren-studie actief is, worden de duren herberekend om binnen de eindtijd te blijven.
+                    </p>
+</div>
+<div class="news-card">
+<h4 style="color: var(--text-secondary);">1.4 - Pauzetijd/wissel spreker</h4>
+<div class="image-container">
+<img alt="Area 4 - Tempo pausa e cambio oratore" class="manual-image" src="../images/manual/nl/area-4-tempo-pausa-v4.png"/>
+</div>
+<p>
+                        Cumulatieve teller <strong>hh:mm:ss</strong> van technische pauzes/wissel spreker: telt de tijd op waarin de timer gepauzeerd is. Tijdens de pauze blijft de timer van het onderdeel stilstaan terwijl deze teller oploopt. Een klik op de indicator zet het totaal op nul.
+                    </p>
+</div>
+<div class="news-card">
+<h4 style="color: var(--text-secondary);">1.5 - Belangrijkste timerknoppen</h4>
+<div class="image-container">
+<img alt="Area 5 - Tasti principali di gestione dei timer" class="manual-image" src="../images/manual/nl/area-5-tasti-principali-v4.png"/>
+</div>
+<p>
+                        Knoppen om timers te starten, stoppen en beheren: Stop (rood), Pauze en Start/Volgende (groen). De knop Pauze pauzeert de timer van het onderdeel (de teller blijft stilstaan) terwijl de pauzetijd/wissel spreker blijft oplopen. Om de pauze te verlaten druk je opnieuw op Pauze of ga je met Start/Volgende naar het volgende onderdeel: de opgebouwde tijd wordt geregistreerd in de teller van punt 1.4.
+                    </p>
+</div>
+<div class="news-card">
+<h4 style="color: var(--text-secondary);">1.6 - Nieuws (communicaties)</h4>
+<div class="image-container">
+<img alt="Area 6 - Riquadro notizie nella schermata principale" class="manual-image" src="../images/manual/nl/area-6-notizie-v4.png"/>
+</div>
+<p>
+                        Wanneer er officiële app-communicaties zijn, verschijnt op het hoofdscherm een vak/melding "Nieuws". Door erop te klikken opent het paneel met de samenvatting van de updates.
+                    </p>
+</div>
+<div class="news-card">
+<h4 style="color: var(--text-secondary);">1.7 - Snelle hulpmiddelen</h4>
+<div class="image-container">
+<img alt="Area 7 - Strumenti rapidi della schermata principale" class="manual-image" src="../images/manual/nl/area-7-strumenti-v4.png"/>
+</div>
+<p>
+                        Snelle knoppen om instellingen te openen, het venster te minimaliseren of te herstellen en hulp te openen. Ze zijn gescheiden van de werkmodi om de onderste regel overzichtelijker te houden.
+                    </p>
+</div>
+<div class="news-card">
+<h4 style="color: var(--text-secondary);">1.8 - Werkmodi</h4>
+<div class="image-container">
+<img alt="Area 8 - Modalità operative Media, Programma, Messaggio e REC" class="manual-image" src="../images/manual/nl/area-8-modalita-v4.png"/>
+</div>
+<p>
+                        Van hieruit kun je naar het Media-venster, Programma, Berichten en het REC-paneel gaan. De zwarte stip naast REC geeft de opnamestatus aan.
+                    </p>
+</div>
+</div>
+</div>
+<!-- 2. PROGRAMMA E SCALETTE -->
+<div class="content" id="navigazione-settimanale">
+<h2>2 - Programma en schema's <a class="back-to-index-link" href="#indice">↑ Inhoudsopgave</a></h2>
+<p>
+                Deze sectie laat zien hoe je het juiste schema voor de week laadt, een handmatig schema maakt wanneer dat nodig is en snel door vorige, huidige en volgende weken bladert.
+            </p>
+<p>
+                Standaard laadt de app automatisch het schema van de huidige week: doordeweeks van maandag tot en met vrijdag en weekend op zaterdag en zondag.
+            </p>
+<div class="image-container">
+<img alt="Programmapaneel van JW Time met navigatie tussen weken" class="manual-image" src="../images/manual/nl/navigazione-settimanale-v4.png"/>
+</div>
+<!-- 2.1 Programmazione automatica - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3 style="color: var(--text-secondary);">2.1 - Automatische planning</h3>
+<ol class="manual-section">
+<li>Doordeweeks: laadt het schema voor weekdagen.</li>
+<li>Weekend: laadt het schema voor zaterdag/zondag en vraagt om het lied voor de openbare lezing.</li>
+</ol>
+</div>
+<!-- 2.2 Scorrimento settimane - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>2.2 - Weekkiezer en kalenderpreview</h3>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+<div style="flex: 1 1 240px; min-width: 0;">
+<p>
+                            De knop <strong>Week</strong> toont altijd het bereik (bijv. "Week: 20 - 26 okt.") met een badge die de offset ten opzichte van de huidige week aangeeft (0, +1, -2, enz.). Een klik opent de compacte kalender om direct naar de gewenste week te gaan zonder meerdere keren Vorige/Volgende te gebruiken.
+                        </p>
+<ul class="manual-section">
+<li>Directe badge: je ziet of je naar de huidige, toekomstige of voorbije week kijkt.</li>
+<li>Weekkalender: kies weken rechtstreeks op een praktische manier.</li>
+</ul>
+</div>
+<figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+<img alt="Dettaglio del selettore Settimana" class="manual-image" src="../images/manual/nl/navigazione-settimanale-pannello-v4.png" style="width: 100%; height: auto; display: block;"/>
+</figure>
+</div>
+</div>
+<!-- 2.3 Visita SC - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>2.3 - CO-bezoek</h3>
+<p>
+                    De knop <strong>CO-bezoek</strong>, tussen de weekkiezer en Laden uit back-up, past het schema aan wanneer de kringopziener op bezoek is. Wanneer je erop drukt, gaat de knop aan (ON) en bereidt de app automatisch de speciale onderdelen voor het bezoek voor.
+                </p>
+<ul class="manual-section">
+<li><strong>Doordeweekse vergadering</strong>: de gemeentebijbelstudie wordt omgezet in een vast onderdeel van 30 minuten met de titel "CO-bezoek".</li>
+<li><strong>Weekend</strong>: er wordt een speciaal onderdeel toegevoegd na de Wachttoren-studie en de duren worden aangepast om de eindtijd te respecteren.</li>
+<li>Eigen kleuren en waarschuwingen: de rij CO-bezoek gebruikt een eigen palet en bereidt het specifieke slotlied voor.</li>
+<li>Snel uitschakelen: wanneer je de schakelaar uitzet, keert de tabel meteen terug naar het standaardschema zonder andere wijzigingen te verliezen.</li>
+</ul>
+</div>
+<!-- 2.4 Carica da backup - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>2.4 - Laden uit back-up</h3>
+<p>
+                    De knop <strong>Laden uit back-up</strong> opent een lijst met lokaal opgeslagen pakketten, gesorteerd op datum, type vergadering en taal. Ideaal om offline te werken of al voorbereide programma's op een andere pc te herstellen.
+                </p>
+<ul class="manual-section">
+<li>Gedetailleerde lijst: elke rij toont startdatum van de week, type (Doordeweeks/Weekend) en taal.</li>
+<li>Veilig laden: pakketten worden gecontroleerd en direct op de huidige tabel toegepast.</li>
+<li>Duidelijke berichten: als er geen back-ups beschikbaar zijn, toont de app meteen een melding.</li>
+</ul>
+</div>
+<!-- 2.5 Modalit&#224; Manuale - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>2.5 - Modus Handmatige lijst</h3>
+<p>
+                    De handmatige lijst is bedoeld wanneer het schema niet uit het weekprogramma komt of wanneer je een speciaal programma wilt voorbereiden. Je kunt items maken of wijzigen via het speciale bewerkingsvenster, type, titel en duur instellen en het resultaat opslaan voor later gebruik.
+                </p>
+<div class="image-container" style="margin-top: var(--spacing-md);">
+<img alt="Programmapaneel in handmatige modus met Opslaan, Laden en Lijst wissen" class="manual-image" src="../images/manual/nl/programma-manuale-pannello-v4.png"/>
+</div>
+<h4 style="color: var(--text-secondary);">2.5.1 - Handmatig paneel</h4>
+<ul class="manual-section">
+<li><strong>Handmatig</strong>: activeert het aangepaste schema en toont de speciale opdrachten onder de programma-selector.</li>
+<li><strong>Handmatige lijst opslaan</strong>: exporteert het huidige schema naar een bestand dat je opnieuw kunt gebruiken of naar een andere pc kunt overzetten.</li>
+<li><strong>Handmatige lijst laden</strong>: importeert een opgeslagen lijst en werkt tabel, Contatempo-scherm en gekoppelde media bij.</li>
+<li><strong>Lijst wissen</strong>: maakt het handmatige schema van de huidige week leeg en verwijdert ook de handmatige media die aan die conceptversie gekoppeld zijn.</li>
+</ul>
+<h4 style="color: var(--text-secondary);">2.5.2 - Maken en opslaan</h4>
+<ul class="manual-section">
+<li>Activeer de handmatige modus vanuit het paneel Programma.</li>
+<li>Gebruik de opdrachten in de tabel om rijen toe te voegen, te verwijderen of te rangschikken; wanneer nodig opent JW Time het venster om het item te bewerken.</li>
+<li>Sla de lijst op wanneer je die voor een andere gelegenheid wilt bewaren.</li>
+</ul>
+<p>
+                    Wanneer je opslaat, vraagt JW Time wat je in het bestand wilt opnemen <code>.jwtimeplan</code>. Kies <strong>Handmatig programma + media</strong> als je ook lokale bestanden, URL's en groepen van het Media-venster wilt overzetten. Kies <strong>Alleen handmatig tijdprogramma</strong> als je alleen het schema met titels en duren nodig hebt.
+                </p>
+<div class="image-container" style="margin-top: var(--spacing-md);">
+<img alt="Pop-up voor het opslaan van het handmatige programma met keuze tussen programma met media en alleen tijden" class="manual-image" src="../images/manual/nl/programma-manuale-salvataggio-popup-v4.png" style="max-width: 900px;"/>
+</div>
+<h4 style="color: var(--text-secondary);">2.5.3 - Een lijst opnieuw laden of wissen</h4>
+<ul class="manual-section">
+<li>Gebruik <strong>Handmatige lijst laden</strong> om een opgeslagen schema terug te halen.</li>
+<li>Als de lijst rijen bevat die als liederen of standaardonderdelen worden herkend, past JW Time consistente kleuren en gedrag toe.</li>
+<li>Gekoppelde vensters worden na het laden bijgewerkt, zodat Contatempo-scherm en Media met de tabel uitgelijnd blijven.</li>
+<li>Gebruik <strong>Lijst wissen</strong> wanneer je met een leeg schema voor dezelfde week wilt beginnen.</li>
+</ul>
+<h4 style="color: var(--text-secondary);">2.5.4 - Gekoppelde media</h4>
+<p>
+                    Wanneer je media aan een handmatige lijst koppelt, behouden opslaan en laden de koppeling met het voorbereide programma. Dit is nuttig voor speciale vergaderingen, plaatselijke bijeenkomsten of programma's die de standaardweek niet volgen.
+                </p>
+<p>
+                    Als een bestand niet meer beschikbaar is, meldt de app dit wanneer je het Media-venster opent of gebruikt, zodat je het vóór de vergadering kunt vervangen.
+                </p>
+<p>
+                    Om een lied toe te voegen, gebruik je het invoegmenu en kies je de optie voor liederen. Zo registreert JW Time het liednummer correct, koppelt beschikbare media en past het Contatempo-scherm de weergave aan zonder dat je de titel handmatig in de rij hoeft te schrijven.
+                </p>
+</div>
+</div>
+<!-- 3. MANIPOLAZIONE TIMER -->
+<div class="content" id="manipolazione-timer">
+<h2>3 - Timers beheren <a class="back-to-index-link" href="#indice">↑ Inhoudsopgave</a></h2>
+<p>
+                Deze sectie beschrijft de belangrijkste timerhandelingen, zoals items toevoegen, wijzigen of verwijderen, en het gebruik van start-, oversla- en resetopdrachten.
+            </p>
+<!-- 3.1 Operazioni principali - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>3.1 - Belangrijkste handelingen</h3>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+<div style="flex: 1 1 240px; min-width: 0;">
+<ol class="manual-section">
+<li>Rijmenu: open de drie puntjes rechts voor de beschikbare acties op het geselecteerde onderdeel.</li>
+<li>Vanuit het menu kun je de rij starten of naar de volgende gaan, een rij erboven of eronder toevoegen, dupliceren, resetten of verwijderen.</li>
+<li>De opdrachten <strong>Rij erboven toevoegen</strong> e <strong>Rij eronder toevoegen</strong> openen een submenu met <em>Lied</em>, <em>Onderdeel/Lezing</em> e <em>Tips</em>.</li>
+<li>Titel/duur wijzigen: dubbelklik op de cel en bevestig daarna.</li>
+<li>Duurformaten: 5 -&gt; 5:00, 1:30 -&gt; 1:30 minuten.</li>
+<li>Starten en doorgaan:
+                                <ul>
+<li><strong>Rij starten</strong> start het geselecteerde onderdeel.</li>
+<li>Wanneer een rij bezig is, wordt de opdracht <strong>Ga naar volgende</strong>.</li>
+<li>Stop/Pauze beheren de lopende timer vanuit de onderste balk.</li>
+</ul>
+</li>
+</ol>
+</div>
+<figure style="flex: 0 0 50%; min-width: 320px; max-width: 640px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+<img alt="Operazioni principali sui timer" class="manual-image" src="../images/manual/nl/manipolazione-operazioni-v4.png" style="width: 100%; height: auto; display: block;"/>
+</figure>
+</div>
+</div>
+<!-- 3.2 Aggiornamenti in tempo reale - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>3.2 - Realtime updates</h3>
+<p>
+                    De timer wordt voortdurend bijgewerkt: de hoofd-countdown bovenaan toont de resterende tijd van het actieve onderdeel, terwijl de overeenkomstige rij in de tabel gemarkeerd blijft. De kleur van de bovenbalk volgt de kleur van het huidige onderdeel.
+                </p>
+<div class="image-container" style="margin-top: var(--spacing-md);">
+<img alt="Riga attiva evidenziata nella tabella timer" class="manual-image" src="../images/manual/nl/timer-aggiornamento-riga-attiva-v4.png"/>
+</div>
+<p style="margin-top: var(--spacing-lg);">
+                    Als je een duur wijzigt of naar het volgende onderdeel gaat, wordt de Geschatte eindtijd meteen herberekend. Zo kun je de delta voor voorsprong/achterstand en de opgebouwde tijd voor pauzes of sprekerwissels controleren zonder andere panelen te openen.
+                </p>
+<div class="image-container" style="margin-top: var(--spacing-md);">
+<img alt="Orario fine stimato, delta e tempo pausa aggiornati in tempo reale" class="manual-image" src="../images/manual/nl/timer-aggiornamento-orario-fine-v4.png"/>
+</div>
+</div>
+<!-- 3.3 Regolazione automatica - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>3.3 - Automatische aanpassing - Bijbelstudie en Wachttoren-studie</h3>
+<p>
+                    Als Adaptieve Bijbelstudie en/of Adaptieve Wachttoren-studie in Instellingen actief zijn, past de app dynamisch de duur van het geselecteerde onderdeel aan om de eindtijd van de vergadering te behouden. De aanpassing geldt alleen voor onderdelen waarvoor de optie actief is en kan minuten automatisch verhogen of verlagen op basis van opgebouwde voorsprong/achterstand. In de afbeelding wordt de betreffende rij geïsoleerd en wordt de aangepaste waarde oranje gemarkeerd, zodat meteen duidelijk is welke timer is gecorrigeerd. Je kunt altijd handmatig ingrijpen: de adaptieve functie rekent opnieuw vanaf de nieuwe situatie.
+                </p>
+<div class="image-container" style="margin-top: var(--spacing-md);">
+<img alt="Regolazione automatica timer adattivi" class="manual-image" src="../images/manual/nl/manipolazione-regolazione-v4.png"/>
+</div>
+</div>
+</div>
+<!-- 4. FINESTRA MEDIA -->
+<div class="content" id="finestra-media">
+<h2>4 - Media-venster <a class="back-to-index-link" href="#indice">↑ Inhoudsopgave</a></h2>
+<p>
+                Het Media-venster verzamelt de inhoud die aan de week gekoppeld is: liederen, video's, afbeeldingen en nuttige verwijzingen bij het onderdeel. Het kan de operator helpen de vergadering voor te bereiden, beschikbare inhoud te controleren en die te starten wanneer nodig.
+            </p>
+<p>
+<strong>Opmerking over gebruik:</strong> het Media-venster biedt de operator een hulpmiddel om al beschikbare multimedia-inhoud voor te bereiden, te controleren en te beheren. Het praktische gebruik hangt af van plaatselijke behoeften en moet altijd in harmonie zijn met aanwijzingen van de gemeente en regelingen. Bij technische noodzaak kan het ook als ondersteunende of reserveoplossing worden gebruikt.
+            </p>
+<div style="display: flex; gap: var(--spacing-xl); align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-xl);">
+<figure style="flex: 0 1 380px; max-width: 420px; margin: 0;">
+<img alt="Media-venster van JW Time 4.0 met genummerde hoofdgebieden" class="manual-image" src="../images/manual/nl/media-window-v4-annotata-real.png" style="width: 100%; height: auto; display: block;"/>
+</figure>
+<div style="flex: 1 1 360px; min-width: 280px; display: grid; gap: var(--spacing-md);">
+<div class="news-card">
+<h4 style="color: var(--text-secondary);">4.1 - Waarschuwing en mediasecties</h4>
+<p>
+                            Gebied 1 geeft aan wanneer de officiële media van de week nog niet offline beschikbaar zijn. Je kunt ze meteen downloaden of uitstellen. Hetzelfde gedrag kan worden geautomatiseerd via instellingen
+                            <a href="#impostazioni-media">sectie 13 - Media</a>, door automatisch downloaden van officiële media te activeren. Onder de waarschuwing vind je de secties van het schema, met gekleurde titel, itemteller en snelle opdrachten.
+                        </p>
+<p>
+<strong>Opmerking:</strong> het downloaden van officiële media vereist dat het netwerk JW Time toegang geeft tot jw.org en de bronnen die voor media worden gebruikt. De alternatieve download die voor programma's is ingevoerd, is niet beschikbaar voor media. Als router, firewall, DNS of inhoudsfilters religieuze sites of toegang van JW Time blokkeren, kunnen officiële media mogelijk niet worden gedownload; in dat geval kun je media gebruiken die al offline aanwezig zijn of handmatig lokale bestanden toevoegen.
+                        </p>
+</div>
+<div class="news-card">
+<h4 style="color: var(--text-secondary);">4.2 - Inhoudslijst</h4>
+<p>
+                            Gebied 2 bevat kaarten met voorbeeld, titel, verwijzing en startknop. De kleuren volgen de delen van het schema, zodat je liederen, afbeeldingen, video's en verwijzingen die aan het onderdeel gekoppeld zijn snel herkent.
+                        </p>
+<p>
+                            Via het contextmenu kun je een item handmatig markeren als gebruikt of niet gebruikt. Als de optie
+                            <strong>Gebruikte media dimmen</strong> actief is, blijven gebruikte items herkenbaar met een subtielere stijl. De vensters om officiële video's, audio en afbeeldingen te kiezen bevatten ook de modus <strong>Globaal</strong>, handig wanneer je buiten de huidige categorie moet zoeken.
+                        </p>
+</div>
+<div class="news-card">
+<h4 style="color: var(--text-secondary);">4.3 - Onderste balk</h4>
+<p>
+                            Gebied 3 bevat de snelle opdrachten van het Media-venster: gedownloade inhoud, voorbeeld, synchronisatie, achtergrond en speciale instellingen. Het blijft onderaan staan zodat het bereikbaar is, ook wanneer de lijst lang is.
+                        </p>
+</div>
+<div class="news-card">
+<h4 style="color: var(--text-secondary);">4.4 - Zoom-bediening</h4>
+<p>
+                            Gebied 4 bevat de Zoom-knoppen van het Media-venster. Ze zijn bedoeld voor wie media ook in videoconferentie toont en met het Openbaar scherm op de zaalmonitor werkt.
+                        </p>
+<ul class="manual-section">
+<li><strong>Delen</strong>: stuurt naar Zoom de ingestelde sneltoets om delen te starten of te stoppen.</li>
+<li><strong>Zoom tonen/verbergen</strong>: dient om de sprekers of het Zoom-venster op de openbare monitor te tonen. JW Time verbergt tijdelijk het Openbaar scherm en laat zien wat eronder staat: daarom moet het Zoom-sprekervenster, of een gedupliceerd scherm met Zoom, al achter het Openbaar scherm geplaatst zijn voordat je op de knop drukt.</li>
+<li><strong>Zoom Auto</strong>: activeert Zoom-automatisering voor de sessie. Wanneer je media start, kan JW Time automatisch de sneltoets voor delen sturen en, indien ingesteld, die aan het einde weer stoppen.</li>
+</ul>
+<p>
+                            Configureer voordat je deze knoppen gebruikt in Zoom een globale sneltoets voor schermdelen en voer dezelfde combinatie in bij <a href="#impostazioni-zoom">sectie 14 - Zoom</a>. Als de twee sneltoetsen niet overeenkomen, stuurt JW Time de opdracht, maar reageert Zoom niet zoals verwacht.
+                        </p>
+</div>
+</div>
+</div>
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>4.5 - Muziek voor de vergadering en achtergrond</h3>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+<div style="flex: 1 1 280px; min-width: 0;">
+<p>
+                            Het paneel <strong>Achtergrond</strong> beheert muziek vóór de vergadering en, indien ingesteld, ook na de vergadering, zonder die te mengen met de media van het schema. Tijdens het afspelen toont het huidig nummer, volgend nummer, voortgang en duur.
+                        </p>
+<p>
+                            Je kunt starten, pauzeren, naar het vorige of volgende nummer gaan, willekeurige volgorde inschakelen en de playlist openen. Muziekinstellingen, inclusief automatisch gedrag en fades, stel je in via het paneel
+                            <a href="#impostazioni-media">sectie 13 - Media</a>.
+                        </p>
+</div>
+<figure style="flex: 0 0 48%; min-width: 320px; max-width: 680px; margin: 0;">
+<img alt="Muziekpaneel vóór de vergadering in het Media-venster" class="manual-image" src="../images/manual/nl/media-window-musica-v4-real.png" style="width: 100%; height: auto; display: block;"/>
+</figure>
+</div>
+</div>
+</div>
+<!-- 5. SCHERMI -->
+<div class="content" id="schermi-contatempo-pubblico">
+<h2>5 - Openbaar scherm en Contatempo-scherm <a class="back-to-index-link" href="#indice">↑ Inhoudsopgave</a></h2>
+<p>
+                JW Time 4.0 scheidt de weergaven: het <strong>Openbaar scherm</strong> is bedoeld voor inhoud die zichtbaar is in de zaal, terwijl het <strong>Contatempo-scherm</strong> bestemd blijft voor wie de tijden volgt.
+            </p>
+<!-- 5.1 Schermo Pubblico - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h4 style="color: var(--text-secondary);">5.1 - Openbaar scherm</h4>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+<div style="flex: 1 1 260px; min-width: 0;">
+<p>
+                            Het Openbaar scherm toont countdown, welkomstbericht, jaartekst, logo en visuele inhoud in een apart venster.
+                        </p>
+<ul class="manual-section">
+<li><strong>Voor de vergadering</strong>: toont de countdown en de ingestelde tekst.</li>
+<li><strong>Tijdens de vergadering</strong>: kan beschikbaar blijven voor openbare inhoud of specifieke scènes.</li>
+<li><strong>Instellingen</strong>: monitor, bericht, countdown, logo en lay-out worden ingesteld in <a href="#impostazioni-adunanze">sectie 11 - Vergaderingen</a> e nella <a href="#impostazioni-schermo">sectie 12 - Scherm</a>.</li>
+</ul>
+</div>
+<figure style="flex: 0 0 48%; min-width: 320px; max-width: 620px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+<img alt="Openbaar scherm met countdown en bericht" class="manual-image" src="../images/manual/nl/schermo-pubblico-v4.png" style="width: 100%; height: auto; display: block;"/>
+</figure>
+</div>
+</div>
+<!-- 5.2 Schermo Contatempo esterno - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h4 style="color: var(--text-secondary);">5.2 - Contatempo-scherm</h4>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+<div style="flex: 1 1 260px; min-width: 0;">
+<p>
+                            Het Contatempo-scherm toont klok, countdown van het lopende onderdeel, berichten voor de spreker en statussen die met tijdbeheer samenhangen. Het is de meest geschikte weergave voor podium, voorzitter of tijdwaarnemers.
+                        </p>
+<ul class="manual-section">
+<li>Weergave op geselecteerde monitor of vrij venster.</li>
+<li>Timer van het huidige onderdeel en contextinformatie.</li>
+<li>Berichten op volledig scherm of gedeeltelijk verzonden vanuit het hoofdvenster.</li>
+</ul>
+<p>
+                            De aanpassing van de lay-out wordt apart behandeld in <a href="#personalizzare-schermo">sectie 5.3 - Het Contatempo-scherm aanpassen</a>, zodat dagelijks gebruik van het scherm gescheiden blijft van grafische instellingen.
+                        </p>
+</div>
+<figure style="flex: 0 0 48%; min-width: 320px; max-width: 620px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+<img alt="Contatempo-scherm op externe monitor" class="manual-image" src="../images/manual/nl/schermo-contattempo-v4.png" style="width: 100%; height: auto; display: block;"/>
+</figure>
+</div>
+</div>
+</div>
+<!-- 5.3 PERSONALIZZARE LO SCHERMO CONTATEMPO -->
+<div class="content" id="personalizzare-schermo">
+<h2>5.3 - Het Contatempo-scherm aanpassen <a class="back-to-index-link" href="#indice">↑ Inhoudsopgave</a></h2>
+<p>
+                Het Contatempo-scherm kan worden aangepast met de knop <strong>Aanpassen</strong> in <a href="#impostazioni-generale">sectie 9 - Algemeen</a>.
+            </p>
+<p>
+                Je kunt beginnen met een beschikbare preset of de lay-out aanpassen aan je behoeften. Het Openbaar scherm heeft eigen instellingen in <a href="#impostazioni-schermo">sectie 12 - Scherm</a>; hier richten we ons op de lay-out van het Contatempo-scherm.
+            </p>
+<figure style="margin: var(--spacing-xl) auto; max-width: 720px;">
+<img alt="Editor voor aanpassing van het Contatempo-scherm" class="manual-image" src="../images/manual/nl/personalizzazione_schermo_contatempo_base-v4.png"/>
+</figure>
+<!-- 5.3.1 Partire da un preset -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>Beginnen met een preset</h3>
+<p>
+                    Een preset is een startlay-out.
+                </p>
+<p>
+                    Je kunt een preset selecteren in <a href="#impostazioni-generale">sectie 9 - Algemeen</a> en die zo gebruiken, of de personalisatie-editor openen om hem te wijzigen.
+                </p>
+</div>
+<!-- 5.3.2 Scegliere una scena -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>Een scène kiezen</h3>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+<div style="flex: 1 1 240px; min-width: 0;">
+<p>
+                            De lay-out is georganiseerd in scènes.
+                        </p>
+<p>
+                            Elke scène komt overeen met een andere situatie van het Contatempo-scherm. Zo kun je een andere lay-out tonen afhankelijk van het moment of het type onderdeel dat wordt weergegeven.
+                        </p>
+<p>
+                            Controleer voordat je wijzigingen aanbrengt altijd welke scène is geselecteerd.
+                        </p>
+</div>
+<figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+<img alt="Scèneselectie in de editor van het Contatempo-scherm" class="manual-image" src="../images/manual/nl/personalizzazione_schermo_contatempo_base_scena-v4.png" style="width: 100%; height: auto; display: block;"/>
+</figure>
+</div>
+</div>
+<!-- 5.3.3 Tipi di livello -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>Beschikbare laagtypen</h3>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+<div style="flex: 1 1 320px; min-width: 0;">
+<p>
+                            Wanneer je op <strong>+</strong> drukt in het paneel Lagen, toont JW Time de elementtypen die je aan de scène kunt toevoegen. Sommige lagen lezen echte gegevens van de vergadering en veranderen automatisch; andere dienen om de grafische lay-out op te bouwen.
+                        </p>
+<p>
+                            Het is niet handig om in de handleiding alle eigenschappen van elke laag te tonen, omdat het eigenschappenpaneel verandert op basis van het gekozen type. Hier vind je in plaats daarvan wat elke laag doet en wanneer je die gebruikt.
+                        </p>
+</div>
+<figure style="flex: 0 0 42%; min-width: 300px; max-width: 520px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+<img alt="Dialoog Laag toevoegen met beschikbare elementtypen voor het Contatempo-scherm" class="manual-image" src="../images/manual/nl/personalizzazione_schermo_contatempo_livelli-v4.png" style="width: 100%; height: auto; display: block;"/>
+</figure>
+</div>
+<h4 style="color: var(--text-secondary); margin-top: var(--spacing-lg);">Belangrijkste dynamische lagen</h4>
+<ul class="manual-section">
+<li><strong>Timer</strong>: toont de tijd van het actieve onderdeel. Kan worden ingesteld als countdown of oplopende teller.</li>
+<li><strong>Lied</strong>: toont liedinformatie wanneer de scène over een lied gaat.</li>
+<li><strong>Berichten</strong>: toont berichten die vanuit het hoofdvenster worden verzonden, zowel volledig scherm als gedeeltelijk.</li>
+<li><strong>Klok</strong>: toont de digitale tijd.</li>
+<li><strong>Analoge klok</strong>: voegt een aanpasbare grafische klok toe.</li>
+</ul>
+<h4 style="color: var(--text-secondary); margin-top: var(--spacing-lg);">Vergaderinformatie</h4>
+<ul class="manual-section">
+<li><strong>Huidig onderdeel</strong>: toont de titel van het lopende onderdeel.</li>
+<li><strong>Volgend onderdeel</strong>: toont het volgende onderdeel, handig om de overgang voor te bereiden.</li>
+<li><strong>Vorig onderdeel</strong>: toont informatie over het zojuist afgesloten onderdeel, wanneer de lay-out dat voorziet.</li>
+<li><strong>Geschat einde</strong>: toont de eindtijd die door de app is berekend.</li>
+<li><strong>Achterstand/Voorsprong</strong>: toont de delta ten opzichte van de geplande tijd.</li>
+<li><strong>Pauze-info</strong>: toont informatie over pauzes of technische tijd.</li>
+<li><strong>Voortgangsbalk</strong>: toont de tijdsvoortgang grafisch.</li>
+</ul>
+<h4 style="color: var(--text-secondary); margin-top: var(--spacing-lg);">Vrije grafische lagen</h4>
+<ul class="manual-section">
+<li><strong>Achtergrond</strong>: voegt een gekleurd vlak toe, nuttig om banden, contrastgebieden of visuele containers te maken.</li>
+<li><strong>Tekst</strong>: voegt vaste aangepaste tekst toe.</li>
+<li><strong>Afbeelding</strong>: voegt een logo of decoratieve afbeelding toe.</li>
+</ul>
+<p>
+                    De lagen <strong>Achtergrond</strong>, <strong>Tekst</strong> e <strong>Afbeelding</strong> kunnen meerdere keren worden toegevoegd. Voor andere lagen stelt de editor, als er al een element van hetzelfde type bestaat, voor om het aan een andere scène te koppelen of, wanneer voorzien, een onafhankelijk element te maken.
+                </p>
+</div>
+<!-- 5.3.4 Modificare il layout -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>De lay-out wijzigen</h3>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+<div style="flex: 1 1 240px; min-width: 0;">
+<p>
+                            In de editor kun je de lagen in de geselecteerde scène wijzigen.
+                        </p>
+<p>Voor elke laag kun je positie en afmetingen op drie manieren aanpassen:</p>
+<ul class="manual-section">
+<li>met de muis, door het vak in het voorbeeld te verplaatsen of te vergroten/verkleinen</li>
+<li>met het toetsenbord, met de pijltjestoetsen</li>
+<li>met de waarden Positie en Afmetingen onder het voorbeeld</li>
+</ul>
+<p>
+                            De waarden X en Y bepalen de positie van de laag.<br/>
+                            De waarden B en H bepalen de afmetingen van de laag.
+                        </p>
+<p>Al deze waarden zijn percentages.</p>
+<p>
+                            In het lagenpaneel kun je ook de<strong>stapelvolgorde</strong>: beheren. Elke laag kan boven of onder andere lagen staan en bepaalt zo wat op de voorgrond verschijnt bij overlapping. Je kunt de volgorde wijzigen door lagen in de lijst te slepen of met de knoppen
+                            <strong>▲</strong> e <strong>▼</strong> eronder.
+                        </p>
+</div>
+<figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+<img alt="Lay-out wijzigen in de editor van het Contatempo-scherm" class="manual-image" src="../images/manual/nl/personalizzazione_schermo_contatempo_base_layout-v4.png" style="width: 100%; height: auto; display: block;"/>
+</figure>
+</div>
+</div>
+<!-- 5.3.5 Spostare, ridimensionare, valori, salvare -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>Lagen verplaatsen, vergroten/verkleinen en ordenen</h3>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+<div style="flex: 1 1 240px; min-width: 0;">
+<p>Nadat je een laag hebt geselecteerd, kun je:</p>
+<ul class="manual-section">
+<li>die met de muis verslepen in het voorbeeld</li>
+<li>de pijltjestoetsen gebruiken om de positie aan te passen (<strong>pijlen</strong>: 0,5% - <strong>Shift</strong>: 2,0% - <strong>Ctrl</strong>: 0,1%)</li>
+<li>randen of hoeken van het vak slepen om het formaat te wijzigen</li>
+</ul>
+<p>
+                            Onder het voorbeeld vind je de numerieke velden <strong>X</strong>, <strong>Y</strong>, <strong>B</strong> e <strong>H</strong>
+                            om positie en afmetingen nauwkeurig aan te passen.
+                        </p>
+<p>
+                            Sla na de wijzigingen de lay-out op en pas die toe. Je kunt de editor op elk moment opnieuw openen om de lay-out bij te werken.
+                        </p>
+</div>
+<figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+<img alt="Lagen verplaatsen en schalen in de editor van het Contatempo-scherm" class="manual-image" src="../images/manual/nl/personalizzazione_schermo_contatempo_base_trasformazioni-v4.png" style="width: 100%; height: auto; display: block;"/>
+</figure>
+</div>
+</div>
+</div>
+<!-- 6. GESTIONE MESSAGGI -->
+<div class="content" id="gestione-messaggi">
+<h2>6 - Berichten beheren <a class="back-to-index-link" href="#indice">↑ Inhoudsopgave</a></h2>
+<p>
+                Met de functie Berichten kun je discreet en duidelijk met de spreker communiceren tijdens de vergadering, om hem te waarschuwen of aanwijzingen te geven zonder het verloop van het onderdeel te onderbreken of te storen. De berichten verschijnen op het Contatempo-scherm, zodat de spreker ze realtime ziet zonder afleiding.
+            </p>
+<div class="image-container">
+<img alt="Schermata di gestione dei messaggi in JW Time" class="manual-image" src="../images/manual/nl/messaggi-elenco-v4.png"/>
+</div>
+<!-- 6.1 Messaggio a tutto schermo - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>6.1 - Bericht op volledig scherm</h3>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+<div style="flex: 1 1 240px; min-width: 0;">
+<ol class="manual-section">
+<li>Klik in het gebied waar Bericht invoeren staat.</li>
+<li>Voer de tekst in.</li>
+<li>Druk op <strong>Volledig scherm</strong> -&gt; de tekst verschijnt op volledig scherm op de Contatempo-monitor.</li>
+</ol>
+</div>
+<figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+<img alt="Bericht op volledig scherm" class="manual-image" src="../images/manual/nl/messaggio-tutto-schermo-v4.png" style="width: 100%; height: auto; display: block;"/>
+</figure>
+</div>
+</div>
+<!-- 6.2 Messaggio a schermo parziale - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>6.2 - Bericht op gedeeltelijk scherm</h3>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+<div style="flex: 1 1 240px; min-width: 0;">
+<ol class="manual-section">
+<li>Klik in het gebied waar Bericht invoeren staat.</li>
+<li>Voer de tekst in.</li>
+<li>Druk op <strong>Gedeeltelijk scherm</strong> -&gt; de tekst verschijnt in het Contatempo-venster zonder het volledig te bedekken, zodat de spreker zowel het bericht als de timer kan zien.</li>
+</ol>
+</div>
+<figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+<img alt="Bericht op gedeeltelijk scherm" class="manual-image" src="../images/manual/nl/messaggio-parziale-v4.png" style="width: 100%; height: auto; display: block;"/>
+</figure>
+</div>
+</div>
+<!-- 6.3 Mirror Contatempo - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl); ">
+<h3>6.3 - Contatempo-spiegel</h3>
+<p>
+                    Wanneer je een bericht verzendt, verschijnt automatisch een verplaatsbaar en schaalbaar voorbeeldvenster dat precies toont wat de spreker op de Contatempo-monitor ziet. Zo kun je realtime controleren hoe bericht en timer worden weergegeven.
+                </p>
+</div>
+</div>
+<!-- 7. PULSANTE REC -->
+<div class="content" id="rec-button">
+<h2>7 - REC-knop en opnamepaneel <a class="back-to-index-link" href="#indice">↑ Inhoudsopgave</a></h2>
+<p>
+                De knop <strong>REC</strong> staat in de onderste balk naast Programma en Bericht. De stip naast de tekst toont de opnamestatus (wachten, actief, pauze of MP3-conversie), terwijl het REC-paneel snelle controles biedt om de map JWTimeREC te openen, handmatige opnamen te beheren en de audioniveaus van pc en microfoon te volgen.
+            </p>
+<div class="image-container" style="margin-top: var(--spacing-lg);">
+<img alt="Detail van REC-knop en opnamepaneel" class="manual-image" src="../images/manual/nl/REC-v4.png"/>
+</div>
+<!-- 7.1 Indicatori di stato - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>7.1 - Indicatoren en knopstatussen</h3>
+<ul class="manual-section">
+<li><strong>Wachten</strong>: de stip blijft grijs en het paneel meldt "Wachten" / "Geen actieve opname".</li>
+<li><strong>Opname bezig</strong>: de stip knippert rood en het paneel toont "Opname bezig" met titel en timer van het onderdeel.</li>
+<li><strong>Pauze</strong>: de stip wordt oranje; de opname is onderbroken en kan worden hervat.</li>
+<li><strong>MP3-conversie</strong>: de stip wordt blauw en de knop blijft uitgeschakeld totdat de bestandsexport klaar is.</li>
+</ul>
+</div>
+<!-- 7.2 Controlli rapidi REC - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>7.2 - Snelle REC-bediening</h3>
+<p>Het REC-paneel bevat knoppen die je kunt gebruiken zonder naar instellingen te gaan:</p>
+<ul class="manual-section">
+<li><strong>Map openen</strong>: opent direct de map JWTimeREC met de opnamen.</li>
+<li><strong>Opname in-/uitschakelen</strong>: schakelt handmatige opname in of uit zonder naar instellingen te gaan.</li>
+<li><strong>Pauzeren/Hervatten</strong>: knop die tijdens opname zichtbaar is om audio tijdelijk te onderbreken (bijv. gebeden) en op hetzelfde bestand te hervatten.</li>
+<li><strong>Details inline</strong>: onder de status verschijnen de titel van de actieve rij en de bijgewerkte duur.</li>
+<li><strong>Automatische berichten</strong>: geeft meteen aan wanneer opname is uitgeschakeld of wanneer een conversie bezig is.</li>
+</ul>
+</div>
+<!-- 7.3 Area toggle e controlli manuali - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>7.3 - Togglegebied met audioniveaus</h3>
+<p>
+                    Wanneer je REC in de onderste balk opent, verschijnt een altijd zichtbaar paneel met opnamestatus en audiometers. Hier kun je handmatige opnamen starten/stoppen, pc-/mic-niveaus volgen en de map JWTimeREC met één klik openen.
+                </p>
+</div>
+</div>
+<!-- 8. MONITOR WEB -->
+<div class="content" id="monitor-web">
+<h2>8 - Webmonitor en server <a class="back-to-index-link" href="#indice">↑ Inhoudsopgave</a></h2>
+<p>
+                Wanneer de Webserver actief is, kun je die vanaf een ander apparaat in hetzelfde lokale netwerk via de browser openen. Zo kun je het Contatempo-scherm bekijken op projectoren, tablets of externe computers; dit is nuttig voor de voorzitter die de timer van de onderdelen volgt.
+            </p>
+<p>Zie voor de volledige configuratie van Webserver, afstandsbediening, externe link en QR <a href="#impostazioni-connessioni">sectie 15 - Verbinding en server</a>.</p>
+<div class="news-card" id="monitor-web-locale" style="margin-top: var(--spacing-xl);">
+<h3>8.1 - De Webmonitor in het lokale netwerk bekijken</h3>
+<div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+<div style="flex: 1 1 320px; min-width: 0;">
+<p>Vanuit de browser kun je:</p>
+<ul class="manual-section">
+<li>Timer en Contatempo-scherm op volledig scherm bekijken.</li>
+<li>Het schema afdrukken.</li>
+<li>De voortgang van de tijden realtime controleren.</li>
+<li>Op afstand handelingen uitvoeren op timer en programma, als afstandsbediening is ingeschakeld.</li>
+</ul>
+</div>
+<figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0 0 0 auto; align-self: flex-start;">
+<img alt="Monitor Web di JW Time visto da browser" class="manual-image" src="../images/manual/nl/monitor-web-v4.png"/>
+</figure>
+</div>
+</div>
+<!-- 8.2 Controllo remoto -->
+<div class="news-card" id="monitor-web-controllo-remoto" style="margin-top: var(--spacing-xl);">
+<h3>8.2 - Timer en programma vanuit de browser bedienen</h3>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+<div style="flex: 1 1 240px; min-width: 0;">
+<p>
+                            Als afstandsbediening is ingeschakeld, kun je vanuit de browser timer en programma bedienen zonder voor de hoofdcomputer te zitten.
+                        </p>
+<p>Beschikbare handelingen hangen af van de ingestelde rechten en kunnen omvatten:</p>
+<ul class="manual-section">
+<li>timer starten</li>
+<li>pauzeren en hervatten</li>
+<li>stop</li>
+<li>programma/schema bedienen</li>
+<li>duren of beschikbare waarden in het schema wijzigen, als de geautoriseerde rol dat toestaat</li>
+</ul>
+<p>Je kunt de Webserver openen door het adres in te voeren dat in de app wordt getoond, of via QR als die beschikbaar is.</p>
+<p>
+                            Afhankelijk van de configuratie kunnen verschillende toegangsniveaus bestaan, bijvoorbeeld alleen bekijken of bedienen en wijzigen. Als dit is ingesteld, kan toegang een PIN vereisen.
+                        </p>
+<p>Zie voor de volledige configuratie <a href="#impostazioni-connessioni">sectie 15 - Verbinding en server</a>.</p>
+</div>
+<figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+<img alt="Monitor Web con controllo remoto" class="manual-image" src="../images/manual/nl/monitor-web-editor-v4.png" style="width: 100%; height: auto; display: block;"/>
+</figure>
+</div>
+</div>
+<!-- 8.3 Accesso remoto fuori rete -->
+<div class="news-card" id="monitor-web-accesso-remoto" style="margin-top: var(--spacing-xl);">
+<h3>8.3 - Externe toegang voor vergaderingen via videoconferentie</h3>
+<p>
+                    Wanneer degene die JW Time moet volgen of bedienen niet in hetzelfde lokale netwerk zit, kun je een tijdelijke externe link genereren. Dit scenario is nuttig voor vergaderingen via videoconferentie, ondersteuning op afstand of bediening vanaf een apparaat in een ander netwerk.
+                </p>
+<figure style="margin: var(--spacing-lg) 0;">
+<img alt="Paneel Verbindingen met externe toegang gemarkeerd" class="manual-image" src="../images/manual/nl/impostazioni-connessioni-accesso-remoto-v4.png"/>
+</figure>
+<ul class="manual-section">
+<li><strong>Dezelfde webinterface</strong>: de externe link opent de Webmonitor vanuit de browser, zoals in het lokale netwerk.</li>
+<li><strong>Tijdelijke link</strong>: de externe koppeling verandert bij elke activering en moet niet als permanent worden beschouwd.</li>
+<li><strong>Externe PIN</strong>: beschermt, wanneer ingesteld, functies die van buiten het lokale netwerk toegankelijk zijn.</li>
+<li><strong>Gebruik met videoconferentie</strong>: laat wie de vergadering buiten het netwerk volgt het programma raadplegen of bedienen volgens de ingestelde rechten.</li>
+</ul>
+<p>
+                    Het praktische deel wordt ingesteld in <a href="#server-web-remoto">sectie 15.2 - Webserver op afstand</a>. Zoom-instellingen blijven gescheiden: Zoom beheert delen en sneltoetsen, terwijl de externe link over de Webmonitor gaat.
+                </p>
+</div>
+</div>
+<!-- PARTE II - PANNELLI IMPOSTAZIONI -->
+<div class="content-section-header">
+<h2 style="font-size: 2rem; margin: 0 0 var(--spacing-lg) 0; color: var(--text-primary);">Deel II - Instellingenpanelen</h2>
+<p>
+                In dit deel kun je het gedrag van de app configureren: algemene instellingen, gemeenteprofielen, vergaderingen, Contatempo-scherm, Media, Zoom, Webmonitor en server, Opnamen en Back-up en herstel.
+            </p>
+<p>De knop OPSLAAN past alle wijzigingen toe.</p>
+</div>
+<!-- 9. GENERALE -->
+<div class="content" id="impostazioni-generale">
+<h2>9 - Algemeen <a class="back-to-index-link" href="#indice">↑ Inhoudsopgave</a></h2>
+<div class="settings-panel-layout">
+<div class="settings-panel-figure">
+<img alt="Paneel Algemene instellingen van JW Time" class="manual-image" src="../images/manual/nl/impostazioni-generale-v4.png"/>
+</div>
+<div class="settings-panel-copy">
+<h3>Uiterlijk en formaat</h3>
+<ul class="manual-section">
+<li><strong>Selecteer de taal</strong>: wijzigt de interfacetaal.</li>
+<li><strong>Programmataal</strong>: bepaalt in welke taal het weekschema wordt gedownload of getoond.</li>
+<li><strong>Selecteer het thema</strong>: stelt het grafische thema van de app in.</li>
+<li><strong>Interfaceschaal</strong>: past de grootte van tekst en bediening aan; de wijziging wordt toegepast na opnieuw starten.</li>
+<li><strong>Tijdnotatie</strong>: wisselt tussen 24-uursnotatie en 12-uurs AM/PM.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">Timerbeheer</h3>
+<ul class="manual-section">
+<li><strong>Automatische pauze</strong>: voegt automatisch een pauze in tussen onderdelen wanneer je op Start/Next drukt.</li>
+<li><strong>Kolom Einde tonen</strong>: toont in de tabel de verwachte eindtijd van het huidige onderdeel en de volgende onderdelen, realtime berekend op basis van de huidige tijd, resterende timers en eventuele opgebouwde afwijkingen.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">Nieuws</h3>
+<ul class="manual-section">
+<li><strong>Nieuws tonen bij opstarten</strong>: opent in de app een korte samenvatting van ingevoerde functies, zodat wie JW Time gebruikt snel ziet wat de moeite waard is om te proberen.</li>
+<li>Je kunt dit uitschakelen wanneer de groep vertrouwd is met de geïnstalleerde versie.</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- 10. CONGREGAZIONI -->
+<div class="content" id="impostazioni-congregazioni">
+<h2>10 - Gemeenten <a class="back-to-index-link" href="#indice">↑ Inhoudsopgave</a></h2>
+<p>
+                Met dit paneel beheer je gemeenteprofielen. Elk profiel kan eigen configuraties bewaren, zodat JW Time zich aan verschillende situaties kan aanpassen zonder telkens vensters, media en lay-out opnieuw te configureren.
+            </p>
+<div class="settings-panel-layout">
+<div class="settings-panel-figure">
+<img alt="Paneel Gemeenten van JW Time" class="manual-image" src="../images/manual/nl/impostazioni-congregazioni-v4.png"/>
+</div>
+<div class="settings-panel-copy">
+<h3>Gemeenteprofielen</h3>
+<ul class="manual-section">
+<li><strong>Gemeentelijst</strong>: toont de beschikbare profielen. Elk profiel bewaart eigen taal, server, schermen, opnamen, media en instellingen.</li>
+<li><strong>Nieuwe gemeente</strong>: maakt een afzonderlijk profiel om te configureren.</li>
+<li><strong>Naam wijzigen</strong>: wijzigt de naam van het geselecteerde profiel zonder instellingen te verliezen.</li>
+<li><strong>Dupliceren</strong>: maakt een kopie van het huidige profiel, handig wanneer twee configuraties op elkaar lijken.</li>
+<li><strong>Verwijderen</strong>: verwijdert het geselecteerde profiel wanneer het niet meer nodig is.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">Importeren / Exporteren</h3>
+<ul class="manual-section">
+<li><strong>Gemeente exporteren</strong>: slaat alleen het geselecteerde profiel op.</li>
+<li><strong>Gemeente importeren</strong>: laadt een eerder geëxporteerd profiel.</li>
+<li><strong>Exporteren</strong>: maakt een volledige back-up van alle gemeenten.</li>
+<li><strong>Importeren</strong>: herstelt een back-up die meerdere gemeenten bevat.</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- 11. ADUNANZE -->
+<div class="content" id="impostazioni-adunanze">
+<h2>11 - Vergaderingen (timer begin vergadering) <a class="back-to-index-link" href="#indice">↑ Inhoudsopgave</a></h2>
+<p>
+                Dit paneel dient om de countdown voor het begin van de vergadering op het Openbaar scherm te plannen. Je stelt dag, tijd en voorsprong (in minuten) in waarmee de countdown moet starten.
+            </p>
+<div class="settings-panel-layout">
+<div class="settings-panel-figure">
+<img alt="Paneel Vergaderingen met begintimer in JW Time" class="manual-image" src="../images/manual/nl/impostazioni-adunanze-v4.png"/>
+</div>
+<div class="settings-panel-copy">
+<h3>11.1 - Planning (dag - tijd - voorsprong)</h3>
+<ul class="manual-section">
+<li><strong>Vergadering toevoegen</strong>: voegt een nieuwe rij toe aan de tijdentabel.</li>
+<li><strong>Dag</strong>: kies de weekdag waarop de vergadering plaatsvindt.</li>
+<li><strong>Tijd</strong>: stelt de begintijd van de vergadering in.</li>
+<li><strong>Voorsprong (min)</strong>: hoeveel minuten vóór de ingestelde tijd de countdown op het Openbaar scherm moet verschijnen.</li>
+<li><strong>-</strong>: verwijdert de tijdrij die niet meer nodig is.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">11.2 - Speciale gebeurtenissen</h3>
+<ul class="manual-section">
+<li><strong>Speciale gebeurtenis toevoegen</strong>: maakt gebeurtenissen zoals het bezoek van de kringopziener, de Gedachtenisviering of handmatige gebeurtenissen.</li>
+<li><strong>CO-bezoek</strong>: past de regels en tijden voor het bezoek toe.</li>
+<li><strong>Gedachtenisviering</strong>: registreert een speciale afspraak met specifieke datum en tijd.</li>
+<li><strong>Wijzigen / verwijderen</strong>: met de knoppen rechts kun je de gebeurtenis bijwerken of verwijderen.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">11.3 - Duur aanpassen</h3>
+<ul class="manual-section">
+<li><strong>Adaptieve Bijbelstudie</strong>: past de gemeentebijbelstudie automatisch aan om de eindtijd te helpen respecteren.</li>
+<li><strong>Adaptieve Wachttoren-studie</strong>: past dezelfde logica toe op de Wachttoren-studie.</li>
+</ul>
+<p style="margin-top: var(--spacing-md); font-size: 0.9rem; color: var(--text-tertiary);">
+<strong>Opmerking:</strong> de begintijden dienen voor de openbare countdown; de Geschatte eindtijd hangt af van het schema en eventuele duuraanpassingen.
+                    </p>
+</div>
+</div>
+</div>
+<!-- 12. SCHERMO -->
+<div class="content" id="impostazioni-schermo">
+<h2>12 - Scherm <a class="back-to-index-link" href="#indice">↑ Inhoudsopgave</a></h2>
+<p>
+                Dit paneel bevat de instellingen voor het Contatempo-scherm en het Openbaar scherm. Hier kies je waar informatie wordt getoond, hoe die wordt weergegeven en welke elementen zichtbaar zijn tijdens de vergadering.
+            </p>
+<div class="settings-panel-layout">
+<div class="settings-panel-figure">
+<img alt="Paneel Scherm van JW Time" class="manual-image" src="../images/manual/nl/impostazioni-schermo-v4.png"/>
+</div>
+<div class="settings-panel-copy">
+<ul class="manual-section">
+<li><strong>Inschakelen</strong>: schakelt het Contatempo-scherm in of uit.</li>
+<li><strong>Monitor selecteren</strong>: kiest de monitor of het venster waarin het Contatempo-scherm wordt weergegeven.</li>
+<li><strong>Identificeren</strong>: toont een herkenning op de geselecteerde monitor, nuttig wanneer meerdere schermen zijn aangesloten.</li>
+<li><strong>Modus</strong>: stelt in hoe het Contatempo-scherm wordt geopend, bijvoorbeeld als vrij venster.</li>
+<li><strong>Transparante achtergrond</strong>: maakt het venster transparant wanneer de modus dat toestaat.</li>
+<li><strong>Lay-out</strong>: selecteert de grafische preset van het Contatempo-scherm.</li>
+<li><strong>Aanpassen</strong>: opent de editor van de geselecteerde lay-out.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">Openbaar scherm</h3>
+<ul class="manual-section">
+<li><strong>Openbaar scherm inschakelen</strong>: schakelt het venster in dat bedoeld is voor inhoud zichtbaar in de zaal.</li>
+<li><strong>Countdown voor publiek inschakelen</strong>: toont de countdown voor het begin van de vergadering op het Openbaar scherm.</li>
+<li><strong>Monitor</strong>: selecteert waar het openbare venster wordt geopend.</li>
+<li><strong>Lay-out</strong>: kiest de grafische preset van het Openbaar scherm.</li>
+<li><strong>Jaartekst tonen</strong>: toont of verbergt de jaartekst.</li>
+<li><strong>JW-logo tonen</strong>: toont of verbergt het logo in de openbare scène.</li>
+<li><strong>Tekst jaartekst</strong>: laat een aangepaste tekst invoeren; als dit leeg blijft, wordt de jaartekst in de programmataal gebruikt.</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- 13. MEDIA -->
+<div class="content" id="impostazioni-media">
+<h2>13 - Media <a class="back-to-index-link" href="#indice">↑ Inhoudsopgave</a></h2>
+<p>
+                Dit paneel beheert het gedrag van het Media-venster, de lokale cache en opties voor inhoud die tijdens of na de vergadering wordt gebruikt.
+            </p>
+<div class="settings-panel-layout">
+<div class="settings-panel-figure">
+<img alt="Paneel Media van JW Time" class="manual-image" src="../images/manual/nl/impostazioni-media-v4.png"/>
+</div>
+<div class="settings-panel-copy">
+<h3>Mediafuncties</h3>
+<ul class="manual-section">
+<li><strong>Mediaknop en -functie</strong>: toont of verbergt de knop Media en schakelt gekoppelde functies in.</li>
+<li><strong>Gebruikte media dimmen</strong>: maakt gebruikte inhoud in het Media-venster beter herkenbaar.</li>
+<li><strong>Externe URL's toestaan</strong>: laat na bevestiging externe HTTPS-URL's buiten jw.org en wol.jw.org toevoegen en in de ingebouwde browser tonen.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">Vergadermedia</h3>
+<ul class="manual-section">
+<li><strong>Officiële media automatisch downloaden</strong>: helpt officiële media van de week vooraf beschikbaar te maken, wanneer het netwerk dit toestaat.</li>
+<li><strong>Offline liederen automatisch bijwerken</strong>: houdt de catalogus van gedownloade liederen actueel.</li>
+<li><strong>Videokwaliteit</strong>: kiest de resolutie van officiële video's.</li>
+<li><strong>Weken</strong>: geeft aan hoeveel weken worden bewaard of voorbereid.</li>
+<li><strong>Max. ruimte</strong>: beperkt de ruimte die door de mediacache wordt gebruikt.</li>
+<li><strong>Map / verwijderen</strong>: opent de inhoudsmap of wist gedownloade bestanden.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">Liederen en muziek</h3>
+<ul class="manual-section">
+<li><strong>Liedvideo's vergadering</strong>: beheert download, kwaliteit en map van liedvideo's.</li>
+<li><strong>Liederen - muziek vóór/na vergadering</strong>: beheert muziek die als achtergrond wordt gebruikt.</li>
+<li><strong>Willekeurige volgorde</strong>: speelt nummers in willekeurige volgorde af.</li>
+<li><strong>Automatisch stoppen bij begin vergadering</strong>: stopt de muziek wanneer het programma begint.</li>
+<li><strong>Muziek stoppen vóór begin vergadering</strong>: bepaalt hoeveel seconden eerder de achtergrondmuziek stopt.</li>
+<li><strong>Fade-duur</strong>: regelt de audiofade bij afsluiten of wisselen van nummer.</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- 14. ZOOM -->
+<div class="content" id="impostazioni-zoom">
+<h2>14 - Zoom <a class="back-to-index-link" href="#indice">↑ Inhoudsopgave</a></h2>
+<p>
+                Dit paneel bevat nuttige instellingen wanneer JW Time samen met Zoom of andere zaalconfiguraties wordt gebruikt die speciale audio-/videobediening vereisen. De opties hieronder voeden de Zoom-knoppen in
+                <a href="#finestra-media">sectie 4 - Media-venster</a>.
+            </p>
+<div class="settings-panel-layout">
+<div class="settings-panel-figure">
+<img alt="Paneel Zoom van JW Time" class="manual-image" src="../images/manual/nl/impostazioni-zoom-v4.png"/>
+</div>
+<div class="settings-panel-copy">
+<h3>Zoom</h3>
+<ul class="manual-section">
+<li><strong>Zoom-bediening</strong>: toont in het Media-venster de knoppen voor Zoom.</li>
+<li><strong>Zoom delen</strong>: schakelt de knop in die de sneltoets voor delen naar Zoom stuurt.</li>
+<li><strong>Zoom aan publiek tonen</strong>: schakelt de knop in die tijdelijk het Openbaar scherm van JW Time verbergt om de sprekers of het Zoom-venster te tonen dat al eronder op de zaalmonitor is geplaatst.</li>
+<li><strong>Sneltoets delen</strong>: moet dezelfde globale sneltoets zijn die in Zoom is ingesteld om schermdelen te starten of te stoppen.</li>
+<li><strong>Test</strong>: stuurt de sneltoets en controleert of Zoom de deelstatus opent of wijzigt.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">Zoom-sneltoets</h3>
+<p>
+                        JW Time kiest niet voor jou welk venster of scherm in Zoom gedeeld wordt: het stuurt de toetsencombinatie die je in dit paneel hebt opgegeven. Daarom moet dezelfde sneltoets ook actief zijn in Zoom-instellingen, bij voorkeur als globale sneltoets. Als je in Zoom een andere combinatie gebruikt, kunnen de knop
+                        <strong>Delen</strong> en de modus <strong>Zoom Auto</strong> niet betrouwbaar werken.
+                    </p>
+<p>
+                        Controleer vóór de vergadering de volledige flow: bereid Zoom voor op de openbare monitor, plaats onder het Openbaar scherm het sprekervenster of het gedupliceerde Zoom-scherm, test de sneltoets met <strong>Test</strong> en gebruik daarna de bediening vanuit het Media-venster.
+                    </p>
+<h3 style="margin-top: var(--spacing-lg);">Media-automatisering</h3>
+<ul class="manual-section">
+<li><strong>Automatisch starten</strong>: wanneer de knop <strong>Zoom Auto</strong> actief is in het Media-venster, start het delen wanneer media beginnen.</li>
+<li><strong>Stoppen bij sluiten van media</strong>: stopt Zoom-delen wanneer de media worden gesloten of eindigen, alleen als het delen door JW Time is gestart.</li>
+<li><strong>Beginpauze</strong>: zet media na het starten van delen klaar op pauze.</li>
+<li><strong>Focus herstellen</strong>: brengt de focus terug naar het Media-venster na de actie op Zoom.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">Gebruik bij vergaderingen via videoconferentie</h3>
+<p>
+                        Als iemand JW Time buiten het netwerk moet raadplegen of bedienen tijdens een vergadering via videoconferentie, configureer je dat niet in Zoom: gebruik <a href="#monitor-web-accesso-remoto">sectie 8.3 - Externe toegang voor vergaderingen via videoconferentie</a>. In dit paneel blijven alleen sneltoetsen, delen en beheer van het Zoom-venster over.
+                    </p>
+</div>
+</div>
+</div>
+<!-- 15. CONNESSIONE E SERVER -->
+<div class="content" id="impostazioni-connessioni">
+<h2>15 - Verbinding en server <a class="back-to-index-link" href="#indice">↑ Inhoudsopgave</a></h2>
+<p>
+                Dit paneel beheert de connectiviteit van de app: de Webmonitor en Webserver voor weergave en bediening vanuit de browser, QR voor snelle toegang, afstandsbediening, geavanceerde verbindingstests en logbeheer.
+            </p>
+<div class="settings-panel-layout">
+<div class="settings-panel-figure">
+<img alt="Paneel Verbindingen van JW Time" class="manual-image" src="../images/manual/nl/impostazioni-connessioni-v4.png"/>
+</div>
+<div class="settings-panel-copy">
+<h3>15.1 - Webmonitor en Webserver</h3>
+<ul class="manual-section">
+<li><strong>JW Time - Monitor Web</strong>: schakelt de interne server in of uit.</li>
+<li><strong>Serveradres</strong>: toont de URL die je in het lokale netwerk opent. In de handleiding gebruiken we een algemeen adres, bijvoorbeeld <code>http://192.168.1.100:8000</code>.</li>
+<li><strong>Adres kopiëren</strong>: kopieert de URL naar het klembord.</li>
+<li><strong>QR</strong>: toont een QR-code om de Webmonitor sneller vanaf telefoon of tablet te openen.</li>
+<li><strong>Serverpoort</strong>: stelt de HTTP-poort in, normaal 8000.</li>
+<li><strong>Editor / Controller</strong>: schakelt wachtwoorden in om timer en programma vanuit de browser te wijzigen of te bedienen. Met de rol Controller wordt de Webmonitor ook een bedieningspaneel: hij kan starten, pauzeren, stoppen en beschikbare waarden bijwerken zonder naar de hoofdcomputer terug te gaan.</li>
+</ul>
+<p>
+                        Wanneer de Webserver actief is, kan JW Time vanaf een ander apparaat in hetzelfde lokale netwerk via de browser worden geopend, om de Webmonitor vanaf telefoon, tablet of andere computer te gebruiken.
+                    </p>
+<h3 id="server-web-remoto" style="margin-top: var(--spacing-lg);">15.2 - Webserver op afstand</h3>
+<p>
+                        Deze sectie dient om de Webmonitor ook buiten het lokale netwerk bereikbaar te maken, bijvoorbeeld tijdens vergaderingen via videoconferentie. Zie voor de gebruikscontext <a href="#monitor-web-accesso-remoto">sectie 8.3 - Externe toegang voor vergaderingen via videoconferentie</a>; hier vind je de praktische bediening.
+                    </p>
+<ul class="manual-section">
+<li><strong>Externe link genereren</strong>: maakt wanneer nodig via de Cloudflare-component een tijdelijke link voor toegang buiten het lokale netwerk.</li>
+<li><strong>Component downloaden</strong>: downloadt de component die nodig is voor de externe verbinding.</li>
+<li><strong>Externe link</strong>: toont de gegenereerde link en de knoppen Kopiëren/QR.</li>
+<li><strong>Externe PIN</strong>: beschermt toegang tot externe functies wanneer ingesteld.</li>
+<li><strong>Verbindingsstatus</strong>: geeft aan of de externe component, actieve verbindingen en Cloudflare beschikbaar zijn.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">15.3 - Afstandsbediening</h3>
+<p>
+                        Als de functie is ingeschakeld, kan de Webserver niet alleen voor weergave worden gebruikt, maar ook om timer- en programmahandelingen op afstand uit te voeren. Wanneer de rol Controller is ingeschakeld, toont het webscherm ook knoppen om beschikbare waarden te wijzigen, bijvoorbeeld de duur van een onderdeel.
+                    </p>
+<p>Daaronder kunnen vallen:</p>
+<ul class="manual-section">
+<li>timer starten</li>
+<li>pauzeren en hervatten</li>
+<li>stop</li>
+<li>programma/schema bedienen</li>
+</ul>
+<p>
+                        Afhankelijk van de configuratie kunnen verschillende toegangsniveaus beschikbaar zijn, zodat alleen raadplegen gescheiden blijft van bediening of wijziging.
+                    </p>
+<h3 style="margin-top: var(--spacing-lg);">15.4 - Verbindingstest</h3>
+<ul class="manual-section">
+<li><strong>Verbinding testen</strong>: controleert netwerk, JW.org, proxy en schrijfrechten.</li>
+<li><strong>Resultaat kopiëren</strong>: kopieert het testresultaat voor hulp of diagnose.</li>
+<li><strong>Logmap openen</strong>: opent direct de logmap van de app.</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- 16. REGISTRAZIONE -->
+<div class="content" id="impostazioni-registrazioni">
+<h2>16 - Opnamen <a class="back-to-index-link" href="#indice">↑ Inhoudsopgave</a></h2>
+<p>
+                Functie voor audio-opname van vergaderingen, bereikbaar via het tabblad "Opnamen" in instellingen en via de REC-knop in het hoofdvenster.
+            </p>
+<div class="settings-panel-layout">
+<div class="settings-panel-figure">
+<img alt="Paneel Opnamen van JW Time" class="manual-image" src="../images/manual/nl/impostazioni-registrazioni-v4.png"/>
+</div>
+<div class="settings-panel-copy">
+<h3>Automatische opname</h3>
+<ul class="manual-section">
+<li><strong>Automatische opname actief</strong>: start de opname wanneer de timer start, als de functie is ingeschakeld.</li>
+<li><strong>Opname pauzeren wanneer de timer pauzeert</strong>: pauzeert ook de opname tijdens timerpauzes.</li>
+<li><strong>Opnamemodus</strong>: kiest tussen één bestand per onderdeel of één bestand voor de hele sessie.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">Pad en apparaten</h3>
+<ul class="manual-section">
+<li><strong>Pad</strong>: geeft de map aan waarin bestanden worden opgeslagen. In de handleiding wordt een algemeen pad getoond.</li>
+<li><strong>Pad kiezen</strong>: selecteert de doelmap.</li>
+<li><strong>Pad openen</strong>: opent de opnamemap.</li>
+<li><strong>Pc-audio</strong>: selecteert de audiobron van de computer.</li>
+<li><strong>Microfoon</strong>: selecteert de microfoon die samen met pc-audio wordt opgenomen.</li>
+<li><strong>Pc-volume / mic-volume</strong>: regelt het opgenomen niveau van de twee bronnen.</li>
+<li><strong>Pc-drempel</strong>: bepaalt wanneer pc-audio als actief wordt beschouwd.</li>
+<li><strong>Mic-reductie</strong>: verlaagt automatisch de microfoon wanneer pc-audio de drempel overschrijdt.</li>
+<li><strong>Opnametest</strong>: controleert apparaten en niveaus vóór de vergadering.</li>
+<li><strong>Statistieken</strong>: toont informatie over gemaakte opnamen.</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- 17. PACCHETTI E BACKUP OFFLINE -->
+<div class="content" id="impostazioni-backup">
+<h2>17 - Pakketten en offline back-up <a class="back-to-index-link" href="#indice">↑ Inhoudsopgave</a></h2>
+<p>
+                Dit paneel bereidt weekprogramma's voor offline gebruik voor en laat opgeslagen pakketten exporteren of importeren.
+            </p>
+<div class="settings-panel-layout">
+<div class="settings-panel-figure">
+<img alt="Paneel Back-up en herstel van JW Time" class="manual-image" src="../images/manual/nl/impostazioni-backup-v4.png"/>
+</div>
+<div class="settings-panel-copy">
+<h3>17.1 - Downloadbronnen voor programma's</h3>
+<ul class="manual-section">
+<li><strong>Downloaden van WOL (primair)</strong>: gebruikt de primaire bron wanneer die beschikbaar is.</li>
+<li><strong>Downloaden van server 2 (back-up)</strong>: gebruikt de alternatieve bron voor programmadownloads.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">17.2 - Back-up van weekprogramma's</h3>
+<ul class="manual-section">
+<li><strong>Downloaden op de achtergrond</strong>: werkt pakketten bij zonder handmatige actie te vragen.</li>
+<li><strong>Doordeweeks</strong>: bevat de programma's van doordeweekse vergaderingen.</li>
+<li><strong>Weekend</strong>: bevat de weekendprogramma's.</li>
+<li><strong>Te downloaden weken</strong>: geeft aan hoeveel weken voorbereid moeten worden.</li>
+<li><strong>Downloaden</strong>: start de pakketdownload meteen.</li>
+<li><strong>Stop</strong>: onderbreekt de lopende download.</li>
+</ul>
+<h3 style="margin-top: var(--spacing-lg);">17.3 - Gedownloade weken</h3>
+<ul class="manual-section">
+<li><strong>Weeklijst</strong>: toont de lokaal beschikbare pakketten.</li>
+<li><strong>Alles exporteren</strong>: slaat pakketten op in een overdraagbaar bestand.</li>
+<li><strong>Importeren</strong>: laadt pakketten die op een andere pc zijn voorbereid.</li>
+<li><strong>Wissen</strong>: verwijdert lokale pakketten die niet meer nodig zijn.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="footer">
+<div class="footer-content">
+<div class="footer-section">
+<h3>JW Time</h3>
+<p>Onafhankelijk, gratis en niet-commercieel project voor het beheer van vergadertijden.</p>
+</div>
+<div class="footer-section">
+<h3>Bronnen</h3>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="manual.html">Gebruikershandleiding</a></li>
+<li><a href="news.html">Nieuws</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="contacts.html">Contact</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h3>Informatie</h3>
+<ul>
+<li><a href="privacy-policy.html">Privacybeleid</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2025-2026 JW Time - Onafhankelijk, gratis en niet-commercieel project gemaakt door vrijwilligers</p>
+</div>
+</footer>
+<!-- JavaScript -->
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -2,7 +2,7 @@ html
 <html lang="es">
 <head>
 <meta charset="utf-8"/>
-<meta content="ancho=ancho-dispositivo, escala-inicial=1.0" name="viewport"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="Manual completo de JW Time - Guía para usar la aplicación de gestión de tiempo de reuniones" name="description"/>
 <title>Manual de uso - JW Time</title>
 <link href="../css/style.css" rel="stylesheet"/>
@@ -128,18 +128,24 @@ html
 <a href="index.html">Home</a>
 <a class="active" href="manual.html">Manual</a>
 <a href="news.html">Novedades</a>
+                <a href="faq.html">FAQ</a>
 <a href="contacts.html">Contactos</a>
 <!-- Language Selector -->
-<div class="lang-selector">
-<div class="lang-current"><span>Español</span><span>▾</span></div>
-<div class="lang-dropdown">
-<a data-lang="it" href="../it/manual.html">Italiano</a>
-<a data-lang="en" href="../en/manual.html">English</a>
-<a data-lang="de" href="../de/manual.html">Deutsch</a>
-<a data-lang="fr" href="../fr/manual.html">Français</a>
-<a data-lang="pt_BR" href="../pt_BR/manual.html">Português (BR)</a>
-</div>
-</div>
+                <div class="lang-selector">
+                    <div class="lang-current">
+                        <span>Español</span>
+                        <span>&#9662;</span>
+                    </div>
+                    <div class="lang-dropdown">
+                        <a href="../it/manual.html" data-lang="it">Italiano</a>
+                        <a href="../en/manual.html" data-lang="en">English</a>
+                        <a href="../de/manual.html" data-lang="de">Deutsch</a>
+                        <a href="../nl/manual.html" data-lang="nl">Nederlands</a>
+                        <a href="../fr/manual.html" data-lang="fr">Français</a>
+                        <a href="../pt_BR/manual.html" data-lang="pt_BR">Português (Brasil)</a>
+                        <a href="../hu/manual.html" data-lang="hu">Magyar</a>
+                    </div>
+                </div>
 <!-- Theme Toggle -->
 <button aria-label="Alternar tema" class="theme-toggle" id="theme-toggle">
 <svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -342,8 +348,12 @@ html
 </div>
 <p>
                         Muestra la agenda de la reunión (título, duración, estado). El contenido se carga automáticamente según el día.
-                        seleccionado: la app reconoce si es entre semana o fin de semana y propone el horario correcto. para los botones
-                        y acciones detalladas ver <a href="#manipolazione-timer">sección 3 · Manipulación de temporizadores</a>.
+                        seleccionado: la app reconoce si es entre semana o fin de semana y propone la lista correcta. Para los botones
+                        y acciones detalladas, consulta la <a href="#manipolazione-timer">sección 3 · Manipulación de temporizadores</a>.
+                    </p>
+<p>
+                        Si activas <strong>Mostrar columna Fin</strong> en los ajustes generales, la tabla tambi&eacute;n muestra a qu&eacute; hora terminar&iacute;an la parte actual y cada parte siguiente.
+                        No es una hora fija del programa: es una proyecci&oacute;n actualizada en tiempo real seg&uacute;n la hora actual, los temporizadores restantes y las desviaciones acumuladas.
                     </p>
 </div>
 <div class="news-card">
@@ -355,18 +365,18 @@ html
                         Muestra la hora de cierre esperada según el cronograma. La desviación <em>aparece junto a</em>:<br/>
                         +m:ss (amarillo dentro de 1', rojo más allá) = retraso<br/>
                         −m:ss (verde) = avance<br/>
-                        La hora y el indicador se actualizan en tiempo real. Si los adaptativos para Estudio Bíblico/Torre de están activos
-                        Guardia, las duraciones se recalculan para ajustarse al horario de cierre.
+                        La hora y el indicador se actualizan en tiempo real. Si están activos los ajustes adaptativos para el Estudio bíblico
+                        o el Estudio de La Atalaya, las duraciones se recalculan para ajustarse al horario de cierre.
                     </p>
 </div>
 <div class="news-card">
-<h4 style="color: var(--text-secondary);">1.4 · Tiempo de pausa/cambio de altavoz</h4>
+<h4 style="color: var(--text-secondary);">1.4 · Tiempo de pausa/cambio de orador</h4>
 <div class="image-container">
 <img alt="Área 4 - Tiempo de pausa y cambio de orador" class="manual-image" src="../images/manual/es/area-4-tempo-pausa-v4.png"/>
 </div>
 <p>
-                        Contador acumulativo <strong>hh:mm:ss</strong> de pausas técnicas/cambio de altavoz: suma el tiempo en el que está el cronómetro
-                        sido pausado. Durante la pausa el cronómetro permanece parado mientras este contador aumenta. Un clic
+                        Contador acumulativo <strong>hh:mm:ss</strong> de pausas técnicas/cambio de orador: suma el tiempo durante el cual el cronómetro
+                        ha estado pausado. Durante la pausa el cronómetro permanece detenido mientras este contador aumenta. Un clic
                         en el indicador pone el total a cero.
                     </p>
 </div>
@@ -377,8 +387,8 @@ html
 </div>
 <p>
                         Controles para iniciar, detener y gestionar los temporizadores: Parar (rojo), Pausa e Inicio/Siguiente (verde).
-                        El botón Pausa pausa el cronómetro parcial (el conteo permanece detenido) mientras el tiempo de pausa/cambio
-                        El altavoz sigue aumentando. Para salir de la pausa, presione Pausa nuevamente o salte a la siguiente parte con
+                        El botón Pausa pausa el cronómetro parcial (el conteo permanece detenido) mientras el tiempo de pausa/cambio de orador
+                        sigue aumentando. Para salir de la pausa, presiona Pausa nuevamente o salta a la siguiente parte con
                         Inicio/Siguiente: el tiempo acumulado se registra en el contador al que se refiere el punto 1.4.
                     </p>
 </div>
@@ -467,8 +477,8 @@ html
 <ul class="manual-section">
 <li><strong>Reunión entre semana</strong>: el Estudio Bíblico de la Congregación se convierte en un segmento fijo de 30 minutos titulado "Visita SC".</li>
 <li><strong>Fines de semana</strong>: se agrega una entrada dedicada después del Estudio de La Atalaya y las duraciones se ajustan para cumplir con la hora de cierre.</li>
-<li>Colores y advertencias dedicados: la línea Visit SC adopta su propia paleta y prepara la canción final específica.</li>
-<li>Desactivación rápida: al desactivar el interruptor, la mesa vuelve inmediatamente a la alineación estándar sin perder los demás cambios.</li>
+<li>Colores y avisos dedicados: la línea Visita SC adopta su propia paleta y prepara el cántico final específico.</li>
+<li>Desactivación rápida: al desactivar el interruptor, la tabla vuelve inmediatamente a la lista estándar sin perder los demás cambios.</li>
 </ul>
 </div>
 <!-- 2.4 Carica da backup - CARD -->
@@ -481,7 +491,7 @@ html
 <ul class="manual-section">
 <li>Lista detallada: cada línea muestra la fecha de inicio de la semana, el tipo (entre semana/fin de semana) y el idioma.</li>
 <li>Carga segura: Los paquetes se verifican y se aplican directamente a la tabla actual.</li>
-<li>Borrar mensajes: si no hay copias de seguridad disponibles, la aplicación muestra inmediatamente una advertencia.</li>
+<li>Mensajes claros: si no hay copias de seguridad disponibles, la aplicación muestra inmediatamente una advertencia.</li>
 </ul>
 </div>
 <!-- 2.5 Modalit&#224; Manuale - CARD -->
@@ -505,7 +515,7 @@ html
 <h4 style="color: var(--text-secondary);">2.5.2 · Crear y guardar</h4>
 <ul class="manual-section">
 <li>Activar el modo manual desde el panel Programa.</li>
-<li>Utilice comandos de tabla para agregar, eliminar o reordenar filas; cuando es necesario, JW Time abre la ventana de edición de voz.</li>
+<li>Utiliza los comandos de la tabla para agregar, eliminar o reordenar filas; cuando es necesario, JW Time abre la ventana de edición de la entrada.</li>
 <li>Guarda la lista cuando quieras guardarla para otro momento.</li>
 </ul>
 <p>
@@ -514,13 +524,13 @@ html
                     Elija <strong>Solo programa de tiempo manual</strong> si solo necesita la lista con títulos y duraciones.
                 </p>
 <div class="image-container" style="margin-top: var(--spacing-md);">
-<img alt="Ventana emergente para guardar programas manualmente con elección entre programas con promedio y solo tiempos" class="manual-image" src="../images/manual/es/programma-manuale-salvataggio-popup-v4.png" style="max-width: 900px;"/>
+<img alt="Ventana emergente para guardar el programa manual, con elección entre programa con multimedia y solo tiempos" class="manual-image" src="../images/manual/es/programma-manuale-salvataggio-popup-v4.png" style="max-width: 900px;"/>
 </div>
 <h4 style="color: var(--text-secondary);">2.5.3 · Recargar o vaciar una lista</h4>
 <ul class="manual-section">
 <li>Utilice <strong>Cargar lista manual</strong> para recuperar una lista guardada.</li>
 <li>Si la lista contiene líneas reconocidas como canciones o partes estándar, JW Time aplica colores y comportamiento consistentes.</li>
-<li>Las ventanas vinculadas se actualizan después de la carga, por lo que el temporizador y el promedio permanecen alineados con la tabla.</li>
+<li>Las ventanas vinculadas se actualizan después de la carga, por lo que el Contador de tiempo y Multimedia permanecen alineados con la tabla.</li>
 <li>Utilice <strong>Borrar lista</strong> cuando quieras reiniciar desde una lista vacía para la misma semana.</li>
 </ul>
 <h4 style="color: var(--text-secondary);">2.5.4 · Medios vinculados</h4>
@@ -634,8 +644,12 @@ html
 <div class="news-card">
 <h4 style="color: var(--text-secondary);">4.2 · Lista de contenidos</h4>
 <p>
-                            El área 2 contiene pestañas con vista previa, título, referencia y botón de inicio. Los colores reflejan las áreas de la alineación,
+                            El área 2 contiene pestañas con vista previa, título, referencia y botón de inicio. Los colores reflejan las áreas de la lista,
                             para que puedas localizar rápidamente canciones, imágenes, videos y referencias relacionadas con la parte.
+                        </p>
+<p>
+                            Desde el men&uacute; contextual puedes marcar manualmente un elemento como usado o no usado. Si <strong>Atenuar medios ya usados</strong> est&aacute; activado, los elementos usados siguen siendo reconocibles con un estilo m&aacute;s discreto.
+                            Las ventanas de video, audio e im&aacute;genes oficiales tambi&eacute;n incluyen el modo <strong>Global</strong> cuando necesitas buscar fuera de la categor&iacute;a actual.
                         </p>
 </div>
 <div class="news-card">
@@ -670,7 +684,7 @@ html
 <div style="flex: 1 1 280px; min-width: 0;">
 <p>
                             El panel <strong>Fondo</strong> gestiona la música antes de la reunión y, si está configurada, también después de la reunión,
-                            sin mezclarlo con los medios en la alineación. Durante la reproducción muestra la canción actual, la siguiente canción,
+                            sin mezclarlo con los medios de la lista. Durante la reproducción muestra la canción actual, la siguiente canción,
                             avance y duración.
                         </p>
 <p>
@@ -1086,6 +1100,7 @@ html
 <h3 style="margin-top: var(--spacing-lg);">Gestión del temporizador</h3>
 <ul class="manual-section">
 <li><strong>Pausa automática</strong>: inserta automáticamente una pausa entre una parte y la siguiente cuando presionas Inicio/Siguiente.</li>
+<li><strong>Mostrar columna Fin</strong>: muestra en la tabla del programa la hora prevista de finalizaci&oacute;n de la parte actual y de las siguientes, calculada en tiempo real a partir de la hora actual, los temporizadores restantes y las desviaciones acumuladas.</li>
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">Novedades</h3>
 <ul class="manual-section">
@@ -1155,7 +1170,7 @@ html
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">11.3 · Adaptar Tiempo</h3>
 <ul class="manual-section">
-<li><strong>Estudio Bíblico Adaptativo</strong>- Ajusta automáticamente el Estudio Bíblico de Congregación para ayudar a cumplir con el tiempo del fin.</li>
+<li><strong>Estudio bíblico adaptativo</strong>: ajusta automáticamente el Estudio bíblico de congregación para ayudar a respetar la hora final.</li>
 <li><strong>Estudio Adaptativo de la Atalaya</strong>: Aplicar la misma lógica al Estudio de La Atalaya.</li>
 </ul>
 <p style="margin-top: var(--spacing-md); font-size: 0.9rem; color: var(--text-tertiary);">
@@ -1213,6 +1228,8 @@ html
 <h3>Funciones multimedia</h3>
 <ul class="manual-section">
 <li><strong>Botón multimedia y función</strong>: muestra u oculta el botón Multimedia y habilita funciones relacionadas.</li>
+<li><strong>Atenuar medios ya usados</strong>: hace que los elementos usados sean m&aacute;s f&aacute;ciles de reconocer en la Ventana Multimedia.</li>
+<li><strong>Permitir URL externas</strong>: tras confirmaci&oacute;n, permite URL HTTPS externas a jw.org y wol.jw.org y las muestra en el navegador integrado.</li>
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">Media Gathering</h3>
 <ul class="manual-section">
@@ -1271,7 +1288,7 @@ html
 <h3 style="margin-top: var(--spacing-lg);">Automatización de medios</h3>
 <ul class="manual-section">
 <li><strong>Inicio automático</strong>: cuando la tecla <strong>Zoom Auto</strong> está activo en la Ventana Multimedia, comienza a compartir cuando se reproduce un medio.</li>
-<li><strong>Detención automática</strong>: deja de compartir cuando finaliza el contenido multimedia, si JW Time inició el uso compartido.</li>
+<li><strong>Interrumpir al cerrar el medio</strong>: detiene el uso compartido de Zoom cuando el medio se cierra o termina, solo si JW Time inici&oacute; el uso compartido.</li>
 <li><strong>Pausa inicial</strong>: prepara los medios para pausar después de que comienza a compartirse.</li>
 <li><strong>Restaurar el foco</strong>: Devuelve el foco a la Ventana Multimedia después de la acción de Zoom.</li>
 </ul>
@@ -1422,7 +1439,7 @@ html
 <div class="footer-content">
 <div class="footer-section">
 <h3>JW Time</h3>
-<p>Proyecto voluntario de gestión de tiempos de reuniones.</p>
+<p>Proyecto independiente, gratuito y no comercial para gestionar los tiempos de las reuniones.</p>
 </div>
 <div class="footer-section">
 <h3>Recursos</h3>
@@ -1430,6 +1447,7 @@ html
 <li><a href="index.html">Home</a></li>
 <li><a href="manual.html">Manual de uso</a></li>
 <li><a href="news.html">Novedades</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
 <li><a href="contacts.html">Contactos</a></li>
 </ul>
 </div>
@@ -1441,7 +1459,7 @@ html
 </div>
 </div>
 <div class="footer-bottom">
-<p>© 2025-2026 JW Time - Proyecto no oficial creado por voluntarios</p>
+<p>&copy; 2025-2026 JW Time - Proyecto independiente, gratuito y no comercial creado por voluntarios</p>
 </div>
 </footer>
 <!-- JavaScript -->

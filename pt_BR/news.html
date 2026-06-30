@@ -2,7 +2,7 @@ html
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8"/>
-<meta content="largura=largura do dispositivo, escala inicial=1,0" name="viewport"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="Notícias e atualizações do JW Time - Confira os recursos mais recentes adicionados ao aplicativo" name="description"/>
 <title>O que há de novo - JW Time</title>
 <link href="../css/style.css" rel="stylesheet"/>
@@ -21,16 +21,21 @@ html
 <a class="active" href="news.html">Novidades</a>
 <a href="contacts.html">Contatos</a>
 <!-- Language Selector -->
-<div class="lang-selector">
-<div class="lang-current"><span>Português (BR)</span><span>▾</span></div>
-<div class="lang-dropdown">
-<a data-lang="it" href="../it/news.html">Italiano</a>
-<a data-lang="en" href="../en/news.html">English</a>
-<a data-lang="es" href="../es/news.html">Español</a>
-<a data-lang="de" href="../de/news.html">Deutsch</a>
-<a data-lang="fr" href="../fr/news.html">Français</a>
-</div>
-</div>
+                <div class="lang-selector">
+                    <div class="lang-current">
+                        <span>Português (Brasil)</span>
+                        <span>&#9662;</span>
+                    </div>
+                    <div class="lang-dropdown">
+                        <a href="../it/news.html" data-lang="it">Italiano</a>
+                        <a href="../en/news.html" data-lang="en">English</a>
+                        <a href="../es/news.html" data-lang="es">Español</a>
+                        <a href="../de/news.html" data-lang="de">Deutsch</a>
+                        <a href="../nl/news.html" data-lang="nl">Nederlands</a>
+                        <a href="../fr/news.html" data-lang="fr">Français</a>
+                        <a href="../hu/news.html" data-lang="hu">Magyar</a>
+                    </div>
+                </div>
 <!-- Theme Toggle -->
 <button aria-label="Alternar tema" class="theme-toggle" id="theme-toggle">
 <svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -511,7 +516,7 @@ html
 <div class="footer-content">
 <div class="footer-section">
 <h3>JW Time</h3>
-<p>Projeto voluntário para gerenciamento de horários de reuniões.</p>
+<p>Projeto independente, gratuito e não comercial para gerenciamento dos tempos de reunião.</p>
 </div>
 <div class="footer-section">
 <h3>Recursos</h3>
@@ -519,6 +524,7 @@ html
 <li><a href="index.html">Home</a></li>
 <li><a href="manual.html">Manual do usuário</a></li>
 <li><a href="news.html">Novidades</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
 <li><a href="contacts.html">Contatos</a></li>
 </ul>
 </div>
@@ -530,7 +536,7 @@ html
 </div>
 </div>
 <div class="footer-bottom">
-<p>© 2025-2026 JW Time - Projeto não oficial criado por voluntários</p>
+<p>&copy; 2025-2026 JW Time - Projeto independente, gratuito e não comercial criado por voluntários</p>
 </div>
 </footer>
 <!-- JavaScript -->

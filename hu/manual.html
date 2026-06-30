@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A JW Time teljes kézikönyve – Útmutató az alkalmazás használatához az összejövetelek időpontjainak kezeléséhez">
+    <title>Felhasználói kézikönyv - JW Time</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .back-to-index-link {
+            font-size: 0.9rem;
+            margin-left: 0.75rem;
+            color: var(--text-tertiary);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .back-to-index-link:hover {
+            color: var(--text-secondary);
+            text-decoration: underline;
+        }
+
+        .content:not(#indice) a:not(.back-to-index-link):not(.btn),
+        .content-section-header a:not(.back-to-index-link):not(.btn) {
+            color: inherit;
+            font-weight: 600;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 0.2em;
+            text-decoration-color: currentColor;
+        }
+
+        .content:not(#indice) a:not(.back-to-index-link):not(.btn)::after,
+        .content-section-header a:not(.back-to-index-link):not(.btn)::after {
+            content: " ↴";
+            font-size: 0.85em;
+            opacity: 0.78;
+            text-decoration: none;
+        }
+
+        .content:not(#indice) a:not(.back-to-index-link):not(.btn):hover,
+        .content-section-header a:not(.back-to-index-link):not(.btn):hover {
+            color: var(--text-primary);
+        }
+
+        /* Scroll offset per compensare header fisso */
+        html {
+            scroll-padding-top: 100px;
+        }
+
+        /* Scroll offset maggiore su mobile per header a due righe */
+        @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 180px;
+            }
+        }
+
+        /* Scroll offset extra su schermi molto piccoli dove l'header pu&#242; essere su 3 righe */
+        @media (max-width: 480px) {
+            html {
+                scroll-padding-top: 220px;
+            }
+        }
+
+        /* Assicura che le immagini non vengano tagliate su mobile */
+        @media (max-width: 640px) {
+            .content figure,
+            .news-card figure {
+                overflow: visible !important;
+                flex: 1 1 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+                margin: var(--spacing-lg) 0 !important;
+            }
+
+            .content figure img,
+            .news-card figure img {
+                max-width: 100%;
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+
+            /* Layout a colonna singola per sezioni con immagini */
+            .news-card > div[style*="display: flex"] {
+                flex-direction: column !important;
+            }
+        }
+
+        .settings-panel-layout {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-top: var(--spacing-lg);
+        }
+
+        .settings-panel-figure {
+            flex: 1 1 560px;
+            min-width: 440px;
+            max-width: 650px;
+            margin: 0;
+        }
+
+        .settings-panel-copy {
+            flex: 1 1 360px;
+            min-width: 300px;
+        }
+
+        @media (max-width: 980px) {
+            .settings-panel-figure,
+            .settings-panel-copy {
+                flex: 1 1 100%;
+                min-width: 0;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="../images/jwtime-logo.png" alt="JW Time logó" style="height: 32px; margin-right: 8px;">
+                JW Time
+            </a>
+
+            <nav class="nav">
+                <a href="index.html">Kezdőlap</a>
+                <a href="manual.html" class="active">Kézikönyv</a>
+                <a href="news.html">Újdonságok</a>
+                <a href="faq.html">GYIK</a>
+                <a href="contacts.html">Kapcsolat</a>
+
+                <!-- Language Selector -->
+                <div class="lang-selector">
+                    <div class="lang-current">
+                        <span>Magyar</span>
+                        <span>&#9662;</span>
+                    </div>
+                    <div class="lang-dropdown">
+                        <a href="../it/manual.html" data-lang="it">Italiano</a>
+                        <a href="../en/manual.html" data-lang="en">English</a>
+                        <a href="../es/manual.html" data-lang="es">Español</a>
+                        <a href="../de/manual.html" data-lang="de">Deutsch</a>
+                        <a href="../nl/manual.html" data-lang="nl">Nederlands</a>
+                        <a href="../fr/manual.html" data-lang="fr">Français</a>
+                        <a href="../pt_BR/manual.html" data-lang="pt_BR">Português (Brasil)</a>
+                    </div>
+                </div>
+<!-- Theme Toggle -->
+                <button id="theme-toggle" class="theme-toggle" aria-label="Téma váltása">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Felhasználói kézikönyv</h1>
+            <p>Teljes útmutató a JW Time használatához</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- INDICE -->
+        <div class="content" id="indice">
+            <h2>Index</h2>
+            <div class="manual-index">
+                <!-- Card Verde per Inizia Qui -->
+                <div class="index-section index-section--green">
+                    <h3>Hírek 4.0</h3>
+                    <ul>
+                        <li><a href="#novita">4.0.0 verzió</a></li>
+                    </ul>
+                    <h3 style="margin-top: var(--spacing-lg);">Első indítás</h3>
+                    <ul>
+                        <li><a href="#primo-avvio-guidato">Kezdeti varázsló</a></li>
+                        <li><a href="#controllo-rapido">Gyors ellenőrzés, ha kihagyja a varázslót</a></li>
+                    </ul>
+                </div>
+
+                <div class="index-section">
+                    <h3>I. rész – Interfész és működés</h3>
+                    <ul>
+                        <li><a href="#schermata-principale">1. Főképernyő</a></li>
+                        <li><a href="#navigazione-settimanale">2. Program és ütemtervek</a></li>
+                        <li><a href="#manipolazione-timer">3. Időzítők manipulálása</a></li>
+                        <li><a href="#finestra-media">4. Médiaablak</a></li>
+                        <li><a href="#schermi-contatempo-pubblico">5. Nyilvános képernyő és Időzítő képernyő</a></li>
+                        <li><a href="#personalizzare-schermo">↳ 5.3 Az Időzítő képernyő testreszabása</a></li>
+                        <li><a href="#gestione-messaggi">6. Üzenetkezelés</a></li>
+                        <li><a href="#rec-button">7. REC gomb és felvételi panel</a></li>
+                        <li><a href="#monitor-web">8. Web Monitor &amp; Server</a></li>
+                        <li><a href="#monitor-web-accesso-remoto">↳ 8.3 Távoli hozzáférés offline módban</a></li>
+                    </ul>
+                </div>
+
+                <div class="index-section">
+                    <h3>II. rész – Beállítások panelek</h3>
+                    <ul>
+                        <li><a href="#impostazioni-generale">9. Általános</a></li>
+                        <li><a href="#impostazioni-congregazioni">10. Gyülekezetek</a></li>
+                        <li><a href="#impostazioni-adunanze">11. Összejövetelek (összejövetel-indítási időzítő)</a></li>
+                        <li><a href="#impostazioni-schermo">12. Képernyő</a></li>
+                        <li><a href="#impostazioni-media">13. Átlag</a></li>
+                        <li><a href="#impostazioni-zoom">14. Zoom</a></li>
+                        <li><a href="#impostazioni-connessioni">15. Kapcsolat és szerver</a></li>
+                        <li><a href="#server-web-remoto">↳ 15.2 Távoli webszerver</a></li>
+                        <li><a href="#impostazioni-registrazioni">16. Felvételek</a></li>
+                        <li><a href="#impostazioni-backup">17. Offline csomagok és biztonsági mentések</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ULTIME NOVIT&#192; -->
+        <div class="news-preview" id="novita">
+            <div class="news-preview-title">
+                <h2 style="margin: 0;">Új 4.0</h2>
+                <span class="news-preview-badge">4.0.0 verzió</span>
+            </div>
+            <div class="news-preview-content">
+                <h3>Gyors áttekintés az újdonságokról</h3>
+                    <p>
+                        A JW Time 4.0 számos új funkciót tartalmaz. Itt csak egy összefoglalót talál, amely útmutatást nyújt Önnek; a panelt <strong>Újdonságok</strong> az alkalmazáson belül és a dedikált oldalon a teljes részletet tartalmazzák.
+                    </p>
+                    <ul>
+                        <li>Kezdeti varázsló, gyülekezeti profilok és átszervezett felület.</li>
+                        <li>Médiaablak hivatalos tartalommal, letöltésekkel, helyi gyorsítótárral és háttérzenével.</li>
+                        <li>Nyilvános képernyő, testreszabható Időzítő képernyő és frissített üzenetkezelés.</li>
+                        <li>Webmonitor helyi vezérléssel, QR és ideiglenes távoli hozzáféréssel videokonferenciákhoz.</li>
+                    </ul>
+
+                <a href="news.html" class="btn btn-gray" style="margin-top: var(--spacing-lg);">
+                    Fedezze fel az összes hírt →
+                </a>
+            </div>
+        </div>
+
+        <!-- PRIMO AVVIO GUIDATO -->
+        <div class="content-section-header" id="primo-avvio-guidato">
+            <h2 style="font-size: 2rem; margin: 0 0 var(--spacing-xl) 0; color: var(--text-primary);">Első irányított indítás</h2>
+
+            <div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap;">
+                <div style="flex: 1 1 320px; min-width: 0;">
+                    <p>
+                        Az első indításkor a JW Time egy varázslót jelenít meg, amely összegyűjti az alapvető beállításokat az alkalmazás megnyitása előtt. Ez a javasolt útvonal egy új telepítéshez, mert így elkerülhető, hogy azonnal meg kell keresni az egyes opciókat a beállítási paneleken.
+                    </p>
+                    <ul class="manual-section">
+                        <li><strong>Nyelv és formátum</strong>: válassza ki az interfész nyelvét, a program nyelvét és az időformátumot.</li>
+                        <li><strong>Gyülekezet</strong>: beállítja a kezdeti profil nevét, hasznos, ha a jövőben több profilt kezel.</li>
+                        <li><strong>Összejövetelek</strong>: az automatikus visszaszámlálás napjait és kezdési időpontjait jelzi.</li>
+                        <li><strong>Találkozói lehetőségek</strong>: szükség esetén aktiválja az időtartam-adaptációt és az automatikus szünetet a részek között.</li>
+                        <li><strong>Képernyők</strong>: konfigurálja az Időzítő képernyőt és a Nyilvános képernyőt a megfelelő monitorokon.</li>
+                    </ul>
+                    <p>
+                        A varázsló végén megnyithatja a JW Time fájlt, és csak a fejlettebb beállításokat végezheti el, mint például a média, a webszerver, a felvételek és a biztonsági mentés.
+                    </p>
+                </div>
+                <figure style="flex: 0 0 38%; min-width: 280px; max-width: 520px; margin: 0 0 0 auto; align-self: flex-start;">
+                    <img src="../images/manual/hu/primo-avvio-guidato-v4.png"
+                         alt="JW Time Első rendszerindítási varázsló"
+                         class="manual-image">
+                </figure>
+            </div>
+        </div>
+
+        <!-- CONTROLLO RAPIDO -->
+        <div class="content" id="controllo-rapido">
+            <h2>Gyors ellenőrzés, ha kihagyja a varázslót <a href="#indice" class="back-to-index-link">↑ Index</a></h2>
+
+            <p>
+                Ha bezárja vagy kihagyja a varázslót, manuálisan konfigurálhatja a lényeget a Beállításokban és a főablakban. Ez az ellenőrző lista gyors ellenőrzésként is szolgál az összejövetel előtt.
+            </p>
+
+            <ol class="manual-section">
+                <li style="margin-bottom: var(--spacing-lg);">
+                    <h3 style="color: var(--text-secondary);">Nyelv, profil és program</h3>
+                    <p>
+                        Ugrás ide <a href="#impostazioni-generale">9. szakasz · Általános</a> nyelv és időformátum esetén, majd a
+                        <a href="#impostazioni-congregazioni">10. szakasz · Gyülekezetek</a> , ha profilt kell létrehoznia vagy ki kell választania. Ellenőrizze, hogy a betöltött ütemterv megfelel-e a kívánt hétnek és nyelvnek.
+                    </p>
+                </li>
+                <li style="margin-bottom: var(--spacing-lg);">
+                    <h3 style="color: var(--text-secondary);">Időzítő képernyő és nyilvános képernyő</h3>
+                    <p>
+                        Be <a href="#impostazioni-schermo">12. szakasz · Képernyő</a> válassza ki a megfelelő monitorokat, és aktiválja a használni kívánt ablakokat. Az Időzítő képernyő megjelenésének megváltoztatásához lásd: <a href="#personalizzare-schermo">5.3 szakasz · Az Időzítő képernyő testreszabása</a>.
+                    </p>
+                </li>
+                <li style="margin-bottom: var(--spacing-lg);">
+                    <h3 style="color: var(--text-secondary);">Média és tartalom</h3>
+                    <p>
+                        Nyissa meg a <a href="#finestra-media">4. szakasz · Médiaablak</a> a hét dalainak, videóinak és képeinek megtekintéséhez. A gyorsítótár, a minőség és a háttérbeállítások megtalálhatók a <a href="#impostazioni-media">13. szakasz · Média</a>.
+                    </p>
+                </li>
+                <li style="margin-bottom: var(--spacing-lg);">
+                    <h3 style="color: var(--text-secondary);">Időzítők, üzenetek és felvétel</h3>
+                    <p>
+                        A főablak segítségével indíthatja el az időzítőket, küldhet üzeneteket az Időzítő képernyőnak, és nyissa meg a REC panelt. Haz összejöveteleket rögzít, ellenőrizze az első opciókat <a href="#impostazioni-registrazioni">16. szakasz · Felvételek</a>.
+                    </p>
+                </li>
+                <li style="margin-bottom: var(--spacing-lg);">
+                    <h3 style="color: var(--text-secondary);">Webszerver és biztonsági mentés</h3>
+                    <p>
+                        Ha távoli vezérlést, QR vagy böngészőből való megtekintést használ, konfigurálja a <a href="#impostazioni-connessioni">15. szakasz · Kapcsolat és szerver</a>. Hálózat nélküli munkavégzéshez vagy konfigurációk átviteléhez ellenőrizze a <a href="#impostazioni-backup">17. szakasz · Offline csomagok és biztonsági mentések</a>.
+                    </p>
+                </li>
+            </ol>
+        </div>
+
+        <!-- PARTE I - INTERFACCIA E FUNZIONAMENTO -->
+        <div class="content-section-header">
+            <h2 style="font-size: 2rem; margin: 0; color: var(--text-primary);">I. rész · Interfész és működés</h2>
+        </div>
+
+        <!-- 1. SCHERMATA PRINCIPALE -->
+        <div class="content" id="schermata-principale">
+            <h2>1 · Főképernyő <a href="#indice" class="back-to-index-link">↑ Index</a></h2>
+
+            <div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap;">
+                <figure style="flex: 0 0 420px; max-width: 520px; margin: 0 auto;">
+                    <img src="../images/manual/hu/schermata-principale-v4-annotata-real.png"
+                         alt="JW Time főképernyő számozott területekkel"
+                         class="manual-image">
+                </figure>
+                <div style="flex: 1 1 320px; min-width: 0;">
+                    <p>
+                        A fő képernyő az alkalmazás szíve. Innen elindíthatja, kezelheti és figyelheti az összes összejövetel-időzítőt, megtekintheti a legfontosabb információkat, például az aktuális rész címét, az órát és a hátralévő időt, valamint ellenőrizheti a fontos üzeneteket és értesítéseket.
+                    </p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: var(--spacing-2xl); color: white;">Fő területek</h3>
+
+            <!-- Grid delle aree principali -->
+            <div class="news-cards-grid" style="margin-top: var(--spacing-xl);">
+                <div class="news-card">
+                    <h4 style="color: var(--text-secondary);">1.1 · Alkatrész címe és óra</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/hu/area-1-titolo-orologio-v4.png"
+                             alt="1. terület – Alkatrész címe és óra/idő számláló"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        A felső sorban az éppen folyamatban lévő rész címe, alatta pedig az óra alatt az aktuális idővel, illetve időzítő indításakor a hátralévő idő visszaszámlálása látható. A 12 órás formátumban az AM/PM utótag kisebb méretben is megjelenik az olvashatóság javítása érdekében.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: var(--text-secondary);">1.2 · Időzítő táblázat</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/hu/area-2-tabella-timer-v4.png"
+                             alt="2. terület – Találkozó időzítő táblázat"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Felsorolja az összejövetel napirendjét (cím, időtartam, állapot). A tartalom a kiválasztott nap alapján automatikusan betöltődik: az alkalmazás felismeri, hogy hétközi vagy hétvégi összejövetelről van-e szó, és a megfelelő ütemtervet javasolja. A gombok és műveletek részletes leírását lásd <a href="#manipolazione-timer">3. szakasz · Időzítők kezelése</a>.
+                    </p>
+                    <p>
+                        Ha aktív <strong>Befejezés oszlop megjelenítése</strong> az általános beállításoknál a táblázat azt is mutatja, hogy az aktuális és az azt követő részek mikor érnek véget. Ez nem egy rögzített ütemterv szerinti idő: ez egy valós időben frissített előrejelzés az aktuális idő, a hátralévő időzítők és az esetleges felhalmozott eltérések alapján.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: var(--text-secondary);">1.3 · Becsült befejezési idő</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/hu/area-3-orario-fine-v4.png"
+                             alt="3. terület – Becsült befejezési idő és eltérés"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Az ütemterv szerinti várható zárási időt mutatja. Megjelenik mellette <em>eltérés</em>:<br>
+                        +m:ss (sárga 1'-en belül, piros azon túl) = késés<br>
+                        −m:ss (zöld) = előrelépés<br>
+                        Az idő és az indikátor valós időben frissül. Ha az adaptív bibliatanulmányozás és/vagy az adaptív Őrtorony-tanulmány aktív, az időtartamokat a rendszer újraszámolja, hogy beleférjenek a befejezési időbe.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: var(--text-secondary);">1.4 · Szünet/előadóváltási idő</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/hu/area-4-tempo-pausa-v4.png"
+                             alt="4. terület – Szünetidő és előadócsere"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Kumulatív számláló <strong>óó:pp:pp</strong> technikai szünetek/előadóváltás: hozzáadja az időzítő szüneteltetésének idejét. A szünet alatt a részidőzítő leállítva marad, miközben ez a számláló nő. Az indikátorra kattintva visszaállítja a végösszeget.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: var(--text-secondary);">1.5 · Fő időzítő kezelőgombok</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/hu/area-5-tasti-principali-v4.png"
+                             alt="5. terület – Fő időzítő kezelőgombok"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Vezérlők az időzítők indításához, leállításához és kezeléséhez: Stop (piros), Szünet és Indítás/Következő (zöld). A Szünet gomb szünetelteti a részidőzítőt (a számlálás leállítva marad), miközben a szünet/előadóváltás ideje tovább növekszik. A szünetből való kilépéshez nyomja meg ismét a Szünet gombot, vagy lépjen a következő részre a Start/Next gombbal: a felhalmozott időt rögzíti az 1.4. pontban említett számláló.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: var(--text-secondary);">1.6 · Hírek (kommunikáció)</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/hu/area-6-notizie-v4.png"
+                             alt="6. terület – Hírek panel a főképernyőn"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Ha az alkalmazással kapcsolatban hivatalos kommunikáció történik, a Kezdőképernyőn megjelenik egy „Hírek” mező/figyelmeztetés. Ha rákattint, megnyílik a frissítés összefoglalóját tartalmazó panel.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: var(--text-secondary);">1.7 · Gyorseszközök</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/hu/area-7-strumenti-v4.png"
+                             alt="7. terület – Gyorseszközök a főképernyőn"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Gyorsgombok a beállítások megnyitásához, az ablak kicsinyítéséhez vagy visszaállításához, valamint a súgó eléréséhez. El vannak választva az üzemmódoktól, hogy az alsó sor tisztább legyen.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: var(--text-secondary);">1.8 · Üzemmódok</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/hu/area-8-modalita-v4.png"
+                             alt="8. terület - Média, Program, Üzenet és REC üzemmód"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Innen átválthat a Média ablakra, a Programkezelésre, az Üzenetekre és a REC panelre. A REC melletti fekete pont a felvétel állapotát jelzi.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. PROGRAMMA E SCALETTE -->
+        <div class="content" id="navigazione-settimanale">
+            <h2>2 · Program és ütemtervek <a href="#indice" class="back-to-index-link">↑ Index</a></h2>
+
+            <p>
+                Ez a rész bemutatja, hogyan töltheti be a megfelelő heti ütemtervet, hogyan hozhat létre kézi ütemtervet, ha szükséges, és hogyan lépkedhet gyorsan az előző, az aktuális és a következő hetek között.
+            </p>
+
+            <p>
+                Alapértelmezés szerint az alkalmazás automatikusan betölti az aktuális heti ütemtervet: a hétköznapi ütemtervet hétfőtől péntekig és a hétvégi ütemtervet szombaton és vasárnap.
+            </p>
+
+            <div class="image-container">
+                <img src="../images/manual/hu/navigazione-settimanale-v4.png"
+                     alt="JW Time programpanel a hetek közötti navigációval"
+                     class="manual-image">
+            </div>
+
+            <!-- 2.1 Programmazione automatica - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3 style="color: var(--text-secondary);">2.1 · Automatikus programozás</h3>
+                <ol class="manual-section">
+                    <li>Hétközi: a hétközi ütemterv betöltése.</li>
+                    <li>Hétvége: töltse fel a szombat/vasárnapi ütemtervet, kérje a nyilvános beszéddalt.</li>
+                </ol>
+            </div>
+
+            <!-- 2.2 Scorrimento settimane - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>2.2 · Hétválasztó és naptár előnézet</h3>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <p>
+                            A gomb <strong>hét
+A</strong> mindig a tartományt mutatja (pl. "Hét: okt. 20-26.") az aktuális héttől való eltolást jelző jelvénnyel (0, +1, -2 stb.). Egy kattintással megnyílik a kompakt naptár, és közvetlenül a kívánt hétre ugorhat anélkül, hogy többször át kellene görgetnie az Előző/Következő gombokat.
+                        </p>
+                        <ul class="manual-section">
+                            <li>Azonnali jelvény: értse meg, hogy a jelenlegi, a jövőbeli vagy az elmúlt hetet nézi-e.</li>
+                            <li>Heti naptár: válassza ki a heteket közvetlenül, praktikus módon.</li>
+                        </ul>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/hu/navigazione-settimanale-pannello-v4.png"
+                             alt="A hét részlete választó"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 2.3 Visita SC - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>2.3 · Látogassa meg az SC-t</h3>
+                <p>
+                    A gomb <strong>Látogassa meg az SC-t
+A</strong>, amely a Hét választó és a Betöltés tartalékból között található, átalakítja a ütemtervet, amikor a körzetfelvigyázó meglátogatja. Megnyomásakor a gomb világít (BE), és az alkalmazás automatikusan előkészíti a látogatáshoz szükséges speciális részeket.
+                </p>
+                <ul class="manual-section">
+                    <li><strong>Hétközi összejövetel</strong>: A gyülekezeti bibliatanulmányozás egy 30 perces rögzített szegmenssé alakul, „SC látogatás” címmel.</li>
+                    <li><strong>Hétvége</strong>: Az Őrtorony-tanulmányozás után egy dedikált bejegyzést adunk hozzá, és az időtartamokat a záróidőhöz igazítják.</li>
+                    <li>Dedikált színek és figyelmeztetések: a Visit SC vonal felveszi a saját palettáját, és előkészíti az adott végső dalt.</li>
+                    <li>Gyors deaktiválás: a kapcsoló kikapcsolásával a táblázat azonnal visszatér a normál felálláshoz anélkül, hogy a többi változtatás elveszne.</li>
+                </ul>
+            </div>
+
+            <!-- 2.4 Carica da backup - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>2.4 · Betöltés biztonsági másolatból</h3>
+                <p>
+                    A gomb <strong>Betöltés a biztonsági másolatból
+A</strong> megnyitja a helyileg mentett csomagok listáját, dátum, összejövetel típusa és nyelv szerint rendezve. Ideális offline munkavégzéshez vagy a már előkészített programok másik számítógépre való visszaállításához.
+                </p>
+                <ul class="manual-section">
+                    <li>Részletes lista: minden sorban megjelenik a hét kezdési dátuma, típusa (Hétközi/Hétvége) és nyelv.</li>
+                    <li>Biztonságos betöltés: A csomagok ellenőrzése és alkalmazása közvetlenül az aktuális táblára történik.</li>
+                    <li>Üzenetek törlése: ha nincs elérhető biztonsági másolat, az alkalmazás azonnal figyelmeztetést jelenít meg.</li>
+                </ul>
+            </div>
+
+            <!-- 2.5 Modalit&#224; Manuale - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>2.5 · Kézi lista mód</h3>
+                <p>
+                    A kézi ütemterv akkor hasznos, ha az ütemterv nem a heti program alapján készül, vagy ha különleges program összeállítására van szükség. A dedikált szerkesztőablakon keresztül bejegyzéseket hozhat létre vagy szerkeszthet, beállíthatja a típust, a címet és az időtartamot, és elmentheti az eredményt későbbi felhasználásra.
+                </p>
+                <div class="image-container" style="margin-top: var(--spacing-md);">
+                    <img src="../images/manual/hu/programma-manuale-pannello-v4.png"
+                         alt="Program panel Kézi módban Mentés, Betöltés és Ürítés listával"
+                         class="manual-image">
+                </div>
+
+                <h4 style="color: var(--text-secondary);">2.5.1 · Kézi panel</h4>
+                <ul class="manual-section">
+                    <li><strong>Kézi</strong>: aktiválja a testreszabott ütemtervet és megjeleníti a dedikált parancsokat a programválasztó alatt.</li>
+                    <li><strong>Kézi ütemterv mentése</strong>: exportálja az aktuális ütemtervet egy fájlba, hogy újra felhasználja vagy átvigye egy másik számítógépre.</li>
+                    <li><strong>Kézi lista betöltése</strong>: importáljon egy mentett listát, és frissítse a hivatkozott táblázatot, az Időzítő képernyőt és a médiát.</li>
+                    <li><strong>Üres lista</strong>: Törli az aktuális heti kézi listát, és eltávolítja a piszkozathoz kapcsolódó manuális adathordozókat is.</li>
+                </ul>
+
+                <h4 style="color: var(--text-secondary);">2.5.2 · Létrehozása és mentése</h4>
+                <ul class="manual-section">
+                    <li>Aktiválja a kézi üzemmódot a Program panelen.</li>
+                    <li>Használjon táblázatparancsokat sorok hozzáadásához, törléséhez vagy átrendezéséhez; szükség esetén a JW Time megnyitja a bejegyzésszerkesztő ablakot.</li>
+                    <li>Mentse el a listát, ha egy másik alkalommal meg szeretné tartani.</li>
+                </ul>
+                <p>
+                    Mentéskor a JW Time megkérdezi, hogy mit vegyen fel a fájlba <code>.jwtimeplan</code>. Válassza a <strong>Kézi program ütemterv + média</strong> lehetőséget, ha helyi fájlokat, URL-eket és csoportokat is szeretne átvinni a Média ablakból. Válassza a <strong>Csak kézi program ütemterv</strong> lehetőséget, ha csak a címeket és időtartamokat tartalmazó ütemtervre van szüksége.
+                </p>
+                <div class="image-container" style="margin-top: var(--spacing-md);">
+                    <img src="../images/manual/hu/programma-manuale-salvataggio-popup-v4.png"
+                         alt="Kézi programmentés felugró ablak, ahol választhat az átlagot és az időt tartalmazó program között"
+                         class="manual-image"
+                         style="max-width: 900px;">
+                </div>
+
+                <h4 style="color: var(--text-secondary);">2.5.3 · Lista újratöltése vagy ürítése</h4>
+                <ul class="manual-section">
+                    <li>Használja a <strong>Kézi ütemterv betöltése</strong> parancsot a mentett ütemterv visszatöltéséhez.</li>
+                    <li>Ha a lista szabványos dalként vagy részként felismert sorokat tartalmaz, a JW Time egységes színeket és viselkedést alkalmaz.</li>
+                    <li>A csatolt ablakok a betöltés után frissülnek, így az Időzítő képernyő és az átlag a táblázathoz igazodva marad.</li>
+                    <li>Használja az <strong>Üres lista</strong> parancsot, ha ugyanazon a héten üres ütemtervről szeretne újraindítani.</li>
+                </ul>
+
+                <h4 style="color: var(--text-secondary);">2.5.4 · Csatlakoztatott adathordozó</h4>
+                <p>
+                    Amikor médiát társít egy kézi listához, a mentés és a betöltés fenntartja a hivatkozást az előkészített programhoz. Ez hasznos lehet rendkívüli összejövetelek, helyi gyűlések vagy olyan programok esetében, amelyek nem követik a szokásos hetet.
+                </p>
+                <p>
+                    Ha egy fájl már nem érhető el, az alkalmazás értesíti Önt, amikor megnyitja vagy használja a Médiaablakot, így az összejövetel előtt lecserélheti.
+                </p>
+                <p>
+                    Ének hozzáadásához használja a beszúrási menüt, és válassza ki az énekekhez rendelt elemet. Így a JW Time helyesen rögzíti az ének számát, összekapcsolja az elérhető médiát, és az Időzítő képernyő hozzáigazítja a kijelzőt anélkül, hogy kézzel kellene beírnia a címet a sorba.
+                </p>
+            </div>
+        </div>
+
+        <!-- 3. MANIPOLAZIONE TIMER -->
+        <div class="content" id="manipolazione-timer">
+            <h2>3 · Időzítők kezelése <a href="#indice" class="back-to-index-link">↑ Index</a></h2>
+
+            <p>
+                Ez a szakasz az alapvető időzítő kezelési műveleteket – például bejegyzések hozzáadását, szerkesztését vagy törlését – és az indítási, ugrási és visszaállítási parancsok használatát ismerteti.
+            </p>
+
+            <!-- 3.1 Operazioni principali - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>3.1 · Fő műveletek</h3>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <ol class="manual-section">
+                            <li>Vonalmenü: nyissa meg a jobb oldalon lévő három pontot a kiválasztott részen elérhető műveletekhez.</li>
+                            <li>A menüből elindíthatja a sort, vagy léphet a következőre, felvehet egy sort alá vagy fölé, sokszorosíthatja, visszaállíthatja vagy törölheti.</li>
+                            <li>A parancsok <strong>Sor hozzáadása a fentihez</strong> e <strong>Sor hozzáadása alább</strong> nyisson meg egy almenüt a gombbal <em>Dal</em>, <em>Rész/Beszéd</em> e <em>Tanács</em>.</li>
+                            <li>Cím/időtartam szerkesztése: kattintson duplán a cellára, majd erősítse meg.</li>
+                            <li>Formátumok Időtartam: 5 → 5:00, 1:30 → 1:30 perc.</li>
+                            <li>Indítás és előrehaladás:
+                                <ul>
+                                    <li><strong>Kezdősor</strong> elindítja a kiválasztott részt.</li>
+                                    <li>Amikor egy sor folyamatban van, a parancs a következő lesz <strong>Ugrás a következőre</strong>.</li>
+                                    <li>Stop/Pause kezelheti a futási időzítőt az alsó sávról.</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                    <figure style="flex: 0 0 50%; min-width: 320px; max-width: 640px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/hu/manipolazione-operazioni-v4.png"
+                             alt="Fő műveletek az időzítőkön"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 3.2 Aggiornamenti in tempo reale - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>3.2 · Valós idejű frissítések</h3>
+                <p>
+                    Az időzítő folyamatosan frissül: a felső visszaszámláló az aktív rész hátralévő idejét mutatja, míg a megfelelő sor kiemelve marad a táblázatban. A felső sáv színe az aktuális rész színét tükrözi.
+                </p>
+                <div class="image-container" style="margin-top: var(--spacing-md);">
+                    <img src="../images/manual/hu/timer-aggiornamento-riga-attiva-v4.png"
+                         alt="Aktív sor kiemelve az időzítő táblázatban"
+                         class="manual-image">
+                </div>
+                <p style="margin-top: var(--spacing-lg);">
+                    Ha módosít egy időtartamot, vagy továbblép a következő részre, a Becsült befejezési idő azonnal újraszámításra kerül. Ez lehetővé teszi az elvezetés/késleltetés deltáját és a szünetek vagy a előadóváltások felhalmozott idejét a többi panel kinyitása nélkül.
+                </p>
+                <div class="image-container" style="margin-top: var(--spacing-md);">
+                    <img src="../images/manual/hu/timer-aggiornamento-orario-fine-v4.png"
+                         alt="A becsült befejezési idő, delta és szünetidő valós időben frissítve"
+                         class="manual-image">
+                </div>
+            </div>
+
+            <!-- 3.3 Regolazione automatica - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>3.3 · Automatikus beállítás – Bibliatanulmányozás és Őrtorony-tanulmányozás</h3>
+
+                <p>
+                    Ha az Adaptív Bibliatanulmányozás és/vagy az Adaptív Őrtorony-tanulmány engedélyezve van a Beállításokban, az alkalmazás dinamikusan módosítja a kiválasztott rész időtartamát, hogy fenntartsa az összejövetel zárási idejét. A beállítás csak az aktív opcióval rendelkező részeket érinti, és automatikusan növelheti vagy csökkentheti a perceket a felhalmozott időbeli előny/késés alapján. A képen az érintett sor el van különítve, és a beállított érték narancssárgával van kiemelve, így azonnal látható, hogy melyik időzítőt korrigálták. Manuálisan mindig beavatkozhat: az adaptív az új helyzetből kiindulva újraszámol.
+                </p>
+                <div class="image-container" style="margin-top: var(--spacing-md);">
+                    <img src="../images/manual/hu/manipolazione-regolazione-v4.png"
+                         alt="Az adaptív időzítők automatikus beállítása"
+                         class="manual-image">
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. FINESTRA MEDIA -->
+        <div class="content" id="finestra-media">
+            <h2>4 · Médiaablak <a href="#indice" class="back-to-index-link">↑ Index</a></h2>
+
+            <p>
+                A Média ablak összegyűjti a héthez kapcsolódó tartalmakat: dalokat, videókat, képeket és hasznos hivatkozásokat a részhez. Segíthet a kezelőnek előkészíteni az összejövetelt, ellenőrizni a rendelkezésre álló tartalmat, és szükség esetén elindítani.
+            </p>
+            <p>
+                <strong>Megjegyzés a használathoz:</strong> a Média ablak támogatási eszközt kínál a kezelőnek a már elérhető multimédiás tartalmak előkészítéséhez, vezérléséhez és kezeléséhez. Gyakorlati felhasználása a helyi igényektől függ, és mindig a gyülekezet jelzéseivel és az előírásokkal összhangban kell történnie. Technikai igény esetén biztonsági mentési vagy mentési megoldásként is használható.
+            </p>
+
+            <div style="display: flex; gap: var(--spacing-xl); align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-xl);">
+                <figure style="flex: 0 1 380px; max-width: 420px; margin: 0;">
+                    <img src="../images/manual/hu/media-window-v4-annotata-real.png"
+                         alt="JW Time 4.0 médiaablak a fő területek számozásával"
+                         class="manual-image"
+                         style="width: 100%; height: auto; display: block;">
+                </figure>
+
+                <div style="flex: 1 1 360px; min-width: 280px; display: grid; gap: var(--spacing-md);">
+                    <div class="news-card">
+                        <h4 style="color: var(--text-secondary);">4.1 · Értesítési és médiarészek</h4>
+                        <p>
+                            Az 1. terület azt jelzi, ha a hét hivatalos médiája még nem érhető el offline módban. Letöltheti őket most vagy elhalaszthatja. Ugyanez a viselkedés automatizálható a beállításokból
+                            <a href="#impostazioni-media">13. szakasz · Média</a>, aktiválja a hivatalos média automatikus letöltését. Az értesítés alatt az ütemterv részeit találja, színes címmel, tételszámlálóval és gyorsparancsokkal.
+                        </p>
+                        <p>
+                            <strong>Megjegyzés:</strong> A hivatalos média letöltéséhez a hálózatnak engedélyeznie kell a JW Time hozzáférést a jw.org-hoz és a médiaforrásokhoz. A programokhoz bevezetett alternatív letöltés a médiához nem érhető el. Ha az útválasztók, tűzfalak, DNS vagy tartalomszűrők blokkolják a vallási oldalakat vagy a JW Time hozzáférést, előfordulhat, hogy a hivatalos média nem tölthető le; ebben az esetben használhatja a már offline állapotban lévő médiát, vagy manuálisan adhat hozzá helyi fájlokat.
+                        </p>
+                    </div>
+                    <div class="news-card">
+                        <h4 style="color: var(--text-secondary);">4.2 · Tartalomjegyzék</h4>
+                        <p>
+                            A 2. terület füleket tartalmaz előnézettel, címmel, hivatkozással és indítógombbal. A színek megegyeznek az ütemterv területeivel, így gyorsan megtalálhatja a részhez kapcsolódó énekeket, képeket, videókat és hivatkozásokat.
+                        </p>
+                        <p>
+                            A helyi menüből manuálisan megjelölhet egy elemet használtként vagy nem használtként. Ha az opció
+                            <strong>Csillapítja a már használt médiát
+A</strong> aktív, a már használt tartalmak diszkrétebb stílussal felismerhetők maradnak. A hivatalos video-, hang- és képek kiválasztására szolgáló ablakok a módot is tartalmazzák <strong>Globális</strong>, akkor hasznos, ha az aktuális kategórián kívül kell keresni.
+                        </p>
+                    </div>
+                    <div class="news-card">
+                        <h4 style="color: var(--text-secondary);">4.3 · Alsó sáv</h4>
+                        <p>
+                            A 3. terület a Media ablak gyorsparancsait gyűjti össze: letöltött tartalom, előnézet, szinkronizálás, háttér és dedikált beállítások. Alul marad, hogy akkor is elérhető legyen, ha a lista hosszú.
+                        </p>
+                    </div>
+                    <div class="news-card">
+                        <h4 style="color: var(--text-secondary);">4.4 · Vezérlők Zoom</h4>
+                        <p>
+                            A 4. terület a Media ablak Zoom parancsait gyűjti össze. Azok számára készültek, akik videokonferencián keresztül is megjelenítik a médiát, és a helyiség monitorán a nyilvános képernyővel dolgoznak.
+                        </p>
+                        <ul class="manual-section">
+                            <li><strong>Megosztás</strong>: A konfigurált parancsikont elküldi a megosztás elindításához vagy leállításához a Zoom címre.</li>
+                            <li><strong>Zoom megjelenítése/elrejtése</strong>: a előadók vagy a Zoom ablak megjelenítésére szolgál a nyilvános monitoron. A JW Time ideiglenesen elrejti a Nyilvános képernyőt, és láthatja, mi van alatta: ezért a Zoom előadóablakának vagy a Zoom duplikált képernyőjének már a gomb megnyomása előtt el kell helyezkednie a Nyilvános képernyő mögött.</li>
+                            <li><strong>Zoom Auto</strong>: aktiválja a munkamenet Zoom automatizálását. Amikor elindít egy adathordozót, a JW Time automatikusan elküldheti a megosztási parancsikont, és ha be van állítva, leállíthatja a végén.</li>
+                        </ul>
+                        <p>
+                            A billentyűk használata előtt konfiguráljon egy globális képernyőmegosztási parancsikont a Zoom mappában, és írja be ugyanazt a kombinációt a <a href="#impostazioni-zoom">14. szakasz · Zoom</a>. Ha a két parancsikon nem egyezik, a JW Time elküldi a parancsot, de a Zoom nem reagál a várt módon.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>4.5 · Előzetes összejövetel és háttérzene</h3>
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 280px; min-width: 0;">
+                        <p>
+                            A panel <strong>Háttér
+A</strong> kezeli a zenét az összejövetel előtt, és ha be van állítva, az összejövetel után is, anélkül, hogy összekeverné a médiával az ütemtervben. Lejátszás közben mutatja az aktuális dalt, a következő dalt, a lejátszási előrehaladást és az időtartamot.
+                        </p>
+                        <p>
+                            Elindíthatja, szüneteltetheti, ugorhat az előző vagy következő dalra, aktiválhatja a véletlenszerű lejátszást és megnyithatja a lejátszási listát. A zenei beállításokat, beleértve az automatikus viselkedést és az elhalványulást is, a panelről konfigurálhatja
+                            <a href="#impostazioni-media">13. szakasz · Média</a>.
+                        </p>
+                    </div>
+                    <figure style="flex: 0 0 48%; min-width: 320px; max-width: 680px; margin: 0;">
+                        <img src="../images/manual/hu/media-window-musica-v4-real.png"
+                             alt="Találkozás előtti zenei panel a Média ablakban"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. SCHERMI -->
+        <div class="content" id="schermi-contatempo-pubblico">
+            <h2>5 · Nyilvános képernyő és Időzítő képernyő <a href="#indice" class="back-to-index-link">↑ Index</a></h2>
+
+            <p>
+                JW Time 4.0 szétválasztja a nézeteket: lo
+A <strong>Nyilvános képernyő</strong> a helyiség számára látható tartalomhoz használatos, miközben az
+A <strong>Időzítő képernyő</strong> továbbra is azoknak szól, akik követik az időket.
+            </p>
+
+            <!-- 5.1 Schermo Pubblico - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h4 style="color: var(--text-secondary);">5.1 · Nyilvános képernyő</h4>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 260px; min-width: 0;">
+                        <p>
+                            A Nyilvános képernyő egy külön ablakban megjeleníti a visszaszámlálást, az üdvözlő üzenetet, az évszámot, a logót és a vizuális tartalmat.
+                        </p>
+                        <ul class="manual-section">
+                            <li><strong>Az összejövetel előtt</strong>: A visszaszámlálást és a beállított szöveget mutatja.</li>
+                            <li><strong>Az összejövetel alatt</strong>: elérhető maradhat nyilvános tartalmak vagy dedikált jelenetek számára.</li>
+                            <li><strong>Beállítások</strong>: a monitor, az üzenet, a visszaszámlálás, a logó és az elrendezés a <a href="#impostazioni-adunanze">11. szakasz · Összejövetelek</a> és a <a href="#impostazioni-schermo">12. szakasz · Képernyő</a>.</li>
+                        </ul>
+                    </div>
+                    <figure style="flex: 0 0 48%; min-width: 320px; max-width: 620px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/hu/schermo-pubblico-v4.png"
+                             alt="Nyilvános képernyő visszaszámlálással és üzenettel"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 5.2 Schermo Contatempo esterno - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h4 style="color: var(--text-secondary);">5.2 · Időzítő képernyő</h4>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 260px; min-width: 0;">
+                        <p>
+                            Az Időzítő képernyőn látható az óra, a folyamatban lévő rész visszaszámlálása, a előadó üzenetei és az időkezeléshez kapcsolódó állapotok. Ez a legalkalmasabb kilátás pódiumra, elnökre vagy időmunkások számára.
+                        </p>
+                        <ul class="manual-section">
+                            <li>Megjelenítés a kiválasztott monitoron vagy szabad ablakon.</li>
+                            <li>Aktuális részidőzítő és környezeti információk.</li>
+                            <li>A főablakból küldött teljes vagy részleges képernyős üzenetek.</li>
+                        </ul>
+                        <p>
+                            Az elrendezés testreszabását a cikk külön tárgyalja <a href="#personalizzare-schermo">5.3 szakasz · Az Időzítő képernyő testreszabása</a>, így a képernyő napi használata külön marad a grafikus beállításoktól.
+                        </p>
+                    </div>
+                    <figure style="flex: 0 0 48%; min-width: 320px; max-width: 620px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/hu/schermo-contattempo-v4.png"
+                             alt="Időzítő képernyő a külső monitoron"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5.3 PERSONALIZZARE LO SCHERMO CONTATEMPO -->
+        <div class="content" id="personalizzare-schermo">
+            <h2>5.3 · Az Időzítő képernyő testreszabása <a href="#indice" class="back-to-index-link">↑ Index</a></h2>
+
+            <p>
+                Az Időzítő képernyő a gombbal testreszabható <strong>Testreszabás</strong> a <a href="#impostazioni-generale">9. szakasz · Általános</a>.
+            </p>
+            <p>
+                Kiindulhat egy már rendelkezésre álló előre beállított beállításból, vagy igény szerint módosíthatja az elrendezést. A Nyilvános képernyőnek saját beállításai vannak a <a href="#impostazioni-schermo">12. szakasz · Képernyő</a>; itt az Időzítő képernyő elrendezésére koncentrálunk.
+            </p>
+
+            <figure style="margin: var(--spacing-xl) auto; max-width: 720px;">
+                <img src="../images/manual/hu/personalizzazione_schermo_contatempo_base-v4.png"
+                     alt="Időzítő képernyő testreszabási szerkesztő"
+                     class="manual-image">
+            </figure>
+
+            <!-- 5.3.1 Partire da un preset -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>Egy előre beállított értéktől kezdve</h3>
+                <p>
+                    A preset egy kezdő elrendezés.
+                </p>
+                <p>
+                    Előbeállítást választhat a <a href="#impostazioni-generale">9. szakasz · Általános</a> és használja úgy, ahogy van, vagy nyissa meg a testreszabási szerkesztőt a módosításához.
+                </p>
+            </div>
+
+            <!-- 5.3.2 Scegliere una scena -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>Válasszon egy jelenetet</h3>
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <p>
+                            Az elrendezés jelenetekbe van rendezve.
+                        </p>
+                        <p>
+                            Minden jelenet egy másik helyzetnek felel meg az Időzítő képernyőn. Ez lehetővé teszi, hogy a megtekintett rész időpontjától vagy típusától függően eltérő elrendezést jelenítsen meg.
+                        </p>
+                        <p>
+                            A változtatások elvégzése előtt mindig ellenőrizze, hogy melyik jelenet van kiválasztva.
+                        </p>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/hu/personalizzazione_schermo_contatempo_base_scena-v4.png"
+                             alt="Jelenet kiválasztása az Időzítő képernyő szerkesztőben"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 5.3.3 Tipi di livello -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>Elérhető szinttípusok</h3>
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 320px; min-width: 0;">
+                        <p>
+                            Amikor megnyomja <strong>+</strong> a Rétegek panelen a JW Time mutatja a jelenethez hozzáadható elemtípusokat. Egyes szintek valós összejöveteladatokat olvasnak, és automatikusan változnak; mások a grafikus elrendezés felépítésére szolgálnak.
+                        </p>
+                        <p>
+                            Nem célszerű az egyes szintek összes tulajdonságát megjeleníteni a kézikönyvben, mert a tulajdonság panel a kiválasztott típustól függően változik. Itt megtudhatja, hogy az egyes szintek mit csinálnak, és mikor kell használni.
+                        </p>
+                    </div>
+                    <figure style="flex: 0 0 42%; min-width: 300px; max-width: 520px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/hu/personalizzazione_schermo_contatempo_livelli-v4.png"
+                             alt="Szint hozzáadása párbeszédpanel az Időzítő képernyőn elérhető elemtípusokkal"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+
+                <h4 style="color: var(--text-secondary); margin-top: var(--spacing-lg);">Fő dinamikus szintek</h4>
+                <ul class="manual-section">
+                    <li><strong>Időzítő</strong>: az aktív rész tempóját mutatja. Beállítható visszaszámlálásként vagy visszaszámlálásként.</li>
+                    <li><strong>Dal</strong>: A dal információinak megjelenítése, ha a jelenet egy dalról szól.</li>
+                    <li><strong>Üzenetek</strong>: a főablakból küldött üzeneteket jeleníti meg teljes képernyős és részleges formátumban is.</li>
+                    <li><strong>Óra</strong>: A digitális időt mutatja.</li>
+                    <li><strong>Analóg óra</strong>: testreszabható grafikus órát ad hozzá.</li>
+                </ul>
+
+                <h4 style="color: var(--text-secondary); margin-top: var(--spacing-lg);">Tájékoztatás az összejövetelről</h4>
+                <ul class="manual-section">
+                    <li><strong>Aktuális rész</strong>: az aktuális rész címét mutatja.</li>
+                    <li><strong>Következő rész</strong>: a következő részt mutatja, amely hasznos a változtatás előkészítéséhez.</li>
+                    <li><strong>Előző rész</strong>: információkat jelenít meg az éppen elkészült részről, amikor az elrendezés megköveteli.</li>
+                    <li><strong>Becsült vége</strong>: Az alkalmazás által kiszámított befejezési időt mutatja.</li>
+                    <li><strong>Késés/korai</strong>: a deltát mutatja a várható időhöz képest.</li>
+                    <li><strong>Tájékoztatás szüneteltetése</strong>: szünetekkel vagy technikai idővel kapcsolatos információkat jelenít meg.</li>
+                    <li><strong>Folyamatjelző sáv</strong>: grafikusan jeleníti meg az idő előrehaladását.</li>
+                </ul>
+
+                <h4 style="color: var(--text-secondary); margin-top: var(--spacing-lg);">Ingyenes grafikus szintek</h4>
+                <ul class="manual-section">
+                    <li><strong>Háttér</strong>: színes mezőt ad hozzá, amely hasznos sávok, kontrasztterületek vagy vizuális tárolók létrehozásához.</li>
+                    <li><strong>Szöveg</strong>: személyre szabott rögzített szöveget ad hozzá.</li>
+                    <li><strong>Kép</strong>: emblémát vagy dekoratív képet ad hozzá.</li>
+                </ul>
+
+                <p>
+                    A szintek <strong>Háttér</strong>, <strong>Szöveg</strong> e <strong>Kép</strong> többször is hozzáadható. A többi szint esetében, ha már létezik azonos típusú elem, a szerkesztő felajánlja, hogy összekapcsolja egy másik jelenettel, vagy szükség esetén hozzon létre egy függetlent.
+                </p>
+            </div>
+
+            <!-- 5.3.4 Modificare il layout -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>Módosítsa az elrendezést</h3>
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <p>
+                            A szerkesztőben módosíthatja a kiválasztott jelenetben jelenlévő szinteket.
+                        </p>
+                        <p>Minden szinten háromféleképpen módosíthatja a pozíciót és a méretet:</p>
+                        <ul class="manual-section">
+                            <li>az egérrel, mozgatva vagy átméretezve a dobozt az előnézetben</li>
+                            <li>a billentyűzettel, a nyilakkal mozgatva</li>
+                            <li>az előnézet alatt látható Pozíció és Méret értékekkel</li>
+                        </ul>
+                        <p>
+                            Az X és Y értékek szabályozzák a réteg pozícióját.<br>
+                            A Width és Alt értékek szabályozzák a réteg méretét.
+                        </p>
+                        <p>Mindezek az értékek százalékban vannak kifejezve.</p>
+                        <p>
+                            A rétegek panelen kezelheti a<strong>halmozási sorrend</strong>: minden réteg lehet a többi felett vagy alatt, meghatározva, hogy átfedés esetén melyik jelenjen meg az előtérben. A sorrendet a listában lévő rétegek húzásával vagy a gombok használatával módosíthatja
+                            <strong>▲</strong> e <strong>▼</strong> alatta.
+                        </p>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/hu/personalizzazione_schermo_contatempo_base_layout-v4.png"
+                             alt="Elrendezés szerkesztése az Időzítő képernyő szerkesztőben"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 5.3.5 Spostare, ridimensionare, valori, salvare -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>Fóliák mozgatása, átméretezése és sorrendje</h3>
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <p>A szint kiválasztása után a következőket teheti:</p>
+                        <ul class="manual-section">
+                            <li>húzza az egérrel, hogy mozgassa az előnézetben</li>
+                            <li>a billentyűzet nyilai segítségével állítsa be a pozícióját (<strong>nyilak</strong>: 0,5% — <strong>Váltás</strong>: 2,0% — <strong>Ctrl</strong>: 0,1%)</li>
+                            <li>húzza át a keret széleit vagy sarkait az átméretezéshez</li>
+                        </ul>
+                        <p>
+                            Az előnézet alatt találhatók a numerikus vezérlők <strong>X</strong>, <strong>Y</strong>, <strong>Szélesség</strong> e <strong>Alt</strong>
+                            a pozíció és a méret pontos beállításához.
+                        </p>
+                        <p>
+                            A változtatások után mentse el az elrendezést és alkalmazza. A szerkesztőt bármikor újra megnyithatja a frissítéshez.
+                        </p>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/hu/personalizzazione_schermo_contatempo_base_trasformazioni-v4.png"
+                             alt="Szintek mozgatása és átméretezése az Időzítő képernyő szerkesztőben"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. GESTIONE MESSAGGI -->
+        <div class="content" id="gestione-messaggi">
+            <h2>6 · Üzenetek kezelése <a href="#indice" class="back-to-index-link">↑ Index</a></h2>
+
+            <p>
+                Az Üzenetek funkció lehetővé teszi, hogy diszkréten és világosan kommunikáljon az előadóval az összejövetel során, így figyelmeztetheti vagy utasításokat adhat neki anélkül, hogy megszakítaná vagy megzavarná a rész előrehaladását. Az üzenetek megjelennek az Időzítő képernyő képernyőn, így a előadó valós időben látja őket, zavaró tényezők nélkül.
+            </p>
+
+            <div class="image-container">
+                <img src="../images/manual/hu/messaggi-elenco-v4.png"
+                     alt="Üzenetkezelő képernyő itt: JW Time"
+                     class="manual-image">
+            </div>
+
+            <!-- 6.1 Messaggio a tutto schermo - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>6.1 · Teljes képernyős üzenet</h3>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <ol class="manual-section">
+                            <li>Kattintson az Üzenet beszúrása feliratú területre.</li>
+                            <li>Írja be a szöveget.</li>
+                            <li>Nyomja meg <strong>Teljes képernyő</strong> → a szöveg teljes képernyőn megjelenik az Időzítő képernyő monitoron.</li>
+                        </ol>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/hu/messaggio-tutto-schermo-v4.png"
+                             alt="Teljes képernyős üzenet"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 6.2 Messaggio a schermo parziale - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>6.2 · Részleges képernyő üzenet</h3>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <ol class="manual-section">
+                            <li>Kattintson az Üzenet beszúrása feliratú területre.</li>
+                            <li>Írja be a szöveget.</li>
+                            <li>Nyomja meg <strong>Részleges képernyő</strong> → a szöveg megjelenik az Időzítő képernyő ablakban anélkül, hogy teljesen letakarná, így a beszélő láthatja az üzenetet és az időzítőt is.</li>
+                        </ol>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/hu/messaggio-parziale-v4.png"
+                             alt="Részleges képernyő üzenet"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 6.3 Mirror Contatempo - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl); ">
+                <h3>6.3 · Időzítő képernyő tükrözése</h3>
+                <p>
+                    Amikor elküld egy üzenetet, automatikusan megjelenik egy átméretezhető és mozgatható előnézeti ablak, amely pontosan megmutatja, mit lát a előadó az Időzítő képernyő monitoron. Ez lehetővé teszi az üzenet és az időzítő kijelzésének valós időben történő ellenőrzését.
+                </p>
+            </div>
+        </div>
+        <!-- 7. PULSANTE REC -->
+        <div class="content" id="rec-button">
+            <h2>7 · REC gomb és felvételi panel <a href="#indice" class="back-to-index-link">↑ Index</a></h2>
+
+            <p>
+                A kulcs
+A <strong>REC</strong> az alsó sávban található az Ütemezés és üzenet mellett. A szöveg melletti pont a felvétel állapotát mutatja (várakozik, aktív, szünetel vagy konvertál MP3), míg a REC panelen a JWTimeREC mappa megnyitása, a kézi felvételek kezelése, valamint a PC és a mikrofon hangszintjei figyelhetők meg.
+            </p>
+
+            <div class="image-container" style="margin-top: var(--spacing-lg);">
+                <img src="../images/manual/hu/REC-v4.png"
+                     alt="A REC gomb és a felvételi panel részlete"
+                     class="manual-image">
+            </div>
+
+            <!-- 7.1 Indicatori di stato - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>7.1 · Gombjelzők és állapotok</h3>
+                <ul class="manual-section">
+                    <li><strong>Várakozás</strong>: a pont szürke marad, és a panel "Várakozás" / "Nincs aktív felvétel" üzenetet küld.</li>
+                    <li><strong>Recording in progress</strong>: a pont pirosan villog, és a panelen a "Felvétel folyamatban" felirat látható a rész címével és időzítőjével.</li>
+                    <li><strong>Szünet</strong>: a pont narancssárgára változik; a regisztráció felfüggesztésre került és folytatható.</li>
+                    <li><strong>Conversion MP3</strong>: a pont kékre vált, és a gomb a fájl exportálásának befejezéséig deaktiválva marad.</li>
+                </ul>
+            </div>
+
+            <!-- 7.2 Controlli rapidi REC - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>7.2 · REC gyorsvezérlők</h3>
+                <p>A REC panel összegyűjti a beállítások megadása nélkül használható vezérlőket:</p>
+                <ul class="manual-section">
+                    <li><strong>Nyissa meg a mappát</strong>: közvetlenül megnyitja a felvételeket tartalmazó JWTimeREC könyvtárat.</li>
+                    <li><strong>Felvétel engedélyezése/letiltása</strong>: a manuális felvétel engedélyezése vagy leállítása a beállítások megadása nélkül.</li>
+                    <li><strong>Szünet/Folytatás</strong>: felvétel közben látható gomb, amellyel ideiglenesen felfüggesztheti a hangot (pl. imák), és ugyanabban a fájlban folytathatja.</li>
+                    <li><strong>Részletek online</strong>: az állapot alatt megjelenik az aktív sor címe és a frissített időtartam.</li>
+                    <li><strong>Automatikus üzenetek</strong>: azonnal jelzi, ha a felvétel le van tiltva, vagy ha konverzió van folyamatban.</li>
+                </ul>
+            </div>
+
+            <!-- 7.3 Area toggle e controlli manuali - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>7.3 · Váltás a hangszintekkel</h3>
+                <p>
+                    Amikor megnyitja a REC-et, az alsó sávban megjelenik egy mindig látható panel a felvétel állapotával és hangmérővel. Itt egyetlen kattintással elindíthatja/leállíthatja a kézi felvételeket, figyelheti a PC/Mic szinteket, és megnyithatja a JWTimeREC mappát.
+                </p>
+            </div>
+        </div>
+
+        <!-- 8. MONITOR WEB -->
+        <div class="content" id="monitor-web">
+            <h2>8 · Web és szerver monitor <a href="#indice" class="back-to-index-link">↑ Index</a></h2>
+
+            <p>
+                Ha a webszerver aktív, böngészőn keresztül megnyithatja ugyanazon a helyi hálózaton lévő másik eszközről. Ez lehetővé teszi az Időzítő képernyő megtekintését külső projektoron, táblagépen vagy számítógépen, és hasznos az elnök számára, aki követi a különböző részek időzítőit.
+            </p>
+
+            <p>A webszerver, a távoli vezérlés, a távoli hivatkozás és a QR teljes konfigurációját lásd <a href="#impostazioni-connessioni">15. szakasz · Kapcsolat és szerver</a>.</p>
+
+            <div class="news-card" id="monitor-web-locale" style="margin-top: var(--spacing-xl);">
+                <h3>8.1 · A Web Monitor megtekintése a helyi hálózaton</h3>
+
+                <div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+                    <div style="flex: 1 1 320px; min-width: 0;">
+                        <p>A böngészőből a következőket teheti:</p>
+                        <ul class="manual-section">
+                            <li>Az időzítő és az Időzítő képernyő megtekintése teljes képernyőn.</li>
+                            <li>Nyomtassa ki az összeállítást.</li>
+                            <li>Az idők előrehaladásának ellenőrzése valós időben.</li>
+                            <li>Távoli műveletek végrehajtása az időzítőn és a programon, ha a távvezérlés engedélyezve van.</li>
+                        </ul>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0 0 0 auto; align-self: flex-start;">
+                        <img src="../images/manual/hu/monitor-web-v4.png"
+                             alt="JW Time webmonitora böngészőből látható"
+                             class="manual-image">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 8.2 Controllo remoto -->
+            <div class="news-card" id="monitor-web-controllo-remoto" style="margin-top: var(--spacing-xl);">
+                <h3>8.2 · Időzítő és program vezérlése a böngészőből</h3>
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <p>
+                            Ha a távoli vezérlés engedélyezve van, az időzítőt és a programot a böngészőből működtetheti anélkül, hogy a fő számítógép előtt lenne.
+                        </p>
+                        <p>Az elérhető műveletek a konfigurált engedélyektől függenek, és a következőket foglalhatják magukban:</p>
+                        <ul class="manual-section">
+                            <li>az időzítő elindítása</li>
+                            <li>szünet és folytatás</li>
+                            <li>megáll</li>
+                            <li>program/ütemterv vezérlése</li>
+                            <li>az ütemtervben elérhető időtartamok vagy értékek módosítása, ha a jogosult szerepkör ezt lehetővé teszi</li>
+                        </ul>
+                        <p>A webszervert megnyithatja az alkalmazásban látható cím megadásával, vagy a QR használatával, ha elérhető.</p>
+                        <p>
+                            A konfigurációtól függően különböző hozzáférési szintek biztosíthatók, például csak megtekintéshez vagy vezérléshez és módosításhoz. Ha be van állítva, a hozzáféréshez PIN szükséges lehet.
+                        </p>
+                        <p>A teljes konfigurációt lásd <a href="#impostazioni-connessioni">15. szakasz · Kapcsolat és szerver</a>.</p>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/hu/monitor-web-editor-v4.png"
+                             alt="Web monitor távoli vezérléssel"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 8.3 Accesso remoto fuori rete -->
+            <div class="news-card" id="monitor-web-accesso-remoto" style="margin-top: var(--spacing-xl);">
+                <h3>8.3 · Távoli hozzáférés a videokonferenciás összejövetelekhez</h3>
+                <p>
+                    Ha az a személy, akinek a JW Time követésére vagy vezérlésére van szüksége, nincs ugyanabban a helyi hálózatban, létrehozhat egy ideiglenes távoli hivatkozást. Ez a forgatókönyv hasznos lehet videokonferenciás összejövetelekhez, távoli segítségnyújtáshoz vagy egy másik hálózathoz csatlakoztatott eszközről történő kezeléshez.
+                </p>
+                <figure style="margin: var(--spacing-lg) 0;">
+                    <img src="../images/manual/hu/impostazioni-connessioni-accesso-remoto-v4.png"
+                         alt="Kapcsolatok panel a távoli eléréssel kiemelten"
+                         class="manual-image">
+                </figure>
+                <ul class="manual-section">
+                    <li><strong>Ugyanaz a webes felület</strong>: a távoli hivatkozás megnyitja a Web Monitort a böngészőből, ahogy az a helyi hálózatban történik.</li>
+                    <li><strong>Ideiglenes link</strong>: a távoli kapcsolat minden aktiválással változik, és nem tekinthető állandónak.</li>
+                    <li><strong>PIN távoli vezérlés</strong>: Ha be van állítva, védi a helyi hálózaton kívülről elérhető funkciókat.</li>
+                    <li><strong>Használja videokonferenciával</strong>: lehetővé teszi, hogy bárki, aki a hálózaton kívülről követi az összejövetelt, a beállított engedélyeknek megfelelően megtekintse vagy vezérelje a programot.</li>
+                </ul>
+                <p>
+                    Az operatív rész a következő szakaszban konfigurálható <a href="#server-web-remoto">15.2 szakasz · Távoli webszerver</a>. A Zoom beállításai külön maradnak: Zoom kezeli a megosztást és a parancsikonokat, míg a távoli hivatkozás a Web Monitorra vonatkozik.
+                </p>
+            </div>
+        </div>
+
+        <!-- PARTE II - PANNELLI IMPOSTAZIONI -->
+        <div class="content-section-header">
+            <h2 style="font-size: 2rem; margin: 0 0 var(--spacing-lg) 0; color: var(--text-primary);">II. rész · Beállítási panelek</h2>
+            <p>
+                Ebben a részben konfigurálhatja az alkalmazás működését: általános beállítások, gyülekezeti profilok, összejövetelek, Időzítő képernyő, média, Zoom, Web Monitor és szerver, felvételek és biztonsági mentés és visszaállítás.
+            </p>
+            <p>A MENTÉS gomb minden változtatást alkalmaz.</p>
+        </div>
+
+        <!-- 9. GENERALE -->
+        <div class="content" id="impostazioni-generale">
+            <h2>9 · Általános <a href="#indice" class="back-to-index-link">↑ Index</a></h2>
+
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/hu/impostazioni-generale-v4.png"
+                         alt="JW Time általános beállítási panelje"
+                         class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <h3>Megjelenés és formátum</h3>
+                    <ul class="manual-section">
+                        <li><strong>Válassza ki a nyelvet</strong>: módosítja az interfész nyelvét.</li>
+                        <li><strong>Programnyelvek</strong>: meghatározza, hogy melyik nyelven kell letölteni vagy megjeleníteni a heti ütemtervet.</li>
+                        <li><strong>Válassza ki a témát</strong>: beállítja az alkalmazás grafikus témáját.</li>
+                        <li><strong>Interfész skála</strong>: szöveg- és vezérlőméretek igazítása; a változás újraindítás után érvényesül.</li>
+                        <li><strong>Időformátum</strong>: váltogatja a 24 órás formátumot és a 12 órás AM/PM formátumot.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">Időzítő kezelés</h3>
+                    <ul class="manual-section">
+                        <li><strong>Automatikus szünet</strong>: Automatikusan beszúr egy szünetet az egyik és a következő rész közé, amikor megnyomja a Start/Next gombot.</li>
+                        <li><strong>Befejezés oszlop megjelenítése</strong>: megjeleníti a táblázatban az aktuális és az azt követő részek várható befejezési idejét az aktuális időből valós időben számítva, a hátralévő időzítőket és az esetlegesen felhalmozott eltéréseket.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">Újdonságok</h3>
+                    <ul class="manual-section">
+                        <li><strong>Mutassa meg az újdonságokat indításkor</strong>: tömör összefoglalót nyit meg az alkalmazásban bemutatott funkciókról, így a JW Time használók gyorsan felfedezhetik, mit érdemes kipróbálni.</li>
+                        <li>Deaktiválhatja, ha a csoport már ismeri a telepített verziót.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. CONGREGAZIONI -->
+        <div class="content" id="impostazioni-congregazioni">
+            <h2>10 · Gyülekezetek <a href="#indice" class="back-to-index-link">↑ Index</a></h2>
+
+            <p>
+                Ez a panel lehetővé teszi a gyülekezeti profilok kezelését. Minden profil fenntarthat dedikált konfigurációkat, így a JW Time képes alkalmazkodni a különböző környezetekhez anélkül, hogy minden alkalommal újra kellene konfigurálnia az ablakokat, a médiát és az elrendezést.
+            </p>
+
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/hu/impostazioni-congregazioni-v4.png"
+                         alt="JW Time gyülekezeti panel"
+                         class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <h3>Gyülekezeti profilok</h3>
+                    <ul class="manual-section">
+                        <li><strong>A gyülekezetek listája</strong>: az elérhető profilokat mutatja. Minden profil fenntartja a saját nyelvét, szerverét, képernyőit, felvételeit, médiáját és beállításait.</li>
+                        <li><strong>Új gyülekezet</strong>: Hozzon létre egy külön profilt a beállításhoz.</li>
+                        <li><strong>Átnevezés</strong>: megváltoztatja a kiválasztott profil nevét a beállítások elvesztése nélkül.</li>
+                        <li><strong>Másolás</strong>: másolatot készít az aktuális profilról, ami akkor hasznos, ha két konfiguráció hasonló.</li>
+                        <li><strong>Törlés</strong>: eltávolítja a kiválasztott profilt, ha már nincs rá szükség.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">Import / Export</h3>
+                    <ul class="manual-section">
+                        <li><strong>Export gyülekezet</strong>: csak a kiválasztott profilt menti el.</li>
+                        <li><strong>Gyülekezet importálása</strong>: Korábban exportált profil betöltése.</li>
+                        <li><strong>Exportálás</strong>: Készítsen teljes biztonsági másolatot az összes gyülekezetről.</li>
+                        <li><strong>Importálás</strong>: Több gyülekezetet tartalmazó biztonsági másolat visszaállítása.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 11. ADUNANZE -->
+        <div class="content" id="impostazioni-adunanze">
+            <h2>11 · Összejövetelek (összejövetel-indítási időzítő) <a href="#indice" class="back-to-index-link">↑ Index</a></h2>
+
+            <p>
+                Ez a panel az összejövetel kezdetéig tartó visszaszámlálás programozására szolgál a Nyilvános képernyőn. Állítsa be a napot, az időt és az előzetes időt (percben), amellyel el szeretné kezdeni a visszaszámlálást.
+            </p>
+
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/hu/impostazioni-adunanze-v4.png"
+                         alt="Összejövetelek panel kezdési időzítővel JW Time"
+                         class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <h3>11.1 · Programozás (nap · Idő · Előzetes)</h3>
+                    <ul class="manual-section">
+                        <li><strong>Találkozó hozzáadása</strong>: új sort szúr be az időtáblázatba.</li>
+                        <li><strong>nap</strong>: válassza ki a hét azon napját, amelyen az összejövetelt tartják.</li>
+                        <li><strong>Idő</strong>: beállítja az összejövetel kezdési időpontját.</li>
+                        <li><strong>Előleg (perc)</strong>: a beállított idő előtt hány perccel kell a visszaszámlálásnak megjelennie a Nyilvános képernyőn.</li>
+                        <li><strong>-</strong>: törölje a már nem szükséges idővonalat.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">11.2 · Különleges események</h3>
+                    <ul class="manual-section">
+                        <li><strong>Különleges esemény hozzáadása</strong>: Olyan eseményeket hoz létre, mint a körzetfelvigyázó látogatása, Emlékünnep vagy manuális események.</li>
+                        <li><strong>Látogassa meg az SC-t</strong>: a látogatásra vonatkozó szabályokat és időpontokat alkalmazza.</li>
+                        <li><strong>Megemlékezés</strong>: Rögzítsen egy különleges összejövetelt egy adott dátummal és időponttal.</li>
+                        <li><strong>Szerkesztés/törlés</strong>: a jobb oldali gombok lehetővé teszik az esemény frissítését vagy eltávolítását.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">11.3 · Az időtartamok kiigazítása</h3>
+                    <ul class="manual-section">
+                    <li><strong>Adaptív Gyülekezeti bibliatanulmányozás</strong>: automatikusan beállítja a Gyülekezeti bibliatanulmányozás időtartamát, hogy segítsen elérni a befejezési időt.</li>
+                        <li><strong>Adaptív őrtorony tanulmány</strong>: Alkalmazza ugyanezt a logikát az Őrtorony-tanulmányozásra.</li>
+                    </ul>
+
+                    <p style="margin-top: var(--spacing-md); font-size: 0.9rem; color: var(--text-tertiary);">
+                        <strong>Megjegyzés:</strong> a kezdési időpontokat a nyilvános visszaszámlálás használja; a Becsült befejezési idő ehelyett a programotől és az időtartam-módosításoktól függ.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 12. SCHERMO -->
+        <div class="content" id="impostazioni-schermo">
+            <h2>12 · Képernyő <a href="#indice" class="back-to-index-link">↑ Index</a></h2>
+
+            <p>
+                Ez a panel az Időzítő képernyő és a Nyilvános képernyő beállításait gyűjti össze. Innen kiválaszthatja, hogy hol jelenítse meg az információkat, hogyan mutassa be, és mely elemeket tegye láthatóvá az összejövetel során.
+            </p>
+
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/hu/impostazioni-schermo-v4.png"
+                         alt="JW Time Képernyőpanel"
+                         class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <ul class="manual-section">
+                        <li><strong>Engedélyezés</strong>: aktiválja vagy deaktiválja az Időzítő képernyőt.</li>
+                        <li><strong>Válassza ki a monitort</strong>: válassza ki azt a monitort vagy ablakot, amelyben meg szeretné jeleníteni az Időzítő képernyőt.</li>
+                        <li><strong>Azonosítás</strong>: referenciát mutat a kiválasztott monitoron, akkor hasznos, ha több kijelző van csatlakoztatva.</li>
+                        <li><strong>Mód</strong>: beállítja, hogy az Időzítő képernyőt hogyan kell megnyitni, például szabad ablakként.</li>
+                        <li><strong>Átlátszó háttér</strong>: átlátszóvá teszi az ablakot, ha a mód lehetővé teszi.</li>
+                        <li><strong>Elrendezés</strong>: válassza ki az Időzítő képernyő grafikus előre beállított értékét.</li>
+                        <li><strong>Testreszabás</strong>: megnyitja a kiválasztott elrendezés szerkesztőjét.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">Nyilvános képernyő</h3>
+                    <ul class="manual-section">
+                        <li><strong>Nyilvános képernyő aktiválása</strong>: engedélyezi a szoba számára látható tartalomnak szentelt ablakot.</li>
+                        <li><strong>Közönségszámlálás engedélyezése</strong>: az összejövetel kezdetéig tartó visszaszámlálást mutatja a Nyilvános képernyőn.</li>
+                        <li><strong>Monitor</strong>: válassza ki a nyilvános ablak megnyitásának helyét.</li>
+                        <li><strong>Elrendezés</strong>: kiválasztja a Nyilvános képernyő grafikus előbeállítását.</li>
+                        <li><strong>Az év írásának műsora</strong>: engedélyezi vagy elrejti az év írását.</li>
+                        <li><strong>JW logó megjelenítése</strong>: A logó megjelenítése vagy elrejtése a nyilvános jelenetben.</li>
+                        <li><strong>A kézírás szövegének éve</strong>: személyre szabott szöveg beszúrását teszi lehetővé; ha üresen marad, akkor a programnyelvben az évszám kerül felhasználásra.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 13. MEDIA -->
+        <div class="content" id="impostazioni-media">
+            <h2>13 · Átlagos <a href="#indice" class="back-to-index-link">↑ Index</a></h2>
+
+            <p>
+                Ez a panel kezeli a Médiaablak viselkedését, a helyi gyorsítótárat és az összejövetel alatt vagy után használt tartalommal kapcsolatos beállításokat.
+            </p>
+
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/hu/impostazioni-media-v4.png"
+                         alt="JW Time médiapanel"
+                         class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <h3>Médiafunkciók</h3>
+                    <ul class="manual-section">
+                        <li><strong>Média gomb és funkció</strong>: Megjeleníti vagy elrejti a Média gombot, és engedélyezi a kapcsolódó funkciókat.</li>
+                        <li><strong>Csillapítja a már használt médiát</strong>: jobban felismerhetővé teszi a Média ablakban már használt tartalmat.</li>
+                        <li><strong>Külső URL engedélyezése</strong>: megerősítés után lehetővé teszi külső URL HTTPS hozzáadását a jw.org és wol.jw.org webhelyekhez, és azok megjelenítését az integrált böngészőben.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">Médiaösszejövetel</h3>
+                    <ul class="manual-section">
+                        <li><strong>A hivatalos média automatikus letöltése</strong>: segít előre elérhetővé tenni a hét hivatalos médiáját, ha a hálózat ezt lehetővé teszi.</li>
+                        <li><strong>A dalok automatikus frissítése offline módban</strong>: naprakészen tartja a letöltött dalok katalógusát.</li>
+                        <li><strong>Videó minősége</strong>: válassza ki a hivatalos videók felbontását.</li>
+                        <li><strong>Hetek</strong>: jelzi, hány hétig kell tárolni vagy elkészíteni.</li>
+                        <li><strong>Max. teret</strong>: Korlátozza a média-gyorsítótár által használt területet.</li>
+                        <li><strong>Mappa / törlés</strong>: Megnyitja a tartalommappát vagy megtisztítja a letöltött fájlokat.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">Dalok és zene</h3>
+                    <ul class="manual-section">
+                        <li><strong>Cantici Video Gathering</strong>: kezeli a letöltést, a dal videók minőségét és mappáját.</li>
+                        <li><strong>Énekek - Zene összejövetel előtt/után</strong>: kezeli a háttérként használt zenét.</li>
+                        <li><strong>Véletlenszerű lejátszás</strong>: A dalokat véletlenszerű sorrendben játssza le.</li>
+                        <li><strong>Automatikusan leáll az összejövetel elején</strong>: leállítja a zenét a program indításakor.</li>
+                        <li><strong>Az összejövetel kezdete előtt állítsa le a zenét</strong>: meghatározza, hogy hány másodperccel kell leállítani a háttérben.</li>
+                        <li><strong>Eltűnési időtartam</strong>: beállítja a hang elhalványulását a zeneszámok bezárásakor vagy váltásakor.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 14. ZOOM -->
+        <div class="content" id="impostazioni-zoom">
+            <h2>14 · Zoom <a href="#indice" class="back-to-index-link">↑ Index</a></h2>
+
+            <p>
+                Ez a panel olyan beállításokat tartalmaz, amelyek akkor hasznosak, ha a JW Time-t a Zoom-val vagy más olyan helyiségkonfigurációval együtt használják, amelyhez külön audio/video vezérlés szükséges. Az alábbi opciók működtetik a Zoom billentyűket
+                <a href="#finestra-media">4. szakasz · Médiaablak</a>.
+            </p>
+
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/hu/impostazioni-zoom-v4.png"
+                         alt="Zoom / JW Time panel"
+                         class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <h3>Zoom</h3>
+                    <ul class="manual-section">
+                        <li><strong>Vezérlők Zoom</strong>: a Zoom kulcsokat mutatja a Média ablakban.</li>
+                        <li><strong>Megosztás Zoom</strong>: engedélyezi azt a gombot, amely elküldi a megosztási parancsikont a Zoom címre.</li>
+                        <li><strong>A Zoom megjelenítése a nyilvánosság számára</strong>: engedélyezi a JW Time Nyilvános képernyőt ideiglenesen elrejtő gombot, hogy megjelenítse a előadókat vagy a Zoom ablakot, amely már lent van, a szobamonitoron.</li>
+                        <li><strong>Megosztási parancsikon</strong>: Ugyanannak a globális parancsikonnak kell lennie, amely a Zoom-ban van beállítva a képernyőmegosztás elindításához vagy leállításához.</li>
+                        <li><strong>Teszt</strong>: Küldje el a parancsikont, és ellenőrizze, hogy a Zoom megnyílik-e, vagy módosítja-e a megosztás állapotát.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">Parancsikon Zoom</h3>
+                    <p>
+                        A JW Time nem választja ki a Zoom megosztásához szükséges ablakot vagy képernyőt: küldje el az ezen a panelen megadott billentyűkombinációt. Emiatt ugyanennek a parancsikonnak a Zoom beállításokban is aktívnak kell lennie, lehetőleg globális parancsikonként. Ha más kombinációt használ a Zoom-ban, a kulcs
+                        <strong>Megosztás</strong> és az üzemmód <strong>Zoom Auto</strong> nem működik megbízhatóan.
+                    </p>
+                    <p>
+                        Az összejövetel előtt ellenőrizze a teljes folyamatot: készítse elő a Zoom-t a nyilvános monitoron, helyezze a előadók ablakát vagy a Zoom duplikált képernyőjét a Nyilvános képernyő alá, próbálja meg a parancsikont <strong>Teszt</strong> , majd használja a Média ablak vezérlőit.
+                    </p>
+
+                    <h3 style="margin-top: var(--spacing-lg);">Médiaautomatizálás</h3>
+                    <ul class="manual-section">
+                        <li><strong>Automatikus indítás</strong>: amikor a kulcs <strong>Zoom Auto
+A</strong> aktív a Média ablakban, a megosztást a média indításakor kezdi meg.</li>
+                        <li><strong>Leállítás, amikor a hordozó bezárul</strong>: bezárja a Zoom megosztást az adathordozó bezárásakor vagy befejezésekor, csak akkor, ha a megosztást JW Time indította el.</li>
+                        <li><strong>Kezdeti szünet</strong>: A szüneteltetett médiát előkészíti a megosztás megkezdése után.</li>
+                        <li><strong>Fókusz visszaállítása</strong>: Visszaállítja a fókuszt a Média ablakra a Zoom művelet után.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">Videokonferenciás összejövetelekhez használható</h3>
+                    <p>
+                        Ha valakinek a hálózaton kívülről kell megtekintenie vagy vezérelnie a JW Time-ot egy videokonferenciás összejövetel során, azt nem a Zoomban kell beállítani: ehhez a <a href="#monitor-web-accesso-remoto">8.3 szakasz · Távoli hozzáférés a videokonferenciás összejövetelekhez</a> részt kell használni. Ezen a panelen csak a parancsikonok, a Zoom ablak megosztása és kezelése maradnak.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 15. CONNESSIONE E SERVER -->
+        <div class="content" id="impostazioni-connessioni">
+            <h2>15 · Kapcsolat és szerver <a href="#indice" class="back-to-index-link">↑ Index</a></h2>
+
+            <p>
+                Ez a panel kezeli az alkalmazás csatlakozását: a Web Monitor és a webszerver a böngésző megtekintésére és vezérlésére, a QR a gyors eléréshez, a távvezérléshez, a fejlett kapcsolattesztekhez és a naplókezeléshez.
+            </p>
+
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/hu/impostazioni-connessioni-v4.png"
+                         alt="JW Time csatlakozási panelje"
+                         class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <h3>15.1 · Webfigyelő és webszerver</h3>
+                    <ul class="manual-section">
+                        <li><strong>JW Time - Webfigyelő</strong>: A belső szerver engedélyezése vagy letiltása.</li>
+                        <li><strong>Szerver címe</strong>: A helyi hálózatban megnyitandó URL megjelenítése. A kézikönyvben például általános címet használunk <code>http://192.168.1.100:8000</code>.</li>
+                        <li><strong>Cím másolása</strong>: A URL fájlt a vágólapra másolja.</li>
+                        <li><strong>QR</strong>: Egy QR kódot jelenít meg a Web Monitor gyorsabb megnyitásához telefonjáról vagy táblagépéről.</li>
+                        <li><strong>Szerver port</strong>: a HTTP portot állítja be, általában 8000.</li>
+                        <li><strong>Szerkesztő/vezérlő</strong>: Jelszavak engedélyezése az időzítő és a program módosításához vagy vezérléséhez a böngészőből. A Controller szerepkörrel a Web Monitor kezelőpanellel is válik: elindíthatja, szüneteltetheti, leállíthatja és frissítheti az elérhető értékeket anélkül, hogy visszatérne a fő számítógépre.</li>
+                    </ul>
+                    <p>
+                        Ha a webszerver aktív, a JW Time egy másik eszközről is megnyitható ugyanabban a helyi hálózatban böngészőn keresztül, hogy a Web Monitort telefonról, táblagépről vagy másik számítógépről használja.
+                    </p>
+
+                    <h3 id="server-web-remoto" style="margin-top: var(--spacing-lg);">15.2 · Távoli webszerver</h3>
+                    <p>
+                        Ez a rész arra szolgál, hogy a Web Monitort a helyi hálózaton kívül is elérhetővé tegye, például videokonferenciás összejövetelek során. A felhasználás kontextusát lásd <a href="#monitor-web-accesso-remoto">8.3 szakasz · Távoli hozzáférés a videokonferenciás összejövetelekhez</a>; itt találja a gyakorlati kezelőszerveket.
+                    </p>
+                    <ul class="manual-section">
+                        <li><strong>Távoli link létrehozása</strong>: ideiglenes hivatkozást hoz létre a Cloudflare komponensen keresztül, ha a helyi hálózaton kívüli hozzáférésre van szükség.</li>
+                        <li><strong>Összetevő letöltése</strong>: töltse le a távoli kapcsolathoz szükséges összetevőt.</li>
+                        <li><strong>Távoli link</strong>: Megjeleníti a generált hivatkozást és a Copy/QR gombokat.</li>
+                        <li><strong>PIN Távoli vezérlés</strong>: Megvédi a távoli funkciókhoz való hozzáférést, ha be van állítva.</li>
+                        <li><strong>Kapcsolat állapota</strong>: Azt jelzi, hogy a távoli összetevő, az aktív kapcsolatok és a Cloudflare elérhetők-e.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">15.3 · Távoli vezérlés</h3>
+                    <p>
+                        Ha a funkció engedélyezve van, a webszerver nem csak megtekintésre, hanem időzítő és programműveletek távoli végrehajtására is használható. Ha a Vezérlő szerepkör engedélyezve van, a webképernyőn a rendelkezésre álló értékek, például az rész időtartama beállítására szolgáló vezérlők is megjelennek.
+                    </p>
+                    <p>Ezek közül elérhetők lehetnek:</p>
+                    <ul class="manual-section">
+                        <li>az időzítő indítása</li>
+                        <li>szüneteltesse és folytassa</li>
+                        <li>megáll</li>
+                        <li>program/ütemterv vezérlése</li>
+                    </ul>
+                    <p>
+                        A konfigurációtól függően különböző hozzáférési szintek állnak rendelkezésre, hogy megkülönböztessük az egyszerű megtekintést a vezérlési vagy módosítási funkcióktól.
+                    </p>
+
+                    <h3 style="margin-top: var(--spacing-lg);">15.4 · Csatlakozási teszt</h3>
+                    <ul class="manual-section">
+                        <li><strong>Csatlakozási teszt</strong>: ellenőrizze a hálózatot, a JW.org-ot, a proxyt és az írási jogosultságokat.</li>
+                        <li><strong>Eredmény másolása</strong>: Másolja a teszt eredményét segítségnyújtás vagy diagnózis céljából.</li>
+                        <li><strong>Nyissa meg a naplómappát</strong>: közvetlenül megnyitja az alkalmazásnaplók mappáját.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 16. REGISTRAZIONE -->
+        <div class="content" id="impostazioni-registrazioni">
+            <h2>16 · Felvételek <a href="#indice" class="back-to-index-link">↑ Index</a></h2>
+
+            <p>
+                Értekezletek hangrögzítési funkciója, amely a beállítások "Felvételek" füléről és a főablak REC gombjáról érhető el.
+            </p>
+
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/hu/impostazioni-registrazioni-v4.png"
+                         alt="JW Time felvételek panelje"
+                         class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <h3>Automatikus regisztráció</h3>
+                    <ul class="manual-section">
+                        <li><strong>Automatic recording active</strong>: az időzítő indulásakor elindítja a felvételt, ha a funkció engedélyezve van.</li>
+                        <li><strong>A felvétel szüneteltetése, ha az időzítő szünetel</strong>: Szünetelteti a felvételt az időzítő szüneteiben is.</li>
+                        <li><strong>Felvételi mód</strong>: válasszon részenként egy fájl vagy munkamenetenként egy fájl közül.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">Útvonal és eszközök</h3>
+                    <ul class="manual-section">
+                        <li><strong>Útvonal</strong>: azt a mappát jelöli, amelybe a fájlokat menteni kell. A kézikönyvben egy általános elérési út látható.</li>
+                        <li><strong>Válasszon útvonalat</strong>: Válassza ki a célmappát.</li>
+                        <li><strong>Nyissa meg az elérési utat</strong>: megnyitja a felvételek mappát.</li>
+                        <li><strong>PC audio</strong>: Válassza ki a számítógép hangforrását.</li>
+                        <li><strong>Mikrofon</strong>: Válassza ki a mikrofont a számítógép hangjával együtt rögzíteni.</li>
+                        <li><strong>PC hangerő / mikrofon hangerő</strong>: a két forrás felvételi szintjének beállítása.</li>
+                        <li><strong>PC küszöbérték</strong>: meghatározza, hogy a PC hangja mikor tekinthető aktívnak.</li>
+                        <li><strong>Mikrofon csökkentése.</strong>: Automatikusan lehalkítja a mikrofont, ha a számítógép hangja meghaladja a küszöböt.</li>
+                        <li><strong>Felvételi teszt</strong>: ellenőrizze az eszközöket és a szinteket az összejövetel előtt.</li>
+                        <li><strong>Statisztika</strong>: információkat mutat a készült felvételekről.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 17. PACCHETTI E BACKUP OFFLINE -->
+        <div class="content" id="impostazioni-backup">
+            <h2>17 · Offline csomagok és biztonsági mentések <a href="#indice" class="back-to-index-link">↑ Index</a></h2>
+
+            <p>
+                Ez a panel heti programokat készít offline használatra, és lehetővé teszi a mentett csomagok exportálását vagy importálását.
+            </p>
+
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/hu/impostazioni-backup-v4.png"
+                         alt="JW Time Biztonsági mentés és visszaállítás panel"
+                         class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <h3>17.1 · Programletöltési források</h3>
+                    <ul class="manual-section">
+                        <li><strong>Letöltés innen: WOL (elsődleges)</strong>: Elsődleges forrás használata, ha elérhető.</li>
+                        <li><strong>Letöltés a 2. szerverről (biztonsági mentés)</strong>: Használja az alternatív forrást a programok letöltéséhez.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">17.2 · Heti programmentés</h3>
+                    <ul class="manual-section">
+                        <li><strong>Letöltés a háttérben</strong>: Frissítse a csomagokat kézi beavatkozás nélkül.</li>
+                        <li><strong>Hét közepe</strong>: tartalmazza a hétközi összejövetelek programját.</li>
+                        <li><strong>Hétvége</strong>: hétvégi programokat tartalmaz.</li>
+                        <li><strong>Hetek a letöltésig</strong>: jelzi, hány hétig kell felkészülni.</li>
+                        <li><strong>Letöltés</strong>: Azonnal kezdje meg a csomagok letöltését.</li>
+                        <li><strong>Állj</strong>: leállítja a folyamatban lévő letöltést.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">17.3 · Hetek letöltve</h3>
+                    <ul class="manual-section">
+                        <li><strong>Hetek listája</strong>: A helyileg elérhető csomagokat mutatja.</li>
+                        <li><strong>Mindent exportál</strong>: A csomagokat átvihető fájlba menti.</li>
+                        <li><strong>Importálás</strong>: Az előkészített csomagok feltöltése egy másik számítógépre.</li>
+                        <li><strong>Üres</strong>: Eltávolítja azokat a helyi csomagokat, amelyekre már nincs szükség.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>JW Time</h3>
+                <p>Független, ingyenes és nem kereskedelmi projekt az összejövetelek időkezeléséhez.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Erőforrások</h3>
+                <ul>
+                    <li><a href="index.html">Kezdőlap</a></li>
+                    <li><a href="manual.html">Felhasználói kézikönyv</a></li>
+                    <li><a href="news.html">Újdonságok</a></li>
+                    <li><a href="faq.html">GYIK</a></li>
+                    <li><a href="contacts.html">Kapcsolat</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Információ</h3>
+                <ul>
+                    <li><a href="privacy-policy.html">Adatvédelmi szabályzat</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025-2026 JW Time - Önkéntesek által létrehozott független, ingyenes és nem kereskedelmi projekt</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+</body>
+</html>
