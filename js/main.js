@@ -148,7 +148,7 @@
 
     const Language = {
         STORAGE_KEY: 'jwtime-lang',
-        SUPPORTED: ['it', 'en', 'es', 'de', 'fr', 'pt_BR'],
+        SUPPORTED: ['it', 'en', 'es', 'de', 'nl', 'fr', 'pt_BR', 'hu'],
 
         /**
          * Save language preference
@@ -211,7 +211,7 @@
             const currentPath = window.location.pathname;
 
             // Try to extract language from path (e.g., /it/, /en/, etc.)
-            const langMatch = currentPath.match(/\/(it|en|es|de|fr|pt_BR)\//);
+            const langMatch = currentPath.match(/\/(it|en|es|de|nl|fr|pt_BR|hu)\//);
             if (langMatch) {
                 this.save(langMatch[1]);
             }

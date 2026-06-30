@@ -104,6 +104,11 @@
             'de-DE': 'de',
             'de-AT': 'de',
             'de-CH': 'de',
+            'nl': 'nl',
+            'nl-NL': 'nl',
+            'nl-nl': 'nl',
+            'nl-BE': 'nl',
+            'nl-be': 'nl',
             'fr': 'fr',
             'fr-FR': 'fr',
             'fr-CA': 'fr',
@@ -111,13 +116,16 @@
             'fr-CH': 'fr',
             'pt': 'pt_BR',
             'pt-BR': 'pt_BR',
-            'pt-PT': 'pt_BR'
+            'pt-PT': 'pt_BR',
+            'hu': 'hu',
+            'hu-HU': 'hu',
+            'hu-hu': 'hu'
         };
 
         function getPreferredLanguage() {
             // Check if user has a saved preference
             const savedLang = localStorage.getItem('jwtime-lang');
-            if (savedLang && ['it', 'en', 'es', 'de', 'fr', 'pt_BR'].includes(savedLang)) {
+            if (savedLang && ['it', 'en', 'es', 'de', 'nl', 'fr', 'pt_BR', 'hu'].includes(savedLang)) {
                 return savedLang;
             }
 
@@ -163,8 +171,10 @@
             <a href="en/">English</a>
             <a href="es/">Espa&#241;ol</a>
             <a href="de/">Deutsch</a>
+            <a href="nl/">Nederlands</a>
             <a href="fr/">Fran&#231;ais</a>
             <a href="pt_BR/">Portugu&#234;s (BR)</a>
+            <a href="hu/">Magyar</a>
         </div>
     </div>
 </body>
