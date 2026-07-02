@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JW Timeの完全マニュアル - 集会の時間管理アプリケーションの使い方ガイド">
+    <title>使用マニュアル - JW Time</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .back-to-index-link {
+            font-size: 0.9rem;
+            margin-left: 0.75rem;
+            color: var(--text-tertiary);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .back-to-index-link:hover {
+            color: var(--text-secondary);
+            text-decoration: underline;
+        }
+
+        .content:not(#indice) a:not(.back-to-index-link):not(.btn),
+        .content-section-header a:not(.back-to-index-link):not(.btn) {
+            color: inherit;
+            font-weight: 600;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 0.2em;
+            text-decoration-color: currentColor;
+        }
+
+        .content:not(#indice) a:not(.back-to-index-link):not(.btn)::after,
+        .content-section-header a:not(.back-to-index-link):not(.btn)::after {
+            content: " ↴";
+            font-size: 0.85em;
+            opacity: 0.78;
+            text-decoration: none;
+        }
+
+        .content:not(#indice) a:not(.back-to-index-link):not(.btn):hover,
+        .content-section-header a:not(.back-to-index-link):not(.btn):hover {
+            color: var(--text-primary);
+        }
+
+        /* Scroll offset per compensare header fisso */
+        html {
+            scroll-padding-top: 100px;
+        }
+
+        /* Scroll offset maggiore su mobile per header a due righe */
+        @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 180px;
+            }
+        }
+
+        /* Scroll offset extra su schermi molto piccoli dove l'header pu&#242; essere su 3 righe */
+        @media (max-width: 480px) {
+            html {
+                scroll-padding-top: 220px;
+            }
+        }
+
+        /* Assicura che le immagini non vengano tagliate su mobile */
+        @media (max-width: 640px) {
+            .content figure,
+            .news-card figure {
+                overflow: visible !important;
+                flex: 1 1 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+                margin: var(--spacing-lg) 0 !important;
+            }
+
+            .content figure img,
+            .news-card figure img {
+                max-width: 100%;
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+
+            /* Layout a colonna singola per sezioni con immagini */
+            .news-card > div[style*="display: flex"] {
+                flex-direction: column !important;
+            }
+        }
+
+        .settings-panel-layout {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-top: var(--spacing-lg);
+        }
+
+        .settings-panel-figure {
+            flex: 1 1 560px;
+            min-width: 440px;
+            max-width: 650px;
+            margin: 0;
+        }
+
+        .settings-panel-copy {
+            flex: 1 1 360px;
+            min-width: 300px;
+        }
+
+        @media (max-width: 980px) {
+            .settings-panel-figure,
+            .settings-panel-copy {
+                flex: 1 1 100%;
+                min-width: 0;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="../images/jwtime-logo.png" alt="JW Time ロゴ" style="height: 32px; margin-right: 8px;">
+                JW Time
+            </a>
+
+            <nav class="nav">
+                <a href="index.html">ホーム</a>
+                <a href="manual.html" class="active">マニュアル</a>
+                <a href="news.html">新機能</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contacts.html">お問い合わせ</a>
+
+                <!-- Language Selector -->
+                <div class="lang-selector">
+                    <div class="lang-current">
+                        <span>日本語</span>
+                        <span>&#9662;</span>
+                    </div>
+                    <div class="lang-dropdown">
+                        <a href="../it/manual.html" data-lang="it">Italiano</a>
+                        <a href="../en/manual.html" data-lang="en">English</a>
+                        <a href="../es/manual.html" data-lang="es">Español</a>
+                        <a href="../de/manual.html" data-lang="de">Deutsch</a>
+                        <a href="../nl/manual.html" data-lang="nl">Nederlands</a>
+                        <a href="../fr/manual.html" data-lang="fr">Français</a>
+                        <a href="../pt_BR/manual.html" data-lang="pt_BR">Português (Brasil)</a>
+                        <a href="../hu/manual.html" data-lang="hu">Magyar</a>
+                        <a href="../pl/manual.html" data-lang="pl">Polski</a>
+                        <a href="../tl/manual.html" data-lang="tl">Filipino</a>
+                    </div>
+                </div>
+<!-- Theme Toggle -->
+                <button id="theme-toggle" class="theme-toggle" aria-label="テーマ切り替え">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>使用マニュアル</h1>
+            <p>JW Timeの使い方完全ガイド</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- INDICE -->
+        <div class="content" id="indice">
+            <h2>目次</h2>
+            <div class="manual-index">
+                <!-- Card Verde per Inizia Qui -->
+                <div class="index-section index-section--green">
+                    <h3>4.0の新機能</h3>
+                    <ul>
+                        <li><a href="#novita">バージョン4.0.0</a></li>
+                    </ul>
+                    <h3 style="margin-top: var(--spacing-lg);">初回起動</h3>
+                    <ul>
+                        <li><a href="#primo-avvio-guidato">初期ウィザード</a></li>
+                        <li><a href="#controllo-rapido">ウィザードをスキップした場合の簡易チェック</a></li>
+                    </ul>
+                </div>
+
+                <div class="index-section">
+                    <h3>第I部 - インターフェースと操作</h3>
+                    <ul>
+                        <li><a href="#schermata-principale">1. メイン画面</a></li>
+                        <li><a href="#navigazione-settimanale">2. プログラムと進行表</a></li>
+                        <li><a href="#manipolazione-timer">3. タイマーの操作</a></li>
+                        <li><a href="#finestra-media">4. メディアウィンドウ</a></li>
+                        <li><a href="#schermi-contatempo-pubblico">5. 会場表示画面とタイムカウンター</a></li>
+                        <li><a href="#personalizzare-schermo">↳ 5.3 タイムカウンター画面のカスタマイズ</a></li>
+                        <li><a href="#gestione-messaggi">6. メッセージの管理</a></li>
+                        <li><a href="#rec-button">7. RECボタンと録音パネル</a></li>
+                        <li><a href="#monitor-web">8. Webモニター &amp; サーバー</a></li>
+                        <li><a href="#monitor-web-accesso-remoto">↳ 8.3 ネットワーク外からのリモートアクセス</a></li>
+                    </ul>
+                </div>
+
+                <div class="index-section">
+                    <h3>第II部 - 設定パネル</h3>
+                    <ul>
+                        <li><a href="#impostazioni-generale">9. 全般</a></li>
+                        <li><a href="#impostazioni-congregazioni">10. 会衆</a></li>
+                        <li><a href="#impostazioni-adunanze">11. 集会（集会開始タイマー）</a></li>
+                        <li><a href="#impostazioni-schermo">12. 画面</a></li>
+                        <li><a href="#impostazioni-media">13. メディア</a></li>
+                        <li><a href="#impostazioni-zoom">14. Zoom</a></li>
+                        <li><a href="#impostazioni-connessioni">15. 接続とサーバー</a></li>
+                        <li><a href="#server-web-remoto">↳ 15.2 リモートからのWebサーバー</a></li>
+                        <li><a href="#impostazioni-registrazioni">16. 録音</a></li>
+                        <li><a href="#impostazioni-backup">17. オフラインパッケージとバックアップ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ULTIME NOVIT&#192; -->
+        <div class="news-preview" id="novita">
+            <div class="news-preview-title">
+                <h2 style="margin: 0;">4.0の新機能</h2>
+                <span class="news-preview-badge">バージョン4.0.0</span>
+            </div>
+            <div class="news-preview-content">
+                <h3>新機能の概要</h3>
+                    <p>
+                        JW Time 4.0には多くの新機能があります。ここでは全体像を把握するための概要だけを示します。アプリ内の <strong>新機能</strong> パネルと専用ページに、すべての詳細がまとめられています。
+                    </p>
+                    <ul>
+                        <li>初期ウィザード、会衆プロフィール、再編成されたインターフェース。</li>
+                        <li>公式コンテンツ、ダウンロード、ローカルキャッシュ、BGMに対応したメディアウィンドウ。</li>
+                        <li>会場表示画面、カスタマイズ可能なタイムカウンター画面、更新されたメッセージ管理。</li>
+                        <li>ローカル操作、QR、一時的なビデオ会議用リモートアクセスに対応したWebモニター。</li>
+                    </ul>
+
+                <a href="news.html" class="btn btn-gray" style="margin-top: var(--spacing-lg);">
+                    すべての新機能を見る →
+                </a>
+            </div>
+        </div>
+
+        <!-- PRIMO AVVIO GUIDATO -->
+        <div class="content-section-header" id="primo-avvio-guidato">
+            <h2 style="font-size: 2rem; margin: 0 0 var(--spacing-xl) 0; color: var(--text-primary);">ガイド付き初回起動</h2>
+
+            <div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap;">
+                <div style="flex: 1 1 320px; min-width: 0;">
+                    <p>
+                        初回起動時、JW Timeはアプリを開く前に必要不可欠な設定を集めるウィザードを表示します。新規インストールでは推奨される手順です。設定パネルですぐにすべてのオプションを探さずに済みます。
+                    </p>
+                    <ul class="manual-section">
+                        <li><strong>言語と形式</strong>：インターフェースの言語、プログラム言語、時刻形式を選択します。</li>
+                        <li><strong>会衆</strong>：初期プロフィール名を設定します。将来複数のプロフィールを管理する場合に役立ちます。</li>
+                        <li><strong>集会</strong>：自動カウントダウン用に、開始する曜日と時刻を指定します。</li>
+                        <li><strong>集会オプション</strong>：必要に応じて、時間調整と部分間の自動一時停止を有効にします。</li>
+                        <li><strong>画面</strong>：正しいモニターにタイムカウンター画面と会場表示画面を設定します。</li>
+                    </ul>
+                    <p>
+                        ウィザードの最後にJW Timeを開き、メディア、Webサーバー、録音、バックアップなど、より高度なオプションだけを完了できます。
+                    </p>
+                </div>
+                <figure style="flex: 0 0 38%; min-width: 280px; max-width: 520px; margin: 0 0 0 auto; align-self: flex-start;">
+                    <img src="../images/manual/ja/primo-avvio-guidato-v4.png"
+                         alt="JW Timeの初回起動ウィザード"
+                         class="manual-image">
+                </figure>
+            </div>
+        </div>
+
+        <!-- CONTROLLO RAPIDO -->
+        <div class="content" id="controllo-rapido">
+            <h2>ウィザードをスキップした場合の簡易チェック <a href="#indice" class="back-to-index-link">↑ 目次</a></h2>
+
+            <p>
+                ウィザードを閉じるかスキップした場合でも、設定とメインウィンドウから必要な項目を手動で構成できます。このチェックリストは、集会前の簡易確認にも使えます。
+            </p>
+
+            <ol class="manual-section">
+                <li style="margin-bottom: var(--spacing-lg);">
+                    <h3 style="color: var(--text-secondary);">言語、プロフィール、プログラム</h3>
+                    <p>
+                        まず <a href="#impostazioni-generale">セクション9・全般</a> で言語と時刻形式を設定し、次に
+                        <a href="#impostazioni-congregazioni">セクション10・会衆</a> で、必要ならプロフィールを作成または選択します。読み込まれた進行表が目的の週と言語に対応していることを確認します。
+                    </p>
+                </li>
+                <li style="margin-bottom: var(--spacing-lg);">
+                    <h3 style="color: var(--text-secondary);">タイムカウンター画面と会場表示画面</h3>
+                    <p>
+                        設定の <a href="#impostazioni-schermo">セクション12・画面</a> で正しいモニターを選択し、使用するウィンドウを有効にします。タイムカウンターの外観を変更するには、 <a href="#personalizzare-schermo">セクション5.3・タイムカウンター画面のカスタマイズ</a>を参照してください。
+                    </p>
+                </li>
+                <li style="margin-bottom: var(--spacing-lg);">
+                    <h3 style="color: var(--text-secondary);">メディアとコンテンツ</h3>
+                    <p>
+                        まず <a href="#finestra-media">セクション4・メディアウィンドウ</a> を開いて、その週の歌、動画、画像を確認します。キャッシュ、品質、BGMのオプションは <a href="#impostazioni-media">セクション13・メディア</a>にあります。
+                    </p>
+                </li>
+                <li style="margin-bottom: var(--spacing-lg);">
+                    <h3 style="color: var(--text-secondary);">タイマー、メッセージ、録音</h3>
+                    <p>
+                        メインウィンドウを使ってタイマーを開始し、タイムカウンターにメッセージを送信し、RECパネルを開きます。集会を録音する場合は、先に <a href="#impostazioni-registrazioni">セクション16・録音</a>のオプションを確認してください。
+                    </p>
+                </li>
+                <li style="margin-bottom: var(--spacing-lg);">
+                    <h3 style="color: var(--text-secondary);">Webサーバーとバックアップ</h3>
+                    <p>
+                        リモート操作、QR、ブラウザーからの参照を使う場合は、 <a href="#impostazioni-connessioni">セクション15・接続とサーバー</a>を設定します。ネットワークなしで作業したり設定を移す場合は、 <a href="#impostazioni-backup">セクション17・オフラインパッケージとバックアップ</a>を確認します。
+                    </p>
+                </li>
+            </ol>
+        </div>
+
+        <!-- PARTE I - INTERFACCIA E FUNZIONAMENTO -->
+        <div class="content-section-header">
+            <h2 style="font-size: 2rem; margin: 0; color: var(--text-primary);">第I部・インターフェースと操作</h2>
+        </div>
+
+        <!-- 1. SCHERMATA PRINCIPALE -->
+        <div class="content" id="schermata-principale">
+            <h2>1・メイン画面 <a href="#indice" class="back-to-index-link">↑ 目次</a></h2>
+
+            <div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap;">
+                <figure style="flex: 0 0 420px; max-width: 520px; margin: 0 auto;">
+                    <img src="../images/manual/ja/schermata-principale-v4-annotata-real.png"
+                         alt="番号付きエリアが表示されたJW Timeのメイン画面"
+                         class="manual-image">
+                </figure>
+                <div style="flex: 1 1 320px; min-width: 0;">
+                    <p>
+                        メイン画面はアプリケーションの中心です。ここから集会のすべてのタイマーを開始、管理、監視できます。また、現在進行中の部分のタイトル、時計、残り時間などの主な情報を表示し、重要なメッセージや通知も確認できます。
+                    </p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: var(--spacing-2xl); color: white;">主なエリア</h3>
+
+            <!-- Grid delle aree principali -->
+            <div class="news-cards-grid" style="margin-top: var(--spacing-xl);">
+                <div class="news-card">
+                    <h4 style="color: var(--text-secondary);">1.1・部分タイトルと時計</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/ja/area-1-titolo-orologio-v4.png"
+                             alt="エリア1 - 部分タイトルと時計/タイムカウンター"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        上部の行には進行中の部分のタイトルが表示され、その下には現在時刻を示す時計、またはタイマーを開始したときの残り時間のカウントダウンが表示されます。12時間形式では、読みやすくするためAM/PMの接尾辞も小さめに表示されます。
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: var(--text-secondary);">1.2・タイマー表</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/ja/area-2-tabella-timer-v4.png"
+                             alt="エリア2 - 集会のタイマー表"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        集会の進行表（タイトル、時間、状態）を一覧表示します。内容は選択した日に基づいて自動的に読み込まれます。アプリは週日の集会か週末の集会かを認識し、正しい進行表を提示します。ボタンと詳しい操作については <a href="#manipolazione-timer">セクション3・タイマーの操作</a>を参照してください。
+                    </p>
+                    <p>
+                        設定で <strong>「終了」列を表示</strong> を有効にすると、表には現在の部分とそれ以降の部分が何時に終わるかも表示されます。これは進行表の固定時刻ではありません。現在時刻、残っているタイマー、累積したずれに基づいてリアルタイムで更新される予測です。
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: var(--text-secondary);">1.3・終了予定時刻</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/ja/area-3-orario-fine-v4.png"
+                             alt="エリア3 - 終了予定時刻とずれ"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        進行表に基づく予定終了時刻を表示します。その横に <em>ずれ</em>が表示されます：<br>
+                        +m:ss（1分以内は黄色、それを超えると赤）= 遅れ<br>
+                        −m:ss（緑）= 前倒し<br>
+                        時刻とインジケーターはリアルタイムで更新されます。聖書研究 / 「ものみの塔」研究の自動調整が有効な場合、終了時刻に収まるよう時間が再計算されます。
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: var(--text-secondary);">1.4・一時停止/話者交代時間</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/ja/area-4-tempo-pausa-v4.png"
+                             alt="エリア4 - 一時停止と話者交代時間"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        累積カウンター <strong>hh:mm:ss</strong> は、技術的な一時停止や話者交代の時間を合計します。タイマーが一時停止されていた時間の合計です。一時停止中、部分のタイマーは停止したまま、このカウンターが増えます。インジケーターをクリックすると合計がリセットされます。
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: var(--text-secondary);">1.5・主なタイマー操作ボタン</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/ja/area-5-tasti-principali-v4.png"
+                             alt="エリア5 - 主なタイマー操作ボタン"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        タイマーを開始、停止、管理するためのコントロールです：停止（赤）、一時停止、開始/次へ（緑）。一時停止ボタンは部分のタイマーを一時停止します（カウントは止まります）が、一時停止/話者交代時間は増え続けます。一時停止を解除するには、もう一度一時停止を押すか、開始/次へで次の部分に進みます。累積時間は1.4のカウンターに記録されます。
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: var(--text-secondary);">1.6・ニュース（お知らせ）</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/ja/area-6-notizie-v4.png"
+                             alt="エリア6 - メイン画面のニュース枠"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        アプリの公式なお知らせがある場合、メイン画面に「ニュース」の枠/通知が表示されます。クリックすると更新内容の概要パネルが開きます。
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: var(--text-secondary);">1.7・クイックツール</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/ja/area-7-strumenti-v4.png"
+                             alt="エリア7 - メイン画面のクイックツール"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        設定を開く、ウィンドウを最小化または復元する、ヘルプにアクセスするためのクイックボタンです。操作モードとは分けられているため、下部の行がより分かりやすくなっています。
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: var(--text-secondary);">1.8・操作モード</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/ja/area-8-modalita-v4.png"
+                             alt="エリア8 - メディア、進行表、メッセージ、RECの操作モード"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        ここからメディアウィンドウ、プログラム管理、メッセージ、RECパネルに切り替えられます。RECの横にある黒い点は録音状態を示します。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. PROGRAMMA E SCALETTE -->
+        <div class="content" id="navigazione-settimanale">
+            <h2>2 · プログラムと進行表 <a href="#indice" class="back-to-index-link">↑ 目次</a></h2>
+
+            <p>
+                このセクションでは、その週に合った進行表を読み込む方法、必要な場合に手動の進行表を作成する方法、前の週・現在の週・次の週をすばやく移動する方法を説明します。
+            </p>
+
+            <p>
+                既定では、アプリは現在の週の進行表を自動で読み込みます。月曜日から金曜日は週日の進行表、土曜日と日曜日は週末の進行表です。
+            </p>
+
+            <div class="image-container">
+                <img src="../images/manual/ja/navigazione-settimanale-v4.png"
+                     alt="週の移動が表示されたJW Timeのプログラムパネル"
+                     class="manual-image">
+            </div>
+
+            <!-- 2.1 Programmazione automatica - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3 style="color: var(--text-secondary);">2.1 · 自動プログラム設定</h3>
+                <ol class="manual-section">
+                    <li>週日: 平日の進行表を読み込みます。</li>
+                    <li>週末: 土曜日/日曜日の進行表を読み込み、公開講演の歌を尋ねます。</li>
+                </ol>
+            </div>
+
+            <!-- 2.2 Scorrimento settimane - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>2.2 · 週セレクターとカレンダープレビュー</h3>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <p>
+                            「 <strong>週</strong> 」ボタンには常に範囲（例: "週: 10月20日 – 26日"）が表示され、現在の週からのずれ（0、+1、-2など）を示すバッジも表示されます。クリックするとコンパクトなカレンダーが開き、前へ/次へボタンを何度も押さなくても目的の週へ直接移動できます。
+                        </p>
+                        <ul class="manual-section">
+                            <li>すぐ分かるバッジ: 現在の週、将来の週、過去の週のどれを見ているか分かります。</li>
+                            <li>週カレンダー: 週を直接、実用的に選択できます。</li>
+                        </ul>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/ja/navigazione-settimanale-pannello-v4.png"
+                             alt="週セレクターの詳細"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 2.3 Visita SC - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>2.3 · 巡回監督の訪問</h3>
+                <p>
+                    「 <strong>巡回監督の訪問</strong>」ボタンは、週セレクターと「バックアップから読み込む」の間にあり、巡回監督の訪問があるときに進行表を切り替えます。押すとボタンが点灯（ON）し、アプリが訪問用に予定されている特別な部分を自動で準備します。
+                </p>
+                <ul class="manual-section">
+                    <li><strong>週日の集会</strong>: 会衆の聖書研究は、「巡回監督の訪問」というタイトルの30分固定の部分に変換されます。</li>
+                    <li><strong>週末</strong>: 「ものみの塔」研究の後に専用の項目が追加され、終了時刻を守れるように所要時間が調整されます。</li>
+                    <li>専用の色と通知: 巡回監督の訪問の行は独自の配色になり、指定された最後の歌が準備されます。</li>
+                    <li>すばやく無効化: トグルをオフにすると、他の変更を失わずに表がすぐ標準の進行表に戻ります。</li>
+                </ul>
+            </div>
+
+            <!-- 2.4 Carica da backup - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>2.4 · バックアップから読み込む</h3>
+                <p>
+                    「 <strong>バックアップから読み込む</strong> 」ボタンを押すと、ローカルに保存されたパッケージの一覧が開きます。一覧は日付、集会の種類、言語で並べ替えられます。オフラインで作業する場合や、別のPCで準備済みのプログラムを復元する場合に適しています。
+                </p>
+                <ul class="manual-section">
+                    <li>詳細な一覧: 各行に週の開始日、種類（週日/週末）、言語が表示されます。</li>
+                    <li>安全な読み込み: パッケージは確認され、現在の表に直接適用されます。</li>
+                    <li>分かりやすいメッセージ: 利用できるバックアップがない場合、アプリはすぐに通知を表示します。</li>
+                </ul>
+            </div>
+
+            <!-- 2.5 Modalit&#224; Manuale - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>2.5 · 手動リストモード</h3>
+                <p>
+                    手動リストは、進行表が週ごとのプログラムから取得されない場合や、特別なプログラムを準備したい場合に使います。専用の編集ウィンドウで種類、タイトル、所要時間を設定して項目を作成または変更し、後で再利用できるように結果を保存できます。
+                </p>
+                <div class="image-container" style="margin-top: var(--spacing-md);">
+                    <img src="../images/manual/ja/programma-manuale-pannello-v4.png"
+                         alt="保存、読み込み、リストを空にするコマンドを備えた手動モードのプログラムパネル"
+                         class="manual-image">
+                </div>
+
+                <h4 style="color: var(--text-secondary);">2.5.1 · 手動パネル</h4>
+                <ul class="manual-section">
+                    <li><strong>マニュアル</strong>: カスタム進行表を有効にし、プログラムセレクターの下に専用コマンドを表示します。</li>
+                    <li><strong>手動リストを保存</strong>: 現在の進行表を、再利用したり別のPCへ移したりできるファイルにエクスポートします。</li>
+                    <li><strong>手動リストを読み込む</strong>: 保存済みのリストをインポートし、表、タイムカウンター、接続されているメディアを更新します。</li>
+                    <li><strong>リストを空にする</strong>: 現在の週の手動進行表をリセットし、その下書きに関連付けられている手動メディアも削除します。</li>
+                </ul>
+
+                <h4 style="color: var(--text-secondary);">2.5.2 · 作成と保存</h4>
+                <ul class="manual-section">
+                    <li>プログラムパネルから手動モードを有効にします。</li>
+                    <li>表のコマンドを使って行を追加、削除、並べ替えます。必要な場合、JW Timeは項目の編集ウィンドウを開きます。</li>
+                    <li>別の機会のために残しておきたいときは、リストを保存します。</li>
+                </ul>
+                <p>
+                    保存するとき、JW Timeは <code>.jwtimeplan</code>ファイルに何を含めるかを尋ねます。「 <strong>手動プログラム + メディア</strong> 」は、ローカルファイル、URL、メディアウィンドウのグループも移したい場合に選択します。「 <strong>手動時間プログラムのみ</strong> 」は、タイトルと所要時間を含む進行表だけが必要な場合に選択します。
+                </p>
+                <div class="image-container" style="margin-top: var(--spacing-md);">
+                    <img src="../images/manual/ja/programma-manuale-salvataggio-popup-v4.png"
+                         alt="メディア付きプログラムと時間のみを選択できる手動プログラム保存ポップアップ"
+                         class="manual-image"
+                         style="max-width: 900px;">
+                </div>
+
+                <h4 style="color: var(--text-secondary);">2.5.3 · リストの再読み込みまたは空にする</h4>
+                <ul class="manual-section">
+                    <li>「 <strong>手動リストを読み込む</strong> 」を使うと、保存済みの進行表を復元できます。</li>
+                    <li>リストに歌や標準の部分として認識される行が含まれている場合、JW Timeは一貫した色と動作を適用します。</li>
+                    <li>読み込み後に接続されたウィンドウが更新されるため、タイムカウンターとメディアは表と同期したままになります。</li>
+                    <li>「 <strong>リストを空にする</strong> 」を使うと、同じ週について空の進行表からやり直せます。</li>
+                </ul>
+
+                <h4 style="color: var(--text-secondary);">2.5.4 · 関連付けられたメディア</h4>
+                <p>
+                    手動リストにメディアを関連付けると、保存と読み込みの際に準備したプログラムとの関連付けが維持されます。これは、特別な集会、地元の大会、標準の週に従わないプログラムに役立ちます。
+                </p>
+                <p>
+                    ファイルが利用できなくなっている場合、メディアウィンドウを開くか使用するときにアプリが知らせます。そのため、集会の前に置き換えることができます。
+                </p>
+                <p>
+                    歌を追加するには、挿入メニューを使い、歌専用の項目を選択します。こうするとJW Timeは歌の番号を正しく記録し、利用できるメディアを関連付け、タイムカウンター画面は行にタイトルを手入力しなくても表示を調整します。
+                </p>
+            </div>
+        </div>
+
+        <!-- 3. MANIPOLAZIONE TIMER -->
+        <div class="content" id="manipolazione-timer">
+            <h2>3 · タイマーの操作 <a href="#indice" class="back-to-index-link">↑ 目次</a></h2>
+
+            <p>
+                このセクションでは、項目の追加、変更、削除など、タイマーを管理する主な操作と、開始、スキップ、リセットのコマンドの使い方を説明します。
+            </p>
+
+            <!-- 3.1 Operazioni principali - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>3.1 · 主な操作</h3>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <ol class="manual-section">
+                            <li>行メニュー: 右側の3点メニューを開くと、選択した部分で利用できる操作が表示されます。</li>
+                            <li>メニューから、行を開始したり次へ進めたり、上または下に行を追加したり、複製、リセット、削除したりできます。</li>
+                            <li>コマンド「 <strong>上に行を追加</strong> 」と「 <strong>下に行を追加</strong> 」を選ぶと、次を含むサブメニューが開きます:  <em>歌</em>、 <em>部分/講演</em> 、 <em>助言</em>。</li>
+                            <li>タイトル/所要時間の変更: セルをダブルクリックしてから確定します。</li>
+                            <li>所要時間の形式: 5 → 5:00、1:30 → 1:30分。</li>
+                            <li>開始と進行: 「
+                                <ul>
+                                    <li><strong>行を開始</strong> 」は選択した部分を開始します。</li>
+                                    <li>行が進行中のとき、コマンドは「 <strong>次へ進む</strong>」に変わります。</li>
+                                    <li>停止/一時停止は、下部バーから進行中のタイマーを操作します。</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                    <figure style="flex: 0 0 50%; min-width: 320px; max-width: 640px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/ja/manipolazione-operazioni-v4.png"
+                             alt="タイマーの主な操作"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 3.2 Aggiornamenti in tempo reale - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>3.2 · リアルタイム更新</h3>
+                <p>
+                    タイマーは常に更新されます。上部のメインカウントダウンには進行中の部分の残り時間が表示され、対応する行は表で強調表示されたままになります。上部バーの色は進行中の部分の色に合わせられます。
+                </p>
+                <div class="image-container" style="margin-top: var(--spacing-md);">
+                    <img src="../images/manual/ja/timer-aggiornamento-riga-attiva-v4.png"
+                         alt="タイマー表で強調表示されたアクティブな行"
+                         class="manual-image">
+                </div>
+                <p style="margin-top: var(--spacing-lg);">
+                    所要時間を変更したり次の部分へ進んだりすると、終了予定時刻がすぐ再計算されます。これにより、他のパネルを開かなくても、早まり/遅れの差分や、休憩または話者交代で累積した時間を確認できます。
+                </p>
+                <div class="image-container" style="margin-top: var(--spacing-md);">
+                    <img src="../images/manual/ja/timer-aggiornamento-orario-fine-v4.png"
+                         alt="リアルタイムで更新される終了予定時刻、差分、一時停止時間"
+                         class="manual-image">
+                </div>
+            </div>
+
+            <!-- 3.3 Regolazione automatica - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>3.3 · 自動調整 — 会衆の聖書研究と「ものみの塔」研究</h3>
+
+                <p>
+                    設定で会衆の聖書研究の適応調整や「ものみの塔」研究の適応調整が有効になっている場合、アプリは選択された部分の所要時間を動的に調整し、集会の終了時刻を保ちます。調整は有効なオプションがある部分だけに適用され、累積した早まり/遅れに基づいて分数を自動で増減できます。画像では、対象の行が切り離して表示され、調整後の値がオレンジ色で強調されるため、どのタイマーが修正されたかすぐ分かります。いつでも手動で変更できます。適応調整は新しい状況から再計算します。
+                </p>
+                <div class="image-container" style="margin-top: var(--spacing-md);">
+                    <img src="../images/manual/ja/manipolazione-regolazione-v4.png"
+                         alt="適応型タイマーの自動調整"
+                         class="manual-image">
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. FINESTRA MEDIA -->
+        <div class="content" id="finestra-media">
+            <h2>4 · メディアウィンドウ <a href="#indice" class="back-to-index-link">↑ 目次</a></h2>
+
+            <p>
+                メディアウィンドウには、その週に関連付けられたコンテンツが集められます。歌、動画、画像、部分に役立つ参照です。操作者が集会を準備し、利用できるコンテンツを確認し、必要なときに開始する助けになります。
+            </p>
+            <p>
+                <strong>使用上の注意:</strong> メディアウィンドウは、操作者がすでに利用できるマルチメディアコンテンツを準備、確認、管理するための補助ツールです。実際の使用は地元の必要に応じて行い、会衆の指示や取り決めと常に調和していなければなりません。技術的に必要な場合は、補助または予備の手段として使うこともできます。
+            </p>
+
+            <div style="display: flex; gap: var(--spacing-xl); align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-xl);">
+                <figure style="flex: 0 1 380px; max-width: 420px; margin: 0;">
+                    <img src="../images/manual/ja/media-window-v4-annotata-real.png"
+                         alt="番号付き主要エリアが表示されたJW Time 4.0のメディアウィンドウ"
+                         class="manual-image"
+                         style="width: 100%; height: auto; display: block;">
+                </figure>
+
+                <div style="flex: 1 1 360px; min-width: 280px; display: grid; gap: var(--spacing-md);">
+                    <div class="news-card">
+                        <h4 style="color: var(--text-secondary);">4.1 · 通知とメディアセクション</h4>
+                        <p>
+                            エリア1は、その週の公式メディアがまだオフラインで利用できない場合に知らせます。すぐにダウンロードすることも、後で行うこともできます。同じ動作は、設定の
+                            <a href="#impostazioni-media">セクション13 · メディア</a>で公式メディアの自動ダウンロードを有効にすることで自動化できます。通知の下には進行表のセクションがあり、色付きのタイトル、項目数、クイックコマンドが表示されます。
+                        </p>
+                        <p>
+                            <strong>注:</strong> 公式メディアをダウンロードするには、ネットワークがJW Timeからjw.orgとメディアに使われるリソースへのアクセスを許可している必要があります。プログラム用に導入された代替ダウンロードは、メディアでは利用できません。ルーター、ファイアウォール、DNS、コンテンツフィルターが宗教関連サイトやJW Timeのアクセスをブロックしている場合、公式メディアをダウンロードできないことがあります。その場合は、すでにオフラインにあるメディアを使うか、ローカルファイルを手動で追加できます。
+                        </p>
+                    </div>
+                    <div class="news-card">
+                        <h4 style="color: var(--text-secondary);">4.2 · コンテンツ一覧</h4>
+                        <p>
+                            エリア2には、プレビュー、タイトル、参照、開始ボタンを備えたカードがあります。色は進行表のエリアと対応しているため、部分に関連付けられた歌、画像、動画、参照をすばやく見つけられます。
+                        </p>
+                        <p>
+                            コンテキストメニューから、項目を使用済みまたは未使用として手動でマークできます。オプション「
+                            <strong>使用済みメディアを薄く表示</strong> 」が有効な場合、使用済みのコンテンツは控えめなスタイルで見分けられる状態のままになります。公式の動画、音声、画像を選ぶウィンドウには、次のモードもあります: 「 <strong>グローバル</strong>」。現在のカテゴリの外を検索する必要があるときに便利です。
+                        </p>
+                    </div>
+                    <div class="news-card">
+                        <h4 style="color: var(--text-secondary);">4.3 · 下部バー</h4>
+                        <p>
+                            エリア3には、メディアウィンドウのクイックコマンドが集められています。ダウンロード済みコンテンツ、プレビュー、同期、BGM、専用設定です。一覧が長い場合でも操作できるよう、下部に固定されています。
+                        </p>
+                    </div>
+                    <div class="news-card">
+                        <h4 style="color: var(--text-secondary);">4.4 · Zoomコントロール</h4>
+                        <p>
+                            エリア4には、メディアウィンドウのZoomコマンドが集められています。ビデオ会議でもメディアを表示し、会場のモニターで会場表示画面を使う人のために用意されています。
+                        </p>
+                        <ul class="manual-section">
+                            <li><strong>共有</strong>: 共有を開始または停止するために設定されたショートカットをZoomへ送信します。</li>
+                            <li><strong>Zoomを表示/非表示</strong>: 会場のモニターに話者やZoomウィンドウを表示するために使います。JW Timeは会場表示画面を一時的に隠し、その下にあるものが見えるようにします。そのため、ボタンを押す前に、Zoomの話者ウィンドウ、またはZoomを含む複製画面を、会場表示画面の背後にすでに配置しておく必要があります。</li>
+                            <li><strong>Zoom自動</strong>: そのセッションでZoom自動化を有効にします。メディアを開始すると、JW Timeは共有ショートカットを自動で送信でき、設定されていれば終了時に共有を停止することもできます。</li>
+                        </ul>
+                        <p>
+                            これらのボタンを使う前に、Zoomで画面共有用のグローバルショートカットを設定し、同じキーの組み合わせを <a href="#impostazioni-zoom">セクション14 · Zoom</a>に入力します。2つのショートカットが一致していない場合、JW Timeはコマンドを送信しますが、Zoomは期待どおりに反応しません。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>4.5 · 集会前の音楽とBGM</h3>
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 280px; min-width: 0;">
+                        <p>
+                            「 <strong>BGM</strong> 」パネルは集会前の音楽を管理し、設定されている場合は集会後の音楽も管理します。進行表のメディアとは混ざりません。再生中は、現在の曲、次の曲、進行状況、長さを表示します。
+                        </p>
+                        <p>
+                            開始、一時停止、前または次の曲への移動、シャッフル再生の有効化、プレイリストの表示ができます。自動動作やフェードを含む音楽設定は、
+                            <a href="#impostazioni-media">セクション13 · メディア</a>パネルで設定します。
+                        </p>
+                    </div>
+                    <figure style="flex: 0 0 48%; min-width: 320px; max-width: 680px; margin: 0;">
+                        <img src="../images/manual/ja/media-window-musica-v4-real.png"
+                             alt="メディアウィンドウの集会前音楽パネル"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. SCHERMI -->
+        <div class="content" id="schermi-contatempo-pubblico">
+            <h2>5 · 会場表示画面とタイムカウンター画面 <a href="#indice" class="back-to-index-link">↑ 目次</a></h2>
+
+            <p>
+                JW Time 4.0では表示が分かれています。「 <strong>会場表示画面</strong> 」は会場に表示するコンテンツのためのもので、「 <strong>タイムカウンター画面</strong> 」は時間を確認する人専用のままです。
+            </p>
+
+            <!-- 5.1 Schermo Pubblico - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h4 style="color: var(--text-secondary);">5.1 · 会場表示画面</h4>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 260px; min-width: 0;">
+                        <p>
+                            会場表示画面は、カウントダウン、歓迎メッセージ、年句、ロゴ、視覚コンテンツを別ウィンドウに表示します。
+                        </p>
+                        <ul class="manual-section">
+                            <li><strong>集会前</strong>: カウントダウンと設定済みのテキストを表示します。</li>
+                            <li><strong>集会中</strong>: 会場向けコンテンツや専用シーンに引き続き使用できます。</li>
+                            <li><strong>設定</strong>: モニター、メッセージ、カウントダウン、ロゴ、レイアウトの調整は <a href="#impostazioni-adunanze">セクション11 · 集会</a> および <a href="#impostazioni-schermo">セクション12 · 画面</a>で行います。</li>
+                        </ul>
+                    </div>
+                    <figure style="flex: 0 0 48%; min-width: 320px; max-width: 620px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/ja/schermo-pubblico-v4.png"
+                             alt="カウントダウンとメッセージが表示された会場表示画面"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 5.2 Schermo Contatempo esterno - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h4 style="color: var(--text-secondary);">5.2 · タイムカウンター画面</h4>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 260px; min-width: 0;">
+                        <p>
+                            タイムカウンター画面には、時計、現在進行中の部分のカウントダウン、話し手へのメッセージ、時間管理に関連した状態が表示されます。演壇、司会者、時間係に最も適した表示です。
+                        </p>
+                        <ul class="manual-section">
+                            <li>選択したモニターまたは自由なウィンドウに表示。</li>
+                            <li>現在の部分のタイマーと関連情報。</li>
+                            <li>メインウィンドウから送信された全画面または部分表示のメッセージ。</li>
+                        </ul>
+                        <p>
+                            レイアウトのカスタマイズについては、別途 <a href="#personalizzare-schermo">セクション5.3 · タイムカウンター画面をカスタマイズする</a>で扱います。これにより、画面の日常的な使用と表示設定を分けて考えられます。
+                        </p>
+                    </div>
+                    <figure style="flex: 0 0 48%; min-width: 320px; max-width: 620px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/ja/schermo-contattempo-v4.png"
+                             alt="外部モニター上のタイムカウンター画面"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5.3 PERSONALIZZARE LO SCHERMO CONTATEMPO -->
+        <div class="content" id="personalizzare-schermo">
+            <h2>5.3 · タイムカウンター画面をカスタマイズする <a href="#indice" class="back-to-index-link">↑ 目次</a></h2>
+
+            <p>
+                タイムカウンター画面は <strong>カスタマイズ</strong> ボタンから <a href="#impostazioni-generale">セクション9 · 全般</a>で変更できます。
+            </p>
+            <p>
+                利用可能なプリセットから始めることも、必要に応じてレイアウトを変更することもできます。会場表示画面には、独自の設定が <a href="#impostazioni-schermo">セクション12 · 画面</a>にあります。ここではタイムカウンターのレイアウトに作業を絞ります。
+            </p>
+
+            <figure style="margin: var(--spacing-xl) auto; max-width: 720px;">
+                <img src="../images/manual/ja/personalizzazione_schermo_contatempo_base-v4.png"
+                     alt="タイムカウンター画面のカスタマイズエディター"
+                     class="manual-image">
+            </figure>
+
+            <!-- 5.3.1 Partire da un preset -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>プリセットから始める</h3>
+                <p>
+                    プリセットとは、開始点となるレイアウトです。
+                </p>
+                <p>
+                    プリセットは <a href="#impostazioni-generale">セクション9 · 全般</a> で選択し、そのまま使うことも、カスタマイズエディターを開いて変更することもできます。
+                </p>
+            </div>
+
+            <!-- 5.3.2 Scegliere una scena -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>シーンを選ぶ</h3>
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <p>
+                            レイアウトはシーンごとに構成されています。
+                        </p>
+                        <p>
+                            各シーンは、タイムカウンター画面の異なる状況に対応します。これにより、表示する時点や部分の種類に応じて別のレイアウトを表示できます。
+                        </p>
+                        <p>
+                            変更する前に、どのシーンが選択されているかを必ず確認してください。
+                        </p>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/ja/personalizzazione_schermo_contatempo_base_scena-v4.png"
+                             alt="タイムカウンター画面エディターでのシーン選択"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 5.3.3 Tipi di livello -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>利用できるレイヤーの種類</h3>
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 320px; min-width: 0;">
+                        <p>
+                            レイヤーパネルで <strong>+</strong> を押すと、JW Time はシーンに追加できる要素の種類を表示します。一部のレイヤーは集会の実データを読み取って自動的に変化し、他のレイヤーはグラフィックレイアウトを作るために使います。
+                        </p>
+                        <p>
+                            各レイヤーのすべてのプロパティをマニュアルに載せるのは適切ではありません。プロパティパネルは選択した種類に応じて変わるためです。ここでは、各レイヤーが何をするか、いつ使うかを説明します。
+                        </p>
+                    </div>
+                    <figure style="flex: 0 0 42%; min-width: 300px; max-width: 520px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/ja/personalizzazione_schermo_contatempo_livelli-v4.png"
+                             alt="タイムカウンター画面で使用できる要素タイプを表示した「レイヤーを追加」ダイアログ"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+
+                <h4 style="color: var(--text-secondary); margin-top: var(--spacing-lg);">主な動的レイヤー</h4>
+                <ul class="manual-section">
+                    <li><strong>タイマー</strong>: 有効な部分の時間を表示します。カウントダウンまたはカウントアップとして設定できます。</li>
+                    <li><strong>歌</strong>: シーンが歌に関するものの場合、歌の情報を表示します。</li>
+                    <li><strong>メッセージ</strong>: メインウィンドウから送信されたメッセージを、全画面または部分表示の形式で表示します。</li>
+                    <li><strong>時計</strong>: デジタル時刻を表示します。</li>
+                    <li><strong>アナログ時計</strong>: カスタマイズ可能なグラフィック時計を追加します。</li>
+                </ul>
+
+                <h4 style="color: var(--text-secondary); margin-top: var(--spacing-lg);">集会情報</h4>
+                <ul class="manual-section">
+                    <li><strong>現在の部分</strong>: 進行中の部分のタイトルを表示します。</li>
+                    <li><strong>次の部分</strong>: 次の部分を表示し、切り替えの準備に役立ちます。</li>
+                    <li><strong>前の部分</strong>: レイアウトで想定されている場合、終了したばかりの部分の情報を表示します。</li>
+                    <li><strong>推定終了時刻</strong>: アプリで計算された終了時刻を表示します。</li>
+                    <li><strong>遅れ/早まり</strong>: 予定時刻との差を表示します。</li>
+                    <li><strong>休憩情報</strong>: 休止や調整時間に関する情報を表示します。</li>
+                    <li><strong>進行バー</strong>: 時間の進行状況をグラフィックで表示します。</li>
+                </ul>
+
+                <h4 style="color: var(--text-secondary); margin-top: var(--spacing-lg);">自由なグラフィックレイヤー</h4>
+                <ul class="manual-section">
+                    <li><strong>背景</strong>: 色付きの枠を追加します。帯、コントラスト領域、視覚的なコンテナを作るのに役立ちます。</li>
+                    <li><strong>テキスト</strong>: カスタムの固定テキストを追加します。</li>
+                    <li><strong>画像</strong>: ロゴまたは装飾画像を追加します。</li>
+                </ul>
+
+                <p>
+                    次のレイヤー:  <strong>背景</strong>、 <strong>テキスト</strong> 、 <strong>画像</strong> は複数回追加できます。その他のレイヤーでは、同じ種類の要素がすでに存在する場合、エディターはそれを別のシーンに関連付けるか、対応している場合は独立した要素を作成するかを提案します。
+                </p>
+            </div>
+
+            <!-- 5.3.4 Modificare il layout -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>レイアウトを変更する</h3>
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <p>
+                            エディターでは、選択したシーンにあるレイヤーを変更できます。
+                        </p>
+                        <p>各レイヤーでは、位置とサイズを3つの方法で調整できます。</p>
+                        <ul class="manual-section">
+                            <li>マウスで、プレビュー内の枠を移動またはサイズ変更する</li>
+                            <li>キーボードで、矢印キーを使って移動する</li>
+                            <li>プレビューの下に表示される位置とサイズの値を使う</li>
+                        </ul>
+                        <p>
+                            X と Y の値はレイヤーの位置を制御します。<br>
+                            幅と高さの値はレイヤーのサイズを制御します。
+                        </p>
+                        <p>これらの値はすべてパーセントで表されます。</p>
+                        <p>
+                            レイヤーパネルでは、<strong>重なり順</strong>も管理できます。各レイヤーは他のレイヤーの上または下に配置でき、重なった場合にどれが前面に表示されるかを決めます。順序は、リスト内でレイヤーをドラッグするか、
+                            <strong>▲</strong> と <strong>▼</strong> ボタンを使って変更できます。
+                        </p>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/ja/personalizzazione_schermo_contatempo_base_layout-v4.png"
+                             alt="タイムカウンター画面エディターでのレイアウト編集"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 5.3.5 Spostare, ridimensionare, valori, salvare -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>レイヤーを移動、サイズ変更、並べ替える</h3>
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <p>レイヤーを選択した後、次の操作ができます。</p>
+                        <ul class="manual-section">
+                            <li>マウスでドラッグしてプレビュー内で移動する</li>
+                            <li>キーボードの矢印キーを使って位置を調整する（<strong>矢印キー</strong>: 0.5%、 <strong>Shift</strong>: 2.0%、 <strong>Ctrl</strong>: 0.1%）</li>
+                            <li>枠の辺または角をドラッグしてサイズを変更する</li>
+                        </ul>
+                        <p>
+                            プレビューの下には数値コントロール <strong>X</strong>, <strong>Y</strong>, <strong>幅</strong> と <strong>高さ</strong>
+                            があり、位置とサイズを正確に調整できます。
+                        </p>
+                        <p>
+                            変更後、レイアウトを保存して適用します。エディターはいつでも再度開いて更新できます。
+                        </p>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/ja/personalizzazione_schermo_contatempo_base_trasformazioni-v4.png"
+                             alt="タイムカウンター画面エディターでのレイヤーの移動とサイズ変更"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. GESTIONE MESSAGGI -->
+        <div class="content" id="gestione-messaggi">
+            <h2>6 · メッセージ管理 <a href="#indice" class="back-to-index-link">↑ 目次</a></h2>
+
+            <p>
+                メッセージ機能を使うと、集会中に話し手と控えめかつ明確に連絡できます。部分の進行を遮ったり妨げたりせずに知らせたり指示を出したりできます。メッセージはタイムカウンター画面に表示されるため、話し手は気を散らされずにリアルタイムで確認できます。
+            </p>
+
+            <div class="image-container">
+                <img src="../images/manual/ja/messaggi-elenco-v4.png"
+                     alt="JW Timeのメッセージ管理画面"
+                     class="manual-image">
+            </div>
+
+            <!-- 6.1 Messaggio a tutto schermo - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>6.1 · 全画面メッセージ</h3>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <ol class="manual-section">
+                            <li>「メッセージを入力」と書かれているエリアをクリックします。</li>
+                            <li>テキストを入力します。</li>
+                            <li>「 <strong>全画面</strong> 」を押すと、テキストがタイムカウンター用モニターに全画面で表示されます。</li>
+                        </ol>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/ja/messaggio-tutto-schermo-v4.png"
+                             alt="全画面メッセージ"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 6.2 Messaggio a schermo parziale - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>6.2 · 部分表示メッセージ</h3>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <ol class="manual-section">
+                            <li>「メッセージを入力」と書かれているエリアをクリックします。</li>
+                            <li>テキストを入力します。</li>
+                            <li>「 <strong>部分表示</strong> 」を押すと、テキストはタイムカウンターウィンドウに、全体を覆わない形で表示されます。話し手はメッセージとタイマーの両方を確認できます。</li>
+                        </ol>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/ja/messaggio-parziale-v4.png"
+                             alt="部分画面メッセージ"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 6.3 Mirror Contatempo - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl); ">
+                <h3>6.3 · タイムカウンターミラー</h3>
+                <p>
+                    メッセージを送信すると、サイズ変更と移動が可能なプレビューウィンドウが自動的に表示され、話し手がタイムカウンター用モニターで見ている内容をそのまま示します。これにより、メッセージとタイマーの表示をリアルタイムで確認できます。
+                </p>
+            </div>
+        </div>
+        <!-- 7. PULSANTE REC -->
+        <div class="content" id="rec-button">
+            <h2>7 · RECボタンと録音パネル <a href="#indice" class="back-to-index-link">↑ 目次</a></h2>
+
+            <p>
+                「 <strong>REC</strong> 」ボタンは下部バーの「プログラム」と「メッセージ」の隣にあります。文字の横の丸印は録音の状態（待機中、録音中、一時停止、MP3変換中）を示し、RECパネルでは JWTimeREC フォルダーを開く、手動録音を管理する、PCとマイクの音声レベルを監視するためのクイック操作を行えます。
+            </p>
+
+            <div class="image-container" style="margin-top: var(--spacing-lg);">
+                <img src="../images/manual/ja/REC-v4.png"
+                     alt="RECボタンと録音パネルの詳細"
+                     class="manual-image">
+            </div>
+
+            <!-- 7.1 Indicatori di stato - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>7.1 · ボタンのインジケーターと状態</h3>
+                <ul class="manual-section">
+                    <li><strong>待機中</strong>: 丸印は灰色のままで、パネルには「待機中」/「有効な録音はありません」と表示されます。</li>
+                    <li><strong>録音中</strong>: 丸印は赤く点滅し、パネルには部分のタイトルとタイマーとともに「録音中」と表示されます。</li>
+                    <li><strong>一時停止</strong>: 丸印はオレンジ色になります。録音は停止され、再開できます。</li>
+                    <li><strong>MP3変換</strong>: 丸印は青になり、ファイルのエクスポートが完了するまでボタンは無効のままです。</li>
+                </ul>
+            </div>
+
+            <!-- 7.2 Controlli rapidi REC - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>7.2 · RECクイック操作</h3>
+                <p>RECパネルには、設定に入らずに使える操作がまとまっています。</p>
+                <ul class="manual-section">
+                    <li><strong>フォルダーを開く</strong>: 録音を含む JWTimeREC ディレクトリを直接開きます。</li>
+                    <li><strong>録音のオン/オフ</strong>: 設定に入らずに手動録音を有効化または停止します。</li>
+                    <li><strong>一時停止/再開</strong>: 録音中に表示されるボタンで、音声を一時的に止め（例: 祈りの間）、同じファイルで再開できます。</li>
+                    <li><strong>インライン詳細</strong>: 状態の下に、現在の行のタイトルと更新された録音時間が表示されます。</li>
+                    <li><strong>自動メッセージ</strong>: 録音が無効な場合や変換中の場合に、すぐに知らせます。</li>
+                </ul>
+            </div>
+
+            <!-- 7.3 Area toggle e controlli manuali - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>7.3 &middot; 音声レベル付きの切り替えエリア</h3>
+                <p>
+                    下部バーでRECを開くと、録音状態と音声メーターを常に確認できるパネルが表示されます。
+                    ここから手動録音の開始と停止、PC/マイクのレベル確認、JWTimeRECフォルダーの表示をワンクリックで行えます。
+                </p>
+            </div>
+        </div>
+
+        <!-- 8. MONITOR WEB -->
+        <div class="content" id="monitor-web">
+            <h2>8 &middot; Webモニター &amp; Webサーバー <a href="#indice" class="back-to-index-link">&uarr; 目次</a></h2>
+
+            <p>
+                Webサーバーが有効なときは、同じローカルネットワーク上の別の端末からブラウザーで開けます。
+                これにより、プロジェクター、タブレット、別のコンピューターでタイムカウンターを表示でき、各部分の時間を確認する司会者にも役立ちます。
+            </p>
+
+            <p>Webサーバー、リモート操作、リモートリンク、QRの詳しい設定については、<a href="#impostazioni-connessioni">15 &middot; 接続とサーバー</a>を参照してください。</p>
+
+            <div class="news-card" id="monitor-web-locale" style="margin-top: var(--spacing-xl);">
+                <h3>8.1 &middot; ローカルネットワークでWebモニターを表示する</h3>
+
+                <div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+                    <div style="flex: 1 1 320px; min-width: 0;">
+                        <p>ブラウザーから次のことができます。</p>
+                        <ul class="manual-section">
+                            <li>タイマーとタイムカウンターを全画面で表示する。</li>
+                            <li>進行表を印刷する。</li>
+                            <li>時間の進み具合をリアルタイムで確認する。</li>
+                            <li>リモート操作が有効な場合、タイマーとプログラムをブラウザーから操作する。</li>
+                        </ul>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0 0 0 auto; align-self: flex-start;">
+                        <img src="../images/manual/ja/monitor-web-v4.png"
+                             alt="ブラウザーで表示したJW TimeのWebモニター"
+                             class="manual-image">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 8.2 Controllo remoto -->
+            <div class="news-card" id="monitor-web-controllo-remoto" style="margin-top: var(--spacing-xl);">
+                <h3>8.2 &middot; ブラウザーからタイマーとプログラムを操作する</h3>
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <p>
+                            リモート操作が有効な場合、メインのコンピューターの前にいなくても、ブラウザーからタイマーとプログラムを操作できます。
+                        </p>
+                        <p>利用できる操作は設定された権限によって異なり、次のものを含めることができます。</p>
+                        <ul class="manual-section">
+                            <li>タイマーの開始</li>
+                            <li>一時停止と再開</li>
+                            <li>停止</li>
+                            <li>進行表（プログラム）の操作</li>
+                            <li>許可されたロールで認められている場合、進行表内の時間や利用可能な値の変更</li>
+                        </ul>
+                        <p>アプリに表示されるアドレスを入力するか、利用できる場合はQRを使ってWebサーバーを開けます。</p>
+                        <p>
+                            設定に応じて、表示のみ、操作と変更など、異なるアクセスレベルを用意できます。
+                            設定されている場合、アクセスにはPINが必要になることがあります。
+                        </p>
+                        <p>完全な設定については、<a href="#impostazioni-connessioni">セクション15 &middot; 接続とサーバー</a>を参照してください。</p>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/ja/monitor-web-editor-v4.png"
+                             alt="リモート操作付きWebモニター"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 8.3 Accesso remoto fuori rete -->
+            <div class="news-card" id="monitor-web-accesso-remoto" style="margin-top: var(--spacing-xl);">
+                <h3>8.3 &middot; ビデオ会議の集会で使うリモートアクセス</h3>
+                <p>
+                    JW Timeを確認または操作する人が同じローカルネットワーク上にいない場合、一時的なリモートリンクを生成できます。
+                    これは、ビデオ会議での集会、リモートサポート、別のネットワークに接続した端末からの操作に役立ちます。
+                </p>
+                <figure style="margin: var(--spacing-lg) 0;">
+                    <img src="../images/manual/ja/impostazioni-connessioni-accesso-remoto-v4.png"
+                         alt="リモートアクセスが強調表示された接続パネル"
+                         class="manual-image">
+                </figure>
+                <ul class="manual-section">
+                    <li><strong>同じWebインターフェース</strong>: ローカルネットワークの場合と同じように、リモートリンクでブラウザーからWebモニターを開きます。</li>
+                    <li><strong>一時リンク</strong>: リモートリンクは有効にするたびに変わるため、恒久的なリンクとして扱わないでください。</li>
+                    <li><strong>リモートPIN</strong>: 設定すると、ローカルネットワーク外から利用できる機能を保護します。</li>
+                    <li><strong>ビデオ会議での使用</strong>: ネットワーク外から集会を支援する人が、設定された権限に従ってプログラムを確認または操作できます。</li>
+                </ul>
+                <p>
+                    実際の設定は<a href="#server-web-remoto">15.2 &middot; リモートWebサーバー</a>で行います。
+                    Zoomの設定は別です。Zoomは共有やショートカットを管理し、リモートリンクはWebモニターに関するものです。
+                </p>
+            </div>
+        </div>
+
+        <!-- PARTE II - PANNELLI IMPOSTAZIONI -->
+        <div class="content-section-header">
+            <h2 style="font-size: 2rem; margin: 0 0 var(--spacing-lg) 0; color: var(--text-primary);">第II部 &#183; 設定パネル</h2>
+            <p>
+                この部分では、アプリの動作を設定できます。一般設定、会衆プロフィール、集会、
+                タイムカウンター画面、メディア、Zoom、Webモニターとサーバー、録音、バックアップと復元を扱います。
+            </p>
+            <p>保存ボタンで、すべての変更を適用します。</p>
+        </div>
+
+        <!-- 9. GENERALE -->
+        <div class="content" id="impostazioni-generale">
+            <h2>9 &middot; 全般 <a href="#indice" class="back-to-index-link">&uarr; 目次</a></h2>
+
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/ja/impostazioni-generale-v4.png"
+                         alt="JW Timeの一般設定パネル"
+                         class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <h3>外観と形式</h3>
+                    <ul class="manual-section">
+                        <li><strong>言語を選択</strong>: インターフェースの言語を変更します。</li>
+                        <li><strong>プログラムの言語</strong>: 週ごとの進行表をどの言語でダウンロードまたは表示するかを設定します。</li>
+                        <li><strong>テーマを選択</strong>: アプリの表示テーマを設定します。</li>
+                        <li><strong>インターフェースの倍率</strong>: 文字や操作部品の大きさを調整します。変更は再起動後に適用されます。</li>
+                        <li><strong>時刻形式</strong>: 24時間形式と12時間AM/PM形式を切り替えます。</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">タイマー管理</h3>
+                    <ul class="manual-section">
+                        <li><strong>自動一時停止</strong>: Start/Nextを押したときに、1つの部分と次の部分の間へ自動的に一時停止を入れます。</li>
+                        <li><strong>「終了」列を表示</strong>: 現在の部分とそれ以降の部分の終了予定時刻を表に表示します。現在時刻、残りのタイマー、累積したずれからリアルタイムで計算されます。</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">新機能</h3>
+                    <ul class="manual-section">
+                        <li><strong>起動時に新機能を表示</strong>: 追加された機能の短い概要をアプリ内で開きます。JW Timeを使う人は、試す価値のある機能をすぐに確認できます。</li>
+                        <li>グループがインストール済みバージョンに慣れたら、無効にできます。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. CONGREGAZIONI -->
+        <div class="content" id="impostazioni-congregazioni">
+            <h2>10 &middot; 会衆 <a href="#indice" class="back-to-index-link">&uarr; 目次</a></h2>
+
+            <p>
+                このパネルでは会衆プロフィールを管理できます。各プロフィールには専用の設定を保存できるため、
+                ウィンドウ、メディア、レイアウトを毎回設定し直さなくても、JW Timeを異なる状況に合わせられます。
+            </p>
+
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/ja/impostazioni-congregazioni-v4.png"
+                         alt="JW Timeの会衆パネル"
+                         class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <h3>会衆プロフィール</h3>
+                    <ul class="manual-section">
+                        <li><strong>会衆一覧</strong>: 利用できるプロフィールを表示します。各プロフィールには、言語、サーバー、画面、録音、メディア、各種設定が保存されます。</li>
+                        <li><strong>新しい会衆</strong>: 設定用の別プロフィールを作成します。</li>
+                        <li><strong>名前を変更</strong>: 設定を失わずに、選択したプロフィールの名前を変更します。</li>
+                        <li><strong>複製</strong>: 現在のプロフィールのコピーを作成します。2つの設定が似ている場合に便利です。</li>
+                        <li><strong>削除</strong>: 不要になった選択中のプロフィールを削除します。</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">インポート / エクスポート</h3>
+                    <ul class="manual-section">
+                        <li><strong>会衆をエクスポート</strong>: 選択したプロフィールだけを保存します。</li>
+                        <li><strong>会衆をインポート</strong>: 以前にエクスポートしたプロフィールを読み込みます。</li>
+                        <li><strong>エクスポート</strong>: すべての会衆を含む完全なバックアップを作成します。</li>
+                        <li><strong>インポート</strong>: 複数の会衆を含むバックアップを復元します。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 11. ADUNANZE -->
+        <div class="content" id="impostazioni-adunanze">
+            <h2>11 &middot; 集会（集会開始タイマー） <a href="#indice" class="back-to-index-link">&uarr; 目次</a></h2>
+
+            <p>
+                このパネルでは、会場表示画面に出す集会開始カウントダウンを設定します。
+                カウントダウンを開始する曜日、時刻、事前表示時間（分）を指定します。
+            </p>
+
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/ja/impostazioni-adunanze-v4.png"
+                         alt="開始タイマーが表示されたJW Timeの集会パネル"
+                         class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <h3>11.1 &#183; スケジュール設定（曜日 &#183; 時刻 &#183; 事前表示）</h3>
+                    <ul class="manual-section">
+                        <li><strong>集会を追加</strong>: 時刻表に新しい行を挿入します。</li>
+                        <li><strong>曜日</strong>: 集会が行われる曜日を選びます。</li>
+                        <li><strong>時刻</strong>: 集会の開始時刻を設定します。</li>
+                        <li><strong>事前表示（分）</strong>: 設定した時刻の何分前に、会場表示画面へカウントダウンを表示するかを指定します。</li>
+                        <li><strong>-</strong>: 不要になった時刻行を削除します。</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">11.2 &#183; 特別な予定</h3>
+                    <ul class="manual-section">
+                        <li><strong>特別な予定を追加</strong>: 巡回監督の訪問、記念式、手動で指定する予定などを作成します。</li>
+                        <li><strong>巡回監督の訪問</strong>: 訪問用の規則と時刻を適用します。</li>
+                        <li><strong>記念式</strong>: 特定の日付と時刻を持つ特別な予定を登録します。</li>
+                        <li><strong>編集 / 削除</strong>: 右側のボタンで予定を更新または削除できます。</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">11.3 &#183; 時間の自動調整</h3>
+                    <ul class="manual-section">
+                        <li><strong>会衆の聖書研究の自動調整</strong>: 終了予定時刻を守りやすくするため、会衆の聖書研究を自動的に調整します。</li>
+                        <li><strong>「ものみの塔」研究の自動調整</strong>: 同じ考え方を「ものみの塔」研究に適用します。</li>
+                    </ul>
+
+                    <p style="margin-top: var(--spacing-md); font-size: 0.9rem; color: var(--text-tertiary);">
+                        <strong>注:</strong> 開始時刻は会場表示画面のカウントダウンに使われます。一方、終了予定時刻は進行表と、必要に応じた時間調整によって決まります。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 12. SCHERMO -->
+        <div class="content" id="impostazioni-schermo">
+            <h2>12 &middot; 画面 <a href="#indice" class="back-to-index-link">&uarr; 目次</a></h2>
+
+            <p>
+                このパネルには、タイムカウンター画面と会場表示画面に関する設定がまとまっています。
+                どこに情報を表示するか、どのように見せるか、集会中にどの要素を表示するかを選べます。
+            </p>
+
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/ja/impostazioni-schermo-v4.png"
+                         alt="JW Timeの画面パネル"
+                         class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <ul class="manual-section">
+                        <li><strong>有効にする</strong>: タイムカウンター画面を有効または無効にします。</li>
+                        <li><strong>モニターを選択</strong>: タイムカウンターを表示するモニターまたはウィンドウを選びます。</li>
+                        <li><strong>識別</strong>: 選択したモニターに目印を表示します。複数の画面が接続されている場合に便利です。</li>
+                        <li><strong>モード</strong>: タイムカウンターをどのように開くかを設定します。例として、独立したウィンドウとして開けます。</li>
+                        <li><strong>透明な背景</strong>: モードが対応している場合、ウィンドウの背景を透明にします。</li>
+                        <li><strong>レイアウト</strong>: タイムカウンター画面の表示プリセットを選択します。</li>
+                        <li><strong>カスタマイズ</strong>: 選択したレイアウトのエディターを開きます。</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">会場表示画面</h3>
+                    <ul class="manual-section">
+                        <li><strong>会場表示画面を有効にする</strong>: 会場に表示する内容専用のウィンドウを有効にします。</li>
+                        <li><strong>会場向けカウントダウンを有効にする</strong>: 集会開始のカウントダウンを会場表示画面に表示します。</li>
+                        <li><strong>モニター</strong>: 会場表示用ウィンドウを開く場所を選択します。</li>
+                        <li><strong>レイアウト</strong>: 会場表示画面の表示プリセットを選びます。</li>
+                        <li><strong>年の聖句を表示</strong>: 年の聖句を表示または非表示にします。</li>
+                        <li><strong>JWロゴを表示</strong>: 会場表示の画面でロゴを表示または非表示にします。</li>
+                        <li><strong>年の聖句テキスト</strong>: 任意のテキストを入力できます。空欄の場合は、プログラムの言語に応じた年の聖句が使われます。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 13. MEDIA -->
+        <div class="content" id="impostazioni-media">
+            <h2>13 &middot; メディア <a href="#indice" class="back-to-index-link">&uarr; 目次</a></h2>
+
+            <p>
+                このパネルでは、メディアウィンドウの動作、ローカルキャッシュ、集会中または集会後に使うコンテンツに関連するオプションを管理します。
+            </p>
+
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/ja/impostazioni-media-v4.png"
+                         alt="JW Timeのメディアパネル"
+                         class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <h3>メディア機能</h3>
+                    <ul class="manual-section">
+                        <li><strong>メディアボタンと機能</strong>: メディアボタンを表示または非表示にし、関連機能を有効にします。</li>
+                        <li><strong>使用済みメディアを薄く表示</strong>: メディアウィンドウで、すでに使用したコンテンツを分かりやすく表示します。</li>
+                        <li><strong>外部URLを許可</strong>: 確認後、jw.org と wol.jw.org 以外のHTTPS URLを追加し、内蔵ブラウザーで表示できるようにします。</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">集会メディア</h3>
+                    <ul class="manual-section">
+                        <li><strong>公式メディアを自動ダウンロード</strong>: ネットワークが利用できる場合、その週の公式メディアを事前に使えるようにします。</li>
+                        <li><strong>オフラインの歌を自動更新</strong>: ダウンロード済みの歌カタログを最新に保ちます。</li>
+                        <li><strong>動画品質</strong>: 公式動画の解像度を選びます。</li>
+                        <li><strong>週数</strong>: 保持または準備する週数を指定します。</li>
+                        <li><strong>最大容量</strong>: メディアキャッシュが使用する容量を制限します。</li>
+                        <li><strong>フォルダー / 削除</strong>: コンテンツのフォルダーを開くか、ダウンロード済みファイルを削除します。</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">歌と音楽</h3>
+                    <ul class="manual-section">
+                        <li><strong>集会用の歌動画</strong>: 歌動画のダウンロード、品質、フォルダーを管理します。</li>
+                        <li><strong>歌 - 集会前後の音楽</strong>: BGMとして使う音楽を管理します。</li>
+                        <li><strong>シャッフル再生</strong>: 曲をランダムな順序で再生します。</li>
+                        <li><strong>集会開始時に自動停止</strong>: プログラムが始まると音楽を停止します。</li>
+                        <li><strong>集会開始前に音楽を停止</strong>: BGMを何秒前に止めるかを設定します。</li>
+                        <li><strong>フェード時間</strong>: 終了時や曲の切り替え時の音声フェードを調整します。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 14. ZOOM -->
+        <div class="content" id="impostazioni-zoom">
+            <h2>14 &middot; Zoom <a href="#indice" class="back-to-index-link">&uarr; 目次</a></h2>
+
+            <p>
+                このパネルには、JW TimeをZoomや、専用の音声/動画操作が必要な会場設定と一緒に使う場合に役立つ設定が含まれます。
+                下のオプションは、<a href="#finestra-media">セクション4 &middot; メディアウィンドウ</a>のZoomボタンに反映されます。
+            </p>
+
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/ja/impostazioni-zoom-v4.png"
+                         alt="JW TimeのZoomパネル"
+                         class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <h3>Zoom</h3>
+                    <ul class="manual-section">
+                        <li><strong>Zoom操作</strong>: メディアウィンドウにZoom専用のボタンを表示します。</li>
+                        <li><strong>Zoom共有</strong>: Zoomへ共有ショートカットを送るボタンを有効にします。</li>
+                        <li><strong>Zoomを会場に表示</strong>: JW Timeの会場表示画面を一時的に隠し、その下に配置しておいた話者またはZoomウィンドウを会場モニターに表示するボタンを有効にします。</li>
+                        <li><strong>共有ショートカット</strong>: Zoom内で画面共有の開始または停止に設定したグローバルショートカットと同じものにする必要があります。</li>
+                        <li><strong>テスト</strong>: ショートカットを送信し、Zoomが共有を開くか、共有状態を切り替えるかを確認します。</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">Zoomショートカット</h3>
+                    <p>
+                        JW Timeは、Zoomで共有するウィンドウや画面を代わりに選ぶわけではありません。このパネルで指定したキーの組み合わせを送信します。
+                        そのため、同じショートカットをZoomの設定でも有効にしておく必要があります。できればグローバルショートカットとして設定します。
+                        Zoom側で別の組み合わせを使っていると、<strong>共有</strong>ボタンと<strong>Zoom Auto</strong>モードは安定して動作しません。
+                    </p>
+                    <p>
+                        集会前に一連の流れを確認してください。Zoomを会場モニターに準備し、話者のウィンドウまたはZoomの複製画面を会場表示画面の下に配置し、
+                        <strong>テスト</strong>でショートカットを試してから、メディアウィンドウの操作を使います。
+                    </p>
+
+                    <h3 style="margin-top: var(--spacing-lg);">メディアの自動化</h3>
+                    <ul class="manual-section">
+                        <li><strong>自動開始</strong>: メディアウィンドウで<strong>Zoom Auto</strong>ボタンが有効な場合、メディアの開始時に共有を開始します。</li>
+                        <li><strong>メディア終了時に停止</strong>: JW Timeが共有を開始した場合に限り、メディアを閉じたとき、または終了したときにZoom共有を停止します。</li>
+                        <li><strong>開始時に一時停止</strong>: 共有開始後、メディアを一時停止した状態で準備します。</li>
+                        <li><strong>フォーカスを戻す</strong>: Zoomへの操作後、フォーカスをメディアウィンドウに戻します。</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">ビデオ会議の集会で使う</h3>
+                    <p>
+                        ビデオ会議の集会中に、ネットワーク外の人がJW Timeを確認または操作する必要がある場合、
+                        Zoomではなく<a href="#monitor-web-accesso-remoto">8.3 &middot; ビデオ会議の集会で使うリモートアクセス</a>を使用します。
+                        このパネルでは、ショートカット、共有、Zoomウィンドウの管理だけを扱います。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 15. CONNESSIONE E SERVER -->
+        <div class="content" id="impostazioni-connessioni">
+            <h2>15 &middot; 接続とサーバー <a href="#indice" class="back-to-index-link">&uarr; 目次</a></h2>
+
+            <p>
+                このパネルでは、アプリの接続機能を管理します。ブラウザーで表示や操作を行うためのWebモニターとWebサーバー、
+                すばやくアクセスするためのQR、リモート操作、高度な接続テスト、ログ管理を設定できます。
+            </p>
+
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/ja/impostazioni-connessioni-v4.png"
+                         alt="JW Timeの接続パネル"
+                         class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <h3>15.1 &middot; WebモニターとWebサーバー</h3>
+                    <ul class="manual-section">
+                        <li><strong>JW Time - Webモニター</strong>: 内部サーバーを有効または無効にします。</li>
+                        <li><strong>サーバーアドレス</strong>: ローカルネットワークで開くURLを表示します。このマニュアルでは例として <code>http://192.168.1.100:8000</code> のような一般的なアドレスを使用します。</li>
+                        <li><strong>アドレスをコピー</strong>: URLをクリップボードにコピーします。</li>
+                        <li><strong>QR</strong>: スマートフォンやタブレットからWebモニターをすばやく開くためのQRコードを表示します。</li>
+                        <li><strong>サーバーポート</strong>: HTTPポートを設定します。通常は8000です。</li>
+                        <li><strong>編集者 / 操作者</strong>: ブラウザーからタイマーやプログラムを編集または操作するためのパスワードを有効にします。操作者ロールでは、Webモニターが操作パネルにもなり、メインのコンピューターに戻らなくても開始、一時停止、停止、利用可能な値の更新を行えます。</li>
+                    </ul>
+                    <p>
+                        Webサーバーが有効なときは、同じローカルネットワーク上の別の端末からブラウザーでJW Timeを開き、
+                        スマートフォン、タブレット、別のコンピューターでWebモニターを使用できます。
+                    </p>
+
+                    <h3 id="server-web-remoto" style="margin-top: var(--spacing-lg);">15.2 &middot; リモートWebサーバー</h3>
+                    <p>
+                        このセクションでは、ビデオ会議での集会など、ローカルネットワーク外からもWebモニターにアクセスできるようにします。
+                        使用する場面については、<a href="#monitor-web-accesso-remoto">8.3 &middot; ビデオ会議の集会で使うリモートアクセス</a>を参照してください。
+                        ここでは実際の操作を行います。
+                    </p>
+                    <ul class="manual-section">
+                        <li><strong>リモートリンクを生成</strong>: ローカルネットワーク外からのアクセスが必要なときに、Cloudflareコンポーネントを使って一時リンクを作成します。</li>
+                        <li><strong>コンポーネントをダウンロード</strong>: リモート接続に必要なコンポーネントをダウンロードします。</li>
+                        <li><strong>リモートリンク</strong>: 生成されたリンクと、コピー/QRボタンを表示します。</li>
+                        <li><strong>リモートPIN</strong>: 設定すると、リモート機能へのアクセスを保護します。</li>
+                        <li><strong>リンク状態</strong>: リモートコンポーネント、有効な接続、Cloudflareが利用可能かどうかを示します。</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">15.3 &middot; リモート操作</h3>
+                    <p>
+                        この機能が有効な場合、Webサーバーは表示だけでなく、タイマーやプログラムをリモートで操作するためにも使えます。
+                        Controllerロールが有効な場合、Web画面には、部分の長さなど利用可能な値を調整する操作も表示されます。
+                    </p>
+                    <p>利用できる操作には、次のものを含めることができます。</p>
+                    <ul class="manual-section">
+                        <li>タイマーの開始</li>
+                        <li>一時停止と再開</li>
+                        <li>停止</li>
+                        <li>進行表（プログラム）の操作</li>
+                    </ul>
+                    <p>
+                        設定に応じて、単なる閲覧と、操作または変更の機能を区別するために、複数のアクセスレベルを用意できます。
+                    </p>
+
+                    <h3 style="margin-top: var(--spacing-lg);">15.4 &middot; 接続テスト</h3>
+                    <ul class="manual-section">
+                        <li><strong>接続テスト</strong>: ネットワーク、JW.org、プロキシ、書き込み権限を確認します。</li>
+                        <li><strong>結果をコピー</strong>: サポートや診断のために、テスト結果をコピーします。</li>
+                        <li><strong>ログフォルダーを開く</strong>: アプリのログフォルダーを直接開きます。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 16. REGISTRAZIONE -->
+        <div class="content" id="impostazioni-registrazioni">
+            <h2>16 &middot; 録音 <a href="#indice" class="back-to-index-link">&uarr; 目次</a></h2>
+
+            <p>
+                集会の音声録音機能です。設定の「録音」タブと、メインウィンドウのRECボタンから利用できます。
+            </p>
+
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/ja/impostazioni-registrazioni-v4.png"
+                         alt="JW Timeの録音パネル"
+                         class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <h3>自動録音</h3>
+                    <ul class="manual-section">
+                        <li><strong>自動録音を有効にする</strong>: 機能が有効な場合、タイマーの開始時に録音を開始します。</li>
+                        <li><strong>タイマー一時停止時に録音も一時停止</strong>: タイマーの一時停止中は録音も一時停止します。</li>
+                        <li><strong>録音モード</strong>: 部分ごとに1つのファイルにするか、集会全体を1つのファイルにするかを選びます。</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">保存先とデバイス</h3>
+                    <ul class="manual-section">
+                        <li><strong>保存先</strong>: ファイルを保存するフォルダーを示します。このマニュアルでは一般的なパスを表示しています。</li>
+                        <li><strong>保存先を選択</strong>: 保存先フォルダーを選択します。</li>
+                        <li><strong>保存先を開く</strong>: 録音フォルダーを開きます。</li>
+                        <li><strong>PC音声</strong>: コンピューターの音声ソースを選択します。</li>
+                        <li><strong>マイク</strong>: PC音声と一緒に録音するマイクを選択します。</li>
+                        <li><strong>PC音量 / マイク音量</strong>: 2つのソースの録音レベルを調整します。</li>
+                        <li><strong>PCしきい値</strong>: PC音声を有効とみなす条件を設定します。</li>
+                        <li><strong>マイク低減</strong>: PC音声がしきい値を超えたときに、マイク音量を自動的に下げます。</li>
+                        <li><strong>録音テスト</strong>: 集会前にデバイスと音量レベルを確認します。</li>
+                        <li><strong>統計</strong>: 実行済みの録音に関する情報を表示します。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 17. PACCHETTI E BACKUP OFFLINE -->
+        <div class="content" id="impostazioni-backup">
+            <h2>17 &middot; オフラインパッケージとバックアップ <a href="#indice" class="back-to-index-link">&uarr; 目次</a></h2>
+
+            <p>
+                このパネルでは、週ごとのプログラムをオフラインで使えるように準備し、保存済みパッケージをエクスポートまたはインポートできます。
+            </p>
+
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/ja/impostazioni-backup-v4.png"
+                         alt="JW Timeのバックアップと復元パネル"
+                         class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <h3>17.1 &#183; プログラムのダウンロード元</h3>
+                    <ul class="manual-section">
+                        <li><strong>WOLからダウンロード（優先）</strong>: 利用できる場合は優先ダウンロード元を使います。</li>
+                        <li><strong>サーバー2からダウンロード（バックアップ）</strong>: プログラムのダウンロードに代替元を使います。</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">17.2 &#183; 週ごとのプログラムのバックアップ</h3>
+                    <ul class="manual-section">
+                        <li><strong>バックグラウンドでダウンロード</strong>: 手動操作を求めずにパッケージを更新します。</li>
+                        <li><strong>週日</strong>: 週日の集会のプログラムを含めます。</li>
+                        <li><strong>週末</strong>: 週末のプログラムを含めます。</li>
+                        <li><strong>ダウンロードする週数</strong>: 何週分を準備するかを指定します。</li>
+                        <li><strong>ダウンロード</strong>: パッケージのダウンロードをすぐに開始します。</li>
+                        <li><strong>停止</strong>: 進行中のダウンロードを停止します。</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">17.3 &#183; ダウンロード済みの週</h3>
+                    <ul class="manual-section">
+                        <li><strong>週一覧</strong>: ローカルで利用できるパッケージを表示します。</li>
+                        <li><strong>すべてエクスポート</strong>: パッケージを移動可能なファイルに保存します。</li>
+                        <li><strong>インポート</strong>: 別のPCで準備したパッケージを読み込みます。</li>
+                        <li><strong>空にする</strong>: 不要になったローカルパッケージを削除します。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>JW Time</h3>
+                <p>集会の時間管理のための、独立した無料・非営利のプロジェクトです。</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>リソース</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="manual.html">ユーザーマニュアル</a></li>
+                    <li><a href="news.html">新機能</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contacts.html">連絡先</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>情報</h3>
+                <ul>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025-2026 JW Time - ボランティアによって作成された、独立した無料・非営利のプロジェクト</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js?v=20260630-2"></script>
+</body>
+</html>

@@ -119,13 +119,25 @@
             'pt-PT': 'pt_BR',
             'hu': 'hu',
             'hu-HU': 'hu',
-            'hu-hu': 'hu'
+            'hu-hu': 'hu',
+            'pl': 'pl',
+            'pl-PL': 'pl',
+            'pl-pl': 'pl',
+            'tl': 'tl',
+            'tl-PH': 'tl',
+            'tl-ph': 'tl',
+            'fil': 'tl',
+            'fil-PH': 'tl',
+            'fil-ph': 'tl',
+            'ja': 'ja',
+            'ja-JP': 'ja',
+            'ja-jp': 'ja'
         };
 
         function getPreferredLanguage() {
             // Check if user has a saved preference
             const savedLang = localStorage.getItem('jwtime-lang');
-            if (savedLang && ['it', 'en', 'es', 'de', 'nl', 'fr', 'pt_BR', 'hu'].includes(savedLang)) {
+            if (savedLang && ['it', 'en', 'es', 'de', 'nl', 'fr', 'pt_BR', 'hu', 'pl', 'tl', 'ja'].includes(savedLang)) {
                 return savedLang;
             }
 
@@ -175,6 +187,9 @@
             <a href="fr/">Fran&#231;ais</a>
             <a href="pt_BR/">Portugu&#234;s (BR)</a>
             <a href="hu/">Magyar</a>
+            <a href="pl/">Polski</a>
+            <a href="tl/">Filipino</a>
+            <a href="ja/">日本語</a>
         </div>
     </div>
 </body>

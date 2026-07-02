@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kumpletong manwal ng JW Time - Gabay sa paggamit ng aplikasyon para sa pamamahala ng oras ng mga pulong">
+    <title>Manwal sa Paggamit - JW Time</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .back-to-index-link {
+            font-size: 0.9rem;
+            margin-left: 0.75rem;
+            color: var(--text-tertiary);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .back-to-index-link:hover {
+            color: var(--text-secondary);
+            text-decoration: underline;
+        }
+
+        .content:not(#indice) a:not(.back-to-index-link):not(.btn),
+        .content-section-header a:not(.back-to-index-link):not(.btn) {
+            color: inherit;
+            font-weight: 600;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 0.2em;
+            text-decoration-color: currentColor;
+        }
+
+        .content:not(#indice) a:not(.back-to-index-link):not(.btn)::after,
+        .content-section-header a:not(.back-to-index-link):not(.btn)::after {
+            content: " ↴";
+            font-size: 0.85em;
+            opacity: 0.78;
+            text-decoration: none;
+        }
+
+        .content:not(#indice) a:not(.back-to-index-link):not(.btn):hover,
+        .content-section-header a:not(.back-to-index-link):not(.btn):hover {
+            color: var(--text-primary);
+        }
+
+        /* Scroll offset per compensare header fisso */
+        html {
+            scroll-padding-top: 100px;
+        }
+
+        /* Scroll offset maggiore su mobile per header a due righe */
+        @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 180px;
+            }
+        }
+
+        /* Scroll offset extra su schermi molto piccoli dove l'header pu&#242; essere su 3 righe */
+        @media (max-width: 480px) {
+            html {
+                scroll-padding-top: 220px;
+            }
+        }
+
+        /* Assicura che le immagini non vengano tagliate su mobile */
+        @media (max-width: 640px) {
+            .content figure,
+            .news-card figure {
+                overflow: visible !important;
+                flex: 1 1 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+                margin: var(--spacing-lg) 0 !important;
+            }
+
+            .content figure img,
+            .news-card figure img {
+                max-width: 100%;
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+
+            /* Layout a colonna singola per sezioni con immagini */
+            .news-card > div[style*="display: flex"] {
+                flex-direction: column !important;
+            }
+        }
+
+        .settings-panel-layout {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-top: var(--spacing-lg);
+        }
+
+        .settings-panel-figure {
+            flex: 1 1 560px;
+            min-width: 440px;
+            max-width: 650px;
+            margin: 0;
+        }
+
+        .settings-panel-copy {
+            flex: 1 1 360px;
+            min-width: 300px;
+        }
+
+        @media (max-width: 980px) {
+            .settings-panel-figure,
+            .settings-panel-copy {
+                flex: 1 1 100%;
+                min-width: 0;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="../images/jwtime-logo.png" alt="Logo ng JW Time" style="height: 32px; margin-right: 8px;">
+                JW Time
+            </a>
+
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="manual.html" class="active">Manwal</a>
+                <a href="news.html">Mga Bago</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contacts.html">Mga Contact</a>
+
+                <!-- Language Selector -->
+                <div class="lang-selector">
+                    <div class="lang-current">
+                        <span>Filipino</span>
+                        <span>&#9662;</span>
+                    </div>
+                    <div class="lang-dropdown">
+                        <a href="../it/manual.html" data-lang="it">Italiano</a>
+                        <a href="../en/manual.html" data-lang="en">English</a>
+                        <a href="../es/manual.html" data-lang="es">Español</a>
+                        <a href="../de/manual.html" data-lang="de">Deutsch</a>
+                        <a href="../nl/manual.html" data-lang="nl">Nederlands</a>
+                        <a href="../fr/manual.html" data-lang="fr">Français</a>
+                        <a href="../pt_BR/manual.html" data-lang="pt_BR">Português (Brasil)</a>
+                        <a href="../hu/manual.html" data-lang="hu">Magyar</a>
+                        <a href="../pl/manual.html" data-lang="pl">Polski</a>
+                        <a href="../ja/manual.html" data-lang="ja">日本語</a>
+                    </div>
+                </div>
+<!-- Theme Toggle -->
+                <button id="theme-toggle" class="theme-toggle" aria-label="Palitan ang tema">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Manwal sa Paggamit</h1>
+            <p>Kumpletong gabay sa paggamit ng JW Time</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- INDICE -->
+        <div class="content" id="indice">
+            <h2>Talaan ng Nilalaman</h2>
+            <div class="manual-index">
+                <!-- Card Verde per Inizia Qui -->
+                <div class="index-section index-section--green">
+                    <h3>Mga Bago sa 4.0</h3>
+                    <ul>
+                        <li><a href="#novita">Bersyon 4.0.0</a></li>
+                    </ul>
+                    <h3 style="margin-top: var(--spacing-lg);">Unang Pagbubukas</h3>
+                    <ul>
+                        <li><a href="#primo-avvio-guidato">Paunang wizard</a></li>
+                        <li><a href="#controllo-rapido">Mabilisang pagsusuri kung lalaktawan mo ang wizard</a></li>
+                    </ul>
+                </div>
+
+                <div class="index-section">
+                    <h3>Bahagi I - Interface at Paggana</h3>
+                    <ul>
+                        <li><a href="#schermata-principale">1. Pangunahing Screen</a></li>
+                        <li><a href="#navigazione-settimanale">2. Programa at mga iskedyul</a></li>
+                        <li><a href="#manipolazione-timer">3. Pamamahala ng mga Timer</a></li>
+                        <li><a href="#finestra-media">4. Window ng Media</a></li>
+                        <li><a href="#schermi-contatempo-pubblico">5. Pampublikong Screen at Contatempo</a></li>
+                        <li><a href="#personalizzare-schermo">↳ 5.3 I-personalize ang Screen ng Contatempo</a></li>
+                        <li><a href="#gestione-messaggi">6. Pamamahala ng mga Mensahe</a></li>
+                        <li><a href="#rec-button">7. Button na REC at panel ng recording</a></li>
+                        <li><a href="#monitor-web">8. Web Monitor &amp; Server</a></li>
+                        <li><a href="#monitor-web-accesso-remoto">↳ 8.3 Remote na access sa labas ng network</a></li>
+                    </ul>
+                </div>
+
+                <div class="index-section">
+                    <h3>Bahagi II - Mga Panel ng Setting</h3>
+                    <ul>
+                        <li><a href="#impostazioni-generale">9. Pangkalahatan</a></li>
+                        <li><a href="#impostazioni-congregazioni">10. Mga Kongregasyon</a></li>
+                        <li><a href="#impostazioni-adunanze">11. Mga pulong (Timer ng Simula ng Pulong)</a></li>
+                        <li><a href="#impostazioni-schermo">12. Screen</a></li>
+                        <li><a href="#impostazioni-media">13. Media</a></li>
+                        <li><a href="#impostazioni-zoom">14. Zoom</a></li>
+                        <li><a href="#impostazioni-connessioni">15. Koneksyon at Server</a></li>
+                        <li><a href="#server-web-remoto">↳ 15.2 Web Server mula sa remote</a></li>
+                        <li><a href="#impostazioni-registrazioni">16. Mga Recording</a></li>
+                        <li><a href="#impostazioni-backup">17. Mga package at offline backup</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ULTIME NOVIT&#192; -->
+        <div class="news-preview" id="novita">
+            <div class="news-preview-title">
+                <h2 style="margin: 0;">Mga Bago sa 4.0</h2>
+                <span class="news-preview-badge">Bersyon 4.0.0</span>
+            </div>
+            <div class="news-preview-content">
+                <h3>Mabilis na pagtingin sa mga bago</h3>
+                    <p>
+                        Nagpapakilala ang JW Time 4.0 ng maraming bagong function. Dito ay isang buod lang para gabayan ka; ang panel na <strong>Mga Bago</strong> sa loob ng app at ang nakalaang pahina ay naglalaman ng kumpletong paliwanag.
+                    </p>
+                    <ul>
+                        <li>Paunang wizard, mga profile ng kongregasyon at muling inayos na interface.</li>
+                        <li>Window ng Media na may opisyal na nilalaman, download, lokal na cache at background music.</li>
+                        <li>Pampublikong Screen, naipe-personalize na Screen ng Contatempo at na-update na pamamahala ng mensahe.</li>
+                        <li>Web Monitor na may lokal na kontrol, QR at pansamantalang remote na access para sa videoconference.</li>
+                    </ul>
+
+                <a href="news.html" class="btn btn-gray" style="margin-top: var(--spacing-lg);">
+                    Tingnan ang lahat ng bago →
+                </a>
+            </div>
+        </div>
+
+        <!-- PRIMO AVVIO GUIDATO -->
+        <div class="content-section-header" id="primo-avvio-guidato">
+            <h2 style="font-size: 2rem; margin: 0 0 var(--spacing-xl) 0; color: var(--text-primary);">Ginabayang unang pagbubukas</h2>
+
+            <div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap;">
+                <div style="flex: 1 1 320px; min-width: 0;">
+                    <p>
+                        Sa unang pagbubukas, ipinapakita ng JW Time ang isang wizard na kumukuha ng mahahalagang setting bago buksan ang app. Ito ang inirerekomendang paraan para sa bagong installation, dahil hindi mo na kailangang hanapin agad ang bawat opsyon sa mga panel ng setting.
+                    </p>
+                    <ul class="manual-section">
+                        <li><strong>Wika at format</strong>: piliin ang wika ng interface, wika ng mga programa at format ng oras.</li>
+                        <li><strong>Kongregasyon</strong>: itakda ang pangalan ng paunang profile, na kapaki-pakinabang kung mamamahala ka ng maraming profile sa hinaharap.</li>
+                        <li><strong>Mga pulong</strong>: ilagay ang mga araw at oras ng simula para sa awtomatikong countdown.</li>
+                        <li><strong>Mga opsyon ng pulong</strong>: i-activate, kung kailangan, ang pag-aangkop ng mga tagal at awtomatikong pause sa pagitan ng mga bahagi.</li>
+                        <li><strong>Mga Screen</strong>: i-configure ang Screen ng Contatempo at Pampublikong Screen sa tamang mga monitor.</li>
+                    </ul>
+                    <p>
+                        Sa dulo ng wizard, maaari mong buksan ang JW Time at kumpletuhin lang ang mas advanced na mga opsyon, gaya ng Media, Web Server, Mga Recording at Backup.
+                    </p>
+                </div>
+                <figure style="flex: 0 0 38%; min-width: 280px; max-width: 520px; margin: 0 0 0 auto; align-self: flex-start;">
+                    <img src="../images/manual/tl/primo-avvio-guidato-v4.png"
+                         alt="Wizard ng unang pagsisimula ng JW Time"
+                         class="manual-image">
+                </figure>
+            </div>
+        </div>
+
+        <!-- CONTROLLO RAPIDO -->
+        <div class="content" id="controllo-rapido">
+            <h2>Mabilisang pagsusuri kung lalaktawan mo ang wizard <a href="#indice" class="back-to-index-link">↑ Talaan ng Nilalaman</a></h2>
+
+            <p>
+                Kung isasara o lalaktawan mo ang wizard, maaari mong i-configure nang manual ang mahahalagang bagay mula sa Mga Setting at sa pangunahing window. Nagsisilbi rin ang checklist na ito bilang mabilis na pagsusuri bago ang pulong.
+            </p>
+
+            <ol class="manual-section">
+                <li style="margin-bottom: var(--spacing-lg);">
+                    <h3 style="color: var(--text-secondary);">Wika, profile at programa</h3>
+                    <p>
+                        Pumunta sa <a href="#impostazioni-generale">seksyon 9 · Pangkalahatan</a> para sa wika at format ng oras, pagkatapos ay sa
+                        <a href="#impostazioni-congregazioni">seksyon 10 · Mga Kongregasyon</a> kung kailangan mong gumawa o pumili ng profile. Tiyaking tumutugma ang na-load na iskedyul sa linggo at wikang gusto mo.
+                    </p>
+                </li>
+                <li style="margin-bottom: var(--spacing-lg);">
+                    <h3 style="color: var(--text-secondary);">Screen ng Contatempo at Pampublikong Screen</h3>
+                    <p>
+                        Sa <a href="#impostazioni-schermo">seksyon 12 · Screen</a> piliin ang tamang mga monitor at i-activate ang mga window na gagamitin mo. Para baguhin ang hitsura ng Contatempo, tingnan ang <a href="#personalizzare-schermo">seksyon 5.3 · I-personalize ang Screen ng Contatempo</a>.
+                    </p>
+                </li>
+                <li style="margin-bottom: var(--spacing-lg);">
+                    <h3 style="color: var(--text-secondary);">Media at nilalaman</h3>
+                    <p>
+                        Buksan ang <a href="#finestra-media">seksyon 4 · Window ng Media</a> para suriin ang mga Awit, video at larawan ng linggo. Ang mga opsyon sa cache, kalidad at background ay nasa <a href="#impostazioni-media">seksyon 13 · Media</a>.
+                    </p>
+                </li>
+                <li style="margin-bottom: var(--spacing-lg);">
+                    <h3 style="color: var(--text-secondary);">Timer, mga mensahe at recording</h3>
+                    <p>
+                        Gamitin ang pangunahing window para simulan ang mga timer, magpadala ng mga mensahe sa Contatempo at buksan ang panel na REC. Kung nagre-record ka ng mga pulong, suriin muna ang mga opsyon sa <a href="#impostazioni-registrazioni">seksyon 16 · Mga Recording</a>.
+                    </p>
+                </li>
+                <li style="margin-bottom: var(--spacing-lg);">
+                    <h3 style="color: var(--text-secondary);">Web Server at backup</h3>
+                    <p>
+                        Kung gumagamit ka ng remote na kontrol, QR o pagtingin mula sa browser, i-configure ang <a href="#impostazioni-connessioni">seksyon 15 · Koneksyon at Server</a>. Para gumana nang walang network o maglipat ng mga configuration, suriin ang <a href="#impostazioni-backup">seksyon 17 · Mga package at offline backup</a>.
+                    </p>
+                </li>
+            </ol>
+        </div>
+
+        <!-- PARTE I - INTERFACCIA E FUNZIONAMENTO -->
+        <div class="content-section-header">
+            <h2 style="font-size: 2rem; margin: 0; color: var(--text-primary);">Bahagi I · Interface at Paggana</h2>
+        </div>
+
+        <!-- 1. SCHERMATA PRINCIPALE -->
+        <div class="content" id="schermata-principale">
+            <h2>1 · Pangunahing Screen <a href="#indice" class="back-to-index-link">↑ Talaan ng Nilalaman</a></h2>
+
+            <div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap;">
+                <figure style="flex: 0 0 420px; max-width: 520px; margin: 0 auto;">
+                    <img src="../images/manual/tl/schermata-principale-v4-annotata-real.png"
+                         alt="Pangunahing screen ng JW Time na may mga numeradong area"
+                         class="manual-image">
+                </figure>
+                <div style="flex: 1 1 320px; min-width: 0;">
+                    <p>
+                        Ang pangunahing screen ang sentro ng application. Mula rito maaari mong simulan, pamahalaan at subaybayan ang lahat ng timer ng pulong, makita ang pangunahing impormasyon gaya ng pamagat ng kasalukuyang bahagi, orasan at natitirang oras, at kontrolin ang mahahalagang mensahe at notification.
+                    </p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: var(--spacing-2xl); color: white;">Pangunahing mga area</h3>
+
+            <!-- Grid delle aree principali -->
+            <div class="news-cards-grid" style="margin-top: var(--spacing-xl);">
+                <div class="news-card">
+                    <h4 style="color: var(--text-secondary);">1.1 · Pamagat ng Bahagi at Orasan</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/tl/area-1-titolo-orologio-v4.png"
+                             alt="Area 1 - Pamagat ng bahagi at orasan/Contatempo"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Sa itaas na linya ipinapakita ang pamagat ng kasalukuyang bahagi, habang sa ibaba ay ipinapakita ang orasan na may kasalukuyang oras o, kapag nagsimula ka ng timer, ang countdown ng natitirang oras. Sa 12-oras na format, lumalabas din ang suffix na AM/PM sa mas maliit na sukat para mas madaling mabasa.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: var(--text-secondary);">1.2 · Table ng Timer</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/tl/area-2-tabella-timer-v4.png"
+                             alt="Area 2 - Timer table ng pulong"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Inililista nito ang iskedyul ng pulong (pamagat, tagal, estado). Awtomatikong nilo-load ang nilalaman batay sa napiling araw: kinikilala ng app kung ito ay pulong sa gitnang sanlinggo o pulong sa weekend at iminumungkahi ang tamang iskedyul. Para sa mga button at mas detalyadong aksyon, tingnan ang <a href="#manipolazione-timer">seksyon 3 · Pamamahala ng mga timer</a>.
+                    </p>
+                    <p>
+                        Kung ia-activate mo ang <strong>Ipakita ang column na Pagtatapos</strong> sa mga pangkalahatang setting, ipinapakita rin ng table kung anong oras matatapos ang kasalukuyang bahagi at ang mga susunod. Hindi ito nakapirming oras sa iskedyul: isa itong projection na ina-update sa real time batay sa kasalukuyang oras, sa natitirang mga timer at sa anumang naipong paglihis.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: var(--text-secondary);">1.3 · Tinatayang Oras ng Pagtatapos</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/tl/area-3-orario-fine-v4.png"
+                             alt="Area 3 - Tinatayang oras ng pagtatapos at paglihis"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Ipinapakita ang inaasahang oras ng pagtatapos batay sa iskedyul. Sa tabi nito lumalabas ang <em>paglihis</em>:<br>
+                        +m:ss (dilaw sa loob ng 1', pula kapag higit pa) = pagkaantala<br>
+                        -m:ss (berde) = mas maaga<br>
+                        Ina-update nang real time ang oras at indicator. Kung aktibo ang mga adaptive para sa Pag-aaral ng Kongregasyon sa Bibliya / Pag-aaral sa Bantayan, muling kinakalkula ang mga tagal para umabot sa oras ng pagtatapos.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: var(--text-secondary);">1.4 · Oras ng pause/pagpalit ng tagapagsalita</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/tl/area-4-tempo-pausa-v4.png"
+                             alt="Area 4 - Oras ng pause at pagpapalit ng tagapagsalita"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Pinagsama-samang counter <strong>hh:mm:ss</strong> ng mga teknikal na pause/pagpalit ng tagapagsalita: kinukuha nito ang kabuuang oras kung kailan naka-pause ang timer. Habang naka-pause, nananatiling nakahinto ang timer ng bahagi samantalang tumataas ang counter na ito. Isang click sa indicator ang nagre-reset sa kabuuan.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: var(--text-secondary);">1.5 · Pangunahing mga key sa pamamahala ng timer</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/tl/area-5-tasti-principali-v4.png"
+                             alt="Area 5 - Pangunahing mga button para sa pamamahala ng timer"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Mga kontrol para simulan, ihinto at pamahalaan ang mga timer: Stop (pula), Pausa, at Start/Susunod (berde). Ipina-pause ng button na Pausa ang timer ng bahagi (nakatigil ang bilang) habang patuloy na tumataas ang oras ng pause/pagpalit ng tagapagsalita. Para lumabas sa pause, pindutin muli ang Pausa o lumipat sa susunod na bahagi gamit ang Start/Susunod: itatala ang naipong oras sa counter na nasa punto 1.4.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: var(--text-secondary);">1.6 · Mga Balita (komunikasyon)</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/tl/area-6-notizie-v4.png"
+                             alt="Area 6 - News box sa pangunahing screen"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Kapag may opisyal na komunikasyon para sa app, lumalabas sa Pangunahing Screen ang isang kahon/abiso na "Mga Balita". Kapag na-click ito, bubukas ang panel na may buod ng mga update.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: var(--text-secondary);">1.7 · Mabilisang mga tool</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/tl/area-7-strumenti-v4.png"
+                             alt="Area 7 - Mabilis na tools ng pangunahing screen"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Mabilisang mga button para buksan ang mga setting, i-minimize o ibalik ang window at pumunta sa tulong. Nakahiwalay ang mga ito sa mga operating mode para mas malinaw ang ibabang linya.
+                    </p>
+                </div>
+
+                <div class="news-card">
+                    <h4 style="color: var(--text-secondary);">1.8 · Mga operating mode</h4>
+                    <div class="image-container">
+                        <img src="../images/manual/tl/area-8-modalita-v4.png"
+                             alt="Area 8 - Mga operational mode na Media, Programa, Mensahe at REC"
+                             class="manual-image">
+                    </div>
+                    <p>
+                        Mula rito maaari kang lumipat sa Window ng Media, pamamahala ng Programa, Mga Mensahe at panel na REC. Ipinapakita ng itim na tuldok sa tabi ng REC ang estado ng recording.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. PROGRAMMA E SCALETTE -->
+        <div class="content" id="navigazione-settimanale">
+            <h2>2 · Programa at mga iskedyul <a href="#indice" class="back-to-index-link">↑ Talaan ng Nilalaman</a></h2>
+
+            <p>
+                Ipinapaliwanag ng seksyong ito kung paano i-load ang tamang iskedyul para sa linggo, gumawa ng manual na iskedyul kapag kailangan, at mabilis na lumipat sa mga nakaraang linggo, kasalukuyang linggo at susunod na mga linggo.
+            </p>
+
+            <p>
+                Bilang default, awtomatikong nilo-load ng app ang iskedyul ng kasalukuyang linggo: ang iskedyul ng pulong sa gitnang sanlinggo mula Lunes hanggang Biyernes at ang iskedyul ng pulong sa weekend sa Sabado at Linggo.
+            </p>
+
+            <div class="image-container">
+                <img src="../images/manual/tl/navigazione-settimanale-v4.png"
+                     alt="Panel ng Programa ng JW Time na may navigation sa pagitan ng mga linggo"
+                     class="manual-image">
+            </div>
+
+            <!-- 2.1 Programmazione automatica - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3 style="color: var(--text-secondary);">2.1 · Awtomatikong pagsasaayos</h3>
+                <ol class="manual-section">
+                    <li>Pulong sa gitnang sanlinggo: nilo-load ang iskedyul para sa mga araw ng trabaho.</li>
+                    <li>Pulong sa weekend: nilo-load ang iskedyul ng Sabado/Linggo, at hinihingi ang Awit para sa Pahayag Pangmadla.</li>
+                </ol>
+            </div>
+
+            <!-- 2.2 Scorrimento settimane - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>2.2 · Selector ng linggo at preview ng kalendaryo</h3>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <p>
+                            Ang button na <strong>Linggo</strong> ay palaging nagpapakita ng saklaw (hal. "Linggo: 20-26 Okt.") kasama ang badge na nagsasaad ng offset mula sa kasalukuyang linggo (0, +1, -2, atbp.). Isang click ang magbubukas sa compact na kalendaryo para tumalon diretso sa gustong linggo nang hindi paulit-ulit na pinipindot ang mga button na Nakaraan/Susunod.
+                        </p>
+                        <ul class="manual-section">
+                            <li>Agad na badge: makikita mo kung tinitingnan mo ang kasalukuyan, darating o nakaraang linggo.</li>
+                            <li>Lingguhang kalendaryo: direktang piliin ang mga linggo sa praktikal na paraan.</li>
+                        </ul>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/tl/navigazione-settimanale-pannello-v4.png"
+                             alt="Malapitang view ng selector ng Linggo"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 2.3 Visita SC - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>2.3 · Pagdalaw ng tagapangasiwa ng sirkito</h3>
+                <p>
+                    Ang button na <strong>Pagdalaw ng tagapangasiwa ng sirkito</strong>, na nasa pagitan ng selector ng Linggo at I-load mula sa backup, ay binabago ang iskedyul kapag may pagdalaw ng tagapangasiwa ng sirkito. Kapag pinindot, umiilaw ang button (ON) at awtomatikong inihahanda ng app ang mga espesyal na bahagi para sa pagdalaw.
+                </p>
+                <ul class="manual-section">
+                    <li><strong>Pulong sa gitnang sanlinggo</strong>: ang Pag-aaral ng Kongregasyon sa Bibliya ay ginagawang nakapirming 30 minutong bahagi na may pamagat na "Pagdalaw ng tagapangasiwa ng sirkito".</li>
+                    <li><strong>Pulong sa weekend</strong>: nagdaragdag ng nakalaang item pagkatapos ng Pag-aaral sa Bantayan at inaangkop ang mga tagal para masunod ang oras ng pagtatapos.</li>
+                    <li>Mga kulay at nakalaang mga abiso: gumagamit ang row ng Pagdalaw ng tagapangasiwa ng sirkito ng sariling palette at inihahanda ang partikular na pangwakas na Awit.</li>
+                    <li>Mabilis na pag-deactivate: kapag pinatay ang toggle, agad na bumabalik ang table sa standard na iskedyul nang hindi nawawala ang iba pang mga pagbabago.</li>
+                </ul>
+            </div>
+
+            <!-- 2.4 Carica da backup - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>2.4 · I-load mula sa backup</h3>
+                <p>
+                    Ang button na <strong>I-load mula sa backup</strong> ay nagbubukas ng listahan ng mga pakete ng programa na naka-save nang lokal, nakaayos ayon sa petsa, uri ng pulong at wika. Mainam ito para gumana offline o ibalik ang mga programang naihanda na sa ibang PC.
+                </p>
+                <ul class="manual-section">
+                    <li>Masusing listahan: ipinapakita ng bawat row ang petsa ng simula ng linggo, uri (pulong sa gitnang sanlinggo/pulong sa weekend) at wika.</li>
+                    <li>Ligtas na pag-load: sinusuri ang mga package at direktang inilalapat sa kasalukuyang table.</li>
+                    <li>Malinaw na mga mensahe: kung walang available na backup, agad na nagpapakita ang app ng abiso.</li>
+                </ul>
+            </div>
+
+            <!-- 2.5 Modalit&#224; Manuale - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>2.5 · Mode ng Manual na Listahan</h3>
+                <p>
+                    Ginagamit ang manual na listahan kapag ang iskedyul ay hindi nanggagaling sa lingguhang programa o kapag gusto mong maghanda ng espesyal na programa. Maaari kang gumawa o magbago ng mga item gamit ang nakalaang window sa pag-edit, itakda ang uri, pamagat at tagal, at i-save ang resulta para magamit muli sa ibang pagkakataon.
+                </p>
+                <div class="image-container" style="margin-top: var(--spacing-md);">
+                    <img src="../images/manual/tl/programma-manuale-pannello-v4.png"
+                         alt="Panel ng Programa sa Manual mode na may I-save, I-load at I-clear ang listahan"
+                         class="manual-image">
+                </div>
+
+                <h4 style="color: var(--text-secondary);">2.5.1 · Panel ng Manwal</h4>
+                <ul class="manual-section">
+                    <li><strong>Manwal</strong>: ina-activate ang custom na iskedyul at ipinapakita ang mga nakalaang command sa ilalim ng selector ng programa.</li>
+                    <li><strong>I-save ang manual na listahan</strong>: ine-export ang kasalukuyang iskedyul sa isang file na magagamit muli o maililipat sa ibang PC.</li>
+                    <li><strong>I-load ang manual na listahan</strong>: ini-import ang naka-save na listahan at ina-update ang table, Contatempo at nakakonektang Media.</li>
+                    <li><strong>Alisan ng laman ang listahan</strong>: nire-reset ang manual na iskedyul ng kasalukuyang linggo at inaalis din ang manual na media na konektado sa draft na iyon.</li>
+                </ul>
+
+                <h4 style="color: var(--text-secondary);">2.5.2 · Gumawa at mag-save</h4>
+                <ul class="manual-section">
+                    <li>I-activate ang manual mode mula sa panel ng Programa.</li>
+                    <li>Gamitin ang mga command ng table para magdagdag, magtanggal o muling ayusin ang mga row; kapag kailangan, binubuksan ng JW Time ang window sa pag-edit ng item.</li>
+                    <li>I-save ang listahan kapag gusto mo itong itabi para sa ibang pagkakataon.</li>
+                </ul>
+                <p>
+                    Kapag nag-save ka, tatanungin ka ng JW Time kung ano ang isasama sa file <code>.jwtimeplan</code>. Piliin ang <strong>Manual na programa + media</strong> kung gusto mo ring ilipat ang mga lokal na file, URL at mga grupo ng Window ng Media. Piliin ang <strong>Manual na programa ng oras lang</strong> kung kailangan mo lang ang iskedyul na may mga pamagat at tagal.
+                </p>
+                <div class="image-container" style="margin-top: var(--spacing-md);">
+                    <img src="../images/manual/tl/programma-manuale-salvataggio-popup-v4.png"
+                         alt="Popup ng pag-save ng manual na programa na may pagpili sa pagitan ng programang may media at oras lang"
+                         class="manual-image"
+                         style="max-width: 900px;">
+                </div>
+
+                <h4 style="color: var(--text-secondary);">2.5.3 · I-load muli o alisan ng laman ang listahan</h4>
+                <ul class="manual-section">
+                    <li>Gamitin ang <strong>I-load ang manual na listahan</strong> para mabawi ang naka-save na iskedyul.</li>
+                    <li>Kung ang listahan ay may mga row na kinikilala bilang mga Awit o standard na bahagi, naglalapat ang JW Time ng magkakatugmang mga kulay at gawi.</li>
+                    <li>Ina-update ang mga nakakonektang window pagkatapos ng pag-load, kaya nananatiling nakaayon ang Contatempo at Media sa table.</li>
+                    <li>Gamitin ang <strong>Alisan ng laman ang listahan</strong> kapag gusto mong magsimula muli mula sa isang bakanteng iskedyul para sa parehong linggo.</li>
+                </ul>
+
+                <h4 style="color: var(--text-secondary);">2.5.4 · Nakakonektang media</h4>
+                <p>
+                    Kapag nag-uugnay ka ng media sa isang manual na listahan, pinananatili ng pag-save at pag-load ang koneksyon sa inihandang programa. Kapaki-pakinabang ito para sa mga espesyal na pulong, lokal na asamblea o mga programang hindi sumusunod sa standard na linggo.
+                </p>
+                <p>
+                    Kung hindi na available ang isang file, ipinapaalam ito ng app kapag binuksan o ginamit mo ang Window ng Media, para mapalitan mo ito bago ang pulong.
+                </p>
+                <p>
+                    Para magdagdag ng awit, gamitin ang menu ng pagpasok at piliin ang item para sa mga awit. Sa ganitong paraan, tama na itinatala ng JW Time ang numero ng awit, ikinokonekta ang magagamit na media, at inaangkop ng Screen ng Contatempo ang display nang hindi kailangang manu-manong isulat ang pamagat sa row.
+                </p>
+            </div>
+        </div>
+
+        <!-- 3. MANIPOLAZIONE TIMER -->
+        <div class="content" id="manipolazione-timer">
+            <h2>3 · Pamamahala ng mga timer <a href="#indice" class="back-to-index-link">↑ Talaan</a></h2>
+
+            <p>
+                Ipinapaliwanag ng seksyong ito ang pangunahing mga operasyon sa pamamahala ng timer — gaya ng pagdaragdag, pagbabago, o pagtanggal ng mga entry — at ang paggamit ng mga command para simulan, lumaktaw, at i-reset.
+            </p>
+
+            <!-- 3.1 Operazioni principali - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>3.1 · Pangunahing mga operasyon</h3>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <ol class="manual-section">
+                            <li>Menu ng row: buksan ang tatlong tuldok sa kanan para sa mga aksyong available sa napiling bahagi.</li>
+                            <li>Mula sa menu, maaari mong simulan ang row o lumipat sa susunod, magdagdag ng row sa itaas o ibaba, i-duplicate ito, i-reset ito, o tanggalin ito.</li>
+                            <li>Ang mga command <strong>Magdagdag ng row sa itaas</strong> at <strong>Magdagdag ng row sa ibaba</strong> ay nagbubukas ng submenu na may <em>Awit</em>, <em>Bahagi/Pahayag</em> at <em>Mga Payo</em>.</li>
+                            <li>Baguhin ang Pamagat/Tagal: i-double click ang cell, pagkatapos ay kumpirmahin.</li>
+                            <li>Mga format ng Tagal: 5 → 5:00, 1:30 → 1:30 minuto.</li>
+                            <li>Pagsisimula at pagpapatuloy:
+                                <ul>
+                                    <li><strong>Simulan ang row</strong> sinisimulan ang napiling bahagi.</li>
+                                    <li>Kapag may kasalukuyang row, ang command ay nagiging <strong>Lumipat sa susunod</strong>.</li>
+                                    <li>Pinamamahalaan ng Stop/Pause ang kasalukuyang timer mula sa ibabang bar.</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                    <figure style="flex: 0 0 50%; min-width: 320px; max-width: 640px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/tl/manipolazione-operazioni-v4.png"
+                             alt="Pangunahing mga operasyon sa timer"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 3.2 Aggiornamenti in tempo reale - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>3.2 · Mga update sa real time</h3>
+                <p>
+                    Patuloy na nag-a-update ang timer: ipinapakita ng pangunahing countdown sa itaas ang natitirang oras ng aktibong bahagi, habang nananatiling naka-highlight sa table ang katumbas na row. Ginagamit din ng kulay ng itaas na bar ang kulay ng kasalukuyang bahagi.
+                </p>
+                <div class="image-container" style="margin-top: var(--spacing-md);">
+                    <img src="../images/manual/tl/timer-aggiornamento-riga-attiva-v4.png"
+                         alt="Naka-highlight na aktibong row sa timer table"
+                         class="manual-image">
+                </div>
+                <p style="margin-top: var(--spacing-lg);">
+                    Kung babaguhin mo ang tagal o lilipat sa susunod na bahagi, agad na muling kinakalkula ang Tantiyang Oras ng Pagtatapos. Dahil dito, makokontrol mo ang delta ng pagkaaga/pagkaantala at ang naipong oras para sa mga pause o pagpapalit ng tagapagsalita nang hindi nagbubukas ng ibang panel.
+                </p>
+                <div class="image-container" style="margin-top: var(--spacing-md);">
+                    <img src="../images/manual/tl/timer-aggiornamento-orario-fine-v4.png"
+                         alt="Tinatayang oras ng pagtatapos, delta at oras ng pause na updated sa real time"
+                         class="manual-image">
+                </div>
+            </div>
+
+            <!-- 3.3 Regolazione automatica - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>3.3 · Awtomatikong pag-aangkop — Pag-aaral ng Kongregasyon sa Bibliya at Pag-aaral sa Bantayan</h3>
+
+                <p>
+                    Kung naka-on sa Mga Setting ang adaptive na Pag-aaral ng Kongregasyon sa Bibliya at/o adaptive na Pag-aaral sa Bantayan, dinamikong inaangkop ng app ang tagal ng napiling bahagi para mapanatili ang oras ng pagtatapos ng pulong. Nalalapat lang ang pag-aangkop sa mga bahaging naka-on ang opsyon at maaari nitong awtomatikong dagdagan o bawasan ang mga minuto batay sa naipong pagkaaga/pagkaantala. Sa larawan, ibinubukod ang apektadong row at naka-highlight sa orange ang inangkop na halaga, kaya agad na malinaw kung aling timer ang naitama. Maaari ka pa ring manu-manong makialam: muling kinakalkula ng adaptive function mula sa bagong sitwasyon.
+                </p>
+                <div class="image-container" style="margin-top: var(--spacing-md);">
+                    <img src="../images/manual/tl/manipolazione-regolazione-v4.png"
+                         alt="Awtomatikong adjustment ng adaptive timers"
+                         class="manual-image">
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. FINESTRA MEDIA -->
+        <div class="content" id="finestra-media">
+            <h2>4 · Window ng Media <a href="#indice" class="back-to-index-link">↑ Talaan</a></h2>
+
+            <p>
+                Pinagsasama ng Window ng Media ang mga nilalamang kaugnay ng linggo: mga awit, video, larawan, at mga reperensiyang kapaki-pakinabang sa bahagi. Makatutulong ito sa operator na ihanda ang pulong, suriin ang available na nilalaman, at simulan ang mga ito kapag kailangan.
+            </p>
+            <p>
+                <strong>Tala sa paggamit:</strong> Ang Window ng Media ay nagbibigay sa operator ng pantulong na tool para maghanda, magsuri, at mamahala ng nilalamang multimedia na available na. Ang praktikal na paggamit nito ay nakadepende sa lokal na pangangailangan at dapat palaging gawin kaayon ng mga tagubilin ng kongregasyon at ng mga kaayusan. Kapag may teknikal na pangangailangan, maaari rin itong gamitin bilang pantulong o reserbang solusyon.
+            </p>
+
+            <div style="display: flex; gap: var(--spacing-xl); align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-xl);">
+                <figure style="flex: 0 1 380px; max-width: 420px; margin: 0;">
+                    <img src="../images/manual/tl/media-window-v4-annotata-real.png"
+                         alt="Window ng Media ng JW Time 4.0 na may mga pangunahing area na numerado"
+                         class="manual-image"
+                         style="width: 100%; height: auto; display: block;">
+                </figure>
+
+                <div style="flex: 1 1 360px; min-width: 280px; display: grid; gap: var(--spacing-md);">
+                    <div class="news-card">
+                        <h4 style="color: var(--text-secondary);">4.1 · Babala at mga seksyon ng media</h4>
+                        <p>
+                            Ipinapaalam ng area 1 kapag hindi pa available offline ang opisyal na media ng linggo. Maaari mo itong i-download agad o ipagpaliban. Maaari ring i-automate ang parehong kilos mula sa mga setting
+                            <a href="#impostazioni-media">seksyon 13 · Media</a>, sa pamamagitan ng pag-on sa awtomatikong pag-download ng opisyal na media. Sa ilalim ng babala makikita mo ang mga seksyon ng iskedyul, na may may-kulay na pamagat, bilang ng mga elemento, at mabilis na mga command.
+                        </p>
+                        <p>
+                            <strong>Tala:</strong> Ang pag-download ng opisyal na media ay nangangailangan na pahintulutan ng network ang JW Time na ma-access ang jw.org at ang mga resource na ginagamit para sa media. Ang alternatibong download na ipinakilala para sa mga programa ay hindi available para sa media. Kung bina-block ng router, firewall, DNS, o content filters ang mga relihiyosong site o ang access ng JW Time, maaaring hindi ma-download ang opisyal na media; sa ganitong kaso maaari kang gumamit ng media na available na offline o manu-manong magdagdag ng lokal na file.
+                        </p>
+                    </div>
+                    <div class="news-card">
+                        <h4 style="color: var(--text-secondary);">4.2 · Listahan ng nilalaman</h4>
+                        <p>
+                            Ang area 2 ay naglalaman ng mga card na may preview, pamagat, reperensiya, at button para simulan. Sinusunod ng mga kulay ang mga area ng iskedyul, kaya mabilis mong mahahanap ang mga awit, larawan, video, at reperensiyang kaugnay ng bahagi.
+                        </p>
+                        <p>
+                            Mula sa context menu, maaari mong manu-manong markahan ang isang elemento bilang nagamit o hindi nagamit. Kung ang opsyong
+                            <strong>Palabuin ang media na nagamit na</strong> ay naka-on, nananatiling madaling makilala ang nagamit nang nilalaman sa mas banayad na estilo. Kasama rin sa mga window para pumili ng opisyal na video, audio, at larawan ang mode na <strong>Pangkalahatan</strong>, kapaki-pakinabang kapag kailangan mong maghanap sa labas ng kasalukuyang kategorya.
+                        </p>
+                    </div>
+                    <div class="news-card">
+                        <h4 style="color: var(--text-secondary);">4.3 · Ibabang bar</h4>
+                        <p>
+                            Pinagsasama ng area 3 ang mabilis na mga command ng Window ng Media: na-download na nilalaman, paunang tingin, pag-synchronize, musika sa likuran, at nakalaang mga setting. Nananatili ito sa ibaba para maabot kahit mahaba ang listahan.
+                        </p>
+                    </div>
+                    <div class="news-card">
+                        <h4 style="color: var(--text-secondary);">4.4 · Mga kontrol ng Zoom</h4>
+                        <p>
+                            Pinagsasama ng area 4 ang mga command ng Zoom sa Window ng Media. Idinisenyo ang mga ito para sa mga nagpapakita rin ng media sa videoconference at gumagamit ng Pampublikong Screen sa monitor ng bulwagan.
+                        </p>
+                        <ul class="manual-section">
+                            <li><strong>Pagbabahagi</strong>: ipinapadala sa Zoom ang shortcut na naka-configure para simulan o ihinto ang pagbabahagi.</li>
+                            <li><strong>Ipakita/Itago ang Zoom</strong>: ginagamit ito para ipakita sa pampublikong monitor ang mga tagapagsalita o ang window ng Zoom. Pansamantalang itinatago ng JW Time ang Pampublikong Screen at ipinapakita ang nasa ilalim nito: kaya ang window ng mga tagapagsalita sa Zoom, o isang naduplicate na screen na may Zoom, ay dapat nakaposisyon na sa likod ng Pampublikong Screen bago pindutin ang key.</li>
+                            <li><strong>Zoom Auto</strong>: ina-activate nito para sa session ang automation ng Zoom. Kapag nagsimula ka ng media, maaaring awtomatikong ipadala ng JW Time ang shortcut sa pagbabahagi at, kung naka-configure, ihinto ito sa dulo.</li>
+                        </ul>
+                        <p>
+                            Bago gamitin ang mga key na ito, mag-configure sa Zoom ng global shortcut para sa screen sharing at ilagay ang parehong kombinasyon sa <a href="#impostazioni-zoom">seksyon 14 · Zoom</a>. Kung hindi magkapareho ang dalawang shortcut, ipinapadala ng JW Time ang command pero hindi tutugon ang Zoom gaya ng inaasahan.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>4.5 · Musika bago ang pulong at musika sa likuran</h3>
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 280px; min-width: 0;">
+                        <p>
+                            Ang panel na <strong>Background</strong> ay namamahala sa musika bago ang pulong at, kung naka-configure, pati pagkatapos ng pulong, nang hindi ito hinahalo sa media ng iskedyul. Habang nagpapatugtog, ipinapakita nito ang kasalukuyang kanta, susunod na kanta, progreso, at tagal.
+                        </p>
+                        <p>
+                            Maaari mong simulan, i-pause, lumipat sa nakaraang o susunod na kanta, i-on ang random playback, at buksan ang playlist. Ang mga setting ng musika, kasama ang awtomatikong kilos at fade, ay kino-configure mula sa panel na
+                            <a href="#impostazioni-media">seksyon 13 · Media</a>.
+                        </p>
+                    </div>
+                    <figure style="flex: 0 0 48%; min-width: 320px; max-width: 680px; margin: 0;">
+                        <img src="../images/manual/tl/media-window-musica-v4-real.png"
+                             alt="Panel ng musika bago ang pulong sa Window ng Media"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. SCHERMI -->
+        <div class="content" id="schermi-contatempo-pubblico">
+            <h2>5 · Pampublikong Screen at Contatempo <a href="#indice" class="back-to-index-link">↑ Talaan</a></h2>
+
+            <p>
+                Pinaghihiwalay ng JW Time 4.0 ang mga display: ang <strong>Pampublikong Screen</strong> ay para sa nilalamang nakikita ng bulwagan, habang ang <strong>Screen ng Contatempo</strong> ay nananatiling nakalaan sa mga sumusubaybay sa oras.
+            </p>
+
+            <!-- 5.1 Schermo Pubblico - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h4 style="color: var(--text-secondary);">5.1 · Pampublikong Screen</h4>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 260px; min-width: 0;">
+                        <p>
+                            Ipinapakita ng Pampublikong Screen ang countdown, mensahe ng pagbati, taunang teksto, logo, at visual na nilalaman sa hiwalay na window.
+                        </p>
+                        <ul class="manual-section">
+                            <li><strong>Bago ang pulong</strong>: ipinapakita ang countdown at ang naka-configure na teksto.</li>
+                            <li><strong>Habang nagpapatuloy ang pulong</strong>: maaari itong manatiling available para sa pampublikong nilalaman o mga nakalaang eksena.</li>
+                            <li><strong>Mga Setting</strong>: ang monitor, mensahe, countdown, logo, at layout ay inaayos sa <a href="#impostazioni-adunanze">seksyon 11 · Mga Pulong</a> at sa <a href="#impostazioni-schermo">seksyon 12 · Screen</a>.</li>
+                        </ul>
+                    </div>
+                    <figure style="flex: 0 0 48%; min-width: 320px; max-width: 620px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/tl/schermo-pubblico-v4.png"
+                             alt="Pampublikong Screen na may countdown at mensahe"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 5.2 Schermo Contatempo esterno - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h4 style="color: var(--text-secondary);">5.2 · Screen ng Contatempo</h4>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 260px; min-width: 0;">
+                        <p>
+                            Ipinapakita ng Screen ng Contatempo ang orasan, countdown ng kasalukuyang bahagi, mga mensahe para sa tagapagsalita, at mga status na kaugnay ng pamamahala ng oras. Ito ang pinakanaaangkop na view para sa podium, sa nangangasiwa sa pulong, o sa mga tagabantay ng oras.
+                        </p>
+                        <ul class="manual-section">
+                            <li>Display sa napiling monitor o malayang window.</li>
+                            <li>Timer ng kasalukuyang bahagi at kontekstuwal na impormasyon.</li>
+                            <li>Mga mensahe sa buong screen o bahagi lang na ipinadala mula sa pangunahing window.</li>
+                        </ul>
+                        <p>
+                            Ang pag-aangkop ng layout ay tinalakay nang hiwalay sa <a href="#personalizzare-schermo">seksyon 5.3 · Pag-aangkop ng Screen ng Contatempo</a>, kaya nananatiling hiwalay ang pang-araw-araw na paggamit ng screen sa mga graphic setting.
+                        </p>
+                    </div>
+                    <figure style="flex: 0 0 48%; min-width: 320px; max-width: 620px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/tl/schermo-contattempo-v4.png"
+                             alt="Screen ng Contatempo sa external monitor"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5.3 PERSONALIZZARE LO SCHERMO CONTATEMPO -->
+        <div class="content" id="personalizzare-schermo">
+            <h2>5.3 · Pag-aangkop ng Screen ng Contatempo <a href="#indice" class="back-to-index-link">↑ Talaan</a></h2>
+
+            <p>
+                Maaaring iangkop ang Screen ng Contatempo mula sa button na <strong>Iangkop</strong> sa <a href="#impostazioni-generale">seksyon 9 · Pangkalahatan</a>.
+            </p>
+            <p>
+                Maaari kang magsimula sa preset na available na o baguhin ang layout ayon sa iyong pangangailangan. May sariling mga setting ang Pampublikong Screen sa <a href="#impostazioni-schermo">seksyon 12 · Screen</a>; dito nakatuon ang gawain sa layout ng Contatempo.
+            </p>
+
+            <figure style="margin: var(--spacing-xl) auto; max-width: 720px;">
+                <img src="../images/manual/tl/personalizzazione_schermo_contatempo_base-v4.png"
+                     alt="Editor para i-customize ang Screen ng Contatempo"
+                     class="manual-image">
+            </figure>
+
+            <!-- 5.3.1 Partire da un preset -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>Magsimula sa isang preset</h3>
+                <p>
+                    Ang preset ay panimulang layout.
+                </p>
+                <p>
+                    Maaari kang pumili ng preset sa <a href="#impostazioni-generale">seksyon 9 · Pangkalahatan</a> at gamitin ito nang walang pagbabago, o buksan ang editor ng pag-aangkop para baguhin ito.
+                </p>
+            </div>
+
+            <!-- 5.3.2 Scegliere una scena -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>Pumili ng eksena</h3>
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <p>
+                            Ang layout ay nakaayos sa mga eksena.
+                        </p>
+                        <p>
+                            Ang bawat eksena ay tumutugma sa ibang sitwasyon ng Screen ng Contatempo. Dahil dito, maaaring magpakita ng ibang layout batay sa sandali o sa uri ng bahaging ipinapakita.
+                        </p>
+                        <p>
+                            Bago gumawa ng mga pagbabago, palaging tingnan kung aling eksena ang napili.
+                        </p>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/tl/personalizzazione_schermo_contatempo_base_scena-v4.png"
+                             alt="Pagpili ng scene sa editor ng Screen ng Contatempo"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 5.3.3 Tipi di livello -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>Mga available na uri ng patong</h3>
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 320px; min-width: 0;">
+                        <p>
+                            Kapag pinindot mo ang <strong>+</strong> sa panel ng Mga Patong, ipinapakita ng JW Time ang mga uri ng elementong maaari mong idagdag sa eksena. May ilang patong na bumabasa ng totoong datos ng pulong at awtomatikong nagbabago; ang iba naman ay para buuin ang grapikong layout.
+                        </p>
+                        <p>
+                            Hindi praktikal na ipakita sa manual ang lahat ng katangian ng bawat patong, dahil nagbabago ang panel ng mga katangian batay sa napiling uri. Sa halip, makikita mo rito kung ano ang ginagawa ng bawat patong at kailan ito gagamitin.
+                        </p>
+                    </div>
+                    <figure style="flex: 0 0 42%; min-width: 300px; max-width: 520px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/tl/personalizzazione_schermo_contatempo_livelli-v4.png"
+                             alt="Dialog na Magdagdag ng layer na may mga uri ng elementong available sa Screen ng Contatempo"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+
+                <h4 style="color: var(--text-secondary); margin-top: var(--spacing-lg);">Pangunahing mga dinamikong patong</h4>
+                <ul class="manual-section">
+                    <li><strong>Timer</strong>: ipinapakita ang oras ng aktibong bahagi. Maaari itong itakda bilang countdown o count-up.</li>
+                    <li><strong>Awit</strong>: ipinapakita ang impormasyon ng awit kapag ang eksena ay tungkol sa awit.</li>
+                    <li><strong>Mga Mensahe</strong>: ipinapakita ang mga mensaheng ipinadala mula sa pangunahing window, sa buong screen man o sa bahagyang format.</li>
+                    <li><strong>Orasan</strong>: ipinapakita ang digital na oras.</li>
+                    <li><strong>Analog na orasan</strong>: nagdaragdag ng graphic na orasan na maaaring iangkop.</li>
+                </ul>
+
+                <h4 style="color: var(--text-secondary); margin-top: var(--spacing-lg);">Impormasyon tungkol sa pulong</h4>
+                <ul class="manual-section">
+                    <li><strong>Kasalukuyang bahagi</strong>: ipinapakita ang pamagat ng kasalukuyang bahagi.</li>
+                    <li><strong>Susunod na bahagi</strong>: ipinapakita ang susunod na bahagi, kapaki-pakinabang para maghanda sa pagpapalit.</li>
+                    <li><strong>Nakaraang bahagi</strong>: ipinapakita ang impormasyon tungkol sa katatapos na bahagi, kapag nakalaan ito sa layout.</li>
+                    <li><strong>Tantiyang pagtatapos</strong>: ipinapakita ang oras ng pagtatapos na kinakalkula ng app.</li>
+                    <li><strong>Pagkaantala/Pagkaaga</strong>: ipinapakita ang delta kumpara sa nakaplanong oras.</li>
+                    <li><strong>Impormasyon sa pause</strong>: ipinapakita ang impormasyong kaugnay ng mga pause o teknikal na oras.</li>
+                    <li><strong>Bar ng progreso</strong>: ipinapakita nang graphic ang pag-usad ng oras.</li>
+                </ul>
+
+                <h4 style="color: var(--text-secondary); margin-top: var(--spacing-lg);">Malayang mga grapikong patong</h4>
+                <ul class="manual-section">
+                    <li><strong>Background</strong>: nagdaragdag ng may-kulay na kahon, kapaki-pakinabang para gumawa ng mga banda, area na may contrast, o visual na lalagyan.</li>
+                    <li><strong>Teksto</strong>: nagdaragdag ng pasadyang nakapirming teksto.</li>
+                    <li><strong>Larawan</strong>: nagdaragdag ng logo o dekoratibong larawan.</li>
+                </ul>
+
+                <p>
+                    Ang mga patong na <strong>Background</strong>, <strong>Teksto</strong> at <strong>Larawan</strong> ay maaaring idagdag nang maraming beses. Para sa ibang mga patong, kung mayroon nang elementong kapareho ang uri, iminumungkahi ng editor na ikonekta ito sa ibang eksena o gumawa ng hiwalay na elemento kapag pinapayagan.
+                </p>
+            </div>
+
+            <!-- 5.3.4 Modificare il layout -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>Baguhin ang layout</h3>
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <p>
+                            Sa editor, maaari mong baguhin ang mga patong na nasa napiling eksena.
+                        </p>
+                        <p>Para sa bawat patong, maaari mong ayusin ang posisyon at sukat sa tatlong paraan:</p>
+                        <ul class="manual-section">
+                            <li>gamit ang mouse, sa pamamagitan ng paglipat o pagbabago ng laki ng kahon sa preview</li>
+                            <li>gamit ang keyboard, gamit ang mga arrow para ilipat ito</li>
+                            <li>gamit ang mga value ng Posisyon at Sukat na ipinapakita sa ilalim ng preview</li>
+                        </ul>
+                        <p>
+                            Kinokontrol ng mga value na X at Y ang posisyon ng patong.<br>
+                            Kinokontrol ng mga value na Lapad at Taas ang sukat ng patong.
+                        </p>
+                        <p>Ipinapahayag ang lahat ng value na ito bilang porsiyento.</p>
+                        <p>
+                            Sa panel ng mga patong, maaari mo ring pamahalaan ang<strong>ayos ng pagkakapatong</strong>: maaaring nasa ibabaw o ilalim ng iba ang bawat patong, kaya natutukoy kung alin ang lalabas sa harap kapag may magkakapatong. Maaari mong baguhin ang ayos sa pamamagitan ng pag-drag ng mga patong sa listahan o paggamit ng mga button na
+                            <strong>▲</strong> at <strong>▼</strong> sa ilalim nito.
+                        </p>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/tl/personalizzazione_schermo_contatempo_base_layout-v4.png"
+                             alt="Pagbabago ng layout sa editor ng Screen ng Contatempo"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 5.3.5 Spostare, ridimensionare, valori, salvare -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>Ilipat, baguhin ang laki, at ayusin ang pagkakasunod ng mga patong</h3>
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <p>Pagkatapos pumili ng patong, maaari mong:</p>
+                        <ul class="manual-section">
+                            <li>i-drag ito gamit ang mouse para ilipat sa preview</li>
+                            <li>gamitin ang mga arrow key ng keyboard para ayusin ang posisyon nito (<strong>mga arrow</strong>: 0,5% — <strong>Shift</strong>: 2,0% — <strong>Ctrl</strong>: 0,1%)</li>
+                            <li>i-drag ang mga gilid o sulok ng kahon para baguhin ang laki nito</li>
+                        </ul>
+                        <p>
+                            Sa ilalim ng preview, makikita mo ang mga numeric control na <strong>X</strong>, <strong>Y</strong>, <strong>Lapad</strong> at <strong>Taas</strong>
+                            para tumpak na ayusin ang posisyon at sukat.
+                        </p>
+                        <p>
+                            Pagkatapos ng mga pagbabago, i-save ang layout at i-apply ito. Maaari mong buksan muli ang editor anumang oras para i-update ito.
+                        </p>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/tl/personalizzazione_schermo_contatempo_base_trasformazioni-v4.png"
+                             alt="Paglipat at pag-resize ng mga layer sa editor ng Screen ng Contatempo"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. GESTIONE MESSAGGI -->
+        <div class="content" id="gestione-messaggi">
+            <h2>6 · Pamamahala ng mga mensahe <a href="#indice" class="back-to-index-link">↑ Talaan</a></h2>
+
+            <p>
+                Ang function na Mga Mensahe ay nagbibigay-daan na makipag-ugnayan nang maingat at malinaw sa tagapagsalita habang nagpapatuloy ang pulong, para mabigyan siya ng paalala o tagubilin nang hindi pinuputol o iniistorbo ang takbo ng bahagi. Lumalabas ang mga mensahe sa screen ng Contatempo, kaya nakikita ito ng tagapagsalita sa tunay na oras nang walang istorbo.
+            </p>
+
+            <div class="image-container">
+                <img src="../images/manual/tl/messaggi-elenco-v4.png"
+                     alt="Screen ng pamamahala ng mga mensahe sa JW Time"
+                     class="manual-image">
+            </div>
+
+            <!-- 6.1 Messaggio a tutto schermo - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>6.1 · Mensahe sa buong screen</h3>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <ol class="manual-section">
+                            <li>I-click ang lugar kung saan nakasulat ang Ilagay ang mensahe.</li>
+                            <li>Ilagay ang text.</li>
+                            <li>Pindutin ang <strong>Buong screen</strong> → lalabas ang text sa buong screen sa monitor ng Contatempo.</li>
+                        </ol>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/tl/messaggio-tutto-schermo-v4.png"
+                             alt="Full-screen na mensahe"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 6.2 Messaggio a schermo parziale - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>6.2 · Mensahe sa bahagi ng screen</h3>
+
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <ol class="manual-section">
+                            <li>I-click ang lugar kung saan nakasulat ang Ilagay ang mensahe.</li>
+                            <li>Ilagay ang text.</li>
+                            <li>Pindutin ang <strong>Bahagi ng screen</strong> → lalabas ang text sa window ng Contatempo nang hindi ito lubusang tinatakpan, kaya makikita ng tagapagsalita ang mensahe at ang timer.</li>
+                        </ol>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/tl/messaggio-parziale-v4.png"
+                             alt="Partial-screen na mensahe"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 6.3 Mirror Contatempo - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl); ">
+                <h3>6.3 · Mirror ng Contatempo</h3>
+                <p>
+                    Kapag nagpapadala ng mensahe, awtomatikong lumalabas ang isang preview window na maaaring baguhin ang laki at ilipat, at eksaktong ipinapakita nito ang nakikita ng tagapagsalita sa monitor ng Contatempo. Dahil dito, masusuri sa tunay na oras kung paano ipinapakita ang mensahe at timer.
+                </p>
+            </div>
+        </div>
+        <!-- 7. PULSANTE REC -->
+        <div class="content" id="rec-button">
+            <h2>7 · Button na REC at panel ng recording <a href="#indice" class="back-to-index-link">↑ Indeks</a></h2>
+
+            <p>
+                Ang button na <strong>REC</strong> ay nasa ibabang bar katabi ng Programa at Mensahe. Ipinapakita ng tuldok sa tabi ng text ang katayuan ng recording (naghihintay, aktibo, naka-pause, o nagko-convert sa MP3), habang nagbibigay ang panel ng REC ng mabilis na mga kontrol para buksan ang folder na JWTimeREC, pamahalaan ang mga manual na recording, at i-monitor ang mga audio level ng PC at mikropono.
+            </p>
+
+            <div class="image-container" style="margin-top: var(--spacing-lg);">
+                <img src="../images/manual/tl/REC-v4.png"
+                     alt="Malapitang view ng button na REC at panel ng mga recording"
+                     class="manual-image">
+            </div>
+
+            <!-- 7.1 Indicatori di stato - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>7.1 · Mga indicator at katayuan ng button</h3>
+                <ul class="manual-section">
+                    <li><strong>Naghihintay</strong>: nananatiling kulay abo ang tuldok at ipinapakita ng panel ang "Naghihintay" / "Walang aktibong recording".</li>
+                    <li><strong>Kasalukuyang nagre-record</strong>: nagiging pulang kumikislap ang tuldok at ipinapakita ng panel ang "Kasalukuyang nagre-record" kasama ang pamagat at timer ng bahagi.</li>
+                    <li><strong>Pause</strong>: nagiging orange ang tuldok; nakahinto pansamantala ang recording at maaaring ipagpatuloy.</li>
+                    <li><strong>Pag-convert sa MP3</strong>: nagiging asul ang tuldok at nananatiling hindi aktibo ang button hanggang matapos ang pag-export ng file.</li>
+                </ul>
+            </div>
+
+            <!-- 7.2 Controlli rapidi REC - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>7.2 · Mabilis na mga kontrol ng REC</h3>
+                <p>Pinagsasama ng panel ng REC ang mga kontrol na magagamit nang hindi pumapasok sa mga setting:</p>
+                <ul class="manual-section">
+                    <li><strong>Buksan ang folder</strong>: direktang binubuksan ang directory na JWTimeREC na naglalaman ng mga recording.</li>
+                    <li><strong>I-on/I-off ang recording</strong>: pinapagana o pinahihinto ang manual na recording nang hindi pumapasok sa mga setting.</li>
+                    <li><strong>I-pause/Ipagpatuloy</strong>: button na nakikita habang nagre-record para pansamantalang ihinto ang audio (hal. mga panalangin) at ipagpatuloy ito sa parehong file.</li>
+                    <li><strong>Inline na impormasyon</strong>: sa ilalim ng status, lumalabas ang pamagat ng aktibong row at ang na-update na tagal.</li>
+                    <li><strong>Mga awtomatikong mensahe</strong>: agad nitong ipinapakita kapag naka-disable ang recording o kapag may kasalukuyang pag-convert.</li>
+                </ul>
+            </div>
+
+            <!-- 7.3 Area toggle e controlli manuali - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>7.3 · Lugar ng switch na may mga antas ng audio</h3>
+                <p>
+                    Kapag binuksan mo ang REC sa ibabang bar, lumalabas ang isang panel na palaging nakikita, kasama ang estado ng pagre-record at tagasukat ng antas ng audio. Dito maaari mong simulan/ihinto ang manu-manong mga recording, subaybayan ang mga antas ng PC/Mic, at buksan ang folder na JWTimeREC sa isang pag-click lang.
+                </p>
+            </div>
+        </div>
+
+        <!-- 8. MONITOR WEB -->
+        <div class="content" id="monitor-web">
+            <h2>8 · Monitor Web at Server <a href="#indice" class="back-to-index-link">↑ Indeks</a></h2>
+
+            <p>
+                Kapag aktibo ang Server Web, maaari mo itong buksan mula sa ibang device sa parehong lokal na network gamit ang browser. Nagbibigay-daan ito na ipakita ang Contatempo sa mga projector, tablet, o external na computer, at kapaki-pakinabang ito para sa tagapangulo na sumusubaybay sa timer ng iba't ibang bahagi.
+            </p>
+
+            <p>Para sa kumpletong configuration ng Server Web, remote na kontrol, remote na link, at QR, tingnan ang <a href="#impostazioni-connessioni">seksyon 15 · Koneksyon at Server</a>.</p>
+
+            <div class="news-card" id="monitor-web-locale" style="margin-top: var(--spacing-xl);">
+                <h3>8.1 · Ipakita ang Monitor Web sa lokal na network</h3>
+
+                <div style="display: flex; gap: 2.5rem; align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+                    <div style="flex: 1 1 320px; min-width: 0;">
+                        <p>Mula sa browser, maaari mong:</p>
+                        <ul class="manual-section">
+                            <li>Ipakita ang timer at Contatempo sa buong screen.</li>
+                            <li>I-print ang iskedyul.</li>
+                            <li>Subaybayan ang pag-usad ng mga oras sa tunay na oras.</li>
+                            <li>Magsagawa ng mga operasyon nang remote sa timer at programa, kung aktibo ang remote na kontrol.</li>
+                        </ul>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0 0 0 auto; align-self: flex-start;">
+                        <img src="../images/manual/tl/monitor-web-v4.png"
+                             alt="Monitor Web ng JW Time na tinitingnan mula sa browser"
+                             class="manual-image">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 8.2 Controllo remoto -->
+            <div class="news-card" id="monitor-web-controllo-remoto" style="margin-top: var(--spacing-xl);">
+                <h3>8.2 · Kontrolin ang timer at programa mula sa browser</h3>
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+                    <div style="flex: 1 1 240px; min-width: 0;">
+                        <p>
+                            Kung aktibo ang remote na kontrol, maaari kang kumilos sa timer at programa mula sa browser nang hindi nasa harap ng pangunahing computer.
+                        </p>
+                        <p>Nakadepende ang mga available na operasyon sa naka-configure na mga permiso at maaaring kabilang ang:</p>
+                        <ul class="manual-section">
+                            <li>pagsisimula ng timer</li>
+                            <li>pag-pause at pagpapatuloy</li>
+                            <li>paghinto</li>
+                            <li>kontrol sa programa/iskedyul</li>
+                            <li>pagbabago ng mga tagal o ng mga value na available sa iskedyul, kung pinapahintulutan ito ng awtorisadong role</li>
+                        </ul>
+                        <p>Maaari mong buksan ang Server Web sa pamamagitan ng paglalagay ng address na ipinapakita sa app, o paggamit ng QR kung available.</p>
+                        <p>
+                            Depende sa configuration, maaaring may iba't ibang antas ng access, halimbawa para sa pagtingin lamang o para sa kontrol at pagbabago. Kung naka-configure, maaaring mangailangan ng PIN ang access.
+                        </p>
+                        <p>Para sa kumpletong configuration, tingnan ang <a href="#impostazioni-connessioni">seksyon 15 · Koneksyon at Server</a>.</p>
+                    </div>
+                    <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <img src="../images/manual/tl/monitor-web-editor-v4.png"
+                             alt="Monitor Web na may remote na kontrol"
+                             class="manual-image"
+                             style="width: 100%; height: auto; display: block;">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 8.3 Accesso remoto fuori rete -->
+            <div class="news-card" id="monitor-web-accesso-remoto" style="margin-top: var(--spacing-xl);">
+                <h3>8.3 · Remote na access para sa mga pulong sa videoconference</h3>
+                <p>
+                    Kapag ang taong kailangang sumubaybay o kumontrol sa JW Time ay wala sa parehong lokal na network, maaari kang gumawa ng pansamantalang remote na link. Kapaki-pakinabang ang sitwasyong ito para sa mga pulong sa videoconference, remote na tulong, o pamamahala mula sa device na nakakonekta sa ibang network.
+                </p>
+                <figure style="margin: var(--spacing-lg) 0;">
+                    <img src="../images/manual/tl/impostazioni-connessioni-accesso-remoto-v4.png"
+                         alt="Panel ng Mga Koneksyon na naka-highlight ang remote na access"
+                         class="manual-image">
+                </figure>
+                <ul class="manual-section">
+                    <li><strong>Parehong web interface</strong>: binubuksan ng remote na link ang Monitor Web mula sa browser, gaya ng nangyayari sa lokal na network.</li>
+                    <li><strong>Pansamantalang link</strong>: nagbabago ang remote na koneksyon sa bawat pag-activate at hindi dapat ituring na permanente.</li>
+                    <li><strong>Remote na PIN</strong>: kapag naka-configure, pinoprotektahan nito ang mga function na maa-access mula sa labas ng lokal na network.</li>
+                    <li><strong>Paggamit kasama ng videoconference</strong>: nagbibigay-daan sa mga sumusubaybay sa pulong mula sa labas ng network na tingnan o kontrolin ang programa ayon sa itinakdang mga permiso.</li>
+                </ul>
+                <p>
+                    Ang bahaging pang-operasyon ay kino-configure sa <a href="#server-web-remoto">seksyon 15.2 · Remote na Server Web</a>. Nananatiling hiwalay ang mga setting ng Zoom: pinamamahalaan ng Zoom ang pagbabahagi at mga shortcut, habang ang remote na link ay tungkol sa Monitor Web.
+                </p>
+            </div>
+        </div>
+
+        <!-- PARTE II - PANNELLI IMPOSTAZIONI -->
+        <div class="content-section-header">
+            <h2 style="font-size: 2rem; margin: 0 0 var(--spacing-lg) 0; color: var(--text-primary);">Bahagi II · Mga Panel ng Setting</h2>
+            <p>
+                Sa bahaging ito, maaari mong i-configure ang paggana ng app: mga pangkalahatang setting, profile ng kongregasyon, mga pulong, Screen ng Contatempo, Media, Zoom, Monitor Web at Server, Recording, at Backup at Pag-restore.
+            </p>
+            <p>Inilalapat ng button na I-save ang lahat ng pagbabago.</p>
+        </div>
+
+        <!-- 9. GENERALE -->
+        <div class="content" id="impostazioni-generale">
+            <h2>9 · Pangkalahatan <a href="#indice" class="back-to-index-link">↑ Indeks</a></h2>
+
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/tl/impostazioni-generale-v4.png"
+                         alt="Panel ng Pangkalahatang Settings ng JW Time"
+                         class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <h3>Hitsura at format</h3>
+                    <ul class="manual-section">
+                        <li><strong>Piliin ang wika</strong>: binabago ang wika ng interface.</li>
+                        <li><strong>Mga wika ng mga programa</strong>: tinutukoy kung saang wika ida-download o ipapakita ang lingguhang iskedyul.</li>
+                        <li><strong>Piliin ang tema</strong>: itinatakda ang tema ng hitsura ng app.</li>
+                        <li><strong>Scale ng interface</strong>: ina-adjust ang laki ng mga text at kontrol; mailalapat ang pagbabago pagkatapos ng restart.</li>
+                        <li><strong>Format ng oras</strong>: nagpapalit sa pagitan ng 24h format at 12h AM/PM format.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">Pamamahala ng timer</h3>
+                    <ul class="manual-section">
+                        <li><strong>Awtomatikong pause</strong>: awtomatikong naglalagay ng pause sa pagitan ng isang bahagi at ng susunod kapag pinindot mo ang Start/Next.</li>
+                        <li><strong>Ipakita ang column na Wakas</strong>: ipinapakita sa talahanayan ang inaasahang oras ng pagtatapos ng kasalukuyang bahagi at ng mga susunod, na kinakalkula sa tunay na oras mula sa kasalukuyang oras, mga natitirang timer, at anumang naipong paglihis.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">Mga bago</h3>
+                    <ul class="manual-section">
+                        <li><strong>Ipakita ang mga bago sa pagsisimula</strong>: binubuksan sa app ang maikling buod ng mga ipinakilalang function, para mabilis na malaman ng gumagamit ng JW Time kung ano ang sulit subukan.</li>
+                        <li>Maaari mo itong i-disable kapag naging pamilyar na ang grupo sa naka-install na bersyon.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. CONGREGAZIONI -->
+        <div class="content" id="impostazioni-congregazioni">
+            <h2>10 · Mga kongregasyon <a href="#indice" class="back-to-index-link">↑ Indeks</a></h2>
+
+            <p>
+                Pinapayagan ng panel na ito na pamahalaan ang mga profile ng kongregasyon. Maaaring panatilihin ng bawat profile ang nakatalagang mga configuration, kaya maaaring umangkop ang JW Time sa iba't ibang konteksto nang hindi kailangang muling i-configure sa bawat pagkakataon ang mga window, media, at layout.
+            </p>
+
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/tl/impostazioni-congregazioni-v4.png"
+                         alt="Panel ng Mga Kongregasyon ng JW Time"
+                         class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <h3>Mga profile ng kongregasyon</h3>
+                    <ul class="manual-section">
+                        <li><strong>Listahan ng mga kongregasyon</strong>: ipinapakita ang mga available na profile. Pinapanatili ng bawat profile ang sarili nitong wika, server, mga screen, recording, media, at setting.</li>
+                        <li><strong>Bagong kongregasyon</strong>: gumagawa ng hiwalay na profile na iko-configure.</li>
+                        <li><strong>Palitan ang pangalan</strong>: binabago ang pangalan ng napiling profile nang hindi nawawala ang mga setting.</li>
+                        <li><strong>I-duplicate</strong>: gumagawa ng kopya ng kasalukuyang profile, na kapaki-pakinabang kapag magkatulad ang dalawang configuration.</li>
+                        <li><strong>Tanggalin</strong>: inaalis ang napiling profile kapag hindi na ito kailangan.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">Mag-import / Mag-export</h3>
+                    <ul class="manual-section">
+                        <li><strong>I-export ang kongregasyon</strong>: sine-save lamang ang napiling profile.</li>
+                        <li><strong>I-import ang kongregasyon</strong>: nilo-load ang profile na na-export dati.</li>
+                        <li><strong>I-export</strong>: gumagawa ng kumpletong backup ng lahat ng kongregasyon.</li>
+                        <li><strong>I-import</strong>: nire-restore ang backup na naglalaman ng maraming kongregasyon.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 11. ADUNANZE -->
+        <div class="content" id="impostazioni-adunanze">
+            <h2>11 · Mga pulong (Timer ng Simula ng Pulong) <a href="#indice" class="back-to-index-link">↑ Indeks</a></h2>
+
+            <p>
+                Ginagamit ang panel na ito para i-program ang countdown ng simula ng pulong sa Pampublikong Screen. Itinatakda mo ang araw, oras, at pagpapauna (sa minuto) kung kailan mo gustong simulan ang countdown.
+            </p>
+
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/tl/impostazioni-adunanze-v4.png"
+                         alt="Panel ng Mga Pulong na may timer ng pagsisimula sa JW Time"
+                         class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <h3>11.1 · Pag-iskedyul (Araw · Oras · Pagpapauna)</h3>
+                    <ul class="manual-section">
+                        <li><strong>Magdagdag ng pulong</strong>: naglalagay ng bagong row sa talahanayan ng mga oras.</li>
+                        <li><strong>Araw</strong>: piliin ang araw ng linggo kung kailan ginaganap ang pulong.</li>
+                        <li><strong>Oras</strong>: itinatakda ang oras ng pagsisimula ng pulong.</li>
+                        <li><strong>Pagpapauna (min)</strong>: kung ilang minuto bago ang itinakdang oras dapat lumabas ang countdown sa Pampublikong Screen.</li>
+                        <li><strong>-</strong>: tinatanggal ang row ng oras na hindi na kailangan.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">11.2 · Mga espesyal na event</h3>
+                    <ul class="manual-section">
+                        <li><strong>Magdagdag ng espesyal na event</strong>: gumagawa ng mga event gaya ng pagdalaw ng tagapangasiwa ng sirkito, Memoryal, o mga manual na event.</li>
+                        <li><strong>Pagdalaw ng SC</strong>: inilalapat ang mga nakatalagang tuntunin at oras para sa pagdalaw.</li>
+                        <li><strong>Memoryal</strong>: nagtatala ng espesyal na appointment na may tiyak na petsa at oras.</li>
+                        <li><strong>Baguhin / tanggalin</strong>: pinapayagan ng mga button sa kanan na i-update o alisin ang event.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">11.3 · Pag-aangkop ng mga tagal</h3>
+                    <ul class="manual-section">
+                        <li><strong>Adaptive na Pag-aaral sa Bibliya</strong>: awtomatikong ina-adjust ang Pag-aaral ng Kongregasyon sa Bibliya para makatulong na masunod ang oras ng pagtatapos.</li>
+                        <li><strong>Adaptive na Pag-aaral sa Bantayan</strong>: inilalapat ang parehong logic sa Pag-aaral sa Bantayan.</li>
+                    </ul>
+
+                    <p style="margin-top: var(--spacing-md); font-size: 0.9rem; color: var(--text-tertiary);">
+                        <strong>Tandaan:</strong> ang mga oras ng pagsisimula ay ginagamit para sa pampublikong countdown; ang Tinatayang Oras ng Pagtatapos naman ay nakadepende sa iskedyul at sa anumang pag-aangkop ng tagal.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 12. SCHERMO -->
+        <div class="content" id="impostazioni-schermo">
+            <h2>12 · Screen <a href="#indice" class="back-to-index-link">↑ Indeks</a></h2>
+
+            <p>
+                Pinagsasama ng panel na ito ang mga setting para sa Screen ng Contatempo at Pampublikong Screen. Dito mo mapipili kung saan ipapakita ang impormasyon, paano ito ipapakita, at aling mga elemento ang gagawing nakikita habang nagpapatuloy ang pulong.
+            </p>
+
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/tl/impostazioni-schermo-v4.png"
+                         alt="Panel ng Screen ng JW Time"
+                         class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <ul class="manual-section">
+                        <li><strong>I-enable</strong>: ina-activate o idi-deactivate ang Screen ng Contatempo.</li>
+                        <li><strong>Piliin ang monitor</strong>: pinipili ang monitor o window kung saan ipapakita ang Contatempo.</li>
+                        <li><strong>Tukuyin</strong>: nagpapakita ng reference sa napiling monitor, kapaki-pakinabang kapag maraming screen ang nakakonekta.</li>
+                        <li><strong>Mode</strong>: itinatakda kung paano dapat buksan ang Contatempo, halimbawa bilang hiwalay na window.</li>
+                        <li><strong>Transparent na background</strong>: ginagawang transparent ang window kapag pinapayagan ito ng mode.</li>
+                        <li><strong>Layout</strong>: pinipili ang graphic preset ng Screen ng Contatempo.</li>
+                        <li><strong>I-customize</strong>: binubuksan ang editor ng napiling layout.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">Pampublikong Screen</h3>
+                    <ul class="manual-section">
+                        <li><strong>I-activate ang Pampublikong Screen</strong>: ine-enable ang window para sa content na makikita sa bulwagan.</li>
+                        <li><strong>I-activate ang countdown para sa publiko</strong>: ipinapakita ang countdown ng simula ng pulong sa Pampublikong Screen.</li>
+                        <li><strong>Monitor</strong>: pinipili kung saan bubuksan ang pampublikong window.</li>
+                        <li><strong>Layout</strong>: pinipili ang graphic preset ng Pampublikong Screen.</li>
+                        <li><strong>Ipakita ang taunang teksto</strong>: ine-enable o itinatago ang taunang teksto.</li>
+                        <li><strong>Ipakita ang logo ng JW</strong>: ipinapakita o itinatago ang logo sa pampublikong scene.</li>
+                        <li><strong>Text ng taunang teksto</strong>: nagbibigay-daan na maglagay ng custom na text; kung mananatili itong walang laman, gagamitin ang taunang teksto sa wika ng programa.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 13. MEDIA -->
+        <div class="content" id="impostazioni-media">
+            <h2>13 · Media <a href="#indice" class="back-to-index-link">↑ Indeks</a></h2>
+
+            <p>
+                Pinamamahalaan ng panel na ito ang paggana ng Window ng Media, ang lokal na cache, at ang mga option na kaugnay ng content na ginagamit habang o pagkatapos ng pulong.
+            </p>
+
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/tl/impostazioni-media-v4.png"
+                         alt="Panel ng Media ng JW Time"
+                         class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <h3>Mga function ng media</h3>
+                    <ul class="manual-section">
+                        <li><strong>Button at function ng media</strong>: ipinapakita o itinatago ang button na Media at ine-enable ang mga kaugnay na function.</li>
+                        <li><strong>Palabuin ang media na nagamit na</strong>: ginagawang mas madaling makilala ang content na nagamit na sa Window ng Media.</li>
+                        <li><strong>Payagan ang mga external na URL</strong>: pagkatapos kumpirmahin, pinapayagan nitong magdagdag ng mga HTTPS URL sa labas ng jw.org at wol.jw.org at ipakita ang mga ito sa built-in na browser.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">Media ng Pulong</h3>
+                    <ul class="manual-section">
+                        <li><strong>Awtomatikong i-download ang opisyal na media</strong>: nakakatulong itong maihanda nang maaga ang opisyal na media para sa linggo, kapag pinapayagan ng network.</li>
+                        <li><strong>Awtomatikong i-update ang offline na mga Awit</strong>: pinananatiling updated ang catalog ng na-download na mga Awit.</li>
+                        <li><strong>Kalidad ng video</strong>: pinipili ang resolution ng opisyal na mga video.</li>
+                        <li><strong>Mga Linggo</strong>: ipinapakita kung ilang linggo ang pananatilihin o ihahanda.</li>
+                        <li><strong>Max na espasyo</strong>: nililimitahan ang espasyong ginagamit ng media cache.</li>
+                        <li><strong>Folder / tanggalin</strong>: binubuksan ang folder ng nilalaman o nililinis ang na-download na mga file.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">Mga Awit at musika</h3>
+                    <ul class="manual-section">
+                        <li><strong>Mga Video ng Awit para sa Pulong</strong>: pinamamahalaan ang download, kalidad at folder ng mga video ng Awit.</li>
+                        <li><strong>Mga Awit - Musika bago/pagkatapos ng pulong</strong>: pinamamahalaan ang musikang ginagamit bilang background.</li>
+                        <li><strong>Random na playback</strong>: pinapatugtog ang mga kanta sa random na ayos.</li>
+                        <li><strong>Awtomatikong ihinto sa simula ng pulong</strong>: inihihinto ang musika kapag nagsimula ang programa.</li>
+                        <li><strong>Ihinto ang musika bago magsimula ang pulong</strong>: itinatakda kung ilang segundo bago ihinto ang background music.</li>
+                        <li><strong>Tagal ng fade</strong>: inaayos ang audio fade kapag nagtatapos o nagpapalit ng kanta.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 14. ZOOM -->
+        <div class="content" id="impostazioni-zoom">
+            <h2>14 · Zoom <a href="#indice" class="back-to-index-link">↑ Talaan</a></h2>
+
+            <p>
+                Nasa panel na ito ang mga setting na kapaki-pakinabang kapag ginagamit ang JW Time kasama ng Zoom o ibang mga configuration ng hall na nangangailangan ng nakatalagang audio/video controls. Ang mga opsyon sa ibaba ang nagbibigay ng mga Zoom button sa
+                <a href="#finestra-media">seksyon 4 · Window ng Media</a>.
+            </p>
+
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/tl/impostazioni-zoom-v4.png"
+                         alt="Panel ng Zoom ng JW Time"
+                         class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <h3>Zoom</h3>
+                    <ul class="manual-section">
+                        <li><strong>Mga kontrol ng Zoom</strong>: ipinapakita sa Window ng Media ang mga button na nakalaan para sa Zoom.</li>
+                        <li><strong>Pagbabahagi sa Zoom</strong>: pinapagana ang button na nagpapadala sa Zoom ng shortcut para sa pagbabahagi.</li>
+                        <li><strong>Ipakita ang Zoom sa publiko</strong>: pinapagana ang button na pansamantalang nagtatago sa Pampublikong Screen ng JW Time para ipakita ang mga tagapagsalita o ang Zoom window na nakaposisyon na sa ilalim, sa monitor ng hall.</li>
+                        <li><strong>Shortcut sa pagbabahagi</strong>: dapat kapareho ito ng global shortcut na naka-configure sa Zoom para simulan o ihinto ang screen sharing.</li>
+                        <li><strong>Test</strong>: ipinapadala ang shortcut at sinusuri kung binubuksan o binabago ng Zoom ang status ng pagbabahagi.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">Shortcut ng Zoom</h3>
+                    <p>
+                        Hindi pinipili ng JW Time para sa iyo ang window o screen na ibabahagi sa Zoom: ipinapadala nito ang kombinasyon ng mga key na itinakda mo sa panel na ito. Kaya dapat aktibo rin ang parehong shortcut sa mga setting ng Zoom, mas mabuti bilang global shortcut. Kung ibang kombinasyon ang ginagamit mo sa Zoom, ang button na
+                        <strong>Pagbabahagi</strong> at ang mode na <strong>Zoom Auto</strong> ay hindi maaasahang gagana.
+                    </p>
+                    <p>
+                        Bago ang pulong, suriin ang buong daloy: ihanda ang Zoom sa pampublikong monitor, ilagay sa ilalim ng Pampublikong Screen ang window ng mga tagapagsalita o ang duplicated screen ng Zoom, subukan ang shortcut gamit ang <strong>Test</strong> at pagkatapos gamitin ang mga kontrol mula sa Window ng Media.
+                    </p>
+
+                    <h3 style="margin-top: var(--spacing-lg);">Awtomasyon ng media</h3>
+                    <ul class="manual-section">
+                        <li><strong>Awtomatikong pagsisimula</strong>: kapag ang button na <strong>Zoom Auto</strong> ay aktibo sa Window ng Media, sinisimulan nito ang pagbabahagi kapag nagsimula ang isang media.</li>
+                        <li><strong>Ihinto kapag isinara ang media</strong>: isinasara ang pagbabahagi sa Zoom kapag isinara o natapos ang media, kung ang pagbabahagi ay sinimulan ng JW Time.</li>
+                        <li><strong>Panimulang pause</strong>: inihahanda ang media na naka-pause pagkatapos magsimula ang pagbabahagi.</li>
+                        <li><strong>Pagbabalik ng focus</strong>: ibinabalik ang focus sa Window ng Media pagkatapos ng aksyon sa Zoom.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">Paggamit sa mga pulong sa videoconference</h3>
+                    <p>
+                        Kung kailangang tingnan o kontrolin ng isang tao ang JW Time mula sa labas ng network habang may pulong sa videoconference, hindi ito kino-configure mula sa Zoom: ginagamit ang <a href="#monitor-web-accesso-remoto">seksyon 8.3 · Remote na access para sa mga pulong sa videoconference</a>. Sa panel na ito, shortcuts, pagbabahagi at pamamahala lang ng Zoom window ang natitira.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 15. CONNESSIONE E SERVER -->
+        <div class="content" id="impostazioni-connessioni">
+            <h2>15 · Koneksyon at Server <a href="#indice" class="back-to-index-link">↑ Talaan</a></h2>
+
+            <p>
+                Pinamamahalaan ng panel na ito ang connectivity ng app: ang Monitor Web at Web Server para sa pagpapakita at kontrol mula sa browser, ang QR para sa mabilis na access, remote na kontrol, mga advanced na test ng koneksyon at pamamahala ng mga log.
+            </p>
+
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/tl/impostazioni-connessioni-v4.png"
+                         alt="Panel ng Mga Koneksyon ng JW Time"
+                         class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <h3>15.1 · Monitor Web at Web Server</h3>
+                    <ul class="manual-section">
+                        <li><strong>JW Time - Monitor Web</strong>: pinapagana o pinapatay ang internal na server.</li>
+                        <li><strong>Address ng Server</strong>: ipinapakita ang URL na bubuksan sa lokal na network. Sa manwal gumagamit kami ng generic na address, halimbawa <code>http://192.168.1.100:8000</code>.</li>
+                        <li><strong>Kopyahin ang address</strong>: kinokopya ang URL sa clipboard.</li>
+                        <li><strong>QR</strong>: nagpapakita ng QR code para mas mabilis na mabuksan ang Monitor Web mula sa telepono o tablet.</li>
+                        <li><strong>Port ng server</strong>: itinatakda ang HTTP port, karaniwan ay 8000.</li>
+                        <li><strong>Editor / Controller</strong>: pinapagana ang mga password para baguhin o kontrolin ang timer at programa mula sa browser. Sa role na Controller, ang Monitor Web ay nagiging operational panel din: maaari nitong simulan, i-pause, ihinto at i-update ang mga available na value nang hindi bumabalik sa pangunahing computer.</li>
+                    </ul>
+                    <p>
+                        Kapag aktibo ang Web Server, maaaring buksan ang JW Time mula sa ibang device sa parehong lokal na network sa pamamagitan ng browser, para gamitin ang Monitor Web mula sa telepono, tablet o ibang computer.
+                    </p>
+
+                    <h3 id="server-web-remoto" style="margin-top: var(--spacing-lg);">15.2 · Web Server nang remote</h3>
+                    <p>
+                        Ginagamit ang seksyong ito para gawing reachable ang Monitor Web kahit nasa labas ng lokal na network, halimbawa habang may mga pulong sa videoconference. Para sa konteksto ng paggamit, tingnan ang <a href="#monitor-web-accesso-remoto">seksyon 8.3 · Remote na access para sa mga pulong sa videoconference</a>; dito makikita ang praktikal na mga kontrol.
+                    </p>
+                    <ul class="manual-section">
+                        <li><strong>Gumawa ng remote na link</strong>: gumagawa ng pansamantalang link gamit ang Cloudflare component kapag kailangan ng access mula sa labas ng lokal na network.</li>
+                        <li><strong>I-download ang component</strong>: dina-download ang component na kailangan para sa remote na koneksyon.</li>
+                        <li><strong>Remote na link</strong>: ipinapakita ang ginawang koneksyon at ang mga button na Kopyahin/QR.</li>
+                        <li><strong>Remote na PIN</strong>: pinoprotektahan ang access sa mga remote na function kapag naka-configure.</li>
+                        <li><strong>Status ng koneksyon</strong>: ipinapakita kung available ang remote component, ang mga aktibong koneksyon at ang Cloudflare.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">15.3 · Remote na kontrol</h3>
+                    <p>
+                        Kung naka-enable ang function, maaaring gamitin ang Web Server hindi lang para sa pagpapakita kundi para magsagawa rin nang remote ng mga operasyon sa timer at programa. Kapag naka-enable ang role na Controller, ipinapakita rin ng web screen ang mga kontrol para baguhin ang mga available na value, halimbawa ang tagal ng isang bahagi.
+                    </p>
+                    <p>Kabilang sa maaaring available:</p>
+                    <ul class="manual-section">
+                        <li>pagsisimula ng timer</li>
+                        <li>pause at pagpapatuloy</li>
+                        <li>stop</li>
+                        <li>kontrol sa programa/iskedyul</li>
+                    </ul>
+                    <p>
+                        Depende sa configuration, maaaring may iba-ibang antas ng access para mahiwalay ang simpleng pagtingin sa mga function ng kontrol o pagbabago.
+                    </p>
+
+                    <h3 style="margin-top: var(--spacing-lg);">15.4 · Test ng Koneksyon</h3>
+                    <ul class="manual-section">
+                        <li><strong>Test ng koneksyon</strong>: sinusuri ang network, JW.org, proxy at mga pahintulot sa pagsulat.</li>
+                        <li><strong>Kopyahin ang resulta</strong>: kinokopya ang resulta ng test para sa tulong o diagnosis.</li>
+                        <li><strong>Buksan ang folder ng log</strong>: direktang binubuksan ang folder ng mga log ng app.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 16. REGISTRAZIONE -->
+        <div class="content" id="impostazioni-registrazioni">
+            <h2>16 · Mga Recording <a href="#indice" class="back-to-index-link">↑ Talaan</a></h2>
+
+            <p>
+                Function para sa audio recording ng mga pulong, maa-access mula sa tab na "Mga Recording" sa mga setting at mula sa button na REC sa pangunahing window.
+            </p>
+
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/tl/impostazioni-registrazioni-v4.png"
+                         alt="Panel ng Mga Recording ng JW Time"
+                         class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <h3>Awtomatikong recording</h3>
+                    <ul class="manual-section">
+                        <li><strong>Aktibo ang awtomatikong pagre-record</strong>: sinisimulan ang recording kapag nagsimula ang timer, kung naka-enable ang function.</li>
+                        <li><strong>I-pause ang recording kapag naka-pause ang timer</strong>: sinususpinde rin ang recording habang naka-pause ang timer.</li>
+                        <li><strong>Paraan ng pagre-record</strong>: pinipili kung isang file bawat bahagi o isang file lang para sa session.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">Path at mga device</h3>
+                    <ul class="manual-section">
+                        <li><strong>Path</strong>: ipinapakita ang folder kung saan ise-save ang mga file. Sa manwal, ipinapakita ang generic na path.</li>
+                        <li><strong>Piliin ang path</strong>: pinipili ang destination folder.</li>
+                        <li><strong>Buksan ang path</strong>: binubuksan ang folder ng mga recording.</li>
+                        <li><strong>Audio PC</strong>: pinipili ang audio source ng computer.</li>
+                        <li><strong>Mikropono</strong>: pinipili ang mikroponong ire-record kasama ng audio PC.</li>
+                        <li><strong>Volume ng PC / Volume ng mic</strong>: inaayos ang recorded level ng dalawang source.</li>
+                        <li><strong>Threshold ng PC</strong>: itinatakda kung kailan dapat ituring na aktibo ang audio PC.</li>
+                        <li><strong>Pagbawas sa Mic.</strong>: awtomatikong binababaan ang mikropono kapag lumampas sa threshold ang audio PC.</li>
+                        <li><strong>Test ng recording</strong>: sinusuri ang mga device at level bago ang pulong.</li>
+                        <li><strong>Mga estadistika</strong>: nagpapakita ng impormasyon tungkol sa mga ginawang recording.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 17. PACCHETTI E BACKUP OFFLINE -->
+        <div class="content" id="impostazioni-backup">
+            <h2>17 · Mga offline package at backup <a href="#indice" class="back-to-index-link">↑ Talaan</a></h2>
+
+            <p>
+                Inihahanda ng panel na ito ang mga lingguhang programa para sa offline na paggamit at pinapayagang i-export o i-import ang mga naka-save na package.
+            </p>
+
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/tl/impostazioni-backup-v4.png"
+                         alt="Panel ng Backup at restore ng JW Time"
+                         class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <h3>17.1 · Mga source sa download ng mga programa</h3>
+                    <ul class="manual-section">
+                        <li><strong>I-download mula sa WOL (primary)</strong>: ginagamit ang primary source kapag available.</li>
+                        <li><strong>I-download mula sa server 2 (backup)</strong>: ginagamit ang alternatibong source para sa mga download ng programa.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">17.2 · Backup ng mga lingguhang programa</h3>
+                    <ul class="manual-section">
+                        <li><strong>I-download sa background</strong>: ina-update ang mga package nang hindi nangangailangan ng manu-manong aksyon.</li>
+                        <li><strong>Pulong sa gitnang sanlinggo</strong>: kasama ang mga programa ng pulong sa gitnang sanlinggo.</li>
+                        <li><strong>Pulong sa weekend</strong>: kasama ang mga programa ng pulong sa weekend.</li>
+                        <li><strong>Mga linggong ida-download</strong>: ipinapakita kung ilang linggo ang ihahanda.</li>
+                        <li><strong>I-download</strong>: agad na sinisimulan ang download ng mga package.</li>
+                        <li><strong>Stop</strong>: inihihinto ang kasalukuyang download.</li>
+                    </ul>
+
+                    <h3 style="margin-top: var(--spacing-lg);">17.3 · Mga na-download na linggo</h3>
+                    <ul class="manual-section">
+                        <li><strong>Listahan ng mga linggo</strong>: ipinapakita ang mga package na available nang lokal.</li>
+                        <li><strong>I-export lahat</strong>: sine-save ang mga package sa isang naililipat na file.</li>
+                        <li><strong>I-import</strong>: nilo-load ang mga package na inihanda sa ibang PC.</li>
+                        <li><strong>I-clear</strong>: inaalis ang mga lokal na package na hindi na kailangan.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>JW Time</h3>
+                <p>Independiyente, libre at hindi komersiyal na proyekto para sa pamamahala ng oras ng mga pulong.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Mga Resource</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="manual.html">Manwal sa Paggamit</a></li>
+                    <li><a href="news.html">Mga Bago</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contacts.html">Mga Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Impormasyon</h3>
+                <ul>
+                    <li><a href="privacy-policy.html">Patakaran sa Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025-2026 JW Time - Independiyente, libre at hindi komersiyal na proyektong nilikha ng mga boluntaryo</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js?v=20260630-2"></script>
+</body>
+</html>
