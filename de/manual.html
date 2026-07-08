@@ -173,9 +173,9 @@ html
 <div class="manual-index">
 <!-- Card Verde per Inizia Qui -->
 <div class="index-section index-section--green">
-<h3>Neu 4.0</h3>
+<h3>Neu in 4.1</h3>
 <ul>
-<li><a href="#novita">Version 4.0.0</a></li>
+<li><a href="#novita">Version 4.1.0</a></li>
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">Erster Start</h3>
 <ul>
@@ -218,21 +218,26 @@ html
 <!-- ULTIME NOVIT&#192; -->
 <div class="news-preview" id="novita">
 <div class="news-preview-title">
-<h2 style="margin: 0;">Neu 4.0</h2>
-<span class="news-preview-badge">Version 4.0.0</span>
+<h2 style="margin: 0;">Neu in 4.1</h2>
+                <span class="news-preview-badge">Version 4.1.0</span>
 </div>
 <div class="news-preview-content">
 <h3>Ein kurzer Blick auf die Neuerungen</h3>
-<p>
-                        JW Time 4.0 führt viele neue Funktionen ein. Hier finden Sie lediglich eine Zusammenfassung, die Ihnen als Orientierung dienen soll.
-                        Das <strong>Neuigkeiten</strong> -Panel in der App und die entsprechende Seite erfassen die vollständigen Details.
+                    <p>
+                        Neue Sprachen wurden hinzugefügt und die Verwaltung manueller Programme sowie automatischer Downloads offizieller Medien wurde verbessert.
                     </p>
-<ul>
-<li>Erster Assistent, Gemeindeprofile und neu organisierte Benutzeroberfläche.</li>
-<li>Medienfenster mit offiziellen Inhalten, Downloads, lokalem Cache und Hintergrundmusik.</li>
-<li>Öffentlicher Bildschirm, anpassbarer Zeitzählerbildschirm und aktualisierte Nachrichtenverwaltung.</li>
-<li>Web-Monitor mit lokaler Steuerung, QR und temporärem Fernzugriff für Videokonferenzen.</li>
-</ul>
+                    <ul>
+                        <li>Die <strong>niederländische</strong> Übersetzung wurde hinzugefügt.</li>
+                        <li>Die <strong>ungarische</strong> Übersetzung wurde hinzugefügt.</li>
+                        <li>Die <strong>polnische</strong> Übersetzung wurde hinzugefügt.</li>
+                        <li>Die Übersetzung in <strong>Filipino/Tagalog</strong> wurde hinzugefügt.</li>
+                        <li>Die <strong>japanische</strong> Übersetzung wurde hinzugefügt, mit verbesserter Textdarstellung auf dem öffentlichen Bildschirm.</li>
+                        <li>Die Verwaltung manueller Programme und automatischer Downloads offizieller Medien wurde verbessert: Downloads bleiben an die aktuelle Woche gebunden, und der Fortschritt für spätere Wochen wird klarer angezeigt.</li>
+                        <li>Das Medien-Fenster nutzt bereits heruntergeladene offizielle Medien besser: Details, Vorschaubilder und lokale Dateien bleiben auch ohne Verbindung verfügbar.</li>
+                        <li>Im Web-Monitor wurde die Möglichkeit hinzugefügt, die Liednummern und die Namen der Programmpunkte sowohl im Editor-Modus als auch im Controller-Modus zu ändern.</li>
+                        <li>In den allgemeinen Einstellungen gibt es jetzt Mit Windows starten, damit JW Time beim Anmelden bei Windows automatisch geöffnet werden kann.</li>
+                        <li>Die Stabilität beim Starten von Videos mit automatischer Zoom-Freigabe wurde verbessert.</li>
+                    </ul>
 <a class="btn btn-gray" href="news.html" style="margin-top: var(--spacing-lg);">
                     Entdecken Sie alle Neuigkeiten →
                 </a>
@@ -1105,6 +1110,11 @@ html
 <li><strong>Automatische Pause</strong>: fügt automatisch eine Pause zwischen einem Teil und dem nächsten ein, wenn Sie Start/Weiter drücken.</li>
 <li><strong>Spalte Ende anzeigen</strong>: zeigt in der Programmtabelle die voraussichtliche Endzeit des aktuellen und der folgenden Teile, live berechnet aus der aktuellen Uhrzeit, den verbleibenden Timern und der angesammelten Zeitabweichung.</li>
 </ul>
+                    <h3 style="margin-top: var(--spacing-lg);">Start</h3>
+                    <ul class="manual-section">
+                        <li><strong>Mit Windows starten</strong>: &#214;ffnet JW Time automatisch, wenn du dich bei Windows anmeldest.</li>
+                    </ul>
+
 <h3 style="margin-top: var(--spacing-lg);">Neuigkeiten</h3>
 <ul class="manual-section">
 <li><strong>Beim Start anzeigen, was neu ist</strong>: Öffnet eine kurze Zusammenfassung der in der App eingeführten Funktionen, sodass Benutzer von JW Time schnell herausfinden können, was einen Versuch wert ist.</li>
@@ -1237,6 +1247,7 @@ html
 <h3 style="margin-top: var(--spacing-lg);">Mediensammlung</h3>
 <ul class="manual-section">
 <li><strong>Automatisches Herunterladen der offiziellen Medien</strong>: hilft, die offiziellen Medien der Woche im Voraus verf&uuml;gbar zu machen, wenn das Netzwerk es zul&auml;sst.</li>
+                        <li>Die Verwaltung manueller Programme und automatischer Downloads offizieller Medien wurde verbessert: Downloads bleiben an die aktuelle Woche gebunden, und der Fortschritt f&#252;r sp&#228;tere Wochen wird klarer angezeigt.</li>
 <li><strong>Songs automatisch offline aktualisieren</strong>: Hält den Katalog der heruntergeladenen Songs auf dem neuesten Stand.</li>
 <li><strong>Videoqualität</strong>: Wählen Sie die Auflösung der offiziellen Videos.</li>
 <li><strong>Wochen</strong>: gibt an, wie viele Wochen aufbewahrt oder vorbereitet werden sollen.</li>
@@ -1324,7 +1335,9 @@ html
 <li><strong>QR</strong>: zeigt einen QR-Code an, um den Web-Monitor schneller von Ihrem Telefon oder Tablet aus zu öffnen.</li>
 <li><strong>Server-Port</strong>: Stellen Sie den HTTP-Port ein, normalerweise 8000.</li>
 <li><strong>Editor/Controller</strong>: Aktivieren Sie Passwörter, um Timer und Zeitpläne über den Browser zu bearbeiten oder zu steuern. Mit der Controller-Rolle wird der Web-Monitor auch zum Bedienpanel: Er kann starten, pausieren, stoppen und die verfügbaren Werte aktualisieren, ohne zum Hauptrechner zurückkehren zu müssen.</li>
-</ul>
+
+                        <li>Im Web-Monitor wurde die M&#246;glichkeit hinzugef&#252;gt, die Liednummern und die Namen der Programmpunkte sowohl im Editor-Modus als auch im Controller-Modus zu &#228;ndern.</li>
+                    </ul>
 <p>
                         Wenn der Webserver aktiv ist, kann JW Time von einem anderen Gerät im selben lokalen Netzwerk über einen Browser geöffnet werden.
                         um den Web-Monitor von Ihrem Telefon, Tablet oder einem anderen Computer aus zu verwenden.
