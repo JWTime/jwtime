@@ -179,7 +179,7 @@
                 <div class="index-section index-section--green">
                     <h3>Aktualności 4.1</h3>
                     <ul>
-                        <li><a href="#novita">Wersja 4.1.2</a></li>
+                        <li><a href="#novita">Wersja 4.1.3</a></li>
                     </ul>
                     <h3 style="margin-top: var(--spacing-lg);">Pierwszy start</h3>
                     <ul>
@@ -193,6 +193,7 @@
                     <ul>
                         <li><a href="#schermata-principale">1. Ekran główny</a></li>
                         <li><a href="#navigazione-settimanale">2. Program i harmonogram</a></li>
+                        <li><a href="#ripristino-adunanza">&#8627; 2.6 Przywracanie zebrania</a></li>
                         <li><a href="#manipolazione-timer">3. Manipulacja timerami</a></li>
                         <li><a href="#finestra-media">4. Okno Media</a></li>
                         <li><a href="#schermi-contatempo-pubblico">5. Ekran publiczny i Contatempo</a></li>
@@ -226,18 +227,18 @@
         <div class="news-preview" id="novita">
             <div class="news-preview-title">
                 <h2 style="margin: 0;">Aktualności 4.1</h2>
-                <span class="news-preview-badge">Wersja 4.1.2</span>
+                <span class="news-preview-badge">Wersja 4.1.3</span>
             </div>
             <div class="news-preview-content">
                 <h3>Szybki przegląd nowości</h3>
                     <p>
-                        JW Time 4.1.2: ulepszenia obrazów, wydarzeń specjalnych, ochrony wskaźnika i Ustawień.
+                        JW Time 4.1.3: przywracanie przerwanych zebrań, bardziej elastyczne wydarzenia ręczne oraz ulepszenia Zooma i programów ręcznych.
                     </p>
                     <ul>
-                        <li><strong>Obrazy do zborowego studium Biblii:</strong> poprawiono pobieranie obrazów. Teraz wyświetlane są również obrazy w formacie odpowiednim dla ekranu.</li>
-                        <li><strong>Wydarzenia specjalne:</strong> można przygotować Zgromadzenia i Kongresy z wieloma sesjami, na przykład poranną i popołudniową. Każda sesja może mieć własną datę, godzinę, plan i media.</li>
-                        <li><strong>Ochrona wskaźnika:</strong> dodano funkcję Ochrona wskaźnika, która zapobiega przechodzeniu wskaźnika myszy na Ekran publiczny i Ekran odmierzania czasu, gdy są wyświetlane w trybie pełnoekranowym. Można ją włączyć w Ustawienia &gt; Ekran i tymczasowo wstrzymać za pomocą Ctrl+Alt+Shift+M.</li>
-                        <li><strong>Ustawienia:</strong> okno Ustawienia działa teraz szybciej i sprawniej.</li>
+                        <li><strong>Przywracanie zebrania:</strong> jeśli komputer lub JW Time uruchomi się ponownie podczas zebrania, możesz kontynuować od miejsca, w którym skończyłeś, również podczas wydarzeń specjalnych.</li>
+                        <li><strong>Wydarzenia ręczne:</strong> możesz wybrać, czy wydarzenie zastąpi zebranie, czy zostanie dodane do programów tygodnia i pozostanie dostępne pod przyciskiem <strong>Wydarzenie</strong>.</li>
+                        <li><strong>Udostępnianie w Zoomie:</strong> udostępnianie multimediów jest teraz prostsze i bardziej niezawodne. Jasnoniebieska ramka i numer monitora znikają szybciej.</li>
+                        <li><strong>Godziny i programy ręczne:</strong> wprowadzanie godzin i zapisywanie programu jest teraz prostsze. Zmienione tytuły są zapamiętywane, a wybór dołączenia multimediów jest bardziej przejrzysty.</li>
                     </ul>
 
                 <a href="news.html" class="btn btn-gray" style="margin-top: var(--spacing-lg);">
@@ -551,7 +552,9 @@
                     <li>Zapisz listę, jeśli chcesz ją zachować na inny czas.</li>
                 </ul>
                 <p>
-                    Podczas zapisywania JW Time pyta, co umieścić w pliku <code>.jwtimeplan</code>. Wybierz <strong>Program ręczny + media</strong> jeśli chcesz także przesłać pliki lokalne, URL i grupy okien Media. Wybierz <strong>Tylko ręczny program czasowy</strong> jeśli potrzebujesz tylko harmonogramu z tytułami i czasem trwania.
+                    Wybierz, co ma zawierać plik.
+                    <strong>Program i multimedia</strong>: Zawiera wiersze, czasy, pliki lokalne, adresy URL i grupy z okna Multimedia.
+                    <strong>Tylko program</strong>: Zawiera tylko wiersze i czasy, bez multimediów.
                 </p>
                 <div class="image-container" style="margin-top: var(--spacing-md);">
                     <img src="../images/manual/pl/programma-manuale-salvataggio-popup-v4.png"
@@ -578,6 +581,17 @@
                 <p>
                     Aby dodać utwór, użyj menu wprowadzania i wybierz utwór. W ten sposób JW Time poprawnie zapisuje numer utworu, łączy dostępne media, a Ekran odmierzania czasu dostosowuje wyświetlacz bez konieczności ręcznego wpisywania tytułu w linii.
                 </p>
+            </div>
+            <!-- 2.6 Ripristino adunanza - CARD -->
+            <div class="news-card" id="ripristino-adunanza" style="margin-top: var(--spacing-xl);">
+                <h3>2.6 &#183; Przywracanie zebrania</h3>
+                <p><strong>Przywracanie zebrania:</strong> jeśli komputer lub JW Time uruchomi się ponownie podczas zebrania, możesz kontynuować od miejsca, w którym skończyłeś, również podczas wydarzeń specjalnych.</p>
+                <ul class="manual-section">
+                    <li><strong>Przywróć z uwzględnieniem ... (Zalecane)</strong>: użyj tej opcji, jeśli zebranie trwało dalej, gdy JW Time był zamknięty.</li>
+                    <li><strong>Przywróć bez uwzględniania czasu, który upłynął</strong>: użyj tej opcji, jeśli zebranie również zostało przerwane.</li>
+                    <li><strong>Zacznij od zera</strong>: odrzuca tymczasowy postęp i ponownie wczytuje początkowe czasy.</li>
+                </ul>
+                <p>Przywracanie jest dostępne przez czas obliczony na podstawie czasu pozostałego w programie, nie krócej niż 20 i nie dłużej niż 60 minut.</p>
             </div>
         </div>
 
@@ -1201,7 +1215,6 @@
                         <li><strong>Uruchom z Windows</strong>: Otwiera JW Time automatycznie po uzyskaniu dost&#281;pu do Windows.</li>
                     </ul>
 
-
                     <h3 style="margin-top: var(--spacing-lg);">Nowość</h3>
                     <ul class="manual-section">
                         <li><strong>Pokaż, co nowego przy uruchomieniu</strong>: otwiera zwięzłe podsumowanie funkcji wprowadzonych w aplikacji, dzięki czemu użytkownicy JW Time mogą szybko dowiedzieć się, czego warto spróbować.</li>
@@ -1276,6 +1289,8 @@
                         <li><strong>Odwiedź SC</strong>: zastosuj zasady i godziny przeznaczone na wizytę.</li>
                         <li><strong>Pamiątka</strong>: nagraj specjalne spotkanie z określoną datą i godziną.</li>
                         <li><strong>Edytuj/usuń</strong>: przyciski po prawej stronie umożliwiają aktualizację lub usunięcie wydarzenia.</li>
+                        <li><strong>Wydarzenia ręczne:</strong> możesz wybrać, czy wydarzenie zastąpi zebranie, czy zostanie dodane do programów tygodnia i pozostanie dostępne pod przyciskiem <strong>Wydarzenie</strong>.</li>
+
                     </ul>
 
                     <h3 style="margin-top: var(--spacing-lg);">11.3 · Dostosowanie czasów trwania</h3>

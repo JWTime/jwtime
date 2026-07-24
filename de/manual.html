@@ -175,7 +175,7 @@ html
 <div class="index-section index-section--green">
 <h3>Neu in 4.1</h3>
 <ul>
-<li><a href="#novita">Version 4.1.2</a></li>
+<li><a href="#novita">Version 4.1.3</a></li>
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">Erster Start</h3>
 <ul>
@@ -188,6 +188,7 @@ html
 <ul>
 <li><a href="#schermata-principale">1. Hauptbildschirm</a></li>
 <li><a href="#navigazione-settimanale">2. Programme und Wiedergabelisten</a></li>
+<li><a href="#ripristino-adunanza">&#8627; 2.6 Wiederherstellung der Zusammenkunft</a></li>
 <li><a href="#manipolazione-timer">3. Timer manipulieren</a></li>
 <li><a href="#finestra-media">4. Medienfenster</a></li>
 <li><a href="#schermi-contatempo-pubblico">5. Öffentlicher Bildschirm und Zeitzähler</a></li>
@@ -219,18 +220,18 @@ html
 <div class="news-preview" id="novita">
 <div class="news-preview-title">
 <h2 style="margin: 0;">Neu in 4.1</h2>
-                <span class="news-preview-badge">Version 4.1.2</span>
+                <span class="news-preview-badge">Version 4.1.3</span>
 </div>
 <div class="news-preview-content">
 <h3>Ein kurzer Blick auf die Neuerungen</h3>
                     <p>
-                        JW Time 4.1.2: Verbesserungen bei Bildern, besonderen Ereignissen, Zeigerschutz und Einstellungen.
+                        JW Time 4.1.3: Wiederherstellung unterbrochener Zusammenkünfte, flexiblere manuelle Ereignisse und Verbesserungen bei Zoom und manuellen Programmen.
                     </p>
                     <ul>
-                        <li><strong>Bilder für das Versammlungsbibelstudium:</strong> Der Abruf der Bilder wurde korrigiert. Jetzt werden auch Bilder in einem für den Bildschirm geeigneten Format angezeigt.</li>
-                        <li><strong>Besondere Ereignisse:</strong> Du kannst Kreiskongresse und Kongresse mit mehreren Sitzungen vorbereiten, zum Beispiel vormittags und nachmittags. Jede Sitzung kann ein eigenes Datum, eine eigene Uhrzeit, ein eigenes Programm und eigene Medien haben.</li>
-                        <li><strong>Zeigerschutz:</strong> Die Funktion Zeigerschutz wurde hinzugefügt. Sie verhindert, dass der Mauszeiger auf den öffentlichen Bildschirm oder den Zeitzähler-Bildschirm gelangt, wenn diese im Vollbildmodus angezeigt werden. Aktiviere sie unter Einstellungen &gt; Bildschirm; mit Ctrl+Alt+Shift+M kannst du sie vorübergehend aussetzen.</li>
-                        <li><strong>Einstellungen:</strong> Das Fenster Einstellungen ist jetzt schneller und reagiert flüssiger.</li>
+                        <li><strong>Wiederherstellung der Zusammenkunft:</strong> Wenn der Computer oder JW Time während einer Zusammenkunft neu gestartet wird, kannst du dort fortfahren, wo du aufgehört hast, auch bei besonderen Ereignissen.</li>
+                        <li><strong>Manuelle Ereignisse:</strong> Du kannst wählen, ob ein Ereignis die Zusammenkunft ersetzt oder zu den Programmen der Woche hinzugefügt wird und über die Schaltfläche <strong>Ereignis</strong> verfügbar bleibt.</li>
+                        <li><strong>Zoom-Freigabe:</strong> Das Teilen von Medien ist jetzt einfacher und zuverlässiger. Der hellblaue Rahmen und die Monitornummer verschwinden schneller.</li>
+                        <li><strong>Zeiten und manuelle Programme:</strong> Das Eingeben von Zeiten und Speichern eines Programms ist jetzt einfacher. Geänderte Titel werden gespeichert, und die Auswahl, ob Medien einbezogen werden, ist klarer.</li>
                     </ul>
 <a class="btn btn-gray" href="news.html" style="margin-top: var(--spacing-lg);">
                     Entdecken Sie alle Neuigkeiten →
@@ -521,10 +522,10 @@ html
 <li>Speichern Sie die Liste, wenn Sie sie für ein anderes Mal behalten möchten.</li>
 </ul>
 <p>
-                    Beim Speichern fragt JW Time Sie, was in die Datei <code>.jwtimeplan</code>aufgenommen werden soll.
-                    Wählen Sie <strong>Manuelles Programm + Medien</strong> , wenn Sie auch lokale Dateien, URLs und Gruppen aus dem Medienfenster übertragen möchten.
-                    Wählen Sie <strong>Nur manuelles Zeitprogramm</strong> , wenn Sie nur die Playlist mit Titeln und Dauer benötigen.
-                </p>
+    Wähle aus, was in die Datei aufgenommen werden soll.
+    <strong>Programm und Medien</strong>: Enthält Zeilen, Zeiten, lokale Dateien, URLs und Gruppen aus dem Medienfenster.
+    <strong>Nur Programm</strong>: Enthält nur Zeilen und Zeiten, ohne Medien.
+</p>
 <div class="image-container" style="margin-top: var(--spacing-md);">
 <img alt="Manuelles Programmspeicher-Popup mit Auswahl zwischen Programm mit Durchschnitt und nur Zeiten" class="manual-image" src="../images/manual/de/programma-manuale-salvataggio-popup-v4.png" style="max-width: 900px;"/>
 </div>
@@ -549,7 +550,19 @@ html
                     ohne den Titel manuell in die Zeile schreiben zu müssen.
                 </p>
 </div>
+<!-- 2.6 Ripristino adunanza - CARD -->
+<div class="news-card" id="ripristino-adunanza" style="margin-top: var(--spacing-xl);">
+    <h3>2.6 &#183; Wiederherstellung der Zusammenkunft</h3>
+    <p><strong>Wiederherstellung der Zusammenkunft:</strong> Wenn der Computer oder JW Time während einer Zusammenkunft neu gestartet wird, kannst du dort fortfahren, wo du aufgehört hast, auch bei besonderen Ereignissen.</p>
+    <ul class="manual-section">
+        <li><strong>Wiederherstellen und ... anrechnen (Empfohlen)</strong>: verwende diese Option, wenn die Zusammenkunft weiterlief, während JW Time geschlossen war.</li>
+        <li><strong>Wiederherstellen, ohne die verstrichene Zeit anzurechnen</strong>: verwende diese Option, wenn auch die Zusammenkunft angehalten wurde.</li>
+        <li><strong>Bei null neu beginnen</strong>: verwirft den temporären Fortschritt und lädt die ursprünglichen Zeiten neu.</li>
+    </ul>
+    <p>Die Wiederherstellung bleibt für einen Zeitraum verfügbar, der aus der verbleibenden Programmzeit berechnet wird, mindestens 20 und höchstens 60 Minuten.</p>
 </div>
+</div>
+
 <!-- 3. MANIPOLAZIONE TIMER -->
 <div class="content" id="manipolazione-timer">
 <h2>3 · Timer manipulieren <a class="back-to-index-link" href="#indice">↑ Inhalt</a></h2>
@@ -1174,6 +1187,8 @@ html
 <li><strong>Visit SC</strong>: Wenden Sie die für den Besuch geltenden Regeln und Zeiten an.</li>
 <li><strong>Memorial</strong>– Zeichnen Sie einen besonderen Termin mit einem bestimmten Datum und einer bestimmten Uhrzeit auf.</li>
 <li><strong>Bearbeiten / Löschen</strong>: Mit den Schaltflächen auf der rechten Seite können Sie das Ereignis aktualisieren oder entfernen.</li>
+    <li><strong>Manuelle Ereignisse:</strong> Du kannst wählen, ob ein Ereignis die Zusammenkunft ersetzt oder zu den Programmen der Woche hinzugefügt wird und über die Schaltfläche <strong>Ereignis</strong> verfügbar bleibt.</li>
+
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">11.3 · Zeit anpassen</h3>
 <ul class="manual-section">

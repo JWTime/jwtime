@@ -176,7 +176,7 @@
 <div class="index-section index-section--green">
 <h3>Nieuws 4.1</h3>
 <ul>
-<li><a href="#novita">Versie 4.1.2</a></li>
+<li><a href="#novita">Versie 4.1.3</a></li>
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">Eerste start</h3>
 <ul>
@@ -189,6 +189,7 @@
 <ul>
 <li><a href="#schermata-principale">1. Hoofdscherm</a></li>
 <li><a href="#navigazione-settimanale">2. Programma en schema's</a></li>
+<li><a href="#ripristino-adunanza">&#8627; 2.6 Vergadering herstellen</a></li>
 <li><a href="#manipolazione-timer">3. Timers beheren</a></li>
 <li><a href="#finestra-media">4. Media-venster</a></li>
 <li><a href="#schermi-contatempo-pubblico">5. Openbaar scherm en Contatempo-scherm</a></li>
@@ -220,18 +221,18 @@
 <div class="news-preview" id="novita">
 <div class="news-preview-title">
 <h2 style="margin: 0;">Nieuws 4.1</h2>
-                <span class="news-preview-badge">Versie 4.1.2</span>
+                <span class="news-preview-badge">Versie 4.1.3</span>
 </div>
 <div class="news-preview-content">
 <h3>Een snelle blik op de nieuwigheden</h3>
                     <p>
-                        JW Time 4.1.2: verbeteringen aan afbeeldingen, speciale evenementen, aanwijzerbeveiliging en Instellingen.
+                        JW Time 4.1.3: herstel van onderbroken vergaderingen, flexibelere handmatige gebeurtenissen en verbeteringen aan Zoom en handmatige programma's.
                     </p>
                     <ul>
-                        <li><strong>Afbeeldingen voor de gemeentebijbelstudie:</strong> het ophalen van afbeeldingen is gecorrigeerd. Afbeeldingen in een voor het scherm geschikt formaat worden nu ook weergegeven.</li>
-                        <li><strong>Speciale evenementen:</strong> je kunt Kringvergaderingen en Congressen met meerdere sessies voorbereiden, bijvoorbeeld in de ochtend en de middag. Elke sessie kan een eigen datum, tijd, programma en media hebben.</li>
-                        <li><strong>Aanwijzerbeveiliging:</strong> de functie Aanwijzerbeveiliging is toegevoegd. Deze voorkomt dat de muisaanwijzer op het Openbaar scherm of het Contatempo-scherm komt wanneer die schermvullend worden weergegeven. Je kunt de functie inschakelen via Instellingen &gt; Scherm en tijdelijk onderbreken met Ctrl+Alt+Shift+M.</li>
-                        <li><strong>Instellingen:</strong> het venster Instellingen is nu sneller en reageert beter.</li>
+                        <li><strong>Vergadering herstellen:</strong> als de computer of JW Time tijdens een vergadering opnieuw wordt gestart, kun je verdergaan waar je was gebleven, ook bij speciale gebeurtenissen.</li>
+                        <li><strong>Handmatige gebeurtenissen:</strong> je kunt kiezen of een gebeurtenis de vergadering vervangt of aan de programma's van de week wordt toegevoegd en beschikbaar blijft via de knop <strong>Gebeurtenis</strong>.</li>
+                        <li><strong>Zoom-deling:</strong> het delen van media is nu eenvoudiger en betrouwbaarder. De lichtblauwe rand en het monitornummer verdwijnen sneller.</li>
+                        <li><strong>Tijden en handmatige programma's:</strong> tijden invoeren en een programma opslaan is nu eenvoudiger. Gewijzigde titels worden onthouden en de keuze om media op te nemen is duidelijker.</li>
                     </ul>
 <a class="btn btn-gray" href="news.html" style="margin-top: var(--spacing-lg);">
                     Ontdek al het nieuws -&gt;
@@ -488,8 +489,10 @@
 <li>Sla de lijst op wanneer je die voor een andere gelegenheid wilt bewaren.</li>
 </ul>
 <p>
-                    Wanneer je opslaat, vraagt JW Time wat je in het bestand wilt opnemen <code>.jwtimeplan</code>. Kies <strong>Handmatig programma + media</strong> als je ook lokale bestanden, URL's en groepen van het Media-venster wilt overzetten. Kies <strong>Alleen handmatig tijdprogramma</strong> als je alleen het schema met titels en duren nodig hebt.
-                </p>
+    Kies wat in het bestand moet worden opgenomen.
+    <strong>Programma en media</strong>: Bevat rijen, tijden, lokale bestanden, URL's en groepen uit het Media-venster.
+    <strong>Alleen programma</strong>: Bevat alleen rijen en tijden, zonder media.
+</p>
 <div class="image-container" style="margin-top: var(--spacing-md);">
 <img alt="Pop-up voor het opslaan van het handmatige programma met keuze tussen programma met media en alleen tijden" class="manual-image" src="../images/manual/nl/programma-manuale-salvataggio-popup-v4.png" style="max-width: 900px;"/>
 </div>
@@ -511,7 +514,19 @@
                     Om een lied toe te voegen, gebruik je het invoegmenu en kies je de optie voor liederen. Zo registreert JW Time het liednummer correct, koppelt beschikbare media en past het Contatempo-scherm de weergave aan zonder dat je de titel handmatig in de rij hoeft te schrijven.
                 </p>
 </div>
+<!-- 2.6 Ripristino adunanza - CARD -->
+<div class="news-card" id="ripristino-adunanza" style="margin-top: var(--spacing-xl);">
+    <h3>2.6 &#183; Vergadering herstellen</h3>
+    <p><strong>Vergadering herstellen:</strong> als de computer of JW Time tijdens een vergadering opnieuw wordt gestart, kun je verdergaan waar je was gebleven, ook bij speciale gebeurtenissen.</p>
+    <ul class="manual-section">
+        <li><strong>Herstellen en ... meetellen (Aanbevolen)</strong>: gebruik dit als de vergadering doorging terwijl JW Time gesloten was.</li>
+        <li><strong>Herstellen zonder de verstreken tijd mee te tellen</strong>: gebruik dit als de vergadering ook werd onderbroken.</li>
+        <li><strong>Opnieuw beginnen vanaf nul</strong>: verwijdert de tijdelijke voortgang en laadt de oorspronkelijke tijden opnieuw.</li>
+    </ul>
+    <p>Herstel blijft beschikbaar gedurende een periode die wordt berekend op basis van de resterende programmatijd, met een minimum van 20 en een maximum van 60 minuten.</p>
 </div>
+</div>
+
 <!-- 3. MANIPOLAZIONE TIMER -->
 <div class="content" id="manipolazione-timer">
 <h2>3 - Timers beheren <a class="back-to-index-link" href="#indice">↑ Inhoudsopgave</a></h2>
@@ -1087,6 +1102,8 @@
 <li><strong>CO-bezoek</strong>: past de regels en tijden voor het bezoek toe.</li>
 <li><strong>Gedachtenisviering</strong>: registreert een speciale afspraak met specifieke datum en tijd.</li>
 <li><strong>Wijzigen / verwijderen</strong>: met de knoppen rechts kun je de gebeurtenis bijwerken of verwijderen.</li>
+    <li><strong>Handmatige gebeurtenissen:</strong> je kunt kiezen of een gebeurtenis de vergadering vervangt of aan de programma's van de week wordt toegevoegd en beschikbaar blijft via de knop <strong>Gebeurtenis</strong>.</li>
+
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">11.3 - Duur aanpassen</h3>
 <ul class="manual-section">

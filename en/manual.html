@@ -175,7 +175,7 @@
 <div class="index-section index-section--green">
 <h3>New 4.1</h3>
 <ul>
-<li><a href="#novita">Version 4.1.2</a></li>
+<li><a href="#novita">Version 4.1.3</a></li>
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">First Start</h3>
 <ul>
@@ -188,6 +188,7 @@
 <ul>
 <li><a href="#schermata-principale">1. Main Screen</a></li>
 <li><a href="#navigazione-settimanale">2. Program and schedules</a></li>
+<li><a href="#ripristino-adunanza">&#8627; 2.6 Meeting recovery</a></li>
 <li><a href="#manipolazione-timer">3. Manipulating Timers</a></li>
 <li><a href="#finestra-media">4. Media Window</a></li>
 <li><a href="#schermi-contatempo-pubblico">5. Public Screen and Time Counter Screen</a></li>
@@ -219,18 +220,18 @@
 <div class="news-preview" id="novita">
 <div class="news-preview-title">
 <h2 style="margin: 0;">New 4.1</h2>
-                <span class="news-preview-badge">Version 4.1.2</span>
+                <span class="news-preview-badge">Version 4.1.3</span>
 </div>
 <div class="news-preview-content">
 <h3>A quick look at what's new</h3>
                     <p>
-                        JW Time 4.1.2: improvements to images, special events, pointer protection, and Settings.
+                        JW Time 4.1.3: recovery for interrupted meetings, more flexible manual events, and improvements to Zoom and manual programs.
                     </p>
                     <ul>
-                        <li><strong>Congregation Bible Study images:</strong> fixed image retrieval. Images formatted for the screen now appear too.</li>
-                        <li><strong>Special events:</strong> you can prepare Assemblies and Conventions with multiple sessions, such as morning and afternoon. Each session can have its own date, time, program, and media.</li>
-                        <li><strong>Pointer protection:</strong> the new Pointer protection feature keeps the mouse pointer out of the Public Screen and Time Counter Screen while they are full-screen. Enable it in Settings &gt; Display and temporarily suspend it with Ctrl+Alt+Shift+M.</li>
-                        <li><strong>Settings:</strong> the Settings window is now faster and more responsive.</li>
+                        <li><strong>Meeting recovery:</strong> if the computer or JW Time restarts during a meeting, you can continue from where you left off, including special events.</li>
+                        <li><strong>Manual events:</strong> you can choose whether an event replaces the meeting or is added to the week's programs and remains available from the <strong>Event</strong> button.</li>
+                        <li><strong>Zoom sharing:</strong> media sharing is now simpler and more reliable. The light-blue border and monitor number disappear more quickly.</li>
+                        <li><strong>Times and manual programs:</strong> entering times and saving a schedule is now easier. Edited titles are remembered, and the choice to include media is clearer.</li>
                     </ul>
 <a class="btn btn-gray" href="news.html" style="margin-top: var(--spacing-lg);">
                     Discover all the news →
@@ -521,10 +522,10 @@
 <li>Save the list when you want to keep it for another time.</li>
 </ul>
 <p>
-                    When you save, JW Time asks you what to include in the <code>.jwtimeplan</code>file.
-                    Choose <strong>Manual program + media</strong> if you also want to transfer local files, URLs and groups from the Media Window.
-                    Choose <strong>Only manual time program</strong> if you only need the schedule with titles and durations.
-                </p>
+    Choose what to include in the file.
+    <strong>Program and media</strong>: Includes rows, times, local files, URLs, and groups from the Media window.
+    <strong>Program only</strong>: Includes only rows and times, without media.
+</p>
 <div class="image-container" style="margin-top: var(--spacing-md);">
 <img alt="Manual program saving popup with choice between program with average and times only" class="manual-image" src="../images/manual/en/programma-manuale-salvataggio-popup-v4.png" style="max-width: 900px;"/>
 </div>
@@ -549,7 +550,19 @@
                     without having to manually write the title in the line.
                 </p>
 </div>
+<!-- 2.6 Ripristino adunanza - CARD -->
+<div class="news-card" id="ripristino-adunanza" style="margin-top: var(--spacing-xl);">
+    <h3>2.6 &#183; Meeting recovery</h3>
+    <p><strong>Meeting recovery:</strong> if the computer or JW Time restarts during a meeting, you can continue from where you left off, including special events.</p>
+    <ul class="manual-section">
+        <li><strong>Restore counting ... (Recommended)</strong>: use this option if the meeting continued while JW Time was closed.</li>
+        <li><strong>Restore without counting elapsed time</strong>: use this option if the meeting also stopped.</li>
+        <li><strong>Start over from zero</strong>: discards the temporary progress and reloads the initial times.</li>
+    </ul>
+    <p>Recovery remains available for a period calculated from the time still remaining in the schedule, with a minimum of 20 and a maximum of 60 minutes.</p>
 </div>
+</div>
+
 <!-- 3. MANIPOLAZIONE TIMER -->
 <div class="content" id="manipolazione-timer">
 <h2>3 · Manipulating timers <a class="back-to-index-link" href="#indice">↑ Table of Contents</a></h2>
@@ -1174,6 +1187,8 @@
 <li><strong>Visit SC</strong>: apply the rules and times dedicated to the visit.</li>
 <li><strong>Memorial</strong>- Record a special appointment with a specific date and time.</li>
 <li><strong>Edit / delete</strong>: the buttons on the right allow you to update or remove the event.</li>
+    <li><strong>Manual events:</strong> you can choose whether an event replaces the meeting or is added to the week's programs and remains available from the <strong>Event</strong> button.</li>
+
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">11.3 · Adapt Time</h3>
 <ul class="manual-section">

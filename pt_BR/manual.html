@@ -175,7 +175,7 @@ html
 <div class="index-section index-section--green">
 <h3>Novidades 4.1</h3>
 <ul>
-<li><a href="#novita">Versão 4.1.2</a></li>
+<li><a href="#novita">Versão 4.1.3</a></li>
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">Primeira inicialização</h3>
 <ul>
@@ -188,6 +188,7 @@ html
 <ul>
 <li><a href="#schermata-principale">1. Tela principal</a></li>
 <li><a href="#navigazione-settimanale">2. Programa e listas de reprodução</a></li>
+<li><a href="#ripristino-adunanza">&#8627; 2.6 Restauração da reunião</a></li>
 <li><a href="#manipolazione-timer">3. Manipulação de temporizadores</a></li>
 <li><a href="#finestra-media">4. Janela Mídia</a></li>
 <li><a href="#schermi-contatempo-pubblico">5. Tela Pública e contador de tempo</a></li>
@@ -219,18 +220,18 @@ html
 <div class="news-preview" id="novita">
 <div class="news-preview-title">
 <h2 style="margin: 0;">Novidades 4.1</h2>
-                <span class="news-preview-badge">Versão 4.1.2</span>
+                <span class="news-preview-badge">Versão 4.1.3</span>
 </div>
 <div class="news-preview-content">
 <h3>Uma rápida olhada nas novidades</h3>
                     <p>
-                        JW Time 4.1.2: melhorias em imagens, eventos especiais, proteção do ponteiro e Configurações.
+                        JW Time 4.1.3: restauração de reuniões interrompidas, eventos manuais mais flexíveis e melhorias no Zoom e nos programas manuais.
                     </p>
                     <ul>
-                        <li><strong>Imagens do Estudo Bíblico de Congregação:</strong> a recuperação das imagens foi corrigida. Agora também aparecem as imagens em um formato adequado para a tela.</li>
-                        <li><strong>Eventos especiais:</strong> você pode preparar Assembleias e Congressos com várias sessões, por exemplo de manhã e à tarde. Cada sessão pode ter sua própria data, horário, programa e mídia.</li>
-                        <li><strong>Proteção do ponteiro:</strong> foi adicionado o recurso Proteção do ponteiro, que impede o ponteiro do mouse de entrar na Tela pública e na Tela do Cronômetro quando elas estão em tela cheia. Você pode ativá-lo em Configurações &gt; Tela e suspendê-lo temporariamente com Ctrl+Alt+Shift+M.</li>
-                        <li><strong>Configurações:</strong> a janela Configurações agora está mais rápida e responsiva.</li>
+                        <li><strong>Restauração da reunião:</strong> se o computador ou o JW Time for reiniciado durante uma reunião, você poderá continuar de onde parou, inclusive em eventos especiais.</li>
+                        <li><strong>Eventos manuais:</strong> você pode escolher se um evento substitui a reunião ou é adicionado aos programas da semana e fica disponível no botão <strong>Evento</strong>.</li>
+                        <li><strong>Compartilhamento do Zoom:</strong> o compartilhamento de mídia ficou mais simples e confiável. A borda azul-clara e o número do monitor desaparecem mais rapidamente.</li>
+                        <li><strong>Horários e programas manuais:</strong> agora ficou mais fácil inserir horários e salvar uma programação. Os títulos alterados são lembrados e a opção de incluir mídia está mais clara.</li>
                     </ul>
 <a class="btn btn-gray" href="news.html" style="margin-top: var(--spacing-lg);">
                     Descubra todas as novidades →
@@ -521,10 +522,10 @@ html
 <li>Salve a lista quando quiser mantê-la para outro momento.</li>
 </ul>
 <p>
-                    Ao salvar, o JW Time pergunta o que incluir no arquivo <code>.jwtimeplan</code>.
-                    Escolha <strong>Programa manual + mídia</strong> se você também deseja transferir arquivos locais, URLs e grupos da janela Mídia.
-                    Escolha <strong>Somente programa de tempo manual</strong> se você precisar apenas da lista de reprodução com títulos e durações.
-                </p>
+    Escolha o que incluir no arquivo.
+    <strong>Programa e mídia</strong>: Inclui linhas, tempos, arquivos locais, URLs e grupos da janela Mídia.
+    <strong>Somente programa</strong>: Inclui apenas linhas e tempos, sem mídia.
+</p>
 <div class="image-container" style="margin-top: var(--spacing-md);">
 <img alt="Popup de salvamento manual de programa com escolha entre programa apenas com média e tempos" class="manual-image" src="../images/manual/pt_BR/programma-manuale-salvataggio-popup-v4.png" style="max-width: 900px;"/>
 </div>
@@ -549,7 +550,19 @@ html
                     sem ter que escrever manualmente o título na linha.
                 </p>
 </div>
+<!-- 2.6 Ripristino adunanza - CARD -->
+<div class="news-card" id="ripristino-adunanza" style="margin-top: var(--spacing-xl);">
+    <h3>2.6 &#183; Restauração da reunião</h3>
+    <p><strong>Restauração da reunião:</strong> se o computador ou o JW Time for reiniciado durante uma reunião, você poderá continuar de onde parou, inclusive em eventos especiais.</p>
+    <ul class="manual-section">
+        <li><strong>Restaurar contando ... (Recomendado)</strong>: use esta opção se a reunião continuou enquanto o JW Time estava fechado.</li>
+        <li><strong>Restaurar sem contar o tempo decorrido</strong>: use esta opção se a reunião também foi interrompida.</li>
+        <li><strong>Recomeçar do zero</strong>: descarta o progresso temporário e recarrega os tempos iniciais.</li>
+    </ul>
+    <p>A restauração permanece disponível por um período calculado com base no tempo restante da programação, com um mínimo de 20 e um máximo de 60 minutos.</p>
 </div>
+</div>
+
 <!-- 3. MANIPOLAZIONE TIMER -->
 <div class="content" id="manipolazione-timer">
 <h2>3 · Manipulação de temporizadores <a class="back-to-index-link" href="#indice">↑ Índice</a></h2>
@@ -1174,6 +1187,8 @@ html
 <li><strong>Visita SC</strong>: aplique as regras e horários dedicados à visita.</li>
 <li><strong>Memorial</strong>- Registre um compromisso especial com data e horário específicos.</li>
 <li><strong>Editar/excluir</strong>: os botões à direita permitem atualizar ou remover o evento.</li>
+    <li><strong>Eventos manuais:</strong> você pode escolher se um evento substitui a reunião ou é adicionado aos programas da semana e fica disponível no botão <strong>Evento</strong>.</li>
+
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">11.3 · Tempo de Adaptação</h3>
 <ul class="manual-section">
