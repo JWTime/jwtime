@@ -173,9 +173,9 @@ html
 <div class="manual-index">
 <!-- Card Verde per Inizia Qui -->
 <div class="index-section index-section--green">
-<h3>Neu in 4.1</h3>
+<h3>Neu in 4.2</h3>
 <ul>
-<li><a href="#novita">Version 4.1.3</a></li>
+<li><a href="#novita">Version 4.2.0</a></li>
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">Erster Start</h3>
 <ul>
@@ -202,6 +202,7 @@ html
 <div class="index-section">
 <h3>Teil II – Einstellungsfelder</h3>
 <ul>
+<li><a href="#protezione-impostazioni">Schutz der Einstellungen</a></li>
 <li><a href="#impostazioni-generale">9. Allgemein</a></li>
 <li><a href="#impostazioni-congregazioni">10. Gemeinden</a></li>
 <li><a href="#impostazioni-adunanze">11. Zusammenkünfte (Start-Timer)</a></li>
@@ -219,25 +220,24 @@ html
 <!-- ULTIME NOVIT&#192; -->
 <div class="news-preview" id="novita">
 <div class="news-preview-title">
-<h2 style="margin: 0;">Neu in 4.1</h2>
-                <span class="news-preview-badge">Version 4.1.3</span>
+<h2 style="margin: 0;">Neu in 4.2</h2>
+                <span class="news-preview-badge">Version 4.2.0</span>
 </div>
 <div class="news-preview-content">
-<h3>Ein kurzer Blick auf die Neuerungen</h3>
-                    <p>
-                        JW Time 4.1.3: Wiederherstellung unterbrochener Zusammenkünfte, flexiblere manuelle Ereignisse und Verbesserungen bei Zoom und manuellen Programmen.
-                    </p>
-                    <ul>
-                        <li><strong>Wiederherstellung der Zusammenkunft:</strong> Wenn der Computer oder JW Time während einer Zusammenkunft neu gestartet wird, kannst du dort fortfahren, wo du aufgehört hast, auch bei besonderen Ereignissen.</li>
-                        <li><strong>Manuelle Ereignisse:</strong> Du kannst wählen, ob ein Ereignis die Zusammenkunft ersetzt oder zu den Programmen der Woche hinzugefügt wird und über die Schaltfläche <strong>Ereignis</strong> verfügbar bleibt.</li>
-                        <li><strong>Zoom-Freigabe:</strong> Das Teilen von Medien ist jetzt einfacher und zuverlässiger. Der hellblaue Rahmen und die Monitornummer verschwinden schneller.</li>
-                        <li><strong>Zeiten und manuelle Programme:</strong> Das Eingeben von Zeiten und Speichern eines Programms ist jetzt einfacher. Geänderte Titel werden gespeichert, und die Auswahl, ob Medien einbezogen werden, ist klarer.</li>
-                    </ul>
+                <h3>Die Neuerungen im Überblick</h3>
+                <p>JW Time 4.2.0 führt neue Werkzeuge für die Bildschirme und zum Schutz der App-Konfiguration ein.</p>
+                <ul>
+                        <li><strong>Medienvorschau:</strong> Bilder, Videos, PDFs und Webseiten des Öffentlichen Bildschirms können auch auf der Zeitanzeige erscheinen.</li>
+                        <li><strong>Öffentliche Nachrichten:</strong> Der Bereich Nachricht kann jetzt Mitteilungen an den Öffentlichen Bildschirm senden.</li>
+                        <li><strong>Schutz der Einstellungen:</strong> Passwort, Wiederherstellungscode und Notfallsicherung schützen die Konfiguration.</li>
+                        <li><strong>Mehr Zuverlässigkeit:</strong> Wiederherstellung der Zusammenkunft, Medien, Zoom-Freigabe, Leistung und Sicherheit wurden verbessert.</li>
+                </ul>
 <a class="btn btn-gray" href="news.html" style="margin-top: var(--spacing-lg);">
                     Entdecken Sie alle Neuigkeiten →
                 </a>
 </div>
 </div>
+
 <!-- PRIMO AVVIO GUIDATO -->
 <div class="content-section-header" id="primo-avvio-guidato">
 <h2 style="font-size: 2rem; margin: 0 0 var(--spacing-xl) 0; color: var(--text-primary);">Erster Start-Assistent</h2>
@@ -560,6 +560,7 @@ html
         <li><strong>Bei null neu beginnen</strong>: verwirft den temporären Fortschritt und lädt die ursprünglichen Zeiten neu.</li>
     </ul>
     <p>Die Wiederherstellung bleibt für einen Zeitraum verfügbar, der aus der verbleibenden Programmzeit berechnet wird, mindestens 20 und höchstens 60 Minuten.</p>
+    <p>Version 4.2.0 bewahrt die aktive Zeile und das aktive Programm, besondere Ereignisse, Lieder, eine mögliche automatische Pause und den für die erneute Mediensynchronisierung benötigten Zustand genauer.</p>
 </div>
 </div>
 
@@ -690,6 +691,7 @@ html
                             die gleiche Kombination in <a href="#impostazioni-zoom">Abschnitt 14 · Zoom</a>. Wenn die beiden Tastenkombinationen nicht übereinstimmen,
                             JW Time sendet den Befehl, aber Zoom reagiert nicht wie erwartet.
                         </p>
+<p>In JW Time 4.2.0 reagieren Start, Stopp und Wechsel zwischen Medien schneller, und die Synchronisierung mit der Zoom-Freigabe ist zuverlässiger.</p>
 </div>
 </div>
 </div>
@@ -724,8 +726,6 @@ html
 <!-- 5.1 Schermo Pubblico - CARD -->
 <div class="news-card" style="margin-top: var(--spacing-xl);">
 <h4 style="color: var(--text-secondary);">5.1 · Öffentlicher Bildschirm</h4>
-<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
-<div style="flex: 1 1 260px; min-width: 0;">
 <p>
                             Der öffentliche Bildschirm zeigt Countdown, Begrüßungsnachricht, Jahresangabe, Logo und Inhalte
                             Ansichten in einem separaten Fenster.
@@ -735,12 +735,19 @@ html
 <li><strong>Während der Zusammenkunft</strong>: kann für öffentliche Inhalte oder spezielle Szenen verfügbar bleiben.</li>
 <li><strong>Einstellungen</strong>: Monitor, Nachricht, Countdown, Logo und Layout werden im Abschnitt <a href="#impostazioni-adunanze">11 · Zusammenkünfte</a> und im <a href="#impostazioni-schermo">Abschnitt 12 · Bildschirm</a> eingestellt.</li>
 </ul>
-</div>
-<figure style="flex: 0 0 48%; min-width: 320px; max-width: 620px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
-<img alt="Öffentlicher Bildschirm mit Countdown und Meldung" class="manual-image" src="../images/manual/de/schermo-pubblico-v4.png" style="width: 100%; height: auto; display: block;"/>
+<p>Die folgenden Bilder zeigen zwei mögliche Konfigurationen. Jahrestext und Logo können ein- oder ausgeblendet werden; Countdown und Nachricht erscheinen, wenn sie in der aktiven Szene und Konfiguration vorgesehen sind.</p>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+<figure style="flex: 1 1 420px; margin: 0;">
+<img src="../images/manual/de/schermo-pubblico-scrittura-logo-v4-2.png" alt="Öffentlicher Bildschirm mit Jahrestext und Logo" class="manual-image">
+<figcaption style="margin-top: var(--spacing-sm); color: var(--text-tertiary);">Jahrestext und Logo.</figcaption>
+</figure>
+<figure style="flex: 1 1 420px; margin: 0;">
+<img src="../images/manual/de/schermo-pubblico-countdown-scrittura-v4-2.png" alt="Öffentlicher Bildschirm mit Countdown, Jahrestext und Logo" class="manual-image">
+<figcaption style="margin-top: var(--spacing-sm); color: var(--text-tertiary);">Beispiel vor der Zusammenkunft mit Countdown.</figcaption>
 </figure>
 </div>
 </div>
+
 <!-- 5.2 Schermo Contatempo esterno - CARD -->
 <div class="news-card" style="margin-top: var(--spacing-xl);">
 <h4 style="color: var(--text-secondary);">5.2 · Bildschirm „Zeitzähler“</h4>
@@ -754,16 +761,18 @@ html
 <li>Anzeige auf ausgewähltem Monitor oder freiem Fenster.</li>
 <li>Aktuelle Teilzeitbeschäftigung und Kontextinformationen.</li>
 <li>Vollständige oder teilweise Bildschirmnachrichten, die vom Hauptfenster gesendet werden.</li>
+<li>Mit dem Layout <strong>Digital mit Medienvorschau</strong> wird der visuelle Inhalt angezeigt, der dem Publikum tatsächlich gezeigt wird.</li>
 </ul>
-<p>
-                            Die Layoutanpassung wird separat in <a href="#personalizzare-schermo">Abschnitt 5.3 · Anpassen des Zeitzählerbildschirms</a> behandelt.
-                            Somit bleibt die tägliche Nutzung des Bildschirms von den Grafikeinstellungen getrennt.
-                        </p>
 </div>
 <figure style="flex: 0 0 48%; min-width: 320px; max-width: 620px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
 <img alt="Zeitzählerbildschirm auf extern Monitor" class="manual-image" src="../images/manual/de/schermo-contattempo-v4.png" style="width: 100%; height: auto; display: block;"/>
 </figure>
 </div>
+<p style="margin-top: var(--spacing-lg);">Die Vorschau ist optional und wird für bereits verwendete Layouts nicht automatisch aktiviert. Sie gilt für Bilder, Videos, PDFs und Webseiten; reine Audioinhalte ersetzen die normale Timer-Szene nicht. Nach dem Stoppen des Mediums kehrt der Zeitzähler-Bildschirm zur vorgesehenen Szene zurück.</p>
+<p>
+                            Die Layoutanpassung wird separat in <a href="#personalizzare-schermo">Abschnitt 5.3 · Anpassen des Zeitzählerbildschirms</a> behandelt.
+                            Somit bleibt die tägliche Nutzung des Bildschirms von den Grafikeinstellungen getrennt.
+                        </p>
 </div>
 </div>
 <!-- 5.3 PERSONALIZZARE LO SCHERMO CONTATEMPO -->
@@ -803,6 +812,7 @@ html
 <p>
                             Bevor Sie Änderungen vornehmen, prüfen Sie immer, welche Szene ausgewählt ist.
                         </p>
+<p>Die Szene <strong>Medien</strong> wird verwendet, während visuelle Inhalte auf dem Öffentlichen Bildschirm wiedergegeben werden. Ist sie leer, wählen Sie <strong>Medienvorschau konfigurieren</strong>: Der Editor fügt die Ebene <strong>Öffentlicher Bildschirm</strong> hinzu, die auf der Zeitanzeige dasselbe Bild wiedergibt, das dem Publikum tatsächlich gezeigt wird.</p>
 </div>
 <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
 <img alt="Szenenauswahl im Zeitzähler-Bildschirmeditor" class="manual-image" src="../images/manual/de/personalizzazione_schermo_contatempo_base_scena-v4.png" style="width: 100%; height: auto; display: block;"/>
@@ -916,13 +926,9 @@ html
 <!-- 6. GESTIONE MESSAGGI -->
 <div class="content" id="gestione-messaggi">
 <h2>6 · Verwaltung von Nachrichten <a class="back-to-index-link" href="#indice">↑ Inhalt</a></h2>
-<p>
-                Die Nachrichtenfunktion ermöglicht es Ihnen, während der Zusammenkunft diskret und klar mit dem Redner zu kommunizieren
-                ihn warnen oder ihm Anweisungen geben, ohne den Fortschritt des Teils zu unterbrechen oder zu stören. Meldungen erscheinen auf dem Bildschirm
-                des Zeitzählers, sodass der Sprecher sie in Echtzeit ohne Ablenkungen sieht.
-            </p>
+<p>Mit der Nachrichtenfunktion kann vor dem Senden das Ziel gewählt werden: <strong>Zeitzähler-Bildschirm</strong> für Mitteilungen an den Redner während der Zusammenkunft oder <strong>Öffentlicher Bildschirm</strong> für Hinweise, die vor oder nach der Zusammenkunft im Saal sichtbar sind.</p>
 <div class="image-container">
-<img alt="Nachrichtenverwaltungsbildschirm in JW Time" class="manual-image" src="../images/manual/de/messaggi-elenco-v4.png"/>
+<img src="../images/manual/de/messaggi-elenco-v4.png" alt="Nachrichtenbereich mit ausgewähltem Zeitzähler-Bildschirm" class="manual-image">
 </div>
 <!-- 6.1 Messaggio a tutto schermo - CARD -->
 <div class="news-card" style="margin-top: var(--spacing-xl);">
@@ -956,16 +962,32 @@ html
 </figure>
 </div>
 </div>
-<!-- 6.3 Mirror Contatempo - CARD -->
-<div class="news-card" style="margin-top: var(--spacing-xl); ">
-<h3>6.3 · Spiegelzeitzähler</h3>
-<p>
-                    Wenn Sie eine Nachricht senden, wird automatisch ein in der Größe veränderbares und verschiebbares Vorschaufenster angezeigt
-                    genau das, was der Sprecher auf dem Timer-Monitor sieht. Dadurch können Sie die Anzeige in Echtzeit überprüfen
-                    der Nachricht und des Timers.
-                </p>
+<!-- 6.3 Messaggio Schermo Pubblico - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>6.3 · Nachricht auf dem Öffentlichen Bildschirm</h3>
+<div class="image-container" style="margin-bottom: var(--spacing-lg);">
+<img src="../images/manual/de/messaggi-pubblico-elenco-v4-2.png" alt="Nachrichtenbereich mit ausgewähltem Öffentlichen Bildschirm" class="manual-image">
+</div>
+<ol class="manual-section">
+<li>Öffnen Sie den Bereich <strong>Nachricht</strong> und wählen Sie <strong>Öffentlicher Bildschirm</strong> als Ziel.</li>
+<li>Geben Sie den Text ein und wählen Sie <strong>Teilbildschirm</strong> oder <strong>Vollbild</strong>.</li>
+<li>Verwenden Sie die Funktion vor oder nach der Zusammenkunft: Während des Programms haben Timer und Szenen der Zusammenkunft Vorrang.</li>
+</ol>
+<p>Der Öffentliche Bildschirm muss aktiviert und geöffnet sein. Eine Teilnachricht verwendet den Nachrichtenbereich des Layouts; der Vollbildmodus funktioniert auch mit älteren Presets. Nachrichten sind vorübergehend: Sie werden weder gespeichert noch exportiert und beim Wechsel der Versammlung, beim Neustart von JW Time oder beim Beginn der Zusammenkunft gelöscht.</p>
+<p>Wenn ein Bild, Video, PDF oder eine Website gestartet wird, überdeckt das Medium vorübergehend die öffentliche Nachricht. Nach dem Stoppen kann die Nachricht wieder erscheinen, sofern sich die Phase der Zusammenkunft nicht geändert hat.</p>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+<figure style="flex: 1 1 320px; margin: 0;"><img src="../images/manual/de/messaggio-pubblico-parziale-v4-2.png" alt="Teilnachricht auf dem Öffentlichen Bildschirm" class="manual-image"></figure>
+<figure style="flex: 1 1 320px; margin: 0;"><img src="../images/manual/de/messaggio-pubblico-tutto-schermo-v4-2.png" alt="Vollbildnachricht auf dem Öffentlichen Bildschirm" class="manual-image"></figure>
 </div>
 </div>
+<!-- 6.4 Mirror Contatempo - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>6.4 · Spiegel des Zeitzähler-Bildschirms</h3>
+<p>Wenn Sie eine Nachricht an den Zeitzähler-Bildschirm senden, der auf einem anderen Monitor als das Hauptfenster angezeigt wird, erscheint eine schwebende, größenveränderbare und verschiebbare Miniaturansicht. Sie gibt wieder, was der Redner sieht. Nachrichten an den Öffentlichen Bildschirm öffnen diese Miniaturansicht nicht, weil das Ergebnis bereits direkt auf diesem Bildschirm sichtbar ist.</p>
+<p>Diese Miniaturansicht für Nachrichten ist nicht die Medienvorschau, die im Layout <strong>Digital mit Medienvorschau</strong> des Zeitzähler-Bildschirms eingebettet ist.</p>
+</div>
+</div>
+
 <!-- 7. PULSANTE REC -->
 <div class="content" id="rec-button">
 <h2>7 · REC-Taste und Aufnahmefeld <a class="back-to-index-link" href="#indice">↑ Inhalt</a></h2>
@@ -1096,6 +1118,24 @@ html
             </p>
 <p>Die Schaltfläche SPEICHERN übernimmt alle Änderungen.</p>
 </div>
+<!-- PROTEZIONE IMPOSTAZIONI -->
+<div class="content" id="protezione-impostazioni">
+<h2>Schutz der Einstellungen <a class="back-to-index-link" href="#indice">↑ Inhalt</a></h2>
+<p>Die Leiste <strong>Schutz</strong> unterhalb der Liste der Einstellungsbereiche hilft, versehentliche oder unbefugte Änderungen an der Konfiguration zu vermeiden. Es handelt sich um einen lokalen Bedienungsschutz: Er verschlüsselt keine Daten, ist kein Online-Konto und gilt für alle Gemeinden auf diesem PC.</p>
+<div class="settings-panel-layout"><div class="settings-panel-figure"><img src="../images/manual/de/protezione-impostazioni-v4-2.png" alt="Leiste Schutz im Fenster Einstellungen" class="manual-image"></div>
+<div class="settings-panel-copy"><h3>Aktivierung und Zugriff</h3><ol class="manual-section">
+<li>Öffnen Sie <strong>Schutz</strong>, wählen Sie ein Passwort mit mindestens 8 Zeichen und bestätigen Sie es.</li>
+<li>Bewahren Sie den nur einmal angezeigten Wiederherstellungscode auf: Kopieren Sie ihn oder speichern Sie seinen QR-Code außerhalb des öffentlichen Saalcomputers.</li>
+<li>Nach der Aktivierung ist bei jedem erneuten Öffnen der Einstellungen das Passwort erforderlich; beim Schließen des Fensters werden sie wieder gesperrt.</li>
+</ol><p>Im Verwaltungsbereich können Sie das Passwort ändern, einen neuen Wiederherstellungscode erzeugen oder den Schutz deaktivieren. Passwort und Code bleiben lokal auf dem PC und werden nicht in Sicherungen aufgenommen.</p></div></div>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-xl);">
+<figure style="flex: 1 1 320px; margin: 0;"><img src="../images/manual/de/sblocco-impostazioni-v4-2.png" alt="Passwortabfrage zum Entsperren der Einstellungen" class="manual-image"></figure>
+<figure style="flex: 1 1 320px; margin: 0;"><img src="../images/manual/de/codice-recupero-impostazioni-v4-2.png" alt="Wiederherstellungscode und QR-Code für den Schutz der Einstellungen" class="manual-image"></figure></div>
+<div class="news-card" style="margin-top: var(--spacing-xl);"><h3>Wenn Sie Ihre Zugangsdaten vergessen</h3><ul class="manual-section">
+<li><strong>Sie haben den Wiederherstellungscode:</strong> Wählen Sie <strong>Passwort vergessen?</strong>, geben Sie den Code ein und legen Sie ein neues Passwort fest. JW Time erzeugt außerdem einen neuen Code, den Sie aufbewahren müssen.</li>
+<li><strong>Sie haben weder Passwort noch Code:</strong> Erstellen Sie die vom Verfahren angebotene Notfallsicherung <code>.jwtimebackup</code> und speichern Sie sie außerhalb des privaten App-Ordners.</li>
+<li>Öffnen Sie danach <strong>Windows-Einstellungen &gt; Apps &gt; Installierte Apps &gt; JW Time &gt; Erweiterte Optionen &gt; Zurücksetzen</strong> — nicht <strong>Reparieren</strong> —, starten Sie JW Time erneut, importieren Sie die Sicherung und erstellen Sie ein neues Passwort.</li>
+</ul><p>Die Notfallsicherung wird erstellt, ohne die Einstellungen zu entsperren, damit Sie die Konfiguration vor dem Zurücksetzen der App sichern können.</p></div></div>
 <!-- 9. GENERALE -->
 <div class="content" id="impostazioni-generale">
 <h2>9 · Allgemeines <a class="back-to-index-link" href="#indice">↑ Inhalt</a></h2>
@@ -1313,6 +1353,7 @@ html
                         Um das Lautsprecherfenster oder den duplizierten Zoom-Bildschirm anzuzeigen, versuchen Sie es mit der Verknüpfung mit <strong>Test</strong> und dann
                         Verwenden Sie die Steuerelemente aus dem Medienfenster.
                     </p>
+<p>Version 4.2.0 verbessert die Abstimmung zwischen Medienwechsel, Zustand des Öffentlichen Bildschirms und Start oder Stopp der Zoom-Freigabe.</p>
 <h3 style="margin-top: var(--spacing-lg);">Medienautomatisierung</h3>
 <ul class="manual-section">
 <li><strong>Autostart</strong>: wenn die Taste gedrückt wird <strong>Auto Zoom</strong> im Medienfenster aktiv ist, beginnt die Freigabe, wenn ein Medium abgespielt wird.</li>

@@ -174,9 +174,9 @@
 <div class="manual-index">
 <!-- Card Verde per Inizia Qui -->
 <div class="index-section index-section--green">
-<h3>Nieuws 4.1</h3>
+<h3>Nieuws 4.2</h3>
 <ul>
-<li><a href="#novita">Versie 4.1.3</a></li>
+<li><a href="#novita">Versie 4.2.0</a></li>
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">Eerste start</h3>
 <ul>
@@ -203,6 +203,7 @@
 <div class="index-section">
 <h3>Deel II - Instellingenpanelen</h3>
 <ul>
+<li><a href="#protezione-impostazioni">Beveiliging van Instellingen</a></li>
 <li><a href="#impostazioni-generale">9. Algemeen</a></li>
 <li><a href="#impostazioni-congregazioni">10. Gemeenten</a></li>
 <li><a href="#impostazioni-adunanze">11. Vergaderingen (timer begin vergadering)</a></li>
@@ -220,25 +221,24 @@
 <!-- ULTIME NOVIT&#192; -->
 <div class="news-preview" id="novita">
 <div class="news-preview-title">
-<h2 style="margin: 0;">Nieuws 4.1</h2>
-                <span class="news-preview-badge">Versie 4.1.3</span>
+<h2 style="margin: 0;">Nieuws 4.2</h2>
+                <span class="news-preview-badge">Versie 4.2.0</span>
 </div>
 <div class="news-preview-content">
-<h3>Een snelle blik op de nieuwigheden</h3>
-                    <p>
-                        JW Time 4.1.3: herstel van onderbroken vergaderingen, flexibelere handmatige gebeurtenissen en verbeteringen aan Zoom en handmatige programma's.
-                    </p>
-                    <ul>
-                        <li><strong>Vergadering herstellen:</strong> als de computer of JW Time tijdens een vergadering opnieuw wordt gestart, kun je verdergaan waar je was gebleven, ook bij speciale gebeurtenissen.</li>
-                        <li><strong>Handmatige gebeurtenissen:</strong> je kunt kiezen of een gebeurtenis de vergadering vervangt of aan de programma's van de week wordt toegevoegd en beschikbaar blijft via de knop <strong>Gebeurtenis</strong>.</li>
-                        <li><strong>Zoom-deling:</strong> het delen van media is nu eenvoudiger en betrouwbaarder. De lichtblauwe rand en het monitornummer verdwijnen sneller.</li>
-                        <li><strong>Tijden en handmatige programma's:</strong> tijden invoeren en een programma opslaan is nu eenvoudiger. Gewijzigde titels worden onthouden en de keuze om media op te nemen is duidelijker.</li>
-                    </ul>
+                <h3>Een kort overzicht van wat er nieuw is</h3>
+                <p>JW Time 4.2.0 introduceert nieuwe hulpmiddelen voor de schermen en voor het beveiligen van de appconfiguratie.</p>
+                <ul>
+                        <li><strong>Mediavoorbeeld:</strong> afbeeldingen, video’s, pdf’s en websites van het Openbaar scherm kunnen ook op het tijdscherm verschijnen.</li>
+                        <li><strong>Openbare berichten:</strong> het paneel Bericht kan nu mededelingen naar het Openbaar scherm sturen.</li>
+                        <li><strong>Beveiliging van Instellingen:</strong> wachtwoord, herstelcode en noodback-up beschermen de configuratie.</li>
+                        <li><strong>Meer betrouwbaarheid:</strong> herstel van de vergadering, media, Zoom-deling, prestaties en beveiliging zijn verbeterd.</li>
+                </ul>
 <a class="btn btn-gray" href="news.html" style="margin-top: var(--spacing-lg);">
                     Ontdek al het nieuws -&gt;
                 </a>
 </div>
 </div>
+
 <!-- PRIMO AVVIO GUIDATO -->
 <div class="content-section-header" id="primo-avvio-guidato">
 <h2 style="font-size: 2rem; margin: 0 0 var(--spacing-xl) 0; color: var(--text-primary);">Begeleide eerste start</h2>
@@ -524,6 +524,7 @@
         <li><strong>Opnieuw beginnen vanaf nul</strong>: verwijdert de tijdelijke voortgang en laadt de oorspronkelijke tijden opnieuw.</li>
     </ul>
     <p>Herstel blijft beschikbaar gedurende een periode die wordt berekend op basis van de resterende programmatijd, met een minimum van 20 en een maximum van 60 minuten.</p>
+    <p>Versie 4.2.0 bewaart nauwkeuriger de actieve rij en het actieve programma, de speciale gebeurtenis, liederen, een eventuele automatische pauze en de status die nodig is om media opnieuw te synchroniseren.</p>
 </div>
 </div>
 
@@ -638,6 +639,7 @@
 <p>
                             Configureer voordat je deze knoppen gebruikt in Zoom een globale sneltoets voor schermdelen en voer dezelfde combinatie in bij <a href="#impostazioni-zoom">sectie 14 - Zoom</a>. Als de twee sneltoetsen niet overeenkomen, stuurt JW Time de opdracht, maar reageert Zoom niet zoals verwacht.
                         </p>
+<p>In JW Time 4.2.0 reageren starten, stoppen en wisselen tussen media sneller, en is de synchronisatie met Zoom-deling betrouwbaarder.</p>
 </div>
 </div>
 </div>
@@ -668,8 +670,6 @@
 <!-- 5.1 Schermo Pubblico - CARD -->
 <div class="news-card" style="margin-top: var(--spacing-xl);">
 <h4 style="color: var(--text-secondary);">5.1 - Openbaar scherm</h4>
-<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
-<div style="flex: 1 1 260px; min-width: 0;">
 <p>
                             Het Openbaar scherm toont countdown, welkomstbericht, jaartekst, logo en visuele inhoud in een apart venster.
                         </p>
@@ -678,12 +678,19 @@
 <li><strong>Tijdens de vergadering</strong>: kan beschikbaar blijven voor openbare inhoud of specifieke scènes.</li>
 <li><strong>Instellingen</strong>: monitor, bericht, countdown, logo en lay-out worden ingesteld in <a href="#impostazioni-adunanze">sectie 11 - Vergaderingen</a> e nella <a href="#impostazioni-schermo">sectie 12 - Scherm</a>.</li>
 </ul>
-</div>
-<figure style="flex: 0 0 48%; min-width: 320px; max-width: 620px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
-<img alt="Openbaar scherm met countdown en bericht" class="manual-image" src="../images/manual/nl/schermo-pubblico-v4.png" style="width: 100%; height: auto; display: block;"/>
+<p>De volgende afbeeldingen tonen twee mogelijke configuraties. De jaartekst en het logo kunnen worden weergegeven of verborgen; de countdown en het bericht verschijnen wanneer ze deel uitmaken van de actieve scène en configuratie.</p>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+<figure style="flex: 1 1 420px; margin: 0;">
+<img src="../images/manual/nl/schermo-pubblico-scrittura-logo-v4-2.png" alt="Openbaar scherm met jaartekst en logo" class="manual-image">
+<figcaption style="margin-top: var(--spacing-sm); color: var(--text-tertiary);">Jaartekst en logo.</figcaption>
+</figure>
+<figure style="flex: 1 1 420px; margin: 0;">
+<img src="../images/manual/nl/schermo-pubblico-countdown-scrittura-v4-2.png" alt="Openbaar scherm met countdown, jaartekst en logo" class="manual-image">
+<figcaption style="margin-top: var(--spacing-sm); color: var(--text-tertiary);">Voorbeeld vóór de vergadering met countdown.</figcaption>
 </figure>
 </div>
 </div>
+
 <!-- 5.2 Schermo Contatempo esterno - CARD -->
 <div class="news-card" style="margin-top: var(--spacing-xl);">
 <h4 style="color: var(--text-secondary);">5.2 - Contatempo-scherm</h4>
@@ -696,15 +703,17 @@
 <li>Weergave op geselecteerde monitor of vrij venster.</li>
 <li>Timer van het huidige onderdeel en contextinformatie.</li>
 <li>Berichten op volledig scherm of gedeeltelijk verzonden vanuit het hoofdvenster.</li>
+<li>Met de lay-out <strong>Digitaal met mediavoorbeeld</strong>, een voorbeeld van de visuele inhoud die daadwerkelijk aan de zaal wordt getoond.</li>
 </ul>
-<p>
-                            De aanpassing van de lay-out wordt apart behandeld in <a href="#personalizzare-schermo">sectie 5.3 - Het Contatempo-scherm aanpassen</a>, zodat dagelijks gebruik van het scherm gescheiden blijft van grafische instellingen.
-                        </p>
 </div>
 <figure style="flex: 0 0 48%; min-width: 320px; max-width: 620px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
 <img alt="Contatempo-scherm op externe monitor" class="manual-image" src="../images/manual/nl/schermo-contattempo-v4.png" style="width: 100%; height: auto; display: block;"/>
 </figure>
 </div>
+<p style="margin-top: var(--spacing-lg);">Het voorbeeld is optioneel en wordt niet automatisch ingeschakeld voor lay-outs die al in gebruik zijn. Het geldt voor afbeeldingen, video’s, pdf’s en websites; alleen audio vervangt de normale timerscène niet. Wanneer je de media stopt, keert het Contatempo-scherm terug naar de verwachte scène.</p>
+<p>
+                            De aanpassing van de lay-out wordt apart behandeld in <a href="#personalizzare-schermo">sectie 5.3 - Het Contatempo-scherm aanpassen</a>, zodat dagelijks gebruik van het scherm gescheiden blijft van grafische instellingen.
+                        </p>
 </div>
 </div>
 <!-- 5.3 PERSONALIZZARE LO SCHERMO CONTATEMPO -->
@@ -743,6 +752,7 @@
 <p>
                             Controleer voordat je wijzigingen aanbrengt altijd welke scène is geselecteerd.
                         </p>
+<p>De scène <strong>Media</strong> wordt gebruikt terwijl visuele inhoud op het Openbaar scherm wordt afgespeeld. Als ze leeg is, kies je <strong>Mediavoorbeeld configureren</strong>: de editor voegt de laag <strong>Openbaar scherm</strong> toe, die op het tijdscherm hetzelfde beeld weergeeft dat werkelijk aan het publiek wordt getoond.</p>
 </div>
 <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
 <img alt="Scèneselectie in de editor van het Contatempo-scherm" class="manual-image" src="../images/manual/nl/personalizzazione_schermo_contatempo_base_scena-v4.png" style="width: 100%; height: auto; display: block;"/>
@@ -850,11 +860,9 @@
 <!-- 6. GESTIONE MESSAGGI -->
 <div class="content" id="gestione-messaggi">
 <h2>6 - Berichten beheren <a class="back-to-index-link" href="#indice">↑ Inhoudsopgave</a></h2>
-<p>
-                Met de functie Berichten kun je discreet en duidelijk met de spreker communiceren tijdens de vergadering, om hem te waarschuwen of aanwijzingen te geven zonder het verloop van het onderdeel te onderbreken of te storen. De berichten verschijnen op het Contatempo-scherm, zodat de spreker ze realtime ziet zonder afleiding.
-            </p>
+<p>Met de functie Berichten kies je vóór het verzenden de bestemming: <strong>Contatempo-scherm</strong>, om tijdens de vergadering met de spreker te communiceren, of <strong>Openbaar scherm</strong>, voor mededelingen die vóór of na de vergadering in de zaal zichtbaar zijn.</p>
 <div class="image-container">
-<img alt="Schermata di gestione dei messaggi in JW Time" class="manual-image" src="../images/manual/nl/messaggi-elenco-v4.png"/>
+<img src="../images/manual/nl/messaggi-elenco-v4.png" alt="Berichtenpaneel met Contatempo-scherm geselecteerd" class="manual-image">
 </div>
 <!-- 6.1 Messaggio a tutto schermo - CARD -->
 <div class="news-card" style="margin-top: var(--spacing-xl);">
@@ -888,14 +896,32 @@
 </figure>
 </div>
 </div>
-<!-- 6.3 Mirror Contatempo - CARD -->
-<div class="news-card" style="margin-top: var(--spacing-xl); ">
-<h3>6.3 - Contatempo-spiegel</h3>
-<p>
-                    Wanneer je een bericht verzendt, verschijnt automatisch een verplaatsbaar en schaalbaar voorbeeldvenster dat precies toont wat de spreker op de Contatempo-monitor ziet. Zo kun je realtime controleren hoe bericht en timer worden weergegeven.
-                </p>
+<!-- 6.3 Messaggio Schermo Pubblico - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>6.3 · Bericht op het Openbaar scherm</h3>
+<div class="image-container" style="margin-bottom: var(--spacing-lg);">
+<img src="../images/manual/nl/messaggi-pubblico-elenco-v4-2.png" alt="Berichtenpaneel met Openbaar scherm geselecteerd" class="manual-image">
+</div>
+<ol class="manual-section">
+<li>Open het paneel <strong>Bericht</strong> en kies <strong>Openbaar scherm</strong> als bestemming.</li>
+<li>Voer de tekst in en kies <strong>Gedeeltelijk scherm</strong> of <strong>Volledig scherm</strong>.</li>
+<li>Gebruik de functie vóór of na de vergadering: tijdens het programma hebben de timer en de vergaderscènes voorrang.</li>
+</ol>
+<p>Het Openbaar scherm moet ingeschakeld en geopend zijn. Een gedeeltelijk bericht gebruikt het Bericht-gebied van de lay-out; volledig scherm werkt ook met oudere presets. Berichten zijn tijdelijk: ze worden niet opgeslagen of geëxporteerd en worden gewist wanneer je van gemeente wisselt, JW Time opnieuw start of de vergadering begint.</p>
+<p>Als je een afbeelding, video, pdf of website start, bedekt de media tijdelijk het openbare bericht; na Stop kan het bericht opnieuw verschijnen als de vergaderfase niet is veranderd.</p>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+<figure style="flex: 1 1 320px; margin: 0;"><img src="../images/manual/nl/messaggio-pubblico-parziale-v4-2.png" alt="Gedeeltelijk bericht op het Openbaar scherm" class="manual-image"></figure>
+<figure style="flex: 1 1 320px; margin: 0;"><img src="../images/manual/nl/messaggio-pubblico-tutto-schermo-v4-2.png" alt="Bericht op volledig scherm op het Openbaar scherm" class="manual-image"></figure>
 </div>
 </div>
+<!-- 6.4 Mirror Contatempo - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>6.4 · Spiegel van het Contatempo-scherm</h3>
+<p>Wanneer je een bericht naar het Contatempo-scherm stuurt dat op een andere monitor dan het hoofdvenster wordt weergegeven, verschijnt een zwevende, schaalbare en verplaatsbare miniatuur die toont wat de spreker ziet. Berichten voor het Openbaar scherm openen deze miniatuur niet, omdat het resultaat al rechtstreeks op dat scherm zichtbaar is.</p>
+<p>Deze berichtminiatuur staat los van het mediavoorbeeld dat is ingebouwd in de lay-out <strong>Digitaal met mediavoorbeeld</strong> van het Contatempo-scherm.</p>
+</div>
+</div>
+
 <!-- 7. PULSANTE REC -->
 <div class="content" id="rec-button">
 <h2>7 - REC-knop en opnamepaneel <a class="back-to-index-link" href="#indice">↑ Inhoudsopgave</a></h2>
@@ -1014,6 +1040,24 @@
             </p>
 <p>De knop OPSLAAN past alle wijzigingen toe.</p>
 </div>
+<!-- PROTEZIONE IMPOSTAZIONI -->
+<div class="content" id="protezione-impostazioni">
+<h2>Beveiliging van Instellingen <a class="back-to-index-link" href="#indice">↑ Inhoudsopgave</a></h2>
+<p>De balk <strong>Beveiliging</strong> onder de lijst met panelen helpt onbedoelde of onbevoegde wijzigingen in de configuratie te voorkomen. Het is lokale bedieningsbeveiliging: gegevens worden niet versleuteld, het werkt niet als een online account en het geldt voor alle gemeenten op deze pc.</p>
+<div class="settings-panel-layout"><div class="settings-panel-figure"><img src="../images/manual/nl/protezione-impostazioni-v4-2.png" alt="Balk Beveiliging in het venster Instellingen" class="manual-image"></div>
+<div class="settings-panel-copy"><h3>Activeren en toegang</h3><ol class="manual-section">
+<li>Open <strong>Beveiliging</strong>, kies een wachtwoord van minstens 8 tekens en bevestig het.</li>
+<li>Bewaar de herstelcode die maar één keer wordt getoond: kopieer hem of bewaar de QR-code buiten de openbare computer in de zaal.</li>
+<li>Na activering is bij elke nieuwe opening van Instellingen het wachtwoord nodig; als je het venster sluit, worden ze opnieuw vergrendeld.</li>
+</ol><p>In het beheerpaneel kun je het wachtwoord wijzigen, een nieuwe herstelcode maken of de beveiliging uitschakelen. Wachtwoord en code blijven lokaal op de pc en worden niet in back-ups opgenomen.</p></div></div>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-xl);">
+<figure style="flex: 1 1 320px; margin: 0;"><img src="../images/manual/nl/sblocco-impostazioni-v4-2.png" alt="Wachtwoordvraag om Instellingen te ontgrendelen" class="manual-image"></figure>
+<figure style="flex: 1 1 320px; margin: 0;"><img src="../images/manual/nl/codice-recupero-impostazioni-v4-2.png" alt="Herstelcode en QR-code voor de beveiliging van Instellingen" class="manual-image"></figure></div>
+<div class="news-card" style="margin-top: var(--spacing-xl);"><h3>Als je je inloggegevens vergeet</h3><ul class="manual-section">
+<li><strong>Je hebt de herstelcode:</strong> kies <strong>Wachtwoord vergeten?</strong>, voer de code in en stel een nieuw wachtwoord in. JW Time maakt ook een nieuwe code die je moet bewaren.</li>
+<li><strong>Je hebt noch het wachtwoord noch de code:</strong> maak de noodback-up <code>.jwtimebackup</code> die de procedure aanbiedt en bewaar die buiten de privémap van de app.</li>
+<li>Ga daarna naar <strong>Windows-instellingen &gt; Apps &gt; Geïnstalleerde apps &gt; JW Time &gt; Geavanceerde opties &gt; Opnieuw instellen</strong> — niet <strong>Herstellen</strong> —, open JW Time opnieuw, importeer de back-up en maak een nieuw wachtwoord.</li>
+</ul><p>De noodback-up wordt gemaakt zonder Instellingen te ontgrendelen, zodat je de configuratie kunt beschermen voordat je de app opnieuw instelt.</p></div></div>
 <!-- 9. GENERALE -->
 <div class="content" id="impostazioni-generale">
 <h2>9 - Algemeen <a class="back-to-index-link" href="#indice">↑ Inhoudsopgave</a></h2>
@@ -1221,6 +1265,7 @@
 <p>
                         Controleer vóór de vergadering de volledige flow: bereid Zoom voor op de openbare monitor, plaats onder het Openbaar scherm het sprekervenster of het gedupliceerde Zoom-scherm, test de sneltoets met <strong>Test</strong> en gebruik daarna de bediening vanuit het Media-venster.
                     </p>
+<p>Versie 4.2.0 verbetert de afstemming tussen het wisselen van media, de status van het Openbaar scherm en het starten of stoppen van Zoom-deling.</p>
 <h3 style="margin-top: var(--spacing-lg);">Media-automatisering</h3>
 <ul class="manual-section">
 <li><strong>Automatisch starten</strong>: wanneer de knop <strong>Zoom Auto</strong> actief is in het Media-venster, start het delen wanneer media beginnen.</li>

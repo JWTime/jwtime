@@ -177,9 +177,9 @@
             <div class="manual-index">
                 <!-- Card Verde per Inizia Qui -->
                 <div class="index-section index-section--green">
-                    <h3>4.1の新機能</h3>
+                    <h3>4.2の新機能</h3>
                     <ul>
-                        <li><a href="#novita">バージョン4.1.3</a></li>
+                        <li><a href="#novita">バージョン4.2.0</a></li>
                     </ul>
                     <h3 style="margin-top: var(--spacing-lg);">初回起動</h3>
                     <ul>
@@ -208,6 +208,7 @@
                 <div class="index-section">
                     <h3>第II部 - 設定パネル</h3>
                     <ul>
+                        <li><a href="#protezione-impostazioni">設定の保護</a></li>
                         <li><a href="#impostazioni-generale">9. 全般</a></li>
                         <li><a href="#impostazioni-congregazioni">10. 会衆</a></li>
                         <li><a href="#impostazioni-adunanze">11. 集会（集会開始タイマー）</a></li>
@@ -226,20 +227,18 @@
         <!-- ULTIME NOVIT&#192; -->
         <div class="news-preview" id="novita">
             <div class="news-preview-title">
-                <h2 style="margin: 0;">4.1の新機能</h2>
-                <span class="news-preview-badge">バージョン4.1.3</span>
+                <h2 style="margin: 0;">4.2の新機能</h2>
+                <span class="news-preview-badge">バージョン4.2.0</span>
             </div>
             <div class="news-preview-content">
                 <h3>新機能の概要</h3>
-                    <p>
-                        JW Time 4.1.3: 中断した集会の復元、より柔軟な手動イベント、Zoom共有と手動プログラムの改善。
-                    </p>
-                    <ul>
-                        <li><strong>集会の復元:</strong> 集会中にコンピューターまたはJW Timeが再起動しても、中断したところから再開できます。特別イベントにも対応しています。</li>
-                        <li><strong>手動イベント:</strong> イベントを集会と置き換えるか、週のプログラムに追加するかを選べます。追加したイベントは「<strong>イベント</strong>」ボタンから選べます。</li>
-                        <li><strong>Zoom共有:</strong> メディアの共有がより簡単で安定しました。水色の枠とモニター番号も、より速く消えるようになりました。</li>
-                        <li><strong>時刻と手動プログラム:</strong> 時刻の入力と進行表の保存が簡単になりました。変更したタイトルが保存され、メディアを含めるかどうかも分かりやすくなりました。</li>
-                    </ul>
+                <p>JW Time 4.2.0では、画面の活用とアプリ設定の保護に役立つ新しい機能が追加されました。</p>
+                <ul>
+                        <li><strong>メディアプレビュー：</strong> 会場表示画面の画像、動画、PDF、ウェブサイトをタイムカウンター画面にも表示できます。</li>
+                        <li><strong>会場向けメッセージ：</strong> メッセージパネルから会場表示画面に案内を送信できるようになりました。</li>
+                        <li><strong>設定の保護：</strong> パスワード、回復コード、緊急バックアップで設定を保護します。</li>
+                        <li><strong>信頼性の向上：</strong> 集会の復元、メディア、Zoom共有、パフォーマンス、セキュリティを改善しました。</li>
+                </ul>
 
                 <a href="news.html" class="btn btn-gray" style="margin-top: var(--spacing-lg);">
                     すべての新機能を見る →
@@ -247,7 +246,8 @@
             </div>
         </div>
 
-        <!-- PRIMO AVVIO GUIDATO -->
+
+<!-- PRIMO AVVIO GUIDATO -->
         <div class="content-section-header" id="primo-avvio-guidato">
             <h2 style="font-size: 2rem; margin: 0 0 var(--spacing-xl) 0; color: var(--text-primary);">ガイド付き初回起動</h2>
 
@@ -592,6 +592,7 @@
                     <li><strong>最初からやり直す</strong>: 一時的な進行状況を破棄し、初期の時間を読み込み直します。</li>
                 </ul>
                 <p>復元できる期間は進行表の残り時間から計算され、最短20分、最長60分です。</p>
+                <p>バージョン4.2.0では、選択中の行とプログラム、特別イベント、歌、自動一時停止の状態、メディアを再同期するために必要な状態を、より正確に保持します。</p>
             </div>
         </div>
 
@@ -728,6 +729,7 @@
                         <p>
                             これらのボタンを使う前に、Zoomで画面共有用のグローバルショートカットを設定し、同じキーの組み合わせを <a href="#impostazioni-zoom">セクション14 · Zoom</a>に入力します。2つのショートカットが一致していない場合、JW Timeはコマンドを送信しますが、Zoomは期待どおりに反応しません。
                         </p>
+                        <p>JW Time 4.2.0では、メディアの開始、停止、切り替えの応答性が向上し、Zoom共有との同期もより安定しました。</p>
                     </div>
                 </div>
             </div>
@@ -763,55 +765,56 @@
             </p>
 
             <!-- 5.1 Schermo Pubblico - CARD -->
-            <div class="news-card" style="margin-top: var(--spacing-xl);">
-                <h4 style="color: var(--text-secondary);">5.1 · 会場表示画面</h4>
-
-                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
-                    <div style="flex: 1 1 260px; min-width: 0;">
-                        <p>
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h4 style="color: var(--text-secondary);">5.1 · 会場表示画面</h4>
+<p>
                             会場表示画面は、カウントダウン、歓迎メッセージ、年句、ロゴ、視覚コンテンツを別ウィンドウに表示します。
                         </p>
-                        <ul class="manual-section">
+<ul class="manual-section">
                             <li><strong>集会前</strong>: カウントダウンと設定済みのテキストを表示します。</li>
                             <li><strong>集会中</strong>: 会場向けコンテンツや専用シーンに引き続き使用できます。</li>
                             <li><strong>設定</strong>: モニター、メッセージ、カウントダウン、ロゴ、レイアウトの調整は <a href="#impostazioni-adunanze">セクション11 · 集会</a> および <a href="#impostazioni-schermo">セクション12 · 画面</a>で行います。</li>
                         </ul>
-                    </div>
-                    <figure style="flex: 0 0 48%; min-width: 320px; max-width: 620px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
-                        <img src="../images/manual/ja/schermo-pubblico-v4.png"
-                             alt="カウントダウンとメッセージが表示された会場表示画面"
-                             class="manual-image"
-                             style="width: 100%; height: auto; display: block;">
-                    </figure>
-                </div>
-            </div>
+<p>次の画像は、2つの設定例を示しています。年句とロゴは表示または非表示にできます。カウントダウンとメッセージは、アクティブなシーンと設定に含まれている場合に表示されます。</p>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+<figure style="flex: 1 1 420px; margin: 0;">
+<img src="../images/manual/ja/schermo-pubblico-scrittura-logo-v4-2.png" alt="年句とロゴが表示された会場表示画面" class="manual-image">
+<figcaption style="margin-top: var(--spacing-sm); color: var(--text-tertiary);">年句とロゴ。</figcaption>
+</figure>
+<figure style="flex: 1 1 420px; margin: 0;">
+<img src="../images/manual/ja/schermo-pubblico-countdown-scrittura-v4-2.png" alt="カウントダウン、年句、ロゴが表示された会場表示画面" class="manual-image">
+<figcaption style="margin-top: var(--spacing-sm); color: var(--text-tertiary);">集会前にカウントダウンを表示する例。</figcaption>
+</figure>
+</div>
+</div>
 
-            <!-- 5.2 Schermo Contatempo esterno - CARD -->
-            <div class="news-card" style="margin-top: var(--spacing-xl);">
-                <h4 style="color: var(--text-secondary);">5.2 · タイムカウンター画面</h4>
-
-                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
-                    <div style="flex: 1 1 260px; min-width: 0;">
-                        <p>
+<!-- 5.2 Schermo Contatempo esterno - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h4 style="color: var(--text-secondary);">5.2 · タイムカウンター画面</h4>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
+<div style="flex: 1 1 260px; min-width: 0;">
+<p>
                             タイムカウンター画面には、時計、現在進行中の部分のカウントダウン、話し手へのメッセージ、時間管理に関連した状態が表示されます。演壇、司会者、時間係に最も適した表示です。
                         </p>
-                        <ul class="manual-section">
+<ul class="manual-section">
                             <li>選択したモニターまたは自由なウィンドウに表示。</li>
                             <li>現在の部分のタイマーと関連情報。</li>
                             <li>メインウィンドウから送信された全画面または部分表示のメッセージ。</li>
-                        </ul>
-                        <p>
-                            レイアウトのカスタマイズについては、別途 <a href="#personalizzare-schermo">セクション5.3 · タイムカウンター画面をカスタマイズする</a>で扱います。これにより、画面の日常的な使用と表示設定を分けて考えられます。
-                        </p>
-                    </div>
-                    <figure style="flex: 0 0 48%; min-width: 320px; max-width: 620px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
+                        <li><strong>メディアプレビュー付きデジタル</strong>レイアウトでは、会場に実際に表示されている映像コンテンツをプレビューできます。</li>
+</ul>
+</div>
+<figure style="flex: 0 0 48%; min-width: 320px; max-width: 620px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
                         <img src="../images/manual/ja/schermo-contattempo-v4.png"
                              alt="外部モニター上のタイムカウンター画面"
                              class="manual-image"
                              style="width: 100%; height: auto; display: block;">
                     </figure>
-                </div>
-            </div>
+</div>
+<p style="margin-top: var(--spacing-lg);">プレビューは任意であり、すでに使用しているレイアウトでは自動的に有効になりません。画像、動画、PDF、ウェブサイトが対象です。音声だけのコンテンツでは通常のタイマーシーンは切り替わりません。メディアを停止すると、タイムカウンター画面は所定のシーンに戻ります。</p>
+<p>
+                            レイアウトのカスタマイズについては、別途 <a href="#personalizzare-schermo">セクション5.3 · タイムカウンター画面をカスタマイズする</a>で扱います。これにより、画面の日常的な使用と表示設定を分けて考えられます。
+                        </p>
+</div>
         </div>
 
         <!-- 5.3 PERSONALIZZARE LO SCHERMO CONTATEMPO -->
@@ -856,6 +859,7 @@
                         <p>
                             変更する前に、どのシーンが選択されているかを必ず確認してください。
                         </p>
+                        <p><strong>メディア</strong>シーンは、会場表示画面で映像コンテンツを再生している間に使われます。シーンが空の場合は、<strong>メディアプレビューを設定</strong>を選びます。エディターに<strong>会場表示画面</strong>レイヤーが追加され、会場に実際に表示されているものと同じ画像がタイムカウンター画面にも表示されます。</p>
                     </div>
                     <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
                         <img src="../images/manual/ja/personalizzazione_schermo_contatempo_base_scena-v4.png"
@@ -983,15 +987,10 @@
         <!-- 6. GESTIONE MESSAGGI -->
         <div class="content" id="gestione-messaggi">
             <h2>6 · メッセージ管理 <a href="#indice" class="back-to-index-link">↑ 目次</a></h2>
-
-            <p>
-                メッセージ機能を使うと、集会中に話し手と控えめかつ明確に連絡できます。部分の進行を遮ったり妨げたりせずに知らせたり指示を出したりできます。メッセージはタイムカウンター画面に表示されるため、話し手は気を散らされずにリアルタイムで確認できます。
-            </p>
+<p>メッセージ機能では、送信前に宛先を選べます。集会中に話し手へ連絡する場合は<strong>タイムカウンター画面</strong>を、集会の前後に会場へ知らせる場合は<strong>会場表示画面</strong>を選びます。</p>
 
             <div class="image-container">
-                <img src="../images/manual/ja/messaggi-elenco-v4.png"
-                     alt="JW Timeのメッセージ管理画面"
-                     class="manual-image">
+                <img src="../images/manual/ja/messaggi-elenco-v4.png" alt="タイムカウンター画面が選択されたメッセージパネル" class="manual-image">
             </div>
 
             <!-- 6.1 Messaggio a tutto schermo - CARD -->
@@ -1035,16 +1034,33 @@
                     </figure>
                 </div>
             </div>
+<!-- 6.3 Messaggio Schermo Pubblico - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>6.3 · 会場表示画面へのメッセージ</h3>
+<div class="image-container" style="margin-bottom: var(--spacing-lg);">
+<img src="../images/manual/ja/messaggi-pubblico-elenco-v4-2.png" alt="会場表示画面が選択されたメッセージパネル" class="manual-image">
+</div>
+<ol class="manual-section">
+<li><strong>メッセージ</strong>パネルを開き、宛先として<strong>会場表示画面</strong>を選びます。</li>
+<li>テキストを入力し、<strong>部分表示</strong>または<strong>全画面</strong>を選びます。</li>
+<li>集会の前後に使用します。プログラム中は、集会のタイマーとシーンが優先されます。</li>
+</ol>
+<p>会場表示画面を有効にして開いておく必要があります。部分表示メッセージはレイアウトのメッセージ領域を使用します。全画面モードは以前のプリセットでも使用できます。メッセージは一時的なもので、保存もエクスポートもされません。会衆を切り替えた時、JW Timeを再起動した時、または集会を開始した時に消去されます。</p>
+<p>画像、動画、PDF、ウェブサイトを開始すると、メディアが一時的に会場向けメッセージを覆います。集会の段階が変わっていなければ、停止後にメッセージが再び表示されることがあります。</p>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+<figure style="flex: 1 1 320px; margin: 0;"><img src="../images/manual/ja/messaggio-pubblico-parziale-v4-2.png" alt="会場表示画面に表示された部分メッセージ" class="manual-image"></figure>
+<figure style="flex: 1 1 320px; margin: 0;"><img src="../images/manual/ja/messaggio-pubblico-tutto-schermo-v4-2.png" alt="会場表示画面に表示された全画面メッセージ" class="manual-image"></figure>
+</div>
+</div>
+<!-- 6.4 Mirror Contatempo - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>6.4 · タイムカウンター画面のミラー</h3>
+<p>メインウィンドウとは別のモニターに表示されているタイムカウンター画面へメッセージを送ると、サイズ変更と移動が可能なフローティングサムネイルが表示され、話し手が見ている内容を再現します。会場表示画面へのメッセージでは、このサムネイルは開きません。結果がその画面に直接表示されるためです。</p>
+<p>このメッセージ用サムネイルは、タイムカウンター画面の<strong>メディアプレビュー付きデジタル</strong>レイアウトに組み込まれたメディアプレビューとは別の機能です。</p>
+</div>
+</div>
 
-            <!-- 6.3 Mirror Contatempo - CARD -->
-            <div class="news-card" style="margin-top: var(--spacing-xl); ">
-                <h3>6.3 · タイムカウンターミラー</h3>
-                <p>
-                    メッセージを送信すると、サイズ変更と移動が可能なプレビューウィンドウが自動的に表示され、話し手がタイムカウンター用モニターで見ている内容をそのまま示します。これにより、メッセージとタイマーの表示をリアルタイムで確認できます。
-                </p>
-            </div>
-        </div>
-        <!-- 7. PULSANTE REC -->
+<!-- 7. PULSANTE REC -->
         <div class="content" id="rec-button">
             <h2>7 · RECボタンと録音パネル <a href="#indice" class="back-to-index-link">↑ 目次</a></h2>
 
@@ -1189,6 +1205,27 @@
                 タイムカウンター画面、メディア、Zoom、Webモニターとサーバー、録音、バックアップと復元を扱います。
             </p>
             <p>保存ボタンで、すべての変更を適用します。</p>
+        </div>
+
+        <!-- PROTEZIONE IMPOSTAZIONI -->
+        <div class="content" id="protezione-impostazioni">
+            <h2>設定の保護 <a href="#indice" class="back-to-index-link">&uarr; 目次</a></h2>
+            <p>パネル一覧の下にある<strong>保護</strong>バーは、設定が誤って、または許可なく変更されるのを防ぐためのものです。これはこのPC上での操作を保護する機能です。データを暗号化するものでも、オンラインアカウントとして機能するものでもなく、このPC上の全ての会衆に適用されます。</p>
+            <div class="settings-panel-layout"><div class="settings-panel-figure"><img src="../images/manual/ja/protezione-impostazioni-v4-2.png" alt="設定ウィンドウの保護バー" class="manual-image"></div>
+            <div class="settings-panel-copy"><h3>有効化とアクセス</h3><ol class="manual-section">
+                <li><strong>保護</strong>を開き、8文字以上のパスワードを設定して確認します。</li>
+                <li>一度だけ表示される回復コードを保管します。コードをコピーするかQRコードを保存し、会場の共用コンピューターとは別の場所に置いてください。</li>
+                <li>有効化すると、設定を開くたびにパスワードが必要になります。設定ウィンドウを閉じると再びロックされます。</li>
+            </ol><p>管理パネルでは、パスワードの変更、新しい回復コードの作成、保護の無効化ができます。パスワードとコードはPC内だけに保存され、バックアップには含まれません。</p></div></div>
+            <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-xl);">
+                <figure style="flex: 1 1 320px; margin: 0;"><img src="../images/manual/ja/sblocco-impostazioni-v4-2.png" alt="設定のロックを解除するためのパスワード入力" class="manual-image"></figure>
+                <figure style="flex: 1 1 320px; margin: 0;"><img src="../images/manual/ja/codice-recupero-impostazioni-v4-2.png" alt="設定保護の回復コードとQRコード" class="manual-image"></figure>
+            </div>
+            <div class="news-card" style="margin-top: var(--spacing-xl);"><h3>認証情報を忘れた場合</h3><ul class="manual-section">
+                <li><strong>回復コードがある場合：</strong> <strong>パスワードを忘れた場合</strong>を選び、コードを入力して新しいパスワードを設定します。JW Timeは新しい回復コードも作成するので、保管してください。</li>
+                <li><strong>パスワードも回復コードもない場合：</strong> 手順で案内される緊急バックアップ <code>.jwtimebackup</code> を作成し、アプリの非公開フォルダー外に保存します。</li>
+                <li>その後、<strong>Windowsの設定 &gt; アプリ &gt; インストールされているアプリ &gt; JW Time &gt; 詳細オプション &gt; リセット</strong>を開きます。<strong>修復</strong>ではありません。JW Timeを再度開き、バックアップを読み込んで新しいパスワードを作成します。</li>
+            </ul><p>緊急バックアップは設定のロックを解除せずに作成されるため、アプリをリセットする前に設定内容を保護できます。</p></div>
         </div>
 
         <!-- 9. GENERALE -->
@@ -1440,6 +1477,7 @@
                         集会前に一連の流れを確認してください。Zoomを会場モニターに準備し、話者のウィンドウまたはZoomの複製画面を会場表示画面の下に配置し、
                         <strong>テスト</strong>でショートカットを試してから、メディアウィンドウの操作を使います。
                     </p>
+                    <p>バージョン4.2.0では、メディアの切り替え、会場表示画面の状態、Zoom共有の開始と停止の連携がより安定しました。</p>
 
                     <h3 style="margin-top: var(--spacing-lg);">メディアの自動化</h3>
                     <ul class="manual-section">

@@ -173,9 +173,9 @@
 <div class="manual-index">
 <!-- Card Verde per Inizia Qui -->
 <div class="index-section index-section--green">
-<h3>New 4.1</h3>
+<h3>New 4.2</h3>
 <ul>
-<li><a href="#novita">Version 4.1.3</a></li>
+<li><a href="#novita">Version 4.2.0</a></li>
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">First Start</h3>
 <ul>
@@ -202,6 +202,7 @@
 <div class="index-section">
 <h3>Part II - Settings Panels</h3>
 <ul>
+<li><a href="#protezione-impostazioni">Settings protection</a></li>
 <li><a href="#impostazioni-generale">9. General</a></li>
 <li><a href="#impostazioni-congregazioni">10. Congregations</a></li>
 <li><a href="#impostazioni-adunanze">11. Meetings (Meeting Start Timer)</a></li>
@@ -219,25 +220,24 @@
 <!-- ULTIME NOVIT&#192; -->
 <div class="news-preview" id="novita">
 <div class="news-preview-title">
-<h2 style="margin: 0;">New 4.1</h2>
-                <span class="news-preview-badge">Version 4.1.3</span>
+<h2 style="margin: 0;">New 4.2</h2>
+                <span class="news-preview-badge">Version 4.2.0</span>
 </div>
 <div class="news-preview-content">
-<h3>A quick look at what's new</h3>
-                    <p>
-                        JW Time 4.1.3: recovery for interrupted meetings, more flexible manual events, and improvements to Zoom and manual programs.
-                    </p>
-                    <ul>
-                        <li><strong>Meeting recovery:</strong> if the computer or JW Time restarts during a meeting, you can continue from where you left off, including special events.</li>
-                        <li><strong>Manual events:</strong> you can choose whether an event replaces the meeting or is added to the week's programs and remains available from the <strong>Event</strong> button.</li>
-                        <li><strong>Zoom sharing:</strong> media sharing is now simpler and more reliable. The light-blue border and monitor number disappear more quickly.</li>
-                        <li><strong>Times and manual programs:</strong> entering times and saving a schedule is now easier. Edited titles are remembered, and the choice to include media is clearer.</li>
-                    </ul>
+                <h3>A quick look at what’s new</h3>
+                <p>JW Time 4.2.0 introduces new tools for the displays and for protecting the app configuration.</p>
+                <ul>
+                        <li><strong>Media preview:</strong> images, videos, PDFs, and websites from the Public Display can also appear on the Timer Display.</li>
+                        <li><strong>Public messages:</strong> the Message panel can now send notices to the Public Display.</li>
+                        <li><strong>Settings protection:</strong> a password, recovery code, and emergency backup protect the configuration.</li>
+                        <li><strong>Greater reliability:</strong> improved meeting recovery, media handling, Zoom sharing, performance, and security.</li>
+                </ul>
 <a class="btn btn-gray" href="news.html" style="margin-top: var(--spacing-lg);">
                     Discover all the news →
                 </a>
 </div>
 </div>
+
 <!-- PRIMO AVVIO GUIDATO -->
 <div class="content-section-header" id="primo-avvio-guidato">
 <h2 style="font-size: 2rem; margin: 0 0 var(--spacing-xl) 0; color: var(--text-primary);">First start wizard</h2>
@@ -560,6 +560,7 @@
         <li><strong>Start over from zero</strong>: discards the temporary progress and reloads the initial times.</li>
     </ul>
     <p>Recovery remains available for a period calculated from the time still remaining in the schedule, with a minimum of 20 and a maximum of 60 minutes.</p>
+    <p>Version 4.2.0 preserves the active row and program, special event, songs, any automatic pause, and the state needed to realign the media more accurately.</p>
 </div>
 </div>
 
@@ -690,6 +691,7 @@
                             the same combination in <a href="#impostazioni-zoom">section 14 · Zoom</a>. If the two shortcuts do not match,
                             JW Time sends the command but Zoom does not react as expected.
                         </p>
+                        <p>In JW Time 4.2.0, starting, stopping, and switching between media is more responsive, and synchronization with Zoom sharing is more reliable.</p>
 </div>
 </div>
 </div>
@@ -724,8 +726,6 @@
 <!-- 5.1 Schermo Pubblico - CARD -->
 <div class="news-card" style="margin-top: var(--spacing-xl);">
 <h4 style="color: var(--text-secondary);">5.1 · Public Screen</h4>
-<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
-<div style="flex: 1 1 260px; min-width: 0;">
 <p>
                             The Public Screen shows countdown, welcome message, year text, logo and content
                             views in a separate window.
@@ -735,12 +735,19 @@
 <li><strong>During the meeting</strong>: can remain available for public content or dedicated scenes.</li>
 <li><strong>Settings</strong>: monitor, message, countdown, logo and layout are adjusted in the <a href="#impostazioni-adunanze">section 11 · Meetings</a> and in the <a href="#impostazioni-schermo">section 12 · Screen</a>.</li>
 </ul>
-</div>
-<figure style="flex: 0 0 48%; min-width: 320px; max-width: 620px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
-<img alt="Public Screen with countdown and message" class="manual-image" src="../images/manual/en/schermo-pubblico-v4.png" style="width: 100%; height: auto; display: block;"/>
+<p>The following images show two possible configurations. The year text and logo can be shown or hidden; the countdown and message appear when included in the active scene and configuration.</p>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+<figure style="flex: 1 1 420px; margin: 0;">
+<img src="../images/manual/en/schermo-pubblico-scrittura-logo-v4-2.png" alt="Public Screen with year text and logo" class="manual-image">
+<figcaption style="margin-top: var(--spacing-sm); color: var(--text-tertiary);">Year text and logo.</figcaption>
+</figure>
+<figure style="flex: 1 1 420px; margin: 0;">
+<img src="../images/manual/en/schermo-pubblico-countdown-scrittura-v4-2.png" alt="Public Screen with countdown, year text and logo" class="manual-image">
+<figcaption style="margin-top: var(--spacing-sm); color: var(--text-tertiary);">Example before the meeting with countdown.</figcaption>
 </figure>
 </div>
 </div>
+
 <!-- 5.2 Schermo Contatempo esterno - CARD -->
 <div class="news-card" style="margin-top: var(--spacing-xl);">
 <h4 style="color: var(--text-secondary);">5.2 · Time Counter Screen</h4>
@@ -754,16 +761,18 @@
 <li>Display on selected monitor or free window.</li>
 <li>Current part timer and contextual information.</li>
 <li>Full or partial screen messages sent from the main window.</li>
+<li>With the <strong>Digital with media preview</strong> layout, a preview of the visual content actually shown to the audience.</li>
 </ul>
-<p>
-                            Layout customization is covered separately in <a href="#personalizzare-schermo">section 5.3 · Customizing the Time Counter Screen</a>,
-                            thus daily use of the screen remains separate from the graphics settings.
-                        </p>
 </div>
 <figure style="flex: 0 0 48%; min-width: 320px; max-width: 620px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
 <img alt="Time counter screen on external monitor" class="manual-image" src="../images/manual/en/schermo-contattempo-v4.png" style="width: 100%; height: auto; display: block;"/>
 </figure>
 </div>
+<p style="margin-top: var(--spacing-lg);">The preview is optional and is not enabled automatically for layouts already in use. It applies to images, videos, PDFs, and websites; audio-only content does not replace the normal timer scene. When you stop the media, the Time Counter Screen returns to the expected scene.</p>
+<p>
+                            Layout customization is covered separately in <a href="#personalizzare-schermo">section 5.3 · Customizing the Time Counter Screen</a>,
+                            thus daily use of the screen remains separate from the graphics settings.
+                        </p>
 </div>
 </div>
 <!-- 5.3 PERSONALIZZARE LO SCHERMO CONTATEMPO -->
@@ -803,6 +812,7 @@
 <p>
                             Before making changes, always check which scene is selected.
                         </p>
+                        <p>The <strong>Media</strong> scene is used while visual content is playing on the Public Display. If it is empty, select <strong>Configure media preview</strong>: the editor adds the <strong>Public Display</strong> layer, which reproduces on the Timer Display the same image actually shown to the audience.</p>
 </div>
 <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
 <img alt="Scene Selection in the Time Counter Screen Editor" class="manual-image" src="../images/manual/en/personalizzazione_schermo_contatempo_base_scena-v4.png" style="width: 100%; height: auto; display: block;"/>
@@ -916,13 +926,9 @@
 <!-- 6. GESTIONE MESSAGGI -->
 <div class="content" id="gestione-messaggi">
 <h2>6 · Management of messages <a class="back-to-index-link" href="#indice">↑ Table of Contents</a></h2>
-<p>
-                The Messages function allows you to communicate discreetly and clearly with the speaker during the meeting, allowing you to
-                warn him or give him instructions without interrupting or disturbing the progress of the part. Messages appear on the
-                Time Counter Screen, so the speaker sees them in real time without distractions.
-            </p>
+<p>The Messages feature lets you choose the destination before sending: <strong>Time Counter Screen</strong>, for communicating with the speaker during the meeting, or <strong>Public Screen</strong>, for notices visible to the audience before or after the meeting.</p>
 <div class="image-container">
-<img alt="Message Management Screen in JW Time" class="manual-image" src="../images/manual/en/messaggi-elenco-v4.png"/>
+<img src="../images/manual/en/messaggi-elenco-v4.png" alt="Message panel with Time Counter Screen selected" class="manual-image">
 </div>
 <!-- 6.1 Messaggio a tutto schermo - CARD -->
 <div class="news-card" style="margin-top: var(--spacing-xl);">
@@ -956,16 +962,32 @@
 </figure>
 </div>
 </div>
-<!-- 6.3 Mirror Contatempo - CARD -->
-<div class="news-card" style="margin-top: var(--spacing-xl); ">
-<h3>6.3 · Mirror Time Counter Screen</h3>
-<p>
-                    When you send a message, a resizable and moveable preview window automatically appears showing
-                    exactly what the speaker sees in the Time Counter Screen monitor. This allows you to check the display in real time
-                    of the message and the timer.
-                </p>
+<!-- 6.3 Messaggio Schermo Pubblico - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>6.3 · Message on the Public Screen</h3>
+<div class="image-container" style="margin-bottom: var(--spacing-lg);">
+<img src="../images/manual/en/messaggi-pubblico-elenco-v4-2.png" alt="Message panel with Public Screen selected" class="manual-image">
+</div>
+<ol class="manual-section">
+<li>Open the <strong>Message</strong> panel and select <strong>Public Screen</strong> as the destination.</li>
+<li>Enter the text and choose <strong>Partial screen</strong> or <strong>Full screen</strong>.</li>
+<li>Use this feature before or after the meeting: during the program, the meeting timer and scenes take priority.</li>
+</ol>
+<p>The Public Screen must be enabled and open. A partial message uses the Message area of the layout; full-screen mode also works with earlier presets. Messages are temporary: they are not saved or exported and are cleared when you change congregation, restart JW Time, or start the meeting.</p>
+<p>If you start an image, video, PDF, or website, the media temporarily covers the public message; after Stop, the message may reappear if the meeting phase has not changed.</p>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+<figure style="flex: 1 1 320px; margin: 0;"><img src="../images/manual/en/messaggio-pubblico-parziale-v4-2.png" alt="Partial message displayed on the Public Screen" class="manual-image"></figure>
+<figure style="flex: 1 1 320px; margin: 0;"><img src="../images/manual/en/messaggio-pubblico-tutto-schermo-v4-2.png" alt="Full-screen message displayed on the Public Screen" class="manual-image"></figure>
 </div>
 </div>
+<!-- 6.4 Mirror Contatempo - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>6.4 · Time Counter Screen mirror</h3>
+<p>When you send a message to the Time Counter Screen displayed on a monitor other than the main one, a floating, resizable and movable thumbnail appears and reproduces what the speaker sees. Messages sent to the Public Screen do not open this thumbnail because the result is already visible directly on that screen.</p>
+<p>This message thumbnail is separate from the media-content preview embedded in the <strong>Digital with media preview</strong> layout of the Time Counter Screen.</p>
+</div>
+</div>
+
 <!-- 7. PULSANTE REC -->
 <div class="content" id="rec-button">
 <h2>7 · REC button and recording panel <a class="back-to-index-link" href="#indice">↑ Table of Contents</a></h2>
@@ -1095,6 +1117,38 @@
                 Time Counter Screen, Media, Zoom, Web &amp; Server Monitor, Recordings and Backup &amp; Restore.
             </p>
 <p>The SAVE button applies all changes.</p>
+</div>
+<!-- PROTEZIONE IMPOSTAZIONI -->
+<div class="content" id="protezione-impostazioni">
+<h2>Settings protection <a class="back-to-index-link" href="#indice">↑ Table of Contents</a></h2>
+<p>The <strong>Protection</strong> bar below the panel list helps prevent accidental or unauthorized configuration changes. It is a local operational safeguard, not data encryption or an online account, and it applies to every congregation on this PC.</p>
+<div class="settings-panel-layout">
+<div class="settings-panel-figure">
+<img src="../images/manual/en/protezione-impostazioni-v4-2.png" alt="Protection bar in the Settings window" class="manual-image">
+</div>
+<div class="settings-panel-copy">
+<h3>Activation and access</h3>
+<ol class="manual-section">
+<li>Open <strong>Protection</strong>, choose a password of at least 8 characters, and confirm it.</li>
+<li>Save the recovery code shown only once: copy it or save its QR code away from the public hall computer.</li>
+<li>After activation, every new opening of Settings requires the password; Settings lock again when the window closes.</li>
+</ol>
+<p>From the management panel, you can change the password, generate a new recovery code, or turn off protection. The password and recovery code are local to the PC and are not included in backups.</p>
+</div>
+</div>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-xl);">
+<figure style="flex: 1 1 320px; margin: 0;"><img src="../images/manual/en/sblocco-impostazioni-v4-2.png" alt="Password request for unlocking Settings" class="manual-image"></figure>
+<figure style="flex: 1 1 320px; margin: 0;"><img src="../images/manual/en/codice-recupero-impostazioni-v4-2.png" alt="Settings protection recovery code and QR code" class="manual-image"></figure>
+</div>
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>If you forget your credentials</h3>
+<ul class="manual-section">
+<li><strong>You have the recovery code:</strong> select <strong>Forgot your password?</strong>, enter the code, and set a new password. JW Time also generates a new recovery code to save.</li>
+<li><strong>You have neither the password nor the recovery code:</strong> create the emergency <code>.jwtimebackup</code> offered by the procedure and save it outside the app’s private folder.</li>
+<li>Then open <strong>Windows Settings &gt; Apps &gt; Installed apps &gt; JW Time &gt; Advanced options &gt; Reset</strong>—not <strong>Repair</strong>—reopen JW Time, import the backup, and create a new password.</li>
+</ul>
+<p>The emergency backup is created without unlocking Settings, so you can safeguard the configuration before resetting the app.</p>
+</div>
 </div>
 <!-- 9. GENERALE -->
 <div class="content" id="impostazioni-generale">
@@ -1313,6 +1367,7 @@
                         the speakers window or the duplicate Zoom screen, try the shortcut with <strong>Test</strong> and then
                         use the controls from the Media Window.
                     </p>
+<p>Version 4.2.0 makes coordination between media changes, Public Display status, and starting or stopping Zoom sharing more reliable.</p>
 <h3 style="margin-top: var(--spacing-lg);">Media automation</h3>
 <ul class="manual-section">
 <li><strong>Auto start</strong>: when the key <strong>Zoom Auto</strong> is active in the Media Window, starts sharing when a media is played.</li>

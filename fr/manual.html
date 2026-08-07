@@ -173,9 +173,9 @@ html
 <div class="manual-index">
 <!-- Card Verde per Inizia Qui -->
 <div class="index-section index-section--green">
-<h3>Nouveaut&eacute;s 4.1</h3>
+<h3>Nouveaut&eacute;s 4.2</h3>
 <ul>
-<li><a href="#novita">Version 4.1.3</a></li>
+<li><a href="#novita">Version 4.2.0</a></li>
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">Premier démarrage</h3>
 <ul>
@@ -202,6 +202,7 @@ html
 <div class="index-section">
 <h3>Partie II - Panneaux de paramètres</h3>
 <ul>
+<li><a href="#protezione-impostazioni">Protection des paramètres</a></li>
 <li><a href="#impostazioni-generale">9. Général</a></li>
 <li><a href="#impostazioni-congregazioni">10. Congrégations</a></li>
 <li><a href="#impostazioni-adunanze">11. Réunions (minuterie de début de réunion)</a></li>
@@ -219,25 +220,24 @@ html
 <!-- ULTIME NOVIT&#192; -->
 <div class="news-preview" id="novita">
 <div class="news-preview-title">
-<h2 style="margin: 0;">Nouveaut&eacute;s 4.1</h2>
-                <span class="news-preview-badge">Version 4.1.3</span>
+<h2 style="margin: 0;">Nouveaut&eacute;s 4.2</h2>
+                <span class="news-preview-badge">Version 4.2.0</span>
 </div>
 <div class="news-preview-content">
-<h3>Un aperçu rapide des nouveautés</h3>
-                    <p>
-                        JW Time 4.1.3 : restauration des réunions interrompues, événements manuels plus flexibles et améliorations de Zoom et des programmes manuels.
-                    </p>
-                    <ul>
-                        <li><strong>Restauration de la réunion :</strong> si l’ordinateur ou JW Time redémarre pendant une réunion, vous pouvez reprendre là où vous vous étiez arrêté, y compris lors des événements spéciaux.</li>
-                        <li><strong>Événements manuels :</strong> vous pouvez choisir si un événement remplace la réunion ou s’ajoute aux programmes de la semaine et reste accessible depuis le bouton <strong>Événement</strong>.</li>
-                        <li><strong>Partage Zoom :</strong> le partage des médias est désormais plus simple et plus fiable. Le cadre bleu clair et le numéro du moniteur disparaissent plus rapidement.</li>
-                        <li><strong>Horaires et programmes manuels :</strong> saisir les horaires et enregistrer un programme est maintenant plus simple. Les titres modifiés sont mémorisés et le choix d’inclure les médias est plus clair.</li>
-                    </ul>
+                <h3>Un aperçu rapide des nouveautés</h3>
+                <p>JW Time 4.2.0 propose de nouveaux outils pour les écrans et pour protéger la configuration de l’application.</p>
+                <ul>
+                        <li><strong>Aperçu des médias :</strong> les images, vidéos, PDF et sites Web de l’écran public peuvent aussi apparaître sur l’écran du minuteur.</li>
+                        <li><strong>Messages publics :</strong> le panneau Message peut maintenant envoyer des communications à l’écran public.</li>
+                        <li><strong>Protection des paramètres :</strong> mot de passe, code de récupération et sauvegarde d’urgence protègent la configuration.</li>
+                        <li><strong>Fiabilité accrue :</strong> restauration de la réunion, médias, partage Zoom, performances et sécurité ont été améliorés.</li>
+                </ul>
 <a class="btn btn-gray" href="news.html" style="margin-top: var(--spacing-lg);">
                     Découvrez toutes les actualités →
                 </a>
 </div>
 </div>
+
 <!-- PRIMO AVVIO GUIDATO -->
 <div class="content-section-header" id="primo-avvio-guidato">
 <h2 style="font-size: 2rem; margin: 0 0 var(--spacing-xl) 0; color: var(--text-primary);">Assistant de premier démarrage</h2>
@@ -560,6 +560,7 @@ html
         <li><strong>Recommencer à zéro</strong>: supprime la progression temporaire et recharge les durées initiales.</li>
     </ul>
     <p>La restauration reste disponible pendant une durée calculée d'après le temps restant dans le programme, avec un minimum de 20 et un maximum de 60 minutes.</p>
+    <p>La version 4.2.0 conserve plus précisément la ligne et le programme actifs, l’événement spécial, les cantiques, une éventuelle pause automatique et l’état nécessaire pour resynchroniser les médias.</p>
 </div>
 </div>
 
@@ -690,6 +691,7 @@ html
                             la même combinaison dans la section <a href="#impostazioni-zoom">14 · Zoom</a>. Si les deux raccourcis ne correspondent pas,
                             JW Time envoie la commande mais Zoom ne réagit pas comme prévu.
                         </p>
+<p>Dans JW Time 4.2.0, le démarrage, l’arrêt et le passage d’un média à l’autre sont plus réactifs, et la synchronisation avec le partage Zoom est plus fiable.</p>
 </div>
 </div>
 </div>
@@ -724,8 +726,6 @@ html
 <!-- 5.1 Schermo Pubblico - CARD -->
 <div class="news-card" style="margin-top: var(--spacing-xl);">
 <h4 style="color: var(--text-secondary);">5.1 · Écran Public</h4>
-<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
-<div style="flex: 1 1 260px; min-width: 0;">
 <p>
                             L'Écran Public affiche le compte à rebours, le message de bienvenue, l'écriture de l'année, le logo et le contenu
                             vues dans une fenêtre séparée.
@@ -735,12 +735,19 @@ html
 <li><strong>Pendant la réunion</strong>: peut rester disponible pour du contenu public ou des scènes dédiées.</li>
 <li><strong>Paramètres</strong>: le moniteur, le message, le compte à rebours, le logo et la mise en page sont ajustés dans le <a href="#impostazioni-adunanze">article 11 · Réunions</a> et dans le <a href="#impostazioni-schermo">12 · Écran</a>.</li>
 </ul>
-</div>
-<figure style="flex: 0 0 48%; min-width: 320px; max-width: 620px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
-<img alt="Écran Public avec compte à rebours et message" class="manual-image" src="../images/manual/fr/schermo-pubblico-v4.png" style="width: 100%; height: auto; display: block;"/>
+<p>Les images suivantes montrent deux configurations possibles. Le texte de l’année et le logo peuvent être affichés ou masqués ; le compte à rebours et le message apparaissent lorsqu’ils sont prévus par la scène et la configuration actives.</p>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+<figure style="flex: 1 1 420px; margin: 0;">
+<img src="../images/manual/fr/schermo-pubblico-scrittura-logo-v4-2.png" alt="Écran public avec texte de l’année et logo" class="manual-image">
+<figcaption style="margin-top: var(--spacing-sm); color: var(--text-tertiary);">Texte de l’année et logo.</figcaption>
+</figure>
+<figure style="flex: 1 1 420px; margin: 0;">
+<img src="../images/manual/fr/schermo-pubblico-countdown-scrittura-v4-2.png" alt="Écran public avec compte à rebours, texte de l’année et logo" class="manual-image">
+<figcaption style="margin-top: var(--spacing-sm); color: var(--text-tertiary);">Exemple avant la réunion avec compte à rebours.</figcaption>
 </figure>
 </div>
 </div>
+
 <!-- 5.2 Schermo Contatempo esterno - CARD -->
 <div class="news-card" style="margin-top: var(--spacing-xl);">
 <h4 style="color: var(--text-secondary);">5.2 · Écran Compteur de temps</h4>
@@ -754,16 +761,18 @@ html
 <li>Afficher sur le moniteur sélectionné ou dans la fenêtre libre.</li>
 <li>Temps partiel actuel et informations contextuelles.</li>
 <li>Messages en plein écran ou partiel envoyés depuis la fenêtre principale.</li>
+<li>Avec la disposition <strong>Numérique avec aperçu des médias</strong>, aperçu du contenu visuel réellement montré au public.</li>
 </ul>
-<p>
-                            La personnalisation de la mise en page est traitée séparément dans <a href="#personalizzare-schermo">section 5.3 · Personnalisation de l'écran du compteur de temps</a>,
-                            ainsi l'utilisation quotidienne de l'écran reste séparée des paramètres graphiques.
-                        </p>
 </div>
 <figure style="flex: 0 0 48%; min-width: 320px; max-width: 620px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
 <img alt="Écran du compteur de temps sur le moniteur externe" class="manual-image" src="../images/manual/fr/schermo-contattempo-v4.png" style="width: 100%; height: auto; display: block;"/>
 </figure>
 </div>
+<p style="margin-top: var(--spacing-lg);">L’aperçu est facultatif et n’est pas activé automatiquement pour les dispositions déjà utilisées. Il concerne les images, vidéos, PDF et sites Web ; un contenu uniquement audio ne remplace pas la scène normale du minuteur. Lorsque le média est arrêté, l’écran du compteur de temps revient à la scène prévue.</p>
+<p>
+                            La personnalisation de la mise en page est traitée séparément dans <a href="#personalizzare-schermo">section 5.3 · Personnalisation de l'écran du compteur de temps</a>,
+                            ainsi l'utilisation quotidienne de l'écran reste séparée des paramètres graphiques.
+                        </p>
 </div>
 </div>
 <!-- 5.3 PERSONALIZZARE LO SCHERMO CONTATEMPO -->
@@ -803,6 +812,7 @@ html
 <p>
                             Avant d'apporter des modifications, vérifiez toujours quelle scène est sélectionnée.
                         </p>
+<p>La scène <strong>Médias</strong> est utilisée pendant la lecture d’un contenu visuel sur l’écran public. Si elle est vide, sélectionnez <strong>Configurer l’aperçu des médias</strong> : l’éditeur ajoute le calque <strong>Écran public</strong>, qui reproduit sur l’écran du minuteur la même image que celle réellement montrée à l’auditoire.</p>
 </div>
 <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
 <img alt="Sélection de scène dans le Éditeur d'écran du compteur de temps" class="manual-image" src="../images/manual/fr/personalizzazione_schermo_contatempo_base_scena-v4.png" style="width: 100%; height: auto; display: block;"/>
@@ -916,13 +926,9 @@ html
 <!-- 6. GESTIONE MESSAGGI -->
 <div class="content" id="gestione-messaggi">
 <h2>6 · Gestion des messages <a class="back-to-index-link" href="#indice">↑ Sommaire</a></h2>
-<p>
-                La fonction Messages vous permet de communiquer discrètement et clairement avec l'orateur pendant la réunion, vous permettant de
-                le prévenir ou lui donner des instructions sans interrompre ni perturber le déroulement de la pièce. Des messages apparaissent à l'écran
-                du compteur de temps, afin que l'orateur les voie en temps réel sans distractions.
-            </p>
+<p>La fonction Messages permet de choisir la destination avant l’envoi : <strong>Écran du compteur de temps</strong>, pour communiquer avec l’orateur pendant la réunion, ou <strong>Écran public</strong>, pour les communications visibles dans la salle avant ou après la réunion.</p>
 <div class="image-container">
-<img alt="Écran de gestion des messages dans JW Time" class="manual-image" src="../images/manual/fr/messaggi-elenco-v4.png"/>
+<img src="../images/manual/fr/messaggi-elenco-v4.png" alt="Panneau Message avec l’Écran du compteur de temps sélectionné" class="manual-image">
 </div>
 <!-- 6.1 Messaggio a tutto schermo - CARD -->
 <div class="news-card" style="margin-top: var(--spacing-xl);">
@@ -956,16 +962,32 @@ html
 </figure>
 </div>
 </div>
-<!-- 6.3 Mirror Contatempo - CARD -->
-<div class="news-card" style="margin-top: var(--spacing-xl); ">
-<h3>6.3 · Compteur de temps miroir</h3>
-<p>
-                    Lorsque vous envoyez un message, une fenêtre d'aperçu redimensionnable et mobile apparaît automatiquement et affiche
-                    exactement ce que l'orateur voit sur le moniteur Minuteur. Cela vous permet de vérifier l'affichage en temps réel
-                    du message et du minuteur.
-                </p>
+<!-- 6.3 Messaggio Schermo Pubblico - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>6.3 · Message sur l’Écran public</h3>
+<div class="image-container" style="margin-bottom: var(--spacing-lg);">
+<img src="../images/manual/fr/messaggi-pubblico-elenco-v4-2.png" alt="Panneau Message avec l’Écran public sélectionné" class="manual-image">
+</div>
+<ol class="manual-section">
+<li>Ouvrez le panneau <strong>Message</strong> et choisissez <strong>Écran public</strong> comme destination.</li>
+<li>Saisissez le texte et choisissez <strong>Écran partiel</strong> ou <strong>Plein écran</strong>.</li>
+<li>Utilisez cette fonction avant ou après la réunion : pendant le programme, le minuteur et les scènes de la réunion ont la priorité.</li>
+</ol>
+<p>L’Écran public doit être activé et ouvert. Le message partiel utilise la zone Message de la disposition ; le mode plein écran fonctionne aussi avec les anciens préréglages. Les messages sont temporaires : ils ne sont ni enregistrés ni exportés et sont effacés lors d’un changement d’assemblée, du redémarrage de JW Time ou du début de la réunion.</p>
+<p>Si vous lancez une image, une vidéo, un PDF ou un site Web, le média recouvre temporairement le message public ; après l’arrêt, le message peut réapparaître si la phase de la réunion n’a pas changé.</p>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+<figure style="flex: 1 1 320px; margin: 0;"><img src="../images/manual/fr/messaggio-pubblico-parziale-v4-2.png" alt="Message partiel affiché sur l’Écran public" class="manual-image"></figure>
+<figure style="flex: 1 1 320px; margin: 0;"><img src="../images/manual/fr/messaggio-pubblico-tutto-schermo-v4-2.png" alt="Message plein écran affiché sur l’Écran public" class="manual-image"></figure>
 </div>
 </div>
+<!-- 6.4 Mirror Contatempo - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>6.4 · Miroir de l’Écran du compteur de temps</h3>
+<p>Lorsque vous envoyez un message à l’Écran du compteur de temps affiché sur un moniteur différent de celui de la fenêtre principale, une miniature flottante, redimensionnable et déplaçable apparaît et reproduit ce que voit l’orateur. Les messages destinés à l’Écran public n’ouvrent pas cette miniature, car le résultat est déjà visible directement sur cet écran.</p>
+<p>Cette miniature des messages est distincte de l’aperçu des contenus multimédias intégré à la disposition <strong>Numérique avec aperçu des médias</strong> de l’Écran du compteur de temps.</p>
+</div>
+</div>
+
 <!-- 7. PULSANTE REC -->
 <div class="content" id="rec-button">
 <h2>7 · Bouton REC et panneau d'enregistrement <a class="back-to-index-link" href="#indice">↑ Sommaire</a></h2>
@@ -1096,6 +1118,24 @@ html
             </p>
 <p>Le bouton SAVE applique toutes les modifications.</p>
 </div>
+<!-- PROTEZIONE IMPOSTAZIONI -->
+<div class="content" id="protezione-impostazioni">
+<h2>Protection des paramètres <a class="back-to-index-link" href="#indice">↑ Sommaire</a></h2>
+<p>La barre <strong>Protection</strong>, située sous la liste des panneaux, aide à éviter les modifications accidentelles ou non autorisées de la configuration. Il s’agit d’une protection locale d’utilisation : elle ne chiffre pas les données, ne fonctionne pas comme un compte en ligne et s’applique à toutes les congrégations de ce PC.</p>
+<div class="settings-panel-layout"><div class="settings-panel-figure"><img src="../images/manual/fr/protezione-impostazioni-v4-2.png" alt="Barre Protection dans la fenêtre Paramètres" class="manual-image"></div>
+<div class="settings-panel-copy"><h3>Activation et accès</h3><ol class="manual-section">
+<li>Ouvrez <strong>Protection</strong>, choisissez un mot de passe d’au moins 8 caractères et confirmez-le.</li>
+<li>Conservez le code de récupération affiché une seule fois : copiez-le ou enregistrez son QR code hors de l’ordinateur public de la Salle.</li>
+<li>Après l’activation, chaque nouvelle ouverture des Paramètres exige le mot de passe ; leur fermeture les verrouille de nouveau.</li>
+</ol><p>Le panneau de gestion permet de changer le mot de passe, de générer un nouveau code de récupération ou de désactiver la protection. Le mot de passe et le code restent locaux au PC et ne sont pas inclus dans les sauvegardes.</p></div></div>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-xl);">
+<figure style="flex: 1 1 320px; margin: 0;"><img src="../images/manual/fr/sblocco-impostazioni-v4-2.png" alt="Demande de mot de passe pour déverrouiller les Paramètres" class="manual-image"></figure>
+<figure style="flex: 1 1 320px; margin: 0;"><img src="../images/manual/fr/codice-recupero-impostazioni-v4-2.png" alt="Code de récupération et QR code de la protection des Paramètres" class="manual-image"></figure></div>
+<div class="news-card" style="margin-top: var(--spacing-xl);"><h3>Si vous oubliez vos identifiants</h3><ul class="manual-section">
+<li><strong>Vous avez le code de récupération :</strong> sélectionnez <strong>Mot de passe oublié ?</strong>, saisissez le code et définissez un nouveau mot de passe. JW Time génère aussi un nouveau code à conserver.</li>
+<li><strong>Vous n’avez ni le mot de passe ni le code :</strong> créez la sauvegarde d’urgence <code>.jwtimebackup</code> proposée par la procédure et enregistrez-la hors du dossier privé de l’application.</li>
+<li>Ouvrez ensuite <strong>Paramètres Windows &gt; Applications &gt; Applications installées &gt; JW Time &gt; Options avancées &gt; Réinitialiser</strong> — et non <strong>Réparer</strong> —, relancez JW Time, importez la sauvegarde et créez un nouveau mot de passe.</li>
+</ul><p>La sauvegarde d’urgence est créée sans déverrouiller les Paramètres, afin de protéger la configuration avant la réinitialisation de l’application.</p></div></div>
 <!-- 9. GENERALE -->
 <div class="content" id="impostazioni-generale">
 <h2>9 · Général <a class="back-to-index-link" href="#indice">↑ Sommaire</a></h2>
@@ -1313,6 +1353,7 @@ html
                         la fenêtre des intervenants ou l'écran Zoom en double, essayez le raccourci avec <strong>Test</strong> puis
                         utilisez les commandes de la fenêtre Média.
                     </p>
+<p>La version 4.2.0 améliore la coordination entre le changement de média, l’état de l’écran public et le démarrage ou l’arrêt du partage Zoom.</p>
 <h3 style="margin-top: var(--spacing-lg);">Automatisation des médias</h3>
 <ul class="manual-section">
 <li><strong>Démarrage automatique</strong>: lorsque la touche <strong>Zoom automatique</strong> est actif dans la fenêtre Média, démarre le partage lorsqu'un média est lu.</li>

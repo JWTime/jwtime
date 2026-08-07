@@ -177,9 +177,9 @@
             <div class="manual-index">
                 <!-- Card Verde per Inizia Qui -->
                 <div class="index-section index-section--green">
-                    <h3>Novit&#224; 4.1</h3>
+                    <h3>Novit&#224; 4.2</h3>
                     <ul>
-                        <li><a href="#novita">Versione 4.1.3</a></li>
+                        <li><a href="#novita">Versione 4.2.0</a></li>
                     </ul>
                     <h3 style="margin-top: var(--spacing-lg);">Primo Avvio</h3>
                     <ul>
@@ -208,6 +208,7 @@
                 <div class="index-section">
                     <h3>Parte II - Pannelli delle Impostazioni</h3>
                     <ul>
+                        <li><a href="#protezione-impostazioni">Protezione delle Impostazioni</a></li>
                         <li><a href="#impostazioni-generale">9. Generale</a></li>
                         <li><a href="#impostazioni-congregazioni">10. Congregazioni</a></li>
                         <li><a href="#impostazioni-adunanze">11. Adunanze (Timer Inizio Adunanza)</a></li>
@@ -226,19 +227,19 @@
         <!-- ULTIME NOVIT&#192; -->
         <div class="news-preview" id="novita">
             <div class="news-preview-title">
-                <h2 style="margin: 0;">Novit&#224; 4.1</h2>
-                <span class="news-preview-badge">Versione 4.1.3</span>
+                <h2 style="margin: 0;">Novit&#224; 4.2</h2>
+                <span class="news-preview-badge">Versione 4.2.0</span>
             </div>
             <div class="news-preview-content">
                 <h3>Uno sguardo rapido alle novit&#224;</h3>
                     <p>
-                        JW Time 4.1.3: ripristino delle adunanze interrotte, eventi manuali più flessibili e miglioramenti a Zoom e ai programmi manuali.
+                        JW Time 4.2.0 introduce nuovi strumenti per gli schermi e per proteggere la configurazione dell'app.
                     </p>
                     <ul>
-                        <li><strong>Ripristino dell'adunanza:</strong> se il computer o JW Time si riavviano durante un'adunanza, puoi riprendere da dove eri rimasto, anche negli eventi speciali.</li>
-                        <li><strong>Eventi manuali:</strong> puoi scegliere se un evento sostituisce l'adunanza oppure si aggiunge ai programmi della settimana ed è disponibile dal pulsante <strong>Evento</strong>.</li>
-                        <li><strong>Condivisione Zoom:</strong> resa più semplice e affidabile la condivisione dei media. Il bordo azzurro e il numero del monitor scompaiono più rapidamente.</li>
-                        <li><strong>Orari e programmi manuali:</strong> inserire gli orari e salvare una scaletta è ora più semplice. I titoli modificati vengono ricordati e la scelta di includere i media è più chiara.</li>
+                        <li><strong>Anteprima media:</strong> immagini, video, PDF e siti Web del Pubblico possono comparire anche sul Contatempo.</li>
+                        <li><strong>Messaggi pubblici:</strong> il pannello Messaggio può ora inviare comunicazioni allo Schermo Pubblico.</li>
+                        <li><strong>Protezione Impostazioni:</strong> password, codice di recupero e backup d'emergenza proteggono la configurazione.</li>
+                        <li><strong>Più affidabilità:</strong> migliorati ripristino dell'adunanza, media, condivisione Zoom, prestazioni e sicurezza.</li>
                     </ul>
 
                 <a href="news.html" class="btn btn-gray" style="margin-top: var(--spacing-lg);">
@@ -630,6 +631,7 @@
                     <li><strong>Ricomincia da zero</strong>: elimina lo stato temporaneo e ricarica i tempi iniziali.</li>
                 </ul>
                 <p>Il ripristino resta disponibile per un periodo calcolato sul tempo ancora previsto nella scaletta, con un minimo di 20 e un massimo di 60 minuti.</p>
+                <p>La versione 4.2.0 conserva con maggiore precisione la riga e il programma attivi, l'evento speciale, i cantici, l'eventuale pausa automatica e lo stato necessario per riallineare i media.</p>
             </div>
         </div>
 
@@ -783,6 +785,7 @@
                             la stessa combinazione nella <a href="#impostazioni-zoom">sezione 14 &middot; Zoom</a>. Se le due scorciatoie non coincidono,
                             JW Time invia il comando ma Zoom non reagisce come previsto.
                         </p>
+                        <p>In JW Time 4.2.0 avvio, arresto e passaggio fra i media sono più reattivi e la sincronizzazione con la condivisione Zoom è più affidabile.</p>
                     </div>
                 </div>
             </div>
@@ -824,24 +827,31 @@
             <!-- 5.1 Schermo Pubblico - CARD -->
             <div class="news-card" style="margin-top: var(--spacing-xl);">
                 <h4 style="color: var(--text-secondary);">5.1 &#183; Schermo Pubblico</h4>
-
-                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
-                    <div style="flex: 1 1 260px; min-width: 0;">
-                        <p>
-                            Lo Schermo Pubblico mostra countdown, messaggio di benvenuto, scrittura dell'anno, logo e contenuti
-                            visuali su una finestra separata.
-                        </p>
-                        <ul class="manual-section">
-                            <li><strong>Prima dell'adunanza</strong>: mostra il conto alla rovescia e il testo configurato.</li>
-                            <li><strong>Durante l'adunanza</strong>: pu&#242; restare disponibile per contenuti pubblici o scene dedicate.</li>
-                            <li><strong>Impostazioni</strong>: monitor, messaggio, countdown, logo e layout si regolano nella <a href="#impostazioni-adunanze">sezione 11 &middot; Adunanze</a> e nella <a href="#impostazioni-schermo">sezione 12 &middot; Schermo</a>.</li>
-                        </ul>
-                    </div>
-                    <figure style="flex: 0 0 48%; min-width: 320px; max-width: 620px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
-                        <img src="../images/manual/it/schermo-pubblico-v4.png"
-                             alt="Schermo Pubblico con countdown e messaggio"
-                             class="manual-image"
-                             style="width: 100%; height: auto; display: block;">
+                <p>
+                    Lo Schermo Pubblico mostra countdown, messaggio di benvenuto, scrittura dell'anno, logo e contenuti
+                    visuali su una finestra separata.
+                </p>
+                <ul class="manual-section">
+                    <li><strong>Prima dell'adunanza</strong>: mostra il conto alla rovescia e il testo configurato.</li>
+                    <li><strong>Durante l'adunanza</strong>: pu&#242; restare disponibile per contenuti pubblici o scene dedicate.</li>
+                    <li><strong>Impostazioni</strong>: monitor, messaggio, countdown, logo e layout si regolano nella <a href="#impostazioni-adunanze">sezione 11 &middot; Adunanze</a> e nella <a href="#impostazioni-schermo">sezione 12 &middot; Schermo</a>.</li>
+                </ul>
+                <p>
+                    Le immagini seguenti mostrano due configurazioni possibili. Scrittura dell'anno e logo possono essere mostrati o nascosti;
+                    il countdown e il messaggio compaiono quando sono previsti dalla scena e dalla configurazione attiva.
+                </p>
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+                    <figure style="flex: 1 1 420px; margin: 0;">
+                        <img src="../images/manual/it/schermo-pubblico-scrittura-logo-v4-2.png"
+                             alt="Schermo Pubblico con scrittura dell'anno e logo"
+                             class="manual-image">
+                        <figcaption style="margin-top: var(--spacing-sm); color: var(--text-tertiary);">Scrittura dell'anno e logo.</figcaption>
+                    </figure>
+                    <figure style="flex: 1 1 420px; margin: 0;">
+                        <img src="../images/manual/it/schermo-pubblico-countdown-scrittura-v4-2.png"
+                             alt="Schermo Pubblico con countdown, scrittura dell'anno e logo"
+                             class="manual-image">
+                        <figcaption style="margin-top: var(--spacing-sm); color: var(--text-tertiary);">Esempio prima dell'adunanza con countdown.</figcaption>
                     </figure>
                 </div>
             </div>
@@ -860,11 +870,8 @@
                             <li>Visualizzazione su monitor selezionato o finestra libera.</li>
                             <li>Timer della parte corrente e informazioni contestuali.</li>
                             <li>Messaggi a tutto schermo o parziali inviati dalla finestra principale.</li>
+                            <li>Con il layout <strong>Digitale con anteprima media</strong>, anteprima del contenuto visuale effettivamente mostrato al pubblico.</li>
                         </ul>
-                        <p>
-                            La personalizzazione del layout &egrave; trattata separatamente nella <a href="#personalizzare-schermo">sezione 5.3 &middot; Personalizzare lo Schermo Contatempo</a>,
-                            cos&#236; l'uso quotidiano dello schermo resta distinto dalle impostazioni grafiche.
-                        </p>
                     </div>
                     <figure style="flex: 0 0 48%; min-width: 320px; max-width: 620px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
                         <img src="../images/manual/it/schermo-contattempo-v4.png"
@@ -873,6 +880,11 @@
                              style="width: 100%; height: auto; display: block;">
                     </figure>
                 </div>
+                <p style="margin-top: var(--spacing-lg);">L'anteprima è facoltativa e non viene attivata automaticamente sui layout già in uso. Riguarda immagini, video, PDF e siti Web; un contenuto solo audio non sostituisce la normale scena del timer. Quando interrompi il media, il Contatempo torna alla scena prevista.</p>
+                <p>
+                    La personalizzazione del layout &egrave; trattata separatamente nella <a href="#personalizzare-schermo">sezione 5.3 &middot; Personalizzare lo Schermo Contatempo</a>,
+                    cos&#236; l'uso quotidiano dello schermo resta distinto dalle impostazioni grafiche.
+                </p>
             </div>
         </div>
 
@@ -881,7 +893,7 @@
             <h2>5.3 &middot; Personalizzare lo Schermo Contatempo <a href="#indice" class="back-to-index-link">&uarr; Indice</a></h2>
 
             <p>
-                Lo Schermo Contatempo pu&ograve; essere personalizzato dal pulsante <strong>Personalizza</strong> nella <a href="#impostazioni-generale">sezione 9 &middot; Generale</a>.
+                Lo Schermo Contatempo pu&ograve; essere personalizzato dal pulsante <strong>Personalizza</strong> nella <a href="#impostazioni-schermo">sezione 12 &middot; Schermo</a>.
             </p>
             <p>
                 Puoi partire da un preset gi&agrave; disponibile oppure modificare il layout in base alle tue esigenze. Lo Schermo Pubblico ha
@@ -901,7 +913,7 @@
                     Un preset &egrave; un layout di partenza.
                 </p>
                 <p>
-                    Puoi selezionare un preset nella <a href="#impostazioni-generale">sezione 9 &middot; Generale</a> e usarlo cos&igrave; com&rsquo;&egrave;, oppure aprire l&rsquo;editor di personalizzazione per modificarlo.
+                    Puoi selezionare un preset nella <a href="#impostazioni-schermo">sezione 12 &middot; Schermo</a> e usarlo cos&igrave; com&rsquo;&egrave;, oppure aprire l&rsquo;editor di personalizzazione per modificarlo. Il preset <strong>Digitale con anteprima media</strong> contiene già la nuova scena dedicata.
                 </p>
             </div>
 
@@ -919,10 +931,13 @@
                         <p>
                             Prima di fare modifiche, controlla sempre quale scena &egrave; selezionata.
                         </p>
+                        <p>
+                            La scena <strong>Media</strong> viene usata mentre sullo Schermo Pubblico è in riproduzione un contenuto visuale. Se è vuota, premi <strong>Configura anteprima media</strong>: l'editor aggiunge il livello <strong>Schermo pubblico</strong>, che riproduce sul Contatempo la stessa immagine effettivamente mostrata alla sala.
+                        </p>
                     </div>
                     <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
-                        <img src="../images/manual/it/personalizzazione_schermo_contatempo_base_scena-v4.png"
-                             alt="Selezione scena nell&rsquo;editor Schermo Contatempo"
+                        <img src="../images/manual/it/personalizzazione_schermo_contatempo_media-v4-2.png"
+                             alt="Scena Media e livello Schermo pubblico nell&rsquo;editor del Contatempo"
                              class="manual-image"
                              style="width: 100%; height: auto; display: block;">
                     </figure>
@@ -1054,20 +1069,19 @@
             <h2>6 &middot; Gestione dei messaggi <a href="#indice" class="back-to-index-link">&uarr; Indice</a></h2>
 
             <p>
-                La funzione Messaggi consente di comunicare in modo discreto e chiaro con l'oratore durante l'adunanza, permettendo di
-                avvisarlo o dargli indicazioni senza interrompere o disturbare lo svolgimento della parte. I messaggi appaiono sullo schermo
-                del Contatempo, cos&#236; l'oratore li vede in tempo reale senza distrazioni.
+                La funzione Messaggi permette di scegliere la destinazione prima dell'invio: <strong>Schermo Contatempo</strong>, per comunicare
+                con l'oratore durante l'adunanza, oppure <strong>Schermo Pubblico</strong>, per comunicazioni visibili alla sala prima o dopo l'adunanza.
             </p>
 
             <div class="image-container">
                 <img src="../images/manual/it/messaggi-elenco-v4.png"
-                     alt="Schermata di gestione dei messaggi in JW Time"
+                     alt="Pannello Messaggio con Schermo Contatempo selezionato"
                      class="manual-image">
             </div>
 
             <!-- 6.1 Messaggio a tutto schermo - CARD -->
             <div class="news-card" style="margin-top: var(--spacing-xl);">
-                <h3>6.1 &#183; Messaggio a tutto schermo</h3>
+                <h3>6.1 &#183; Messaggio Contatempo a tutto schermo</h3>
 
                 <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
                     <div style="flex: 1 1 240px; min-width: 0;">
@@ -1088,7 +1102,7 @@
 
             <!-- 6.2 Messaggio a schermo parziale - CARD -->
             <div class="news-card" style="margin-top: var(--spacing-xl);">
-                <h3>6.2 &#183; Messaggio a schermo parziale</h3>
+                <h3>6.2 &#183; Messaggio Contatempo a schermo parziale</h3>
 
                 <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
                     <div style="flex: 1 1 240px; min-width: 0;">
@@ -1107,13 +1121,42 @@
                 </div>
             </div>
 
-            <!-- 6.3 Mirror Contatempo - CARD -->
+            <!-- 6.3 Messaggio Schermo Pubblico - CARD -->
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>6.3 &#183; Messaggio sullo Schermo Pubblico</h3>
+                <div class="image-container" style="margin-bottom: var(--spacing-lg);">
+                    <img src="../images/manual/it/messaggi-pubblico-elenco-v4-2.png"
+                         alt="Pannello Messaggio con Schermo Pubblico selezionato"
+                         class="manual-image">
+                </div>
+                <ol class="manual-section">
+                    <li>Apri il pannello <strong>Messaggio</strong> e scegli <strong>Schermo Pubblico</strong> come destinazione.</li>
+                    <li>Inserisci il testo e scegli <strong>Schermo parziale</strong> oppure <strong>Tutto schermo</strong>.</li>
+                    <li>Usa la funzione prima o dopo l'adunanza: durante il programma il timer e le scene dell'adunanza hanno la precedenza.</li>
+                </ol>
+                <p>Lo Schermo Pubblico deve essere abilitato e aperto. Il messaggio parziale usa l'area Messaggio del layout; la modalità a tutto schermo funziona anche con i preset precedenti. I messaggi sono temporanei: non vengono salvati né esportati e vengono cancellati cambiando congregazione, riavviando JW Time o iniziando l'adunanza.</p>
+                <p>Se avvii un'immagine, un video, un PDF o un sito Web, il media copre temporaneamente il messaggio pubblico; dopo lo Stop il messaggio può ricomparire se la fase dell'adunanza non è cambiata.</p>
+                <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+                    <figure style="flex: 1 1 320px; margin: 0;">
+                        <img src="../images/manual/it/messaggio-pubblico-parziale-v4-2.png" alt="Messaggio parziale visualizzato sullo Schermo Pubblico" class="manual-image">
+                    </figure>
+                    <figure style="flex: 1 1 320px; margin: 0;">
+                        <img src="../images/manual/it/messaggio-pubblico-tutto-schermo-v4-2.png" alt="Messaggio a tutto schermo visualizzato sullo Schermo Pubblico" class="manual-image">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- 6.4 Mirror Contatempo - CARD -->
             <div class="news-card" style="margin-top: var(--spacing-xl); ">
-                <h3>6.3 &#183; Mirror Contatempo</h3>
+                <h3>6.4 &#183; Mirror Contatempo</h3>
                 <p>
-                    Quando si invia un messaggio, compare automaticamente una finestra di anteprima ridimensionabile e spostabile che mostra
-                    esattamente ci&#242; che l'oratore vede nel monitor Contatempo. Questo consente di verificare in tempo reale la visualizzazione
-                    del messaggio e del timer.
+                    Quando invii un messaggio allo Schermo Contatempo visualizzato su un monitor diverso da quello principale, compare una
+                    miniatura flottante, ridimensionabile e spostabile, che riproduce ci&#242; che vede l'oratore. I messaggi destinati allo
+                    Schermo Pubblico non aprono questa miniatura, perch&#233; il risultato &#232; gi&#224; visibile direttamente sul relativo schermo.
+                </p>
+                <p>
+                    Questa miniatura dei messaggi &#232; distinta dall'anteprima dei contenuti multimediali incorporata nel layout
+                    <strong>Digitale con anteprima media</strong> dello Schermo Contatempo.
                 </p>
             </div>
         </div>
@@ -1270,6 +1313,43 @@
             <p>Il tasto SALVA applica tutte le modifiche.</p>
         </div>
 
+        <!-- PROTEZIONE IMPOSTAZIONI -->
+        <div class="content" id="protezione-impostazioni">
+            <h2>Protezione delle Impostazioni <a href="#indice" class="back-to-index-link">&uarr; Indice</a></h2>
+            <p>La barra <strong>Protezione</strong>, sotto l'elenco dei pannelli, consente di limitare le modifiche accidentali o non autorizzate alla configurazione. È una protezione operativa locale, non una cifratura dei dati né un account online; vale per tutte le congregazioni presenti su questo PC.</p>
+            <div class="settings-panel-layout">
+                <div class="settings-panel-figure">
+                    <img src="../images/manual/it/protezione-impostazioni-v4-2.png" alt="Barra Protezione nella finestra Impostazioni" class="manual-image">
+                </div>
+                <div class="settings-panel-copy">
+                    <h3>Attivazione e accesso</h3>
+                    <ol class="manual-section">
+                        <li>Apri <strong>Protezione</strong>, scegli una password di almeno 8 caratteri e confermala.</li>
+                        <li>Conserva il codice di recupero mostrato una sola volta: puoi copiarlo oppure salvarne il QR fuori dal PC pubblico della sala.</li>
+                        <li>Dopo l'attivazione, ogni nuova apertura delle Impostazioni richiede la password; alla chiusura si bloccano di nuovo.</li>
+                    </ol>
+                    <p>Dal pannello di gestione puoi cambiare password, generare un nuovo codice di recupero o disattivare la protezione. La password e il codice sono locali al PC e non vengono inclusi nei backup.</p>
+                </div>
+            </div>
+            <div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-xl);">
+                <figure style="flex: 1 1 320px; margin: 0;">
+                    <img src="../images/manual/it/sblocco-impostazioni-v4-2.png" alt="Richiesta password per sbloccare le Impostazioni" class="manual-image">
+                </figure>
+                <figure style="flex: 1 1 320px; margin: 0;">
+                    <img src="../images/manual/it/codice-recupero-impostazioni-v4-2.png" alt="Codice di recupero e QR della Protezione Impostazioni" class="manual-image">
+                </figure>
+            </div>
+            <div class="news-card" style="margin-top: var(--spacing-xl);">
+                <h3>Se dimentichi le credenziali</h3>
+                <ul class="manual-section">
+                    <li><strong>Hai il codice di recupero:</strong> scegli <strong>Non ricordi la password?</strong>, inserisci il codice e imposta una nuova password. JW Time genera anche un nuovo codice da conservare.</li>
+                    <li><strong>Non hai né password né codice:</strong> crea il backup d'emergenza <code>.jwtimebackup</code> proposto dalla procedura e salvalo fuori dalla cartella privata dell'app.</li>
+                    <li>Apri quindi <strong>Impostazioni di Windows &gt; App &gt; App installate &gt; JW Time &gt; Opzioni avanzate &gt; Reimposta</strong> — non <strong>Ripristina</strong> — poi riapri JW Time, importa il backup e crea una nuova password.</li>
+                </ul>
+                <p>Il backup d'emergenza viene creato senza sbloccare le Impostazioni, così puoi mettere al sicuro la configurazione prima della reimpostazione.</p>
+            </div>
+        </div>
+
         <!-- 9. GENERALE -->
         <div class="content" id="impostazioni-generale">
             <h2>9 &middot; Generale <a href="#indice" class="back-to-index-link">&uarr; Indice</a></h2>
@@ -1415,7 +1495,7 @@
                         <li><strong>Seleziona monitor</strong>: sceglie il monitor o la finestra in cui visualizzare il Contatempo.</li>
                         <li><strong>Identifica</strong>: mostra un riferimento sul monitor selezionato, utile quando sono collegati pi&#249; schermi.</li>
                         <li><strong>Modalità</strong>: scegli tra <strong>Schermo intero</strong>, <strong>Finestra libera</strong> e <strong>Finestra libera trasparente</strong>.</li>
-                        <li><strong>Layout</strong>: seleziona il preset grafico dello Schermo Contatempo.</li>
+                        <li><strong>Layout</strong>: seleziona il preset grafico dello Schermo Contatempo. Scegli <strong>Digitale con anteprima media</strong> per vedere sul Contatempo immagini, video, PDF e siti Web mostrati al pubblico.</li>
                         <li><strong>Personalizza</strong>: apre l'editor del layout selezionato.</li>
                     </ul>
 
@@ -1524,6 +1604,7 @@
                         la finestra degli oratori o la schermata duplicata di Zoom, prova la scorciatoia con <strong>Test</strong> e poi
                         usa i controlli dalla finestra Media.
                     </p>
+                    <p>La versione 4.2.0 rende più affidabile il coordinamento tra cambio media, stato dello Schermo Pubblico e avvio o arresto della condivisione Zoom.</p>
 
                     <h3 style="margin-top: var(--spacing-lg);">Automazione media</h3>
                     <ul class="manual-section">

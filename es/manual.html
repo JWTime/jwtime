@@ -173,9 +173,9 @@ html
 <div class="manual-index">
 <!-- Card Verde per Inizia Qui -->
 <div class="index-section index-section--green">
-<h3>Novedades 4.1</h3>
+<h3>Novedades 4.2</h3>
 <ul>
-<li><a href="#novita">Versión 4.1.3</a></li>
+<li><a href="#novita">Versión 4.2.0</a></li>
 </ul>
 <h3 style="margin-top: var(--spacing-lg);">Primer inicio</h3>
 <ul>
@@ -202,6 +202,7 @@ html
 <div class="index-section">
 <h3>Parte II - Paneles de configuración</h3>
 <ul>
+<li><a href="#protezione-impostazioni">Protección de los ajustes</a></li>
 <li><a href="#impostazioni-generale">9. General</a></li>
 <li><a href="#impostazioni-congregazioni">10. Congregaciones</a></li>
 <li><a href="#impostazioni-adunanze">11. Reuniones (temporizador de inicio de reunión)</a></li>
@@ -219,25 +220,24 @@ html
 <!-- ULTIME NOVIT&#192; -->
 <div class="news-preview" id="novita">
 <div class="news-preview-title">
-<h2 style="margin: 0;">Novedades 4.1</h2>
-                <span class="news-preview-badge">Versión 4.1.3</span>
+<h2 style="margin: 0;">Novedades 4.2</h2>
+                <span class="news-preview-badge">Versión 4.2.0</span>
 </div>
 <div class="news-preview-content">
-<h3>Un vistazo rápido a las novedades</h3>
-                    <p>
-                        JW Time 4.1.3: recuperación de reuniones interrumpidas, eventos manuales más flexibles y mejoras en Zoom y los programas manuales.
-                    </p>
-                    <ul>
-                        <li><strong>Recuperación de la reunión:</strong> si el ordenador o JW Time se reinician durante una reunión, puedes continuar desde donde lo dejaste, también en los eventos especiales.</li>
-                        <li><strong>Eventos manuales:</strong> puedes elegir si un evento sustituye la reunión o se añade a los programas de la semana y queda disponible en el botón <strong>Evento</strong>.</li>
-                        <li><strong>Uso compartido en Zoom:</strong> compartir los contenidos multimedia ahora es más sencillo y fiable. El borde azul claro y el número del monitor desaparecen más rápido.</li>
-                        <li><strong>Horarios y programas manuales:</strong> ahora es más fácil introducir horarios y guardar un programa. Los títulos modificados se recuerdan y la opción de incluir los contenidos multimedia es más clara.</li>
-                    </ul>
+                <h3>Un vistazo rápido a las novedades</h3>
+                <p>JW Time 4.2.0 incorpora nuevas herramientas para las pantallas y para proteger la configuración de la aplicación.</p>
+                <ul>
+                        <li><strong>Vista previa multimedia:</strong> las imágenes, vídeos, PDF y sitios web de la pantalla pública también pueden aparecer en la pantalla del temporizador.</li>
+                        <li><strong>Mensajes públicos:</strong> el panel Mensaje ahora puede enviar avisos a la pantalla pública.</li>
+                        <li><strong>Protección de los ajustes:</strong> la contraseña, el código de recuperación y la copia de seguridad de emergencia protegen la configuración.</li>
+                        <li><strong>Mayor fiabilidad:</strong> se han mejorado la recuperación de la reunión, los medios, el uso compartido en Zoom, el rendimiento y la seguridad.</li>
+                </ul>
 <a class="btn btn-gray" href="news.html" style="margin-top: var(--spacing-lg);">
                     Descubre todas las novedades →
                 </a>
 </div>
 </div>
+
 <!-- PRIMO AVVIO GUIDATO -->
 <div class="content-section-header" id="primo-avvio-guidato">
 <h2 style="font-size: 2rem; margin: 0 0 var(--spacing-xl) 0; color: var(--text-primary);">Asistente de primer inicio</h2>
@@ -560,6 +560,7 @@ html
         <li><strong>Recomenzar desde cero</strong>: descarta el progreso temporal y vuelve a cargar los tiempos iniciales.</li>
     </ul>
     <p>La recuperación permanece disponible durante un periodo calculado según el tiempo que aún queda en el programa, con un mínimo de 20 y un máximo de 60 minutos.</p>
+    <p>La versión 4.2.0 conserva con más precisión la fila y el programa activos, el evento especial, los cánticos, cualquier pausa automática y el estado necesario para volver a sincronizar los medios.</p>
 </div>
 </div>
 
@@ -690,6 +691,7 @@ html
                             la misma combinación en <a href="#impostazioni-zoom">sección 14 · Zoom</a>. Si los dos atajos no coinciden,
                             JW Time envía el comando pero Zoom no reacciona como se esperaba.
                         </p>
+<p>En JW Time 4.2.0, iniciar, detener y cambiar de un medio a otro es más ágil, y la sincronización con el uso compartido en Zoom es más fiable.</p>
 </div>
 </div>
 </div>
@@ -724,8 +726,6 @@ html
 <!-- 5.1 Schermo Pubblico - CARD -->
 <div class="news-card" style="margin-top: var(--spacing-xl);">
 <h4 style="color: var(--text-secondary);">5.1 · Pantalla Pública</h4>
-<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; justify-content: space-between;">
-<div style="flex: 1 1 260px; min-width: 0;">
 <p>
                             La Pantalla Pública muestra cuenta regresiva, mensaje de bienvenida, escritura del año, logo y contenidos
                             vistas en una ventana separada.
@@ -735,12 +735,19 @@ html
 <li><strong>Durante la reunión</strong>: puede permanecer disponible para contenido público o escenas dedicadas.</li>
 <li><strong>Configuración</strong>: monitor, mensaje, cuenta regresiva, logotipo y diseño se ajustan en la <a href="#impostazioni-adunanze">sección 11 · Reuniones</a> y en la <a href="#impostazioni-schermo">12 · Pantalla</a>.</li>
 </ul>
-</div>
-<figure style="flex: 0 0 48%; min-width: 320px; max-width: 620px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
-<img alt="Pantalla Pública con cuenta regresiva y mensaje" class="manual-image" src="../images/manual/es/schermo-pubblico-v4.png" style="width: 100%; height: auto; display: block;"/>
+<p>Las siguientes imágenes muestran dos configuraciones posibles. El texto del año y el logotipo pueden mostrarse u ocultarse; la cuenta regresiva y el mensaje aparecen cuando están previstos por la escena y la configuración activas.</p>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+<figure style="flex: 1 1 420px; margin: 0;">
+<img src="../images/manual/es/schermo-pubblico-scrittura-logo-v4-2.png" alt="Pantalla Pública con texto del año y logotipo" class="manual-image">
+<figcaption style="margin-top: var(--spacing-sm); color: var(--text-tertiary);">Texto del año y logotipo.</figcaption>
+</figure>
+<figure style="flex: 1 1 420px; margin: 0;">
+<img src="../images/manual/es/schermo-pubblico-countdown-scrittura-v4-2.png" alt="Pantalla Pública con cuenta regresiva, texto del año y logotipo" class="manual-image">
+<figcaption style="margin-top: var(--spacing-sm); color: var(--text-tertiary);">Ejemplo antes de la reunión con cuenta regresiva.</figcaption>
 </figure>
 </div>
 </div>
+
 <!-- 5.2 Schermo Contatempo esterno - CARD -->
 <div class="news-card" style="margin-top: var(--spacing-xl);">
 <h4 style="color: var(--text-secondary);">5.2 · Pantalla del temporizador</h4>
@@ -754,16 +761,18 @@ html
 <li>Visualización en monitor seleccionado o ventana libre.</li>
 <li>Temporizador parcial actual e información contextual.</li>
 <li>Mensajes en pantalla completa o parcial enviados desde la ventana principal.</li>
+<li>Con el diseño <strong>Digital con vista previa multimedia</strong>, vista previa del contenido visual que se muestra realmente al público.</li>
 </ul>
-<p>
-                            La personalización del diseño se trata por separado en <a href="#personalizzare-schermo">sección 5.3 · Personalización de la pantalla del temporizador</a>,
-                            por tanto, el uso diario de la pantalla permanece separado de la configuración de gráficos.
-                        </p>
 </div>
 <figure style="flex: 0 0 48%; min-width: 320px; max-width: 620px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
 <img alt="Pantalla de temporizador en monitor externo" class="manual-image" src="../images/manual/es/schermo-contattempo-v4.png" style="width: 100%; height: auto; display: block;"/>
 </figure>
 </div>
+<p style="margin-top: var(--spacing-lg);">La vista previa es opcional y no se activa automáticamente en los diseños que ya están en uso. Se aplica a imágenes, vídeos, PDF y sitios web; el contenido de solo audio no sustituye la escena normal del temporizador. Al detener el contenido multimedia, la Pantalla del contador de tiempo vuelve a la escena prevista.</p>
+<p>
+                            La personalización del diseño se trata por separado en <a href="#personalizzare-schermo">sección 5.3 · Personalización de la pantalla del temporizador</a>,
+                            por tanto, el uso diario de la pantalla permanece separado de la configuración de gráficos.
+                        </p>
 </div>
 </div>
 <!-- 5.3 PERSONALIZZARE LO SCHERMO CONTATEMPO -->
@@ -803,6 +812,7 @@ html
 <p>
                             Antes de realizar cambios, compruebe siempre qué escena está seleccionada.
                         </p>
+<p>La escena <strong>Multimedia</strong> se utiliza mientras se reproduce contenido visual en la pantalla pública. Si está vacía, selecciona <strong>Configurar vista previa multimedia</strong>: el editor añade la capa <strong>Pantalla pública</strong>, que reproduce en la pantalla del temporizador la misma imagen que se muestra al auditorio.</p>
 </div>
 <figure style="flex: 0 0 38%; min-width: 260px; max-width: 420px; margin: 0; display: flex; align-items: center; justify-content: flex-end;">
 <img alt="Selección de escena en el editor de pantalla de temporizador" class="manual-image" src="../images/manual/es/personalizzazione_schermo_contatempo_base_scena-v4.png" style="width: 100%; height: auto; display: block;"/>
@@ -916,13 +926,9 @@ html
 <!-- 6. GESTIONE MESSAGGI -->
 <div class="content" id="gestione-messaggi">
 <h2>6 · Gestión de mensajes <a class="back-to-index-link" href="#indice">↑ Índice</a></h2>
-<p>
-                La función Mensajes le permite comunicarse de forma discreta y clara con el orador durante la reunión, permitiéndole
-                advertirle o darle instrucciones sin interrumpir o perturbar el desarrollo de la parte. Aparecen mensajes en la pantalla.
-                del temporizador, para que el hablante los vea en tiempo real sin distracciones.
-            </p>
+<p>La función Mensajes permite elegir el destino antes de enviar: <strong>Pantalla del contador de tiempo</strong>, para comunicarse con el orador durante la reunión, o <strong>Pantalla Pública</strong>, para avisos visibles en la sala antes o después de la reunión.</p>
 <div class="image-container">
-<img alt="Pantalla de administración de mensajes en JW Time" class="manual-image" src="../images/manual/es/messaggi-elenco-v4.png"/>
+<img src="../images/manual/es/messaggi-elenco-v4.png" alt="Panel Mensaje con Pantalla del contador de tiempo seleccionada" class="manual-image">
 </div>
 <!-- 6.1 Messaggio a tutto schermo - CARD -->
 <div class="news-card" style="margin-top: var(--spacing-xl);">
@@ -956,16 +962,32 @@ html
 </figure>
 </div>
 </div>
-<!-- 6.3 Mirror Contatempo - CARD -->
-<div class="news-card" style="margin-top: var(--spacing-xl); ">
-<h3>6.3 · Contador de tiempo del espejo</h3>
-<p>
-                    Cuando envía un mensaje, aparece automáticamente una ventana de vista previa móvil y de tamaño variable que muestra
-                    exactamente lo que el orador ve en el monitor del temporizador. Esto le permite comprobar la pantalla en tiempo real.
-                    del mensaje y el cronómetro.
-                </p>
+<!-- 6.3 Messaggio Schermo Pubblico - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>6.3 · Mensaje en la Pantalla Pública</h3>
+<div class="image-container" style="margin-bottom: var(--spacing-lg);">
+<img src="../images/manual/es/messaggi-pubblico-elenco-v4-2.png" alt="Panel Mensaje con Pantalla Pública seleccionada" class="manual-image">
+</div>
+<ol class="manual-section">
+<li>Abra el panel <strong>Mensaje</strong> y seleccione <strong>Pantalla Pública</strong> como destino.</li>
+<li>Introduzca el texto y elija <strong>Pantalla parcial</strong> o <strong>Pantalla completa</strong>.</li>
+<li>Utilice la función antes o después de la reunión: durante el programa, el temporizador y las escenas de la reunión tienen prioridad.</li>
+</ol>
+<p>La Pantalla Pública debe estar habilitada y abierta. El mensaje parcial utiliza el área Mensaje del diseño; el modo de pantalla completa también funciona con los presets anteriores. Los mensajes son temporales: no se guardan ni se exportan y se borran al cambiar de congregación, reiniciar JW Time o iniciar la reunión.</p>
+<p>Si inicia una imagen, un vídeo, un PDF o un sitio web, el contenido multimedia cubre temporalmente el mensaje público; después de pulsar Detener, el mensaje puede volver a aparecer si no ha cambiado la fase de la reunión.</p>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-lg);">
+<figure style="flex: 1 1 320px; margin: 0;"><img src="../images/manual/es/messaggio-pubblico-parziale-v4-2.png" alt="Mensaje parcial mostrado en la Pantalla Pública" class="manual-image"></figure>
+<figure style="flex: 1 1 320px; margin: 0;"><img src="../images/manual/es/messaggio-pubblico-tutto-schermo-v4-2.png" alt="Mensaje a pantalla completa mostrado en la Pantalla Pública" class="manual-image"></figure>
 </div>
 </div>
+<!-- 6.4 Mirror Contatempo - CARD -->
+<div class="news-card" style="margin-top: var(--spacing-xl);">
+<h3>6.4 · Vista espejo de la Pantalla del contador de tiempo</h3>
+<p>Cuando envía un mensaje a la Pantalla del contador de tiempo mostrada en un monitor distinto del principal, aparece una miniatura flotante, redimensionable y desplazable, que reproduce lo que ve el orador. Los mensajes enviados a la Pantalla Pública no abren esta miniatura, porque el resultado ya se ve directamente en esa pantalla.</p>
+<p>Esta miniatura de los mensajes es distinta de la vista previa multimedia incorporada en el diseño <strong>Digital con vista previa multimedia</strong> de la Pantalla del contador de tiempo.</p>
+</div>
+</div>
+
 <!-- 7. PULSANTE REC -->
 <div class="content" id="rec-button">
 <h2>7 · Botón REC y panel de grabación <a class="back-to-index-link" href="#indice">↑ Índice</a></h2>
@@ -1096,6 +1118,24 @@ html
             </p>
 <p>El botón GUARDAR aplica todos los cambios.</p>
 </div>
+<!-- PROTEZIONE IMPOSTAZIONI -->
+<div class="content" id="protezione-impostazioni">
+<h2>Protección de los ajustes <a class="back-to-index-link" href="#indice">↑ Índice</a></h2>
+<p>La barra <strong>Protección</strong>, situada debajo de la lista de paneles, ayuda a evitar cambios accidentales o no autorizados en la configuración. Es una protección operativa local, no cifra los datos ni funciona como una cuenta en línea, y se aplica a todas las congregaciones de este PC.</p>
+<div class="settings-panel-layout"><div class="settings-panel-figure"><img src="../images/manual/es/protezione-impostazioni-v4-2.png" alt="Barra Protección en la ventana Ajustes" class="manual-image"></div>
+<div class="settings-panel-copy"><h3>Activación y acceso</h3><ol class="manual-section">
+<li>Abre <strong>Protección</strong>, elige una contraseña de al menos 8 caracteres y confírmala.</li>
+<li>Guarda el código de recuperación que se muestra una sola vez: cópialo o guarda su QR fuera del ordenador público del Salón.</li>
+<li>Después de activarla, cada nueva apertura de los Ajustes requiere la contraseña; al cerrar la ventana vuelven a bloquearse.</li>
+</ol><p>Desde el panel de gestión puedes cambiar la contraseña, generar un nuevo código de recuperación o desactivar la protección. La contraseña y el código son locales al PC y no se incluyen en las copias de seguridad.</p></div></div>
+<div style="display: flex; gap: var(--spacing-lg); align-items: flex-start; flex-wrap: wrap; margin-top: var(--spacing-xl);">
+<figure style="flex: 1 1 320px; margin: 0;"><img src="../images/manual/es/sblocco-impostazioni-v4-2.png" alt="Solicitud de contraseña para desbloquear los Ajustes" class="manual-image"></figure>
+<figure style="flex: 1 1 320px; margin: 0;"><img src="../images/manual/es/codice-recupero-impostazioni-v4-2.png" alt="Código de recuperación y QR de la protección de los Ajustes" class="manual-image"></figure></div>
+<div class="news-card" style="margin-top: var(--spacing-xl);"><h3>Si olvidas las credenciales</h3><ul class="manual-section">
+<li><strong>Tienes el código de recuperación:</strong> selecciona <strong>¿Has olvidado la contraseña?</strong>, introduce el código y establece una nueva contraseña. JW Time también genera un nuevo código que debes guardar.</li>
+<li><strong>No tienes ni la contraseña ni el código:</strong> crea la copia de seguridad de emergencia <code>.jwtimebackup</code> que ofrece el procedimiento y guárdala fuera de la carpeta privada de la aplicación.</li>
+<li>Después abre <strong>Configuración de Windows &gt; Aplicaciones &gt; Aplicaciones instaladas &gt; JW Time &gt; Opciones avanzadas &gt; Restablecer</strong> —no <strong>Reparar</strong>—, vuelve a abrir JW Time, importa la copia y crea una nueva contraseña.</li>
+</ul><p>La copia de seguridad de emergencia se crea sin desbloquear los Ajustes, para que puedas proteger la configuración antes de restablecer la aplicación.</p></div></div>
 <!-- 9. GENERALE -->
 <div class="content" id="impostazioni-generale">
 <h2>9 · General <a class="back-to-index-link" href="#indice">↑ Índice</a></h2>
@@ -1313,6 +1353,7 @@ html
                         la ventana de los oradores o la pantalla Zoom duplicada, pruebe el acceso directo con <strong>Prueba</strong> y luego
                         utilice los controles de la Ventana Multimedia.
                     </p>
+<p>La versión 4.2.0 mejora la coordinación entre los cambios de medios, el estado de la pantalla pública y el inicio o la detención del uso compartido en Zoom.</p>
 <h3 style="margin-top: var(--spacing-lg);">Automatización de medios</h3>
 <ul class="manual-section">
 <li><strong>Inicio automático</strong>: cuando la tecla <strong>Zoom Auto</strong> está activo en la Ventana Multimedia, comienza a compartir cuando se reproduce un medio.</li>
