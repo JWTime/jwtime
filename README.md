@@ -2,7 +2,7 @@
 
 Questa cartella contiene il sito statico multilingue e il manuale di JW Time.
 
-La versione pubblicata descritta dal sito è JW Time 4.2.1.
+La versione pubblicata descritta dal sito è JW Time 4.2.2.
 
 Prima di pubblicare, verifica le pagine di rilascio e i metadati letti dall'app:
 
