@@ -106,10 +106,33 @@ def main() -> int:
         manual_path = ROOT / language / "manual.html"
         if not manual_path.exists():
             errors.append(f"{language}/manual.html: page is missing")
-        elif retention_label not in manual_path.read_text(encoding="utf-8"):
-            errors.append(
-                f"{language}/manual.html: log retention information is missing"
-            )
+        else:
+            manual_text = manual_path.read_text(encoding="utf-8")
+            release_pattern = re.escape(RELEASE_VERSION)
+            if not re.search(
+                rf'<span\s+class="news-preview-badge">[^<]*{release_pattern}[^<]*</span>',
+                manual_text,
+            ):
+                errors.append(
+                    f"{language}/manual.html: release badge is not {RELEASE_VERSION}"
+                )
+            if not re.search(
+                rf'<a\s+href="#novita">[^<]*{release_pattern}[^<]*</a>',
+                manual_text,
+            ):
+                errors.append(
+                    f"{language}/manual.html: release index is not {RELEASE_VERSION}"
+                )
+            for fragment in (
+                media_label,
+                diagnostics_label,
+                retention_label,
+            ):
+                if fragment not in manual_text:
+                    errors.append(
+                        f"{language}/manual.html: expected release content "
+                        f"{fragment!r} is missing"
+                    )
 
     if errors:
         print("Site release audit: FAIL", file=sys.stderr)
